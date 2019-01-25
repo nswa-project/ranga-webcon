@@ -1,8 +1,12 @@
 # NSWA Ranga Webconsole Extension. (Open-source version)
 
+The default web-console of NSWA Ranga is based on this open-source version with some small changes such as code compression.
+
+Contribution to this project will ultimately benefit all NSWA Ranga users.
+
 ## Build and install
 
-Use Info-ZIP or other zip archive creater to pack extension to a zip file
+Use Info-ZIP or other zip archive utilities to pack codes to a zip file
 
 ```
 $ (cd ranga.webcon; zip -FSr ../ranga-webcon.zip .)
