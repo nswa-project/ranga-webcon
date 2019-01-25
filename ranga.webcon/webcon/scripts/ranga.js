@@ -1,0 +1,100 @@
+var ranga = {};
+ranga.api = {};
+
+ranga.errcode = [
+	"Success",
+	"Invalid argument",
+	"Function not implemented",
+	"Permission denied",
+	"Internal fault",
+	"Resource temporarily unavailable",
+	"Operation would block",
+	"Input/output error",
+	"Device or resource busy"
+];
+
+ranga.errstr = code => {
+	return ranga.errcode[code];
+}
+
+ranga.ajax = (url, data, callback) => {
+	let xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === 4) {
+			callback((xhr.status === 200), xhr.status, xhr.responseText);
+		}
+	}
+
+	xhr.open("POST", url, true);
+	if (data === null) {
+		xhr.send();
+	} else {
+		let blob = new Blob([data], {
+			type: 'text/plain'
+		});
+		xhr.send(blob);
+	}
+}
+
+ranga.parseProto = text => {
+	let index = text.indexOf("\n\n");
+	let arr = text.substring(0, index).split('\n');
+	let proto = {};
+
+	for (var i = 0; i < arr.length; i++) {
+		var pos = arr[i].indexOf(": ");
+		if (pos === -1)
+			continue;
+
+		var key = arr[i].substring(0, pos);
+		var value = arr[i].substring(pos + 2);
+
+		proto["" + key + ""] = value;
+	}
+
+	proto.payload = text.substring(index + 2);
+	return proto;
+}
+
+ranga.protoAjax = (url, data) => {
+	const promise = new Promise((resolve, reject) => {
+		ranga.ajax(url, data, (success, status, response) => {
+			let proto = null;
+			if (success)
+				proto = ranga.parseProto(response);
+
+			if (success && ('code' in proto) && proto.code === '0') {
+				resolve(proto);
+			} else {
+				reject(proto);
+			}
+		});
+	});
+
+	return promise;
+}
+
+ranga.api.auth = password => {
+	return ranga.protoAjax("/cgi-bin/auth.sh?m=pw&pw=" + encodeURIComponent(password), null);
+}
+
+ranga.api.disp = (section, target, args) => {
+	return ranga.protoAjax("/cgi-bin/disp.sh?section=" + encodeURIComponent(section) + "&target=" + encodeURIComponent(target), args.join("\n") + "\n");
+}
+
+ranga.api.config = (target, args) => {
+	return ranga.api.disp('config', target, args);
+}
+
+ranga.api.action = (target, args) => {
+	return ranga.api.disp('action', target, args);
+}
+
+ranga.api.query = (target, args) => {
+	return ranga.api.disp('query', target, args);
+}
+
+ranga.api.setWebcon = (extension) => {
+	return ranga.protoAjax("/cgi-bin/addon.sh?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
+}
