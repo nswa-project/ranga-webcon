@@ -39,7 +39,7 @@ a:focus {
 	border: 1px solid #e8e8e8;
 	border-radius: 8px;
 	background: white;
-
+	overflow: hidden;
 }
 
 input[type=password],
@@ -80,7 +80,7 @@ input[type="checkbox"] + label {
     box-sizing: border-box;
 }
 
-.checkbox_label::before {
+.input[type="checkbox"] + label::before {
     content: "";
     display: inline-block;
     width: 24px;

@@ -1,0 +1,13 @@
+Web fonts
+=========
+
+They are from
+
+- https://material.io/tools/icons/ (Apache license 2)
+
+- https://fontawesome.com/ (Creative Commons Attribution 4.0 International: https://fontawesome.com/license)
+
+How to use
+==========
+
+Use fontforge to convert svgs to a woff font

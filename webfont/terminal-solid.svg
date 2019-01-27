@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   aria-hidden="true"
+   data-prefix="fas"
+   data-icon="terminal"
+   class="svg-inline--fa fa-terminal fa-w-20"
+   role="img"
+   viewBox="0 0 640 640"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="terminal-solid.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1867"
+     inkscape:window-height="1017"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="0.36875"
+     inkscape:cx="-237.28813"
+     inkscape:cy="314.57627"
+     inkscape:window-x="53"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 257.98126,334.14237 -194.343,194.343 c -9.373,9.373 -24.569,9.373 -33.941,0 l -22.6679994,-22.667 c -9.357,-9.357 -9.375,-24.522 -0.04,-33.901 L 161.01126,317.17137 6.9902606,162.42637 c -9.335,-9.379 -9.317,-24.544 0.04,-33.901 l 22.6669994,-22.667 c 9.373,-9.372994 24.569,-9.372994 33.941,0 l 194.343,194.343 c 9.373,9.372 9.373,24.568 0,33.941 z m 382.019,183.029 v -32 c 0,-13.255 -10.745,-24 -24,-24 h -304 c -13.255,0 -24,10.745 -24,24 v 32 c 0,13.255 10.745,24 24,24 h 304 c 13.255,0 24,-10.745 24,-24 z"
+     id="path2"
+     inkscape:connector-curvature="0"
+     style="fill:currentColor" />
+</svg>

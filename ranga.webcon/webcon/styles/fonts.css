@@ -1,0 +1,95 @@
+.icon {
+	font-family: "icon";
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
+}
+
+.icon::after,
+.icon::before {
+	box-sizing: border-box;
+}
+
+.icon-user::before {
+	content: "0";
+}
+
+.icon-terminal::before {
+	content: "1";
+}
+
+.icon-interface::before {
+	content: "2";
+}
+
+.icon-network::before {
+	content: "3";
+}
+
+.icon-wifi::before {
+	content: "4";
+}
+
+.icon-close::before {
+	content: "5";
+}
+
+.icon-setting::before {
+	content: "6";
+}
+
+.icon-back::before {
+	content: "7";
+}
+
+.icon-info::before {
+	content: "8";
+}
+
+.icon-addon::before {
+	content: "9";
+}
+
+.icon-more::before {
+	content: ":";
+}
+
+.icon-menu::before {
+	content: ";";
+}
+
+.icon-mwan::before {
+	content: "<";
+}
+
+.icon-less::before {
+	content: "=";
+}
+
+.icon-reload::before {
+	content: ">";
+}
+
+.icon-dns::before {
+	content: "?";
+}
+
+.icon-system::before {
+	content: "@";
+}
+
+.icon-ts::before {
+	content: "A";
+}
+
+.icon-misc::before {
+	content: "B";
+}
+
+.icon-update::before {
+	content: "C";
+}

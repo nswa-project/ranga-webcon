@@ -8,35 +8,160 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="referrer" content="no-referrer">
 
-	<link href="styles/main.css" rel="stylesheet">
-	<link href="styles/dialog.css" rel="stylesheet">
+	<link href="styles/main.css?v=__RELVERSION__" rel="stylesheet">
+	<link href="styles/dialog.css?v=__RELVERSION__" rel="stylesheet">
+	<link href="styles/fonts.css?v=__RELVERSION__" rel="stylesheet">
 	<style type="text/css">
+		@font-face {
+			font-family: "icon";
+			src: url('font.woff?v=__RELVERSION__') format('woff');
+			font-display: block;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
 		body {
 			margin: 0;
 			background-color: #f4f4f4;
 			font-family: sans-serif;
 
-			padding: 60px;
+			height: 100vh;
+			min-height: 100vh;
+			max-height: 100vh;
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#main {
+			background-color: white;
+			width: calc(100vw - 140px);
+			height: calc(100vh - 80px);
+
+			display: flex;
+			flex-flow: row;
+			align-items: stretch;
+		}
+
+		#nav {
+			background-color: #fafafa;
+			width: 300px;
+			padding: 20px 0;
+		}
+
+		#nav .navItem {
+			width: 100%;
+			justify-content: flex-start;
+			padding: 8px 32px;
+		}
+
+		.navItem i {
+			margin-right: 10px;
+			font-size: 1.3em;
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+		
+		input[type="radio"]:not(:checked) + label {
+			color: black;
+			font-weight: normal;
+		}
+		
+		#wrapper {
+			flex-grow: 1;
+		}
+
+		#bar {
+			margin: 5px;
+			display: flex;
+			flex-flow: row;
+
+		}
+
+		#webcon_content {
+			margin: 20px;
 		}
 
 		@media (max-width: 750px) {
-			body {
-				padding: 15px;
+			#main {
+				width: 100vw;
+				height: 100vh;
 			}
+		}
+
+		button i {
+			margin-right: 8px;
 		}
 
 	</style>
 </head>
 
 <body>
+	<div id="main" class="card">
+		<div id="nav">
+			<div>
+			</div>
+			<input type="radio" name="radio" id="radio-network" checked>
+			<label class="btnFlat navItem" for="radio-network"><i class="icon icon-network"></i>网络连接</label>
+			
+			<input type="radio" name="radio" id="radio-interface">
+			<label class="btnFlat navItem" for="radio-interface"><i class="icon icon-interface"></i>接口配置</label>
+			
+			<input type="radio" name="radio" id="radio-wifi">
+			<label class="btnFlat navItem" for="radio-wifi"><i class="icon icon-wifi"></i>无线保真</label>
+			
+			<input type="radio" name="radio" id="radio-dns">
+			<label class="btnFlat navItem" for="radio-dns"><i class="icon icon-dns"></i>域名系统和自动配置</label>
+			
+			<input type="radio" name="radio" id="radio-system">
+			<label class="btnFlat navItem" for="radio-system"><i class="icon icon-system"></i>系统管理</label>
+			
+			<input type="radio" name="radio" id="radio-addon">
+			<label class="btnFlat navItem" for="radio-addon"><i class="icon icon-addon"></i>附加组件</label>
+			
+			<input type="radio" name="radio" id="radio-mwan">
+			<label class="btnFlat navItem" for="radio-mwan"><i class="icon icon-mwan"></i>多宿主</label>
+			
+			<input type="radio" name="radio" id="radio-ts">
+			<label class="btnFlat navItem" for="radio-ts"><i class="icon icon-ts"></i>流量整形</label>
+			
+			<input type="radio" name="radio" id="radio-misc">
+			<label class="btnFlat navItem" for="radio-misc"><i class="icon icon-misc"></i>杂项与微调</label>
+			
+			<input type="radio" name="radio" id="radio-setting">
+			<label class="btnFlat navItem" for="radio-setting"><i class="icon icon-setting"></i>Web 控制台设置</label>
+			
+			<input type="radio" name="radio" id="radio-update">
+			<label class="btnFlat navItem" for="radio-update"><i class="icon icon-update"></i>软件更新</label>
+			
+			<input type="radio" name="radio" id="radio-info">
+			<label class="btnFlat navItem" for="radio-info"><i class="icon icon-info"></i>关于 Ranga</label>
+		</div>
+		<div id="wrapper">
+			<div id="bar">
+				<div style="flex-grow: 1;"></div>
+				<button class="btnFlat"><i class="icon icon-terminal"></i>命令行工具</button>
+				<button class="btnFlat"><i class="icon icon-user"></i>登录</button>
+			</div>
+			<div style="background-color: #ebebeb; height: 1px;"></div>
+			<div id="webcon_content">
+				aaa
+			</div>
+		</div>
+	</div>
 
-	<script src="scripts/browsercheck.js"></script>
-	<script src="scripts/ranga.js"></script>
-	<script src="scripts/webcon.js"></script>
-	<script src="scripts/dialog.js"></script>
-	<script src="scripts/utils.js"></script>
+	<script src="scripts/browsercheck.js?v=__RELVERSION__"></script>
+	<script src="scripts/ranga.js?v=__RELVERSION__"></script>
+	<script src="scripts/webcon.js?v=__RELVERSION__"></script>
+	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
+	<script src="scripts/utils.js?v=__RELVERSION__"></script>
 	<script>
-		
+
 	</script>
 </body>
 
