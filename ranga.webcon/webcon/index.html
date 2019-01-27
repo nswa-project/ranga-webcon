@@ -46,10 +46,16 @@
 			align-items: stretch;
 		}
 
+		#nav_logo {
+			display: flex;
+			flex-flow: row;
+			justify-content: center;
+			margin: 28px 0;
+		}
+
 		#nav {
 			background-color: #fafafa;
 			width: 300px;
-			padding: 20px 0;
 			overflow-y: auto;
 		}
 
@@ -81,6 +87,7 @@
 			padding: 5px;
 			display: flex;
 			flex-flow: row;
+			border-bottom: 1px solid #dedede;
 		}
 
 		#webcon_title {
@@ -128,18 +135,19 @@
 
 			#nav {
 				background-color: white;
-				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+				box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.37);
 				display: none;
 				position: fixed;
 				top: 0;
 				bottom: 0;
 				left: 0;
-				max-width: 600px;
+				width: 100vw;
+				max-width: 320px;
 				z-index: 100;
 			}
 
 			#bar {
-				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+				box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.37);
 			}
 
 			button i {
@@ -161,7 +169,8 @@
 <body>
 	<div id="main" class="card">
 		<div id="nav">
-			<div>
+			<div id="nav_logo">
+				<img style="width: 154px; height: 62px;" src="logo.svg">
 			</div>
 			<input type="radio" name="radio" id="radio-network" checked>
 			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', '网络连接')"><i class="icon icon-network"></i>网络连接</label>
@@ -206,7 +215,6 @@
 				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
 				<button class="btnFlat"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
-			<div style="background-color: #ebebeb; height: 1px;"></div>
 			<div id="webcon_content">
 
 			</div>

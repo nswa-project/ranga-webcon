@@ -42,6 +42,11 @@ a:focus {
 	overflow: hidden;
 }
 
+.divline {
+	background-color: #ebebeb;
+	height: 1px;
+}
+
 input[type=password],
 input[type=text],
 input[type=number],
