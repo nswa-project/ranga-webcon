@@ -9,3 +9,24 @@ utils.formatBytes = (bytes, decimals) => {
 	let i = Math.floor(Math.log(bytes) / Math.log(k));
 	return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
+
+utils.ajaxGet = uri => {
+	const promise = new Promise((resolve, reject) => {
+		let xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					resolve(xhr.responseText);
+				} else {
+					reject(xhr.status);
+				}
+			}
+		}
+
+		xhr.open("GET", uri, true);
+		xhr.send();
+	});
+
+	return promise;
+}

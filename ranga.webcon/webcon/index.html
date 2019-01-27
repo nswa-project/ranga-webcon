@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 	<title>NSWA Ranga</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="referrer" content="no-referrer">
 
 	<link href="styles/main.css?v=__RELVERSION__" rel="stylesheet">
@@ -50,6 +50,7 @@
 			background-color: #fafafa;
 			width: 300px;
 			padding: 20px 0;
+			overflow-y: auto;
 		}
 
 		#nav .navItem {
@@ -66,36 +67,92 @@
 		input[type="radio"] {
 			display: none;
 		}
-		
-		input[type="radio"]:not(:checked) + label {
+
+		input[type="radio"]:not(:checked)+label {
 			color: black;
 			font-weight: normal;
 		}
-		
+
 		#wrapper {
 			flex-grow: 1;
 		}
 
 		#bar {
-			margin: 5px;
+			padding: 5px;
 			display: flex;
 			flex-flow: row;
+		}
 
+		#webcon_title {
+			flex-grow: 1;
+			margin-left: 10px;
+			font-size: 1.12em;
+
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+		}
+
+		#webcon_title * {
+			display: inline-block;
+			flex-grow: 0;
 		}
 
 		#webcon_content {
 			margin: 20px;
+			overflow-y: auto;
+		}
+
+		button i {
+			margin-right: 8px;
+		}
+
+		#menu {
+			display: none;
+			padding: 6px;
+			font-size: 1.4em;
 		}
 
 		@media (max-width: 750px) {
 			#main {
 				width: 100vw;
 				height: 100vh;
+				box-shadow: none;
+				border: 0;
+				border-radius: 0;
 			}
-		}
 
-		button i {
-			margin-right: 8px;
+			.nav_show {
+				display: block !important;
+			}
+
+			#nav {
+				background-color: white;
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+				display: none;
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				max-width: 600px;
+				z-index: 100;
+			}
+
+			#bar {
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+			}
+
+			button i {
+				margin-right: 0;
+			}
+
+			button span {
+				display: none;
+			}
+
+			#menu {
+				display: inline-block;
+			}
 		}
 
 	</style>
@@ -107,60 +164,83 @@
 			<div>
 			</div>
 			<input type="radio" name="radio" id="radio-network" checked>
-			<label class="btnFlat navItem" for="radio-network"><i class="icon icon-network"></i>网络连接</label>
-			
+			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', '网络连接')"><i class="icon icon-network"></i>网络连接</label>
+
 			<input type="radio" name="radio" id="radio-interface">
-			<label class="btnFlat navItem" for="radio-interface"><i class="icon icon-interface"></i>接口配置</label>
-			
+			<label class="btnFlat navItem" for="radio-interface" onclick="selectPage('interface', '接口配置')"><i class="icon icon-interface"></i>接口配置</label>
+
 			<input type="radio" name="radio" id="radio-wifi">
-			<label class="btnFlat navItem" for="radio-wifi"><i class="icon icon-wifi"></i>无线保真</label>
-			
+			<label class="btnFlat navItem" for="radio-wifi" onclick="selectPage('wifi', '无线保真')"><i class="icon icon-wifi"></i>无线保真</label>
+
 			<input type="radio" name="radio" id="radio-dns">
-			<label class="btnFlat navItem" for="radio-dns"><i class="icon icon-dns"></i>域名系统和自动配置</label>
-			
+			<label class="btnFlat navItem" for="radio-dns" onclick="selectPage('dns', '域名系统和自动配置')"><i class="icon icon-dns"></i>域名系统和自动配置</label>
+
 			<input type="radio" name="radio" id="radio-system">
-			<label class="btnFlat navItem" for="radio-system"><i class="icon icon-system"></i>系统管理</label>
-			
+			<label class="btnFlat navItem" for="radio-system" onclick="selectPage('system', '系统管理')"><i class="icon icon-system"></i>系统管理</label>
+
 			<input type="radio" name="radio" id="radio-addon">
-			<label class="btnFlat navItem" for="radio-addon"><i class="icon icon-addon"></i>附加组件</label>
-			
+			<label class="btnFlat navItem" for="radio-addon" onclick="selectPage('addon', '附加组件')"><i class="icon icon-addon"></i>附加组件</label>
+
 			<input type="radio" name="radio" id="radio-mwan">
-			<label class="btnFlat navItem" for="radio-mwan"><i class="icon icon-mwan"></i>多宿主</label>
-			
+			<label class="btnFlat navItem" for="radio-mwan" onclick="selectPage('mwan', '多宿主')"><i class="icon icon-mwan"></i>多宿主</label>
+
 			<input type="radio" name="radio" id="radio-ts">
-			<label class="btnFlat navItem" for="radio-ts"><i class="icon icon-ts"></i>流量整形</label>
-			
+			<label class="btnFlat navItem" for="radio-ts" onclick="selectPage('ts', '流量整形')"><i class="icon icon-ts"></i>流量整形</label>
+
 			<input type="radio" name="radio" id="radio-misc">
-			<label class="btnFlat navItem" for="radio-misc"><i class="icon icon-misc"></i>杂项与微调</label>
-			
+			<label class="btnFlat navItem" for="radio-misc" onclick="selectPage('misc', '杂项与微调')"><i class="icon icon-misc"></i>杂项与微调</label>
+
 			<input type="radio" name="radio" id="radio-setting">
-			<label class="btnFlat navItem" for="radio-setting"><i class="icon icon-setting"></i>Web 控制台设置</label>
-			
+			<label class="btnFlat navItem" for="radio-setting" onclick="selectPage('setting', 'Web 控制台设置')"><i class="icon icon-setting"></i>Web 控制台设置</label>
+
 			<input type="radio" name="radio" id="radio-update">
-			<label class="btnFlat navItem" for="radio-update"><i class="icon icon-update"></i>软件更新</label>
-			
+			<label class="btnFlat navItem" for="radio-update" onclick="selectPage('update', '软件更新')"><i class="icon icon-update"></i>软件更新</label>
+
 			<input type="radio" name="radio" id="radio-info">
-			<label class="btnFlat navItem" for="radio-info"><i class="icon icon-info"></i>关于 Ranga</label>
+			<label class="btnFlat navItem" for="radio-info" onclick="selectPage('info', '关于 Ranga')"><i class="icon icon-info"></i>关于 Ranga</label>
 		</div>
 		<div id="wrapper">
 			<div id="bar">
-				<div style="flex-grow: 1;"></div>
-				<button class="btnFlat"><i class="icon icon-terminal"></i>命令行工具</button>
-				<button class="btnFlat"><i class="icon icon-user"></i>登录</button>
+				<button id="menu" class="btnFlat"><i class="icon icon-menu"></i></button>
+				<div id="webcon_title"></div>
+				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
+				<button class="btnFlat"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
 			<div style="background-color: #ebebeb; height: 1px;"></div>
 			<div id="webcon_content">
-				aaa
+
 			</div>
 		</div>
 	</div>
 
 	<script src="scripts/browsercheck.js?v=__RELVERSION__"></script>
+	<script src="scripts/utils.js?v=__RELVERSION__"></script>
 	<script src="scripts/ranga.js?v=__RELVERSION__"></script>
 	<script src="scripts/webcon.js?v=__RELVERSION__"></script>
 	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
-	<script src="scripts/utils.js?v=__RELVERSION__"></script>
 	<script>
+		const defErrorHandler = e => {}
+
+		const selectPage = (page, title) => {
+			webcon.contentLoadData('', false);
+			webcon.contentSetTitle('加载中');
+			webcon.loadScript("js_" + page, "pages/" + page + ".js?v=__RELVERSION__").then(first => {
+				return webcon.contentLoadUri("pages/" + page + ".html?v=__RELVERSION__", true);
+			}).then(e => {
+				webcon.contentSetTitle(title);
+
+			}).catch(e => {
+				dialog.simple("加载页面过程中发生网络错误");
+				webcon.contentSetTitle('加载失败');
+			});
+			setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
+		}
+
+		document.getElementById('menu').addEventListener('click', e => {
+			document.getElementById('nav').classList.add('nav_show');
+		});
+
+		selectPage('network', '网络连接');
 
 	</script>
 </body>

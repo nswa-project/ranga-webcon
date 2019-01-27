@@ -31,3 +31,21 @@ webcon.loadScript = (name, url) => {
 
 	return promise;
 }
+
+webcon.contentSetTitle = title => {
+	document.getElementById('webcon_title').innerHTML = title;
+}
+
+webcon.contentLoadData = (data, html) => {
+	if (html) {
+		document.getElementById('webcon_content').innerHTML = data;
+	} else {
+		document.getElementById('webcon_content').textContent = data;
+	}
+}
+
+webcon.contentLoadUri = (uri, html) => {
+	return utils.ajaxGet(uri).then(r => {
+		webcon.contentLoadData(r, html);
+	})
+}
