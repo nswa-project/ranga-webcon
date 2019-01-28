@@ -17,6 +17,7 @@ webcon.loadScript = (name, url) => {
 				resolve(true);
 			};
 			script.onerror = () => {
+				scriptSet.delete(name);
 				console.log("webcon.loadScript: script " + name + " failed to load (" + url + ")");
 				reject(null);
 			};
@@ -30,6 +31,24 @@ webcon.loadScript = (name, url) => {
 	});
 
 	return promise;
+}
+
+webcon.addButton = (title, icon, func) => {
+	let btn = document.createElement('button');
+	btn.classList.add('btnFlat');
+	let tmp = document.createElement('i');
+	tmp.classList.add('icon');
+	tmp.classList.add(icon);
+	btn.appendChild(tmp);
+	tmp = document.createElement('span');
+	tmp.textContent = title;
+	btn.appendChild(tmp);
+	btn.addEventListener('click', ((f, a) => e => f(a))(func, btn), false);
+	document.getElementById('webcon_buttons').appendChild(btn);
+}
+
+webcon.removeAllButtons = () => {
+	document.getElementById('webcon_buttons').textContent = '';
 }
 
 webcon.contentSetTitle = title => {
@@ -47,5 +66,26 @@ webcon.contentLoadData = (data, html) => {
 webcon.contentLoadUri = (uri, html) => {
 	return utils.ajaxGet(uri).then(r => {
 		webcon.contentLoadData(r, html);
-	})
+	});
+}
+
+webcon.lockScreen = () => {
+	
+}
+
+webcon.unlockScreen = () => {
+	
+}
+
+webcon.kwdMap = {
+	netkeeper: '基于以太网的点对点协议（Netkeeper）',
+	pppoe: '基于以太网的点对点协议',
+	dhcp: '动态主机配置协议',
+}
+
+webcon.trKeyword = keyword => {
+	if (keyword in webcon.kwdMap) {
+		return webcon.kwdMap["" + keyword];
+	}
+	return keyword;
 }

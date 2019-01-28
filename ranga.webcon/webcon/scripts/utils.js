@@ -1,5 +1,9 @@
 var utils = {};
 
+utils.getUNIXTimestamp = () => {
+	return parseInt(new Date().getTime() / 1000);
+}
+
 utils.formatBytes = (bytes, decimals) => {
 	if (bytes == 0) return '0 Bytes';
 	let k = 1024;
@@ -29,4 +33,10 @@ utils.ajaxGet = uri => {
 	});
 
 	return promise;
+}
+
+utils.pageAddSection = (div, title) => {
+	let t = document.createElement('h1');
+	t.textContent = title;
+	div.appendChild(t);
 }

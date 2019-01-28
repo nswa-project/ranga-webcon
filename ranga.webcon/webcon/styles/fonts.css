@@ -93,3 +93,11 @@
 .icon-update::before {
 	content: "C";
 }
+
+.icon-open::before {
+	content: "D";
+}
+
+.icon-airplane::before {
+	content: "E";
+}

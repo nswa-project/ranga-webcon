@@ -11,6 +11,7 @@
 	<link href="styles/main.css?v=__RELVERSION__" rel="stylesheet">
 	<link href="styles/dialog.css?v=__RELVERSION__" rel="stylesheet">
 	<link href="styles/fonts.css?v=__RELVERSION__" rel="stylesheet">
+	<link href="styles/chrome_scroll.css?v=__RELVERSION__" rel="stylesheet">
 	<style type="text/css">
 		@font-face {
 			font-family: "icon";
@@ -34,6 +35,7 @@
 			flex-flow: column;
 			align-items: center;
 			justify-content: center;
+			-webkit-overflow-scrolling: touch;
 		}
 
 		#main {
@@ -55,8 +57,9 @@
 
 		#nav {
 			background-color: #fafafa;
-			width: 300px;
+			width: 280px;
 			overflow-y: auto;
+			flex-shrink: 0;
 		}
 
 		#nav .navItem {
@@ -79,15 +82,30 @@
 			font-weight: normal;
 		}
 
+		h1 {
+			border-bottom: 1px solid #dedede;
+			font-size: 1.24em;
+		}
+		
 		#wrapper {
 			flex-grow: 1;
+			display: flex;
+			flex-flow: column;
+			align-items: stretch;
+			-webkit-overflow-scrolling: touch;
 		}
 
 		#bar {
+			flex-shrink: 0;
 			padding: 5px;
 			display: flex;
 			flex-flow: row;
 			border-bottom: 1px solid #dedede;
+		}
+		
+		#webcon_buttons {
+			display: flex;
+			flex-flow: row;	
 		}
 
 		#webcon_title {
@@ -106,7 +124,7 @@
 		}
 
 		#webcon_content {
-			margin: 20px;
+			padding: 14px;
 			overflow-y: auto;
 		}
 
@@ -212,6 +230,7 @@
 			<div id="bar">
 				<button id="menu" class="btnFlat"><i class="icon icon-menu"></i></button>
 				<div id="webcon_title"></div>
+				<div id="webcon_buttons"></div>
 				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
 				<button class="btnFlat"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
@@ -227,16 +246,21 @@
 	<script src="scripts/webcon.js?v=__RELVERSION__"></script>
 	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
 	<script>
-		const defErrorHandler = e => {}
+		const defErrorHandler = proto => {
+			console.log(proto);
+			dialog.simple((typeof myVar === 'undefined' || proto === null) ? "Network/Webconsole error" : ranga.errstr(proto.code));
+		}
 
 		const selectPage = (page, title) => {
 			webcon.contentLoadData('', false);
+			webcon.removeAllButtons();
 			webcon.contentSetTitle('加载中');
 			webcon.loadScript("js_" + page, "pages/" + page + ".js?v=__RELVERSION__").then(first => {
 				return webcon.contentLoadUri("pages/" + page + ".html?v=__RELVERSION__", true);
 			}).then(e => {
 				webcon.contentSetTitle(title);
-
+				//window['page_' + page + "_init"]();
+				eval('page_' + page + "_init()")
 			}).catch(e => {
 				dialog.simple("加载页面过程中发生网络错误");
 				webcon.contentSetTitle('加载失败');
