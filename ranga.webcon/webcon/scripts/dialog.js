@@ -1,6 +1,6 @@
 var dialog = {};
 
-dialog.show = (text, btns) => {
+dialog.show = (icon, title, text, btns) => {
 	let dialog_back = document.createElement("div");
 	let dialog = document.createElement("div");
 	let dialog_text = document.createElement("div");
@@ -10,12 +10,25 @@ dialog.show = (text, btns) => {
 	dialog.className = "md_dialog";
 	dialog_text.className = "md_dialog_text";
 	dialog_btn.className = "md_dialog_btns";
+	
+	if (title !== null) {
+		let dialog_title = document.createElement('div');
+		dialog_title.textContent = title;
+		dialog_title.className = 'md_dialog_title';
+		if (icon !== null) {
+			let dialog_icon = document.createElement('i');
+			dialog_icon.classList.add('icon');
+			dialog_icon.classList.add(icon);
+			dialog_title.insertAdjacentElement('afterbegin', dialog_icon);
+		}
+		dialog_text.appendChild(dialog_title);
+	}
 
 	dialog.appendChild(dialog_text);
 	dialog.appendChild(dialog_btn);
 
 	dialog_back.appendChild(dialog);
-	dialog_text.innerHTML = text;
+	dialog_text.innerHTML += text;
 
 	for (var i = 0; i < btns.length; i++) {
 		var button = document.createElement("button");
@@ -37,7 +50,7 @@ dialog.close = dialog_back => {
 	dialog_back.style.pointerEvents = "none";
 	setTimeout(function () {
 		document.body.removeChild(dialog_back);
-	}, 200);
+	}, 50);
 }
 
 dialog.textWidget = dialog_back => {
@@ -46,7 +59,7 @@ dialog.textWidget = dialog_back => {
 
 dialog.simple = (text, close_btn_text) => {
 	close_btn_text = close_btn_text || "关闭";
-	dialog.show(text, [{
+	dialog.show(null, null, text, [{
 		name: close_btn_text,
 		func: dialog.close
     }]);

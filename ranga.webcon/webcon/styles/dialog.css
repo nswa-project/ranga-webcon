@@ -1,50 +1,59 @@
 .md_dialog_back {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.14);
-    z-index: 99999;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.14);
+	z-index: 99999;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .md_dialog {
-    background-color: white;
-    border: 1px solid #d6d6d6;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24), 0 4px 20px 0 rgba(0, 0, 0, 0.23);
-    
-    min-width: 400px;
-    max-width: 660px;
-    max-height: calc(100vh - 40px);
-    
-    display: flex;
-    flex-direction: column;
+	background-color: white;
+	border: 1px solid #d6d6d6;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24), 0 4px 20px 0 rgba(0, 0, 0, 0.23);
+
+	min-width: 400px;
+	max-width: 660px;
+	max-height: calc(100vh - 40px);
+
+	display: flex;
+	flex-direction: column;
 }
 
 .md_dialog_text {
-    align-self: stretch;
-    word-break: break-all;
-    overflow: auto;
-    min-height: 146px;
-    padding: 16px;
+	align-self: stretch;
+	word-break: break-all;
+	overflow: auto;
+	min-height: 146px;
+	margin: 16px;
 }
 
 .md_dialog_btns {
-    align-self: flex-end;
+	align-self: flex-end;
 	margin: 6px;
 }
 
-.md_dialog_btns button {
+.md_dialog_btns button {}
+
+.md_dialog_title {
+	margin-bottom: 8px;
+	font-size: 1.12em;
+	font-weight: bold;
+}
+
+.md_dialog_title i {
+	margin-right: 12px;
 }
 
 @media (max-width: 750px) {
-    .md_dialog {
-        min-width: calc(100vw - 40px);
-        max-width: calc(100vw - 40px);
-    }
+	.md_dialog {
+		min-width: calc(100vw - 40px);
+		max-width: calc(100vw - 40px);
+	}
 }

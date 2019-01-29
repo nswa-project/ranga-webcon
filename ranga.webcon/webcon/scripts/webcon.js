@@ -81,6 +81,8 @@ webcon.kwdMap = {
 	netkeeper: '基于以太网的点对点协议（Netkeeper）',
 	pppoe: '基于以太网的点对点协议',
 	dhcp: '动态主机配置协议',
+	none: '未配置',
+	static: '静态'
 }
 
 webcon.trKeyword = keyword => {

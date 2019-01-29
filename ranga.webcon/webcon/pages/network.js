@@ -8,7 +8,7 @@ page_network.conn = (name, type) => {
 	}
 	let ts = utils.getUNIXTimestamp();
 	ranga.api.action('date', ['' + ts]).then(proto => {
-		ranga.api.action('network', [action, name]);
+		return ranga.api.action('network', [action, name]);
 	}).then(proto => {
 		page_network.reload();
 		webcon.unlockScreen();

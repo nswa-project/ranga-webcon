@@ -1,0 +1,120 @@
+<div>
+	<style>
+		#page_interface_main {
+			display: flex;
+			flex-flow: column;
+			align-items: stretch;
+		}
+
+		.p-interface-item {
+			margin-top: 4px;
+			justify-content: flex-start;
+			font-weight: normal;
+			color: black;
+			padding: 8px;
+		}
+
+		.p-interface-item-icon {
+			font-size: 1.4em;
+		}
+
+		.p-interface-item-ifname {
+			margin-left: 10px;
+			flex-grow: 1;
+			font-size: 1.12em;
+		}
+
+		#page_interface_edit .tips {
+			margin-bottom: 10px;
+		}
+		
+		#page_interface_edit button {
+			margin-top: 8px;
+		}
+
+	</style>
+	<button id="p-interface-item_t" class="btnFlat p-interface-item hide">
+		<div style="display: flex; flex-flow: row; align-items: center;">
+			<i class="icon icon-interface p-interface-item-icon"></i>
+			<div class="p-interface-item-ifname">ifname</div>
+		</div>
+	</button>
+	<div id="page_interface_main"></div>
+	<div id="page_interface_edit" class="hide">
+		<h1>协议类型</h1>
+		<div class="tips">协议类型是要在此接口上运行什么网络层协议。Netkeeper 扩展只有使用点对点协议时才会有效（例如”基于以太网的点对点协议“和”基于 ATM（异步传输模式）的点对点协议“）</div>
+		<table>
+			<tr>
+				<td>协议</td>
+				<td>
+					<select id="p-interface-proto" style="min-height: 24px;">
+						<option value="none">不配置协议</option>
+						<option value="dhcp">动态主机配置协议</option>
+						<option value="dhcpv6">动态主机配置协议版本6</option>
+						<option value="static">静态地址</option>
+						<option value="pppoe">基于以太网的点对点协议</option>
+						<option value="pppoa">基于 ATM（异步传输模式）的点对点协议</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Netkeeper 扩展</td>
+				<td><input type="checkbox" id="p-interface-nk"><label for="p-interface-nk" class="checkbox_label">启用</label>
+				</td>
+			</tr>
+		</table>
+		<button class="btnFlat" id='p-interface-set-proto'>设置</button>
+		<h1>认证</h1>
+		<div class="tips">当选定的协议存在认证扩展时，使用下面的认证信息进行认证，例如点对点协议的密码身份验证协议和挑战握手认证协议、802.1X 安全性等</div>
+		<table>
+			<tr>
+				<td>用户名</td>
+				<td><input type="text" id="p-interface-usrnam">
+				</td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input type="text" id="p-interface-passwd">
+				</td>
+			</tr>
+		</table>
+		<button class="btnFlat" id='p-interface-set-auth'>设置</button>
+		<h1>静态地址</h1>
+		<div class="tips">当选定的协议为“静态地址”时，使用下面的地址配置</div>
+		<table>
+			<tr>
+				<td>网际网协议版本4地址</td>
+				<td><input type="text" id="p-interface-ipaddr">
+				</td>
+			</tr>
+			<tr>
+				<td>网际网协议版本4子网掩码</td>
+				<td><input type="text" id="p-interface-netmask">
+				</td>
+			</tr>
+			<tr>
+				<td>网际网协议版本4路由表缺省下一跳地址</td>
+				<td><input type="text" id="p-interface-gateway">
+				</td>
+			</tr>
+			<tr>
+				<td>默认路由</td>
+				<td><input type="checkbox" id="p-interface-defroute"><label for="p-interface-defroute" class="checkbox_label">将此接口设置为路由表默认条目</label>
+				</td>
+			</tr>
+		</table>
+		<button class="btnFlat" id='p-interface-set-addr'>设置</button>
+		<h1>Reverse VLAN</h1>
+		<div class="tips">WAN 插口是一个抽象概念，它在某些设备上是一个网卡，在另外一些设备上只是一个交换机的某个 VLAN。接口 ‘netkeeper’ 和 ‘wan’ 都绑定到 WAN 插口上，以 'md' 开头的接口将绑定到某个 Reverse VLAN 上。Reverse VLAN（反向 VLAN）是 NSWA Ranga 定义的概念，请参考“多宿主”中的详细解释。“反向 VLAN” 从 0 开始。</div>
+		Reverse VLAN ID: <input type="text" id="p-interface-rvlan"><br>
+		<button class="btnFlat" id='p-interface-set-rvlan'>设置</button>
+		<h1>网卡物理地址</h1>
+		<div class="tips">对于以太网设备，指媒体访问控制地址（MAC地址）</div>
+		物理地址 <input type="text" id="p-interface-macaddr"><br>
+		<button class="btnFlat" id='p-interface-set-mac'>设置</button>
+		<h1>删除接口</h1>
+		<div class="tips">完全删除此接口和此接口的配置，此操作不可撤销。如果你使用多宿主，那么你可能还需要手动删除防火墙 WAN 区域设置中的此接口。</div>
+		<button class="btnFlat" id='p-interface-delete'>删除接口</button>
+	</div>
+	<div style="margin-top: 20px" class="tips">某些接口的配置与系统基础设施耦合，因此您不能修改其某些配置，例如，netkeeper 接口的协议类型必须是基于以太网的点对点协议且必须开启 Netkeeper 扩展，您不能修改为其他协议。举例说明，假如你需要通用 PPPoE 协议，可以修改 wan 接口的协议类型为 ”基于以太网的点对点协议“</div>
+</div>

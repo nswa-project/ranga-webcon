@@ -125,6 +125,7 @@ ranga-cli addon set-webcon ranga.webcon</pre>
 	<script src="/cgi-bin/ivkext.sh/ranga.webcon/rescatter?type=application%2Fjavascript&file=scripts%2Franga.js"></script>
 	<script src="/cgi-bin/ivkext.sh/ranga.webcon/rescatter?type=application%2Fjavascript&file=scripts%2Fwebcon.js"></script>
 	<script src="/cgi-bin/ivkext.sh/ranga.webcon/rescatter?type=application%2Fjavascript&file=scripts%2Fdialog.js"></script>
+	<script src="/cgi-bin/ivkext.sh/ranga.webcon/rescatter?type=application%2Fjavascript&file=scripts%2Futils.js"></script>
 	<script>
 		var curBtn = null;
 		const btnEnter = button => {
@@ -154,16 +155,19 @@ ranga-cli addon set-webcon ranga.webcon</pre>
 			ranga.api.config('interface', ['set', 'netkeeper', 'usrnam', usrnam]).then(proto => {
 				return ranga.api.config('interface', ['set', 'netkeeper', 'passwd', passwd]);
 			}).then(proto => {
-				dialogPPPoE = dialog.show("正在连接，请稍后...", []);
-				return ranga.api.action('pppoe', ['dialup', 'netkeeper']);
+				dialogPPPoE = dialog.show(null, null, "正在连接，请稍后...", []);
+				let ts = utils.getUNIXTimestamp();
+				return ranga.api.action('date', ['' + ts]);
 			}, defErrorHandler).then(proto => {
+				return ranga.api.action('pppoe', ['dialup', 'netkeeper']);
+			}).then(proto => {
 				document.getElementById('step1').style.display = 'none';
 				document.getElementById('step2').style.display = 'flex';
 			}).catch(proto => {
 				dialog.close(dialogPPPoE);
 				curBtn.disabled = false;
 
-				dialog.show("无法建立连接。你可以暂时跳过此步骤，然后在 Web 控制台上尝试连接，如果仍然失败，你可以使用”连接问题诊断“按钮启动<b>拨号医生</b>帮助你检查问题。", [{
+				dialog.show(null, null, "无法建立连接。你可以暂时跳过此步骤，然后在 Web 控制台上尝试连接，如果仍然失败，你可以使用”连接问题诊断“按钮启动<b>拨号医生</b>帮助你检查问题。", [{
 					name: "跳过此步骤",
 					func: (d => {
 						document.getElementById('step1').style.display = 'none';

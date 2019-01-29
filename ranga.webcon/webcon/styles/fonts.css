@@ -101,3 +101,12 @@
 .icon-airplane::before {
 	content: "E";
 }
+
+.icon-add::before {
+	content: "F";
+}
+
+.icon-addc::before {
+	content: "G";
+}
+

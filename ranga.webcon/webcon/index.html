@@ -42,6 +42,7 @@
 			background-color: white;
 			width: calc(100vw - 140px);
 			height: calc(100vh - 80px);
+			max-width: 1200px;
 
 			display: flex;
 			flex-flow: row;
@@ -86,13 +87,14 @@
 			border-bottom: 1px solid #dedede;
 			font-size: 1.24em;
 		}
-		
+
 		#wrapper {
 			flex-grow: 1;
 			display: flex;
 			flex-flow: column;
 			align-items: stretch;
 			-webkit-overflow-scrolling: touch;
+			overflow-x: auto;
 		}
 
 		#bar {
@@ -102,10 +104,10 @@
 			flex-flow: row;
 			border-bottom: 1px solid #dedede;
 		}
-		
+
 		#webcon_buttons {
 			display: flex;
-			flex-flow: row;	
+			flex-flow: row;
 		}
 
 		#webcon_title {
@@ -141,6 +143,7 @@
 		@media (max-width: 750px) {
 			#main {
 				width: 100vw;
+				max-width: 100vw;
 				height: 100vh;
 				box-shadow: none;
 				border: 0;
@@ -232,7 +235,7 @@
 				<div id="webcon_title"></div>
 				<div id="webcon_buttons"></div>
 				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
-				<button class="btnFlat"><i class="icon icon-user"></i><span>登录</span></button>
+				<button class="btnFlat" id="login"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
 			<div id="webcon_content">
 
@@ -248,7 +251,15 @@
 	<script>
 		const defErrorHandler = proto => {
 			console.log(proto);
-			dialog.simple((typeof myVar === 'undefined' || proto === null) ? "Network/Webconsole error" : ranga.errstr(proto.code));
+			dialog.simple((typeof proto === 'undefined' || proto === null) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
+		}
+
+		const defErrorHandlerPage = proto => {
+			console.log(proto);
+			let msg = ((typeof proto === 'undefined' || proto === null) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
+
+			webcon.contentLoadData(msg, false);
+			webcon.removeAllButtons();
 		}
 
 		const selectPage = (page, title) => {
@@ -262,6 +273,7 @@
 				//window['page_' + page + "_init"]();
 				eval('page_' + page + "_init()")
 			}).catch(e => {
+				console.log(this);
 				dialog.simple("加载页面过程中发生网络错误");
 				webcon.contentSetTitle('加载失败');
 			});
@@ -270,6 +282,31 @@
 
 		document.getElementById('menu').addEventListener('click', e => {
 			document.getElementById('nav').classList.add('nav_show');
+		});
+
+		document.getElementById('login').addEventListener('click', e => {
+			let d = dialog.show('icon-user', '登录', "请输入超级用户密码以完成登录<br><br><input style='width: 100%' type=password placeholder=ranga>", [{
+				name: "登录",
+				func: (d => {
+					let passwd = d.getElementsByTagName('input')[0].value;
+					ranga.api.auth(passwd).then(proto => {
+						webcon.setToken(proto.payload);
+						dialog.simple('您已经通过鉴权。切换为超级用户身份。Web 控制台上外观不会有变化，在执行特权操作时才能看出差异。关闭浏览器、重启 NSWA Ranga、另一终端重新登录时本次授权将会自动失效。', '好');
+					}).catch(defErrorHandler);
+					dialog.close(d);
+				})
+			}, {
+				name: "取消",
+				func: dialog.close
+			}]);
+			let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
+			ipt.addEventListener('keyup', e => {
+				e.preventDefault();
+				if (e.keyCode === 13) {
+					d.getElementsByTagName('button')[0].click();
+				}
+			});
+			ipt.focus();
 		});
 
 		selectPage('network', '网络连接');
