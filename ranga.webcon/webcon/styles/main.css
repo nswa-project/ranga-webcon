@@ -34,6 +34,7 @@ a:focus {
 	outline: 0;
 }
 
+textarea,
 input[type=password],
 input[type=text],
 input[type=number],
@@ -45,6 +46,7 @@ input:not([type]) {
 	background-color: #f1f3f4;
 }
 
+textarea:focus,
 input[type=password]:focus,
 input[type=text]:focus,
 input[type=number]:focus,
@@ -60,6 +62,13 @@ input[type=text]::placeholder,
 input[type=number]::placeholder,
 input:not([type])::placeholder {
 	color: #555555;
+}
+
+textarea,
+textarea:focus {
+	font-family: sans-serif;
+	resize: none;
+	border-radius: 24px;
 }
 
 input[type="checkbox"] {
@@ -160,6 +169,50 @@ input[type="checkbox"]:checked + label::before {
 	position: relative;
 }
 
+/* https://codepen.io/ConAntonakos/pen/ryMaOX?editors=1111 */
+.circular {
+	height: 54px;
+	width: 54px;
+}
+
+.circular svg {
+	animation: rotate 2s linear infinite;
+	height: 48px;
+	position: relative;
+	width: 48px;
+}
+
+.circular circle {
+	stroke-dasharray: 1, 200;
+	stroke-dashoffset: 0;
+	animation: dash 1.5s ease-in-out infinite;
+	stroke-linecap: round;
+	stroke: var(--theme-color);
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 200;
+		stroke-dashoffset: 0;
+	}
+
+	50% {
+		stroke-dasharray: 89, 200;
+		stroke-dashoffset: -35;
+	}
+
+	100% {
+		stroke-dasharray: 89, 200;
+		stroke-dashoffset: -124;
+	}
+}
+
 .hide {
 	display: none;
 }
@@ -170,6 +223,12 @@ input[type="checkbox"]:checked + label::before {
 	border-radius: 8px;
 	background: white;
 	overflow: hidden;
+}
+
+.flexRowCenter {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
 }
 
 .divline {

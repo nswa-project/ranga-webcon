@@ -35,6 +35,7 @@
 			flex-flow: column;
 			align-items: center;
 			justify-content: center;
+
 			-webkit-overflow-scrolling: touch;
 		}
 
@@ -250,14 +251,13 @@
 	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
 	<script>
 		const defErrorHandler = proto => {
-			console.log(proto);
-			dialog.simple((typeof proto === 'undefined' || proto === null) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
+			utils.promiseDebug(proto);
+			dialog.simple(utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
 		}
 
 		const defErrorHandlerPage = proto => {
-			console.log(proto);
-			let msg = ((typeof proto === 'undefined' || proto === null) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
-
+			utils.promiseDebug(proto);
+			let msg = (utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
 			webcon.contentLoadData(msg, false);
 			webcon.removeAllButtons();
 		}
@@ -273,8 +273,8 @@
 				//window['page_' + page + "_init"]();
 				eval('page_' + page + "_init()")
 			}).catch(e => {
-				console.log(this);
-				dialog.simple("加载页面过程中发生网络错误");
+				utils.promiseDebug(e);
+				dialog.simple("加载页面过程中发生网络错误或 Web 控制台错误");
 				webcon.contentSetTitle('加载失败');
 			});
 			setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
@@ -285,10 +285,12 @@
 		});
 
 		document.getElementById('login').addEventListener('click', e => {
-			let d = dialog.show('icon-user', '登录', "请输入超级用户密码以完成登录<br><br><input style='width: 100%' type=password placeholder=ranga>", [{
+			let d = dialog.show('icon-user', '登录', "请输入超级用户密码以完成登录<br><br><input style='width: 100%' type=password placeholder='置空将尝试默认密码 ranga'>", [{
 				name: "登录",
 				func: (d => {
 					let passwd = d.getElementsByTagName('input')[0].value;
+					if (passwd === '')
+						passwd = 'ranga';
 					ranga.api.auth(passwd).then(proto => {
 						webcon.setToken(proto.payload);
 						dialog.simple('您已经通过鉴权。切换为超级用户身份。Web 控制台上外观不会有变化，在执行特权操作时才能看出差异。关闭浏览器、重启 NSWA Ranga、另一终端重新登录时本次授权将会自动失效。', '好');
@@ -310,7 +312,6 @@
 		});
 
 		selectPage('network', '网络连接');
-
 	</script>
 </body>
 

@@ -39,7 +39,9 @@
 	margin: 6px;
 }
 
-.md_dialog_btns button {}
+.md_dialog_btns button {
+	min-width: 60px;
+}
 
 .md_dialog_title {
 	margin-bottom: 8px;

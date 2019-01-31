@@ -9,25 +9,17 @@ page_network.conn = (name, type) => {
 	let ts = utils.getUNIXTimestamp();
 	ranga.api.action('date', ['' + ts]).then(proto => {
 		return ranga.api.action('network', [action, name]);
-	}).then(proto => {
+	}).then(proto => {}).catch(defErrorHandler).finally(() => {
 		page_network.reload();
 		webcon.unlockScreen();
-	}).catch(proto => {
-		page_network.reload();
-		webcon.unlockScreen();
-		defErrorHandler(proto)
 	});
 }
 
 page_network.close = (name, type) => {
 	webcon.lockScreen();
-	ranga.api.action('network', ['down', name]).then(proto => {
+	ranga.api.action('network', ['down', name]).then(proto => {}).catch(defErrorHandler).finally(() => {
 		page_network.reload();
 		webcon.unlockScreen();
-	}).catch(proto => {
-		page_network.reload();
-		webcon.unlockScreen();
-		defErrorHandler(proto)
 	});
 }
 

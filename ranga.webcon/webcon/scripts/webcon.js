@@ -19,7 +19,7 @@ webcon.loadScript = (name, url) => {
 			script.onerror = () => {
 				scriptSet.delete(name);
 				console.log("webcon.loadScript: script " + name + " failed to load (" + url + ")");
-				reject(null);
+				reject();
 			};
 			document.body.appendChild(script);
 			scriptSet.add(name);
@@ -69,12 +69,25 @@ webcon.contentLoadUri = (uri, html) => {
 	});
 }
 
-webcon.lockScreen = () => {
+webcon.dialogForLockScreen = null;
+
+webcon.lockScreen = text => {
+	if (utils.isNil(text)) {
+		text = '<div class="circular"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 6px">请稍候</span>';
+	}
+	webcon.dialogForLockScreen = dialog.adv(null, null, text, [], {
+		noMinHeight: 1
+	});
 	
+	let widget = dialog.textWidget(webcon.dialogForLockScreen);
+	widget.classList.add('flexRowCenter');
 }
 
 webcon.unlockScreen = () => {
-	
+	if (!utils.isNil(webcon.dialogForLockScreen)) {
+		dialog.close(webcon.dialogForLockScreen);
+		webcon.dialogForLockScreen = null;
+	}
 }
 
 webcon.kwdMap = {

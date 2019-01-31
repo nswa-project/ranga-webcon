@@ -97,14 +97,14 @@ ranga-cli addon set-webcon ranga.webcon</pre>
 			<p>在这个步骤，设置向导将带领你完成无线设置并打开无线热点。</p>
 			<p class="tips">你可以会抱怨为什么 NSWA Ranga 不能像 NSWA 3.x (Kuriboh) 或者 NSWA 2.x (Monodra) 一样默认开启无线，这是出于安全性的问题考虑的，因为默认开启无认证或公开预共享密钥的无线接入点是一个安全漏洞。</p>
 			<p>如果你不想启用无线功能，将 Key 置空或者设置为小于 8 个字符，NSWA Ranga 将自动禁用无线功能。</p>
-			<p><b>设置向导不会修改无线加密套件，保持默认的套件，即 WPA2 预共享密钥 CCMP（具有 CBC-MAC 计数器协议，RFC3610）模式（使用 AES 加密），你可以在完成设置向导后使用 Web 控制台或命令行工具修改加密套件。</b>NSWA Ranga 支持的加密套件包括 WPA 预共享密钥、WPA2 预共享密钥的 CCMP（具有 CBC-MAC 计数器协议）、TKIP（临时密钥完整性协议）以及他们的混合模式，WEP（有线等效保密）已经不被支持，WPA3 等时同等认证和例如 802.1x 等的企业认证暂时不支持。NSWA Ranga 4.10 预计将会支持全新的 WPA3 等时同等认证（AES-GCM 支持前向保密）套件。</p>
-			<p>如果你的设备具有双频无线支持（例如 2.4GHz + 5GHz）。那么你可以选择是否将它们的 SSID 携带 '-2.4GHz' 和 '-5GHz' 的后戳，如果你不喜欢这样，倾向于让它们的 SSID 完全不同，那么你可以在向导完成后为它们分别设置 SSID。</p>
-			<label for="wifi_ssid">无线 SSID：</label>
+			<p><b>设置向导不会修改无线加密套件，保持默认的套件，即 Wi-Fi 保护访问II（WPA2）预共享密钥 CCMP（具有 CBC-MAC 计数器协议，RFC3610）模式（使用 AES 加密），你可以在完成设置向导后使用 Web 控制台或命令行工具修改加密套件。</b>NSWA Ranga 支持的加密套件包括 WPA 预共享密钥、WPA2 预共享密钥的 CCMP（具有 CBC-MAC 计数器协议）、TKIP（临时密钥完整性协议）以及他们的混合模式，WEP（有线等效保密）已经不被支持，Wi-Fi 保护访问 3（WPA3）等时同等认证（EAP）和例如 802.1X 等的企业认证暂时不支持。NSWA Ranga 4.10 预计将会支持全新的 Wi-Fi 保护访问 3（WPA3）等时同等认证（AES-GCM 支持前向保密）套件。</p>
+			<p>如果你的设备具有双频无线支持（例如 2.4GHz + 5GHz）。那么你可以勾选”为接入点服务集标识符后自动添加频率后戳“，使它们的 SSID 携带 ' 2.4GHz' 和 ' 5GHz' 的后戳。但是，如果你只有单频无线，勾选此项后也会添加后戳，这可能不是你所想要的。如果你想让它们的 SSID 完全不同，那么你可以在向导完成后为它们分别设置服务集标识符。</p>
+			<label for="wifi_ssid">服务集标识符（SSID）：</label>
 			<input type="text" id="wifi_ssid">
-			<label for="wifi_key">无线 Key：</label>
+			<label for="wifi_key">无线密钥（Key）：</label>
 			<input type="text" id="wifi_key">
 			<div><input type='checkbox' checked id="wifi_suffix">
-				<label for='wifi_suffix' class="checkbox_label">如果我的设备具有双频无线，则为不同频率的接入点后自动添加后戳</label>
+				<label for='wifi_suffix' class="checkbox_label">为接入点服务集标识符后自动添加频率后戳</label>
 			</div>
 		</div>
 		<button class="btnFlat" onclick="btnEnter(this); setwifi()">应用</button>
@@ -116,7 +116,7 @@ ranga-cli addon set-webcon ranga.webcon</pre>
 			<p><b>扩展程序</b> NSWA Ranga 提供了开发手册和接口规格文档以帮助开发第三方扩展程序。你可以通过开发扩展程序或安装我们或其他人提供的扩展程序增强 NSWA Ranga。</p>
 			<p><b>改进 Web 控制台</b> Web 控制台作为扩展程序安装在 NSWA Ranga 上，我们提供<a target="_blank" href='https://github.com/glider0/ranga-webcon/'>开源版本的 Web 控制台源码</a>，自带 Web 控制台基于开源版本。你可以修改源码构建你改进的 Web 控制台，也可以提交 PR 或 patch 为全部 NSWA Ranga 用户做贡献。</p>
 			<p><b>系统更新</b> NSWA Ranga 在支持生命周期将会发布系统更新，以帮助修复 Bug、增强功能和易用性。NSWA Ranga 系统更新可以由你自行前往<a target="_blank" href='https://glider0.github.io/updates/'>更新发布中心</a>获取并手动安装，此外，你也可以通过 NSWA Online 自动获得更新并一键安装。</p>
-			<p class="tips">NSWA Online 会在你打开 Web 控制台后联机获取<b>最新公告</b>、<b>在线系统软件更新</b>、<b>观感样式调整</b>和<b>节日涂鸦</b>等显示在 Web 控制台上。这是一个 Web 控制台的功能而不是 NSWA Ranga 的功能，它只会发生在你的浏览器里，NSWA Ranga 系统内没有任何访问我们服务器并私自获取、更新软件或数据的功能！NSWA Online 隐私政策：我们不收集、不发送、不存储你的任何个人数据，我们可能会在你的浏览器本地存储一些数据标记，例如你是否选择将一条更新提醒忽略不显示，这些数据只会存储在浏览器本地存储而不会通过网络传输。如果你不喜欢这个功能，你可以在 Web 控制台的设置中将它关闭。</p>
+			<p class="tips">NSWA Online 会在你打开 Web 控制台后联机获取<b>最新公告</b>、<b>在线系统软件更新</b>、<b>观感样式调整</b>和<b>节日涂鸦</b>等显示在 Web 控制台上。这是一个 Web 控制台的功能而不是 NSWA Ranga 的功能，它只会发生在你的浏览器里，NSWA Ranga 正式版本系统内没有任何访问我们服务器并私自获取、更新软件或数据的功能！NSWA Online 隐私政策：我们不收集、不发送、不在服务器存储你的任何个人数据，我们可能会在你的浏览器本地存储一些数据标记，例如你是否选择将一条更新提醒忽略不显示，这些数据只会存储在浏览器本地存储而不会通过网络传输。如果你不喜欢这个功能，你可以在 Web 控制台的设置中将它关闭。</p>
 			<p>点按”完成“按钮后，NSWA Ranga 的默认 Web 控制台将被激活，你也将跳转到 Web 控制台</p>
 		</div>
 		<button class="btnFlat" onclick="btnEnter(this); setwebcon()">完成</button>
@@ -159,7 +159,7 @@ ranga-cli addon set-webcon ranga.webcon</pre>
 				let ts = utils.getUNIXTimestamp();
 				return ranga.api.action('date', ['' + ts]);
 			}, defErrorHandler).then(proto => {
-				return ranga.api.action('pppoe', ['dialup', 'netkeeper']);
+				return ranga.api.action('network', ['dialup', 'netkeeper']);
 			}).then(proto => {
 				document.getElementById('step1').style.display = 'none';
 				document.getElementById('step2').style.display = 'flex';

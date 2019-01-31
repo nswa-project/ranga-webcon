@@ -1,0 +1,25 @@
+<div id="page_update_main">
+	<style>
+		#page_update_main .tips {
+			margin-bottom: 10px;
+		}
+		
+		#page_update_main button {
+			margin-top: 6px;
+		}
+	</style>
+	<h1>使用 NSWA Online 推送更新系统</h1>
+	如果你没有关闭 Web 控制台的 NSWA Online 推送功能，新版本发布后，在你打开 Web 控制台时会向你推送。弹出更新通知。
+	<h1>使用命令行工具更新系统到最新版本</h1>
+	使用命令行工具可以自动将 NSWA Ranga 系统更新到最新版本，这在需要安装多个 OTA 更新的时候非常有用。大部分情况下，使用此命令可以将 NSWA Ranga 系统自动安装从当前版本直到最新版本所有的 OTA 更新包。
+	<pre>ranga-cli auth -p
+ranga-cli swdeploy sync</pre>
+	如果需要使用命令行工具安装一个固件文件，你可以
+	<pre>ranga-cli auth -p
+ranga-cli swdeploy flash /path/to/firmware.bin</pre>
+	有关命令行工具进行系统更新的更多用法，请运行 <code>ranga-cli swdeploy -h</code> 获得帮助信息。
+	<h1>使用 Web 控制台上传固件</h1>
+	<div class="tips">通过 Web 控制台上传系统固件更新是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API</div><br>
+	选择固件文件：<input type="file" id="p-update-file" /><br>
+	<button class="btnFlat" id="p-update-upload" type="button">上传</button><br>
+</div>

@@ -8,6 +8,7 @@ const page_info_init = () => {
 		utils.pageAddSection(div, 'Ranga 软件版本');
 		div.innerHTML += "系统版本：" + info.version + "<br>";
 		div.innerHTML += "内核版本：" + info.kernel + "<br>";
+		div.innerHTML += "<a target=_blank href='https://glider0.github.io/updates/'>系统更新发布站点</a><br>";
 		utils.pageAddSection(div, '设备信息');
 		div.innerHTML += "架构：" + info.arch + "<br>";
 		div.innerHTML += "芯片：" + info.chip + "<br>";
@@ -23,11 +24,11 @@ const page_info_init = () => {
 		div.innerHTML += "存储：" + info.storage.replace(/K/g, '千字节').replace(/M/g, '兆字节') + "<br>";
 		div.innerHTML += "系统负载：" + info.uptime + "<br>";
 		utils.pageAddSection(div, 'Ranga 系统法律信息');
-		div.innerHTML += "<a href='/osl.html'>开放源代码许可<br>";
-		div.innerHTML += "<a href='/eul.html'>Ranga 最终用户许可协议<br>";
+		div.innerHTML += "<a target=_blank href='/osl.html'>开放源代码许可<br>";
+		div.innerHTML += "<a target=_blank href='/eul.html'>Ranga 最终用户许可协议<br>";
 		utils.pageAddSection(div, 'Web 控制台法律信息');
-		div.innerHTML += "<a href='legal.html'>Web 控制台授权<br>";
-		div.innerHTML += "<a href='https://fontawesome.com/license'>Font Awesome 图标创作共用许可<br>";
-		div.innerHTML += "<a href='https://www.apache.org/licenses/LICENSE-2.0.html'>Google Material.io 图标许可<br>";
+		div.innerHTML += "<a target=_blank href='https://github.com/glider0/ranga-webcon/COPYING'>Web 控制台授权<br>";
+		div.innerHTML += "<a target=_blank href='https://fontawesome.com/license'>Font Awesome 图标创作共用许可<br>";
+		div.innerHTML += "<a target=_blank href='https://www.apache.org/licenses/LICENSE-2.0.html'>Google Material.io 图标许可<br>";
 	}).catch(defErrorHandler);
 }

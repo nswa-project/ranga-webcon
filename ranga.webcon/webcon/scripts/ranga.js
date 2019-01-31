@@ -1,5 +1,6 @@
 var ranga = {};
 ranga.api = {};
+ranga.api.swdeploy = {};
 
 ranga.errcode = [
 	"Success",
@@ -29,11 +30,13 @@ ranga.ajax = (url, data, callback) => {
 	xhr.open("POST", url, true);
 	if (data === null) {
 		xhr.send();
-	} else {
+	} else if (typeof data === 'string') {
 		let blob = new Blob([data], {
 			type: 'text/plain'
 		});
 		xhr.send(blob);
+	} else {
+		xhr.send(data);
 	}
 }
 
@@ -67,6 +70,7 @@ ranga.protoAjax = (url, data) => {
 			if (success && ('code' in proto) && proto.code === '0') {
 				resolve(proto);
 			} else {
+				proto["_ranga_proto_data"] = 1;
 				reject(proto);
 			}
 		});
@@ -95,6 +99,18 @@ ranga.api.query = (target, args) => {
 	return ranga.api.disp('query', target, args);
 }
 
-ranga.api.setWebcon = (extension) => {
+ranga.api.setWebcon = extension => {
 	return ranga.protoAjax("/cgi-bin/addon.sh?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
+}
+
+ranga.api.swdeploy.upload = blob => {
+	return ranga.protoAjax("/cgi-bin/swupload.sh?action=patch", blob);
+}
+
+ranga.api.swdeploy.log = blob => {
+	return ranga.protoAjax("/cgi-bin/swupload.sh?action=log", blob);
+}
+
+ranga.api.swdeploy.status = blob => {
+	return ranga.protoAjax("/cgi-bin/swupload.sh?action=status", blob);
 }

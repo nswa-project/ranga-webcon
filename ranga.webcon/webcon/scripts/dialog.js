@@ -1,16 +1,20 @@
 var dialog = {};
 
-dialog.show = (icon, title, text, btns) => {
+dialog.adv = (icon, title, text, btns, configs) => {
+	if (configs === null) {
+		configs = {};
+	}
+
 	let dialog_back = document.createElement("div");
 	let dialog = document.createElement("div");
 	let dialog_text = document.createElement("div");
 	let dialog_btn = document.createElement("div");
 
-	dialog_back.className = "md_dialog_back";
-	dialog.className = "md_dialog";
-	dialog_text.className = "md_dialog_text";
-	dialog_btn.className = "md_dialog_btns";
-	
+	dialog_back.classList.add("md_dialog_back");
+	dialog.classList.add("md_dialog");
+	dialog_text.classList.add("md_dialog_text");
+	dialog_btn.classList.add("md_dialog_btns");
+
 	if (title !== null) {
 		let dialog_title = document.createElement('div');
 		dialog_title.textContent = title;
@@ -25,7 +29,9 @@ dialog.show = (icon, title, text, btns) => {
 	}
 
 	dialog.appendChild(dialog_text);
-	dialog.appendChild(dialog_btn);
+	if (btns.length > 0) {
+		dialog.appendChild(dialog_btn);
+	}
 
 	dialog_back.appendChild(dialog);
 	dialog_text.innerHTML += text;
@@ -38,8 +44,16 @@ dialog.show = (icon, title, text, btns) => {
 		button.textContent = btns[i].name;
 	}
 
+	if ('noMinHeight' in configs) {
+		dialog_text.style.minHeight = 0;
+	}
+
 	document.body.appendChild(dialog_back);
 	return dialog_back;
+}
+
+dialog.show = (icon, title, text, btns) => {
+	return dialog.adv(icon, title, text, btns, null);
 }
 
 dialog.close = dialog_back => {
@@ -58,7 +72,7 @@ dialog.textWidget = dialog_back => {
 }
 
 dialog.simple = (text, close_btn_text) => {
-	close_btn_text = close_btn_text || "关闭";
+	close_btn_text = close_btn_text || "好";
 	dialog.show(null, null, text, [{
 		name: close_btn_text,
 		func: dialog.close

@@ -122,12 +122,20 @@ const page_interface_init = () => {
 		let v = page_interface.getElementById('rvlan').value;
 		ranga.api.config('interface', ['set', page_interface.ifname, 'rvlan', v]).then(proto => {}).catch(defErrorHandler);
 	});
-	
+
 	page_interface.getElementById('delete').addEventListener('click', e => {
 		ranga.api.config('interface', ['remove', page_interface.ifname]).then(proto => {
 			page_interface.reload();
 		}).catch(defErrorHandler);
 	});
 
+	page_interface.getElementById('restart').addEventListener('click', e => {
+		webcon.lockScreen();
+		ranga.api.action('restart', ['network']).then(proto => {
+			page_interface.reload();
+		}).catch(defErrorHandler).finally(() => {
+			webcon.unlockScreen();
+		});
+	});
 	page_interface.reload();
 }

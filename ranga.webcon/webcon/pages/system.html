@@ -1,0 +1,42 @@
+<div id="page_system_main">
+	<style>
+		#page_system_main .tips {
+			margin-bottom: 10px;
+		}
+		
+		#page_system_main button {
+			margin-top: 6px;
+		}
+	</style>
+	<h1>设置系统时钟</h1>
+	<div class="tips">将系统时钟设置为指定值，或者从浏览器同步系统时钟。</div>
+	<table>
+		<tr>
+			<td>UNIXTimestamp</td>
+			<td><input type="text" id="p-system-unixtime">
+			</td>
+		</tr>
+	</table>
+	<button class="btnFlat" id="p-system-date">设置系统时钟</button><button class="btnFlat" id="p-system-syncdate">从浏览器同步系统时钟</button>
+	<h1>重启设备</h1>
+	<div class="tips">立即执行重启。现有网络连接会被重置。</div>
+	<button class="btnFlat" id="p-system-reboot">重启</button>
+	<h1>系统日志</h1>
+	<div class="tips">系统日志可能有助于排查系统和连接问题。</div>
+	<button class="btnFlat" id="p-system-log">查看系统日志缓冲区</button>
+	<h1>修改超级用户密码</h1>
+	<div class="tips">超级用户可以访问完整 NSWA Ranga 系统 API，我们建议您设置为一个较安全的密码。</div>
+	<table>
+		<tr>
+			<td>新密码</td>
+			<td><input type="password" id="p-system-passwd">
+			</td>
+		</tr>
+		<tr>
+			<td>重复输入</td>
+			<td><input type="password" id="p-system-passwd2">
+			</td>
+		</tr>
+	</table>
+	<button class="btnFlat" id="p-system-chpw">修改密码</button>
+</div>

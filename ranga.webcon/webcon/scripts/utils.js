@@ -40,3 +40,33 @@ utils.pageAddSection = (div, title) => {
 	t.textContent = title;
 	div.appendChild(t);
 }
+
+utils.raw2HTMLString = raw => {
+	return raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+utils.getLocalStorageItem = key => {
+	try {
+		var v = localStorage.getItem(key);
+		return v;
+	} catch (e) {
+		return '';
+	}
+}
+
+utils.isNil = value => {
+	return (typeof value === 'undefined' || value === null);
+}
+
+utils.promiseDebug = e => {
+	if (!utils.isNil(e)) {
+		if ('_ranga_proto_data' in e) {
+			console.log(e)
+		} else {
+			if ('message' in e && 'stack' in e) {
+				console.error(e.message);
+				console.error(e.stack);
+			}
+		}
+	}
+}

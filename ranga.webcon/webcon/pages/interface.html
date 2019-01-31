@@ -40,6 +40,10 @@
 		</div>
 	</button>
 	<div id="page_interface_main"></div>
+	<div style="margin-top: 8px">
+		某些接口的配置（如认证信息）在下次连接时即可生效，但有些设置，如“协议”、“静态地址”、“网卡物理地址”等在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按“重启网络服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多项接口的多个配置，然后执行一次。重启网络服务后已建立的点对点协议连接会断开。<br>
+		<button class="btnFlat" id='p-interface-restart'>重启网络服务</button>
+	</div>
 	<div id="page_interface_edit" class="hide">
 		<h1>协议类型</h1>
 		<div class="tips">协议类型是要在此接口上运行什么网络层协议。Netkeeper 扩展只有使用点对点协议时才会有效（例如”基于以太网的点对点协议“和”基于 ATM（异步传输模式）的点对点协议“）</div>
@@ -93,7 +97,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>网际网协议版本4路由表缺省下一跳地址</td>
+				<td>网际网协议版本4下一跳地址</td>
 				<td><input type="text" id="p-interface-gateway">
 				</td>
 			</tr>
