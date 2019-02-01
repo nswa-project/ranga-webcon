@@ -40,7 +40,7 @@ page_interface.reload = () => {
 	if (!editPage.classList.contains('hide')) {
 		editPage.classList.add('hide');
 	}
-	let div = document.getElementById('page_interface_main');
+	let div = document.getElementById('p-interface-iflist');
 	div.innerHTML = '选择你要配置的接口，或者点击右上方按钮添加新的接口';
 	let itemT = document.getElementById('p-interface-item_t');
 

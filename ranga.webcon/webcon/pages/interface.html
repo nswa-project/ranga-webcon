@@ -1,6 +1,10 @@
-<div>
+<div id="page_interface_main">
 	<style>
-		#page_interface_main {
+		#page_interface_main button {
+			margin-top: 8px;
+		}
+
+		#p-interface-iflist {
 			display: flex;
 			flex-flow: column;
 			align-items: stretch;
@@ -27,10 +31,6 @@
 		#page_interface_edit .tips {
 			margin-bottom: 10px;
 		}
-		
-		#page_interface_edit button {
-			margin-top: 8px;
-		}
 
 	</style>
 	<button id="p-interface-item_t" class="btnFlat p-interface-item hide">
@@ -39,7 +39,7 @@
 			<div class="p-interface-item-ifname">ifname</div>
 		</div>
 	</button>
-	<div id="page_interface_main"></div>
+	<div id="p-interface-iflist"></div>
 	<div style="margin-top: 8px">
 		某些接口的配置（如认证信息）在下次连接时即可生效，但有些设置，如“协议”、“静态地址”、“网卡物理地址”等在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按“重启网络服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多项接口的多个配置，然后执行一次。重启网络服务后已建立的点对点协议连接会断开。<br>
 		<button class="btnFlat" id='p-interface-restart'>重启网络服务</button>

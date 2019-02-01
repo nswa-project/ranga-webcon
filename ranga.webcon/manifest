@@ -4,3 +4,4 @@
 %name: Ranga Webconsole provider. (Open-source version)
 %ver: 0.1
 %author: NSWA Maintainers, Ranga Open-Source Technology Center
+%-x-webcon: 1

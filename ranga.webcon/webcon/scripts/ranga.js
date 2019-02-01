@@ -99,6 +99,18 @@ ranga.api.query = (target, args) => {
 	return ranga.api.disp('query', target, args);
 }
 
+ranga.api.addonList = () => {
+	return ranga.protoAjax("/cgi-bin/addon.sh?action=list", null);
+}
+
+ranga.api.componentsList = () => {
+	return ranga.protoAjax("/cgi-bin/addon.sh?action=ls-components", null);
+}
+
+ranga.api.addonInfo = pkgname => {
+	return ranga.protoAjax("/cgi-bin/addon.sh?action=info&pkgname=" + encodeURIComponent(pkgname), null);
+}
+
 ranga.api.setWebcon = extension => {
 	return ranga.protoAjax("/cgi-bin/addon.sh?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
 }

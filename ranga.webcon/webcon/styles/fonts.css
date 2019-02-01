@@ -110,3 +110,6 @@
 	content: "G";
 }
 
+.icon-warning::before {
+	content: "H";
+}

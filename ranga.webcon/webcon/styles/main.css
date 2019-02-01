@@ -214,7 +214,7 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .hide {
-	display: none;
+	display: none !important;
 }
 
 .card {
