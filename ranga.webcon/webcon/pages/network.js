@@ -16,7 +16,7 @@ page_network.conn = (name, type) => {
 		action = 'dialup';
 	}
 
-	lpage_network.synctime().then(proto => {
+	page_network.synctime().then(proto => {
 		return ranga.api.action('network', [action, name]);
 	}).then(proto => {}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();

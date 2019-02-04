@@ -64,7 +64,6 @@ page_addon.install = blob => {
 		dialog.simple("<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>");
 		page_addon.reloadPage();
 	}).catch(defErrorHandler).finally(() => {
-		console.log('ext info: stop');
 		webcon.unlockScreen();
 	});
 }
