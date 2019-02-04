@@ -1,30 +1,84 @@
 var page_network = {};
 
+page_network.synctime = type => {
+	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true' || type !== 'netkeeper') {
+		return Promise.resolve();
+	}
+
+	let ts = utils.getUNIXTimestamp();
+	return ranga.api.action('date', ['' + ts]);
+}
+
 page_network.conn = (name, type) => {
-	webcon.lockScreen();
+	webcon.lockScreen('正在连接，请稍候...');
 	let action = 'up';
 	if (type === 'netkeeper' || type === 'pppoe') {
 		action = 'dialup';
 	}
-	let ts = utils.getUNIXTimestamp();
-	ranga.api.action('date', ['' + ts]).then(proto => {
+
+	lpage_network.synctime().then(proto => {
 		return ranga.api.action('network', [action, name]);
 	}).then(proto => {}).catch(defErrorHandler).finally(() => {
-		page_network.reload();
 		webcon.unlockScreen();
+		page_network.reload();
 	});
 }
 
 page_network.close = (name, type) => {
 	webcon.lockScreen();
 	ranga.api.action('network', ['down', name]).then(proto => {}).catch(defErrorHandler).finally(() => {
-		page_network.reload();
 		webcon.unlockScreen();
+		page_network.reload();
 	});
 }
 
-page_network.server = (name, type) => {
+page_network.serverPoll = () => {
+	utils.delay(1000).then(v => {
+		return ranga.api.action('network', ['server-status']);
+	}).then(proto => {
+		let status = parseInt(proto.payload);
+		let needPoll = true;
+		console.log("page_network.serverPoll: status: " + status);
 
+		switch (status) {
+			case 1:
+				webcon.updateScreenLockTextWidget('拦截服务器启动中');
+				break;
+			case 2:
+				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪');
+				break;
+			case 3:
+				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息');
+				break;
+			case 4:
+				webcon.unlockScreen();
+				needPoll = false;
+				page_network.reload();
+				break;
+			case 5:
+				webcon.unlockScreen();
+				needPoll = false;
+				dialog.simple('拦截服务器已超时');
+				break;
+		}
+
+		if (needPoll)
+			return utils.delay(1000).then(v => page_network.serverPoll());
+	}).catch(proto => {
+		webcon.unlockScreen();
+		defErrorHandler(proto);
+	});
+
+}
+
+page_network.server = (name, type) => {
+	webcon.lockScreen();
+	ranga.api.action('network', ['start-server', name]).then(proto => {
+		page_network.serverPoll();
+	}).catch(defErrorHandler).finally(() => {
+		webcon.unlockScreen();
+		page_network.reload();
+	});
 }
 
 page_network.reload = () => {

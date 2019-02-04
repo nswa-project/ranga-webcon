@@ -234,6 +234,7 @@ input[type="checkbox"]:checked + label::before {
 .divline {
 	background-color: #ebebeb;
 	height: 1px;
+	margin: 10px 0;
 }
 
 .flexGrow {

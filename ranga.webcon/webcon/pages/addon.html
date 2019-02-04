@@ -1,2 +1,70 @@
 <div id="page_addon_main">
+	<style>
+		.p-addon-item {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+			border-bottom: 1px solid #dedede;
+			padding: 12px 4px;
+		}
+
+		.p-addon-item .p-addon-item-icon {
+			font-size: 1.2em;
+			align-self: flex-start;
+			margin-right: 14px;
+			margin-top: 4px;
+		}
+
+		.p-addon-item .p-addon-item-name {}
+
+		.p-addon-item button i {
+			margin-right: 0;
+		}
+
+		.p-addon-item button {
+			margin-top: 0 !important;
+			margin-left: 14px;
+			padding: 10px;
+			flex-shrink: 0;
+		}
+
+		#p-addon-extinfo-dialog {
+			padding: 20px;
+		}
+
+	</style>
+	<div id="p-addon-item_t" class="hide p-addon-item">
+		<i class="p-addon-item-icon icon icon-addon"></i>
+		<div class="flexGrow">
+			<div class="p-addon-item-name"></div>
+			<div class="p-addon-item-version tips"></div>
+			<div class="p-addon-item-author tips"></div>
+		</div>
+		<button class="btnFlat"><i class="icon icon-more" style="font-weight: normal; font-size: 1.4em"></i></button>
+	</div>
+	<h2>组件 (Components)</h2>
+	<div id="p-addon-comps"></div>
+	<h2>扩展程序 (Extensions)</h2>
+	<div id="p-addon-exts"></div>
+	<div id="p-addon-extinfo" class="hide md_dialog_back">
+		<div id="p-addon-extinfo-dialog" class="md_dialog">
+			<div id="p-addon-extinfo-name">name</div>
+			<div id="p-addon-extinfo-version" class="tips">version</div>
+			<div id="p-addon-extinfo-author" class="tips">author</div>
+			<div class="divline"></div>
+			<div id="p-addon-extinfo-pkgname" class="tips">pkgname</div>
+			<div id="p-addon-extinfo-api" class="tips">api</div>
+			<div class="divline"></div>
+			<b>权限</b>
+			<div>以超级用户身份修改系统配置</div>
+			<div>读取/写入存储设备</div>
+			<div>在特定系统事件时被唤醒</div>
+			<div class="divline"></div>
+			<div>
+			<button id="p-addon-remext" class="btnFlat">卸载此扩展程序</button><br>
+			<button id="p-addon-chwebcon" class="btnFlat">切换到此扩展程序提供的 Web 控制台</button><br>
+			<button id="p-addon-closeextinfo" class="btnFlat">关闭</button><br>
+			</div>
+		</div>
+	</div>
 </div>

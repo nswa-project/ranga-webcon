@@ -1,0 +1,35 @@
+<div id="page_misc_main">
+	<style>
+		#page_misc_main .tips {
+			margin-bottom: 10px;
+		}
+
+		#page_misc_main button {
+			margin-top: 6px;
+		}
+
+	</style>
+	<h1>圈养门户</h1>
+	<div class="tips">圈养门户使客户端操作系统在接入未拨号网络时自动打开浏览器弹出 Web 控制台页面。<b>修改此项设置后必须立刻重启 NSWA Ranga，否则可能导致系统工作在不一致状态！</b></div>
+	<input type="checkbox" id="p-misc-cp" data-x="enable_captive_portal"><label for="p-misc-cp" class="checkbox_label">启用圈养门户</label>
+	<h1>开机自动启动计划任务服务</h1>
+	<div class="tips">除非你有自定义的计划任务，否则不要开启此项。某些插件也会使用计划任务，但这些插件不需要此项。修改此项设置后重启 NSWA Ranga 生效。</div>
+	<input type="checkbox" id="p-misc-cron" data-x="enable_cron_autostart"><label for="p-misc-cron" class="checkbox_label">开机自动启动计划任务服务</label>
+	
+	<h1>Early-dail 免同步时间早期自动拨号功能</h1>
+	<div class="tips">启用此功能使开机后无需同步时间自动破解算号连接到 netkeeper 接口，如果启用了多宿主，也会尝试连接其他协议类型是 Netkeeper 的接口。此功能并不能保证总是成功。此功能只有在 wan 接口协议设置为“动态主机配置协议”时才会生效。</div>
+	<input type="checkbox" id="p-misc-ed" data-x="enable_early_dial"><label for="p-misc-ed" class="checkbox_label">启用早期自动拨号</label>
+	
+	<h1>点对点协议自动重新连接</h1>
+	<div class="tips">此设置将同时影响一切点对点协议，如基于以太网的点对点。请注意，总是不自动重新连接有可能导致帐号或媒体访问地址地址被你的互联网服务提供商临时封禁。另外，自动重新连接也有微小可能使 NSWA Ranga 出现问题。</div>
+	<select id="p-misc-ppp" style="min-height: 24px;">
+		<option value="disable">总是不自动重新连接（最安全）</option>
+		<option value="hangup">自动重新连接，仅在对方挂断时（默认）</option>
+		<option value="always">自动重新连接，在任何情况下（危险）</option>
+	</select><br>
+	<button class="btnFlat" id='p-misc-set-ppp' data-x="autoppp" data-v="ppp">设置</button>
+	
+	<h1>允许匿名用户操作网络连接</h1>
+	<div class="tips">允许匿名用户操作网络连接（如连接、断开连接等），否则只有登录超级用户后才能操作网络连接。不包括 NSWA Ranga 系统设置，无论如何，只有超级用户才能访问系统设置功能。</div>
+	<input type="checkbox" id="p-misc-anydial" data-x="permit_anonymous_dial"><label for="p-misc-anydial" class="checkbox_label">允许匿名用户操作网络连接</label>
+</div>

@@ -78,7 +78,7 @@ webcon.lockScreen = text => {
 	webcon.dialogForLockScreen = dialog.adv(null, null, text, [], {
 		noMinHeight: 1
 	});
-	
+
 	let widget = dialog.textWidget(webcon.dialogForLockScreen);
 	widget.classList.add('flexRowCenter');
 }
@@ -87,6 +87,12 @@ webcon.unlockScreen = () => {
 	if (!utils.isNil(webcon.dialogForLockScreen)) {
 		dialog.close(webcon.dialogForLockScreen);
 		webcon.dialogForLockScreen = null;
+	}
+}
+
+webcon.updateScreenLockTextWidget = text => {
+	if (!utils.isNil(webcon.dialogForLockScreen)) {
+		dialog.textWidget(webcon.dialogForLockScreen).getElementsByTagName('span')[0].innerHTML = text;
 	}
 }
 

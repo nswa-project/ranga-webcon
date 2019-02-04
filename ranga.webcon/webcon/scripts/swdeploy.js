@@ -1,13 +1,7 @@
 var swdeploy = {};
 
-let delay = (t, v) => {
-	return new Promise(function (resolve) {
-		setTimeout(resolve.bind(null, v), t)
-	});
-}
-
 swdeploy.poll = (pre, t) => {
-	delay(800).then(v => {
+	utils.delay(800).then(v => {
 		return ranga.api.swdeploy.log()
 	}).then(proto => {
 		pre.textContent = proto.payload;
@@ -18,7 +12,7 @@ swdeploy.poll = (pre, t) => {
 
 		switch (code) {
 			case 1:
-				return delay(800).then(v => swdeploy.poll(pre, t));
+				return utils.delay(800).then(v => swdeploy.poll(pre, t));
 				break;
 			case 0:
 				t.innerHTML += "<b>安装完毕，请手动刷新 Web 控制台</b>"
