@@ -90,7 +90,7 @@ server {
 }
 ```
 
-`<YOUR ranga.webcon/webcon path>` is the path to your local web console source's `/webcon` directory.
+`<YOUR ranga.webcon/webcon path>` is the path to your local web console source's `ranga.webcon/webcon` directory.
 
 And restart the nginx server.
 
@@ -102,7 +102,51 @@ $ sudo service nginx restart
 
 ## Contribution
 
-TODO
+What you can do?
+
+- Welcome to fixup issues in the program.
+
+- Welcome to optimize performance for the program.
+
+- Welcome to add features for the program.
+
+What should you pay attention to?
+
+- Work in `ranga.webcon/webcon` path.
+
+- You need to make your code work on Google Chrome (>= 70), Mozilla Firefox (>= 62), and iOS Safari (>= 12). If you haven't got an iPhone to check it, please indicate this.
+
+- You need use `(a, b) => {}`, not `function(a, b) {}`.
+
+- We reject all patches for port webcon to legacy (or evil) browsers (such like MSIE). If you want, plz fork the repo.
+
+- Please open a Pull-requst or send the `.patch` file by open an Issue.
+
+- You need to explain the purpose of your patch. For example, what problems have you encountered and how you solved it? What is the purpose of your added functionality?
+
+Source tree directory structure?
+
+`.` for index, fonts and logo
+
+`./styles` for css stylesheets
+
+`./scripts` for javascripts
+
+`./pages` for webcon pages
+
+`./scripts/ranga.js` provide the system's API interface wrapper.
+
+`./scripts/swdeploy.js` provide the swdeploy utility.
+
+`./scripts/utils.js` provide utilities for javascripts, for example, `utils.getUNIXTimestamp`.
+
+`./scripts/webcon.js` provide interfaces to control web-console mainly for pages, for example, `webcon.lockScreen`.
+
+`./scripts/dialog.js` provide a generic dialog GUI implement.
+
+`./pages/xxx.html` and `./pages/xxx.js` provide a "xxx" page for web-console.
+
+And many more ... :-)
 
 ## Copyright and warranty
 
