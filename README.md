@@ -118,6 +118,8 @@ What should you pay attention to?
 
 - You need use `(a, b) => {}`, not `function(a, b) {}`.
 
+- Use `Promise` instead of callbacks whenever possible.
+
 - We reject all patches for port webcon to legacy (or evil) browsers (such like MSIE). If you want, plz fork the repo.
 
 - Please open a Pull-requst or send the `.patch` file by open an Issue.
