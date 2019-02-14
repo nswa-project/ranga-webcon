@@ -64,20 +64,18 @@ page_network.serverPoll = () => {
 
 		if (needPoll)
 			return utils.delay(1000).then(v => page_network.serverPoll());
-	}).catch(proto => {
+	}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
-		defErrorHandler(proto);
 	});
-
 }
 
 page_network.server = (name, type) => {
 	webcon.lockScreen();
 	ranga.api.action('network', ['start-server', name]).then(proto => {
 		page_network.serverPoll();
-	}).catch(defErrorHandler).finally(() => {
+	}).catch(e => {
+		defErrorHandler(e);
 		webcon.unlockScreen();
-		page_network.reload();
 	});
 }
 
