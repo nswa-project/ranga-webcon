@@ -35,3 +35,11 @@ doctor.analysis = () => {
 		webcon.unlockScreen();
 	});
 }
+
+doctor.notify = () => {
+	webcon.sendNotify('doctor', 'icon-info', '需要帮助吗', '看起来你遇到了点小麻烦。启动拨号医生可能能帮助你解决 Netkeeper PPPoE 连接问题。<br>拨号医生通过分析数据，努力作出一个最准确的问题报告，并给出参考解决方案。拨号医生只支持 Netkeeper 协议，且不支持服务器伪装拦截法。', 'info', true,
+		[{
+			name: '启动拨号医生',
+			func: doctor.analysis
+		}]);
+}

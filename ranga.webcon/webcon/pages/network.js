@@ -18,7 +18,16 @@ page_network.conn = (name, type) => {
 
 	page_network.synctime(type).then(proto => {
 		return ranga.api.action('network', [action, name]);
-	}).then(proto => {}).catch(defErrorHandler).finally(() => {
+	}).then(proto => {}).catch(proto => {
+		defErrorHandler(proto);
+		if (type === 'netkeeper' && !(utils.isNil(proto))) {
+			if (proto.code === '7') {
+				webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
+					doctor.notify();
+				});
+			}
+		}
+	}).finally(() => {
 		webcon.unlockScreen();
 		page_network.reload();
 	});
