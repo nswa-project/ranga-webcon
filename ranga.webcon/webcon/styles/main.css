@@ -171,15 +171,16 @@ input[type="checkbox"]:checked + label::before {
 
 /* https://codepen.io/ConAntonakos/pen/ryMaOX?editors=1111 */
 .circular {
-	height: 54px;
-	width: 54px;
+	height: 48px;
+	width: 48px;
+	overflow: hidden;
 }
 
 .circular svg {
 	animation: rotate 2s linear infinite;
 	height: 48px;
-	position: relative;
 	width: 48px;
+	position: relative;
 }
 
 .circular circle {
