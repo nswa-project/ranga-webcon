@@ -75,7 +75,7 @@ webcon.lockScreen = text => {
 	if (utils.isNil(text))
 		text = '请稍候';
 
-	text = '<div class="circular"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 8px">' + text + '</span>';
+	text = '<div class="circular" style="margin: 2px;"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 10px">' + text + '</span>';
 
 	webcon.dialogForLockScreen = dialog.adv(null, null, text, [], {
 		noMinHeight: 1

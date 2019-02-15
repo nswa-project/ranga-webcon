@@ -16,7 +16,7 @@ page_network.conn = (name, type) => {
 		action = 'dialup';
 	}
 
-	page_network.synctime().then(proto => {
+	page_network.synctime(type).then(proto => {
 		return ranga.api.action('network', [action, name]);
 	}).then(proto => {}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
@@ -63,10 +63,8 @@ page_network.serverPoll = () => {
 		}
 
 		if (needPoll)
-			return utils.delay(1000).then(v => page_network.serverPoll());
-	}).catch(defErrorHandler).finally(() => {
-		webcon.unlockScreen();
-	});
+			return page_network.serverPoll();
+	}).catch(defErrorHandler);
 }
 
 page_network.server = (name, type) => {
