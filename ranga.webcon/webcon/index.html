@@ -131,9 +131,17 @@
 			flex-grow: 0;
 		}
 
+		#scroll_area {
+			overflow-y: auto;
+		}
+
+		#webcon_notify:not(:empty) {
+			padding: 6px;
+			border-bottom: 1px solid #dedede;
+		}
+
 		#webcon_content {
 			padding: 14px;
-			overflow-y: auto;
 		}
 
 		button i {
@@ -245,8 +253,19 @@
 				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
 				<button class="btnFlat" id="login"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
-			<div id="webcon_content">
 
+			<div id="notify_t" class="hide notify">
+				<div class="notify_main">
+					<div class="notify_title"><i class="icon"></i><span class="notify_title_text"></span></div>
+					<div class="notify_text tips"></div>
+				</div>
+				<div class="notify_btns">
+				</div>
+			</div>
+
+			<div id="scroll_area">
+				<div id="webcon_notify"></div>
+				<div id="webcon_content"></div>
 			</div>
 		</div>
 	</div>
@@ -331,6 +350,7 @@
 		}
 
 		selectPage('network', '网络连接');
+
 	</script>
 </body>
 

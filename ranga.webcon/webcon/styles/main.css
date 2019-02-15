@@ -246,3 +246,59 @@ input[type="checkbox"]:checked + label::before {
 	font-size: .9em;
 	color: var(--theme-color-disabled);
 }
+
+.notify_theme_info {
+	--notify-background-color: rgba(0, 136, 204, 0.1);
+	--notify-color: #08c;
+}
+
+.notify_theme_warning {
+	--notify-background-color: rgba(239, 108, 0, 0.1);
+	--notify-color: #ef6c00;
+
+	--theme-color-hover-bg: rgba(239, 108, 0, 0.25);
+	--theme-color: #ef6c00;
+}
+
+.notify_theme_error {
+	--notify-background-color: rgba(255, 0, 0, 0.1);
+	--notify-color: #f00;
+
+	--theme-color-hover-bg: rgba(255, 0, 0, 0.25);
+	--theme-color: #f00;
+}
+
+.notify {
+	margin-top: 12px;
+	background-color: var(--notify-background-color);
+}
+
+.notify .notify_main {
+	padding: 12px;
+	padding-bottom: 0;
+}
+
+.notify i {
+	font-size: 1.2em;
+	margin-right: 8px;
+}
+
+.notify .notify_title {
+	color: var(--notify-color);
+	margin-bottom: 8px;
+}
+
+.notify .notify_title_text {
+	font-weight: bold;
+}
+
+.notify .notify_text {
+	color: var(--notify-color);
+	margin-left: 26px;
+}
+
+.notify .notify_btns {
+	display: flex;
+	justify-content: flex-end;
+	padding: 6px;
+}

@@ -112,3 +112,49 @@ webcon.trKeyword = keyword => {
 	}
 	return keyword;
 }
+
+webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
+	let div = document.getElementById('webcon_notify');
+	let itemT = document.getElementById('notify_t');
+
+	let item = itemT.cloneNode(true);
+	let btnArea = item.getElementsByClassName('notify_btns')[0];
+	item.id = "notify-" + id;
+
+	if (utils.isNil(title)) {
+		item.getElementsByClassName('notify_title')[0].classList.add('hide');
+	} else {
+		item.getElementsByClassName('notify_title_text')[0].textContent = title;
+		item.getElementsByClassName('icon')[0].classList.add(icon);
+	}
+
+	item.getElementsByClassName('notify_text')[0].textContent = text;
+
+	for (var i = 0; i < btns.length; i++) {
+		var button = document.createElement("button");
+		button.classList.add('btnFlat');
+		button.addEventListener('click', ((f, a) => e => f(a))(btns[i].func, item), false);
+		button.textContent = btns[i].name;
+		btnArea.appendChild(button);
+	}
+
+	if (allowClose) {
+		var button = document.createElement("button");
+		button.classList.add('btnFlat');
+		button.addEventListener('click', ((f, a) => e => f(a))(webcon.closeNotify, item), false);
+		button.textContent = "关闭";
+		btnArea.appendChild(button);
+	}
+
+	item.classList.add('notify_theme_' + theme);
+	item.classList.remove('hide');
+	div.appendChild(item);
+
+	item.scrollIntoView();
+
+	return item;
+}
+
+webcon.closeNotify = notify => {
+	notify.remove();
+}
