@@ -114,12 +114,17 @@ webcon.trKeyword = keyword => {
 }
 
 webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
+	id = "notify-" + id;
+	let tmp = document.getElementById(id);
+	if (!utils.isNil(tmp))
+		return tmp;
+
 	let div = document.getElementById('webcon_notify');
 	let itemT = document.getElementById('notify_t');
 
 	let item = itemT.cloneNode(true);
 	let btnArea = item.getElementsByClassName('notify_btns')[0];
-	item.id = "notify-" + id;
+	item.id = id;
 
 	if (utils.isNil(title)) {
 		item.getElementsByClassName('notify_title')[0].classList.add('hide');
@@ -128,7 +133,7 @@ webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
 		item.getElementsByClassName('icon')[0].classList.add(icon);
 	}
 
-	item.getElementsByClassName('notify_text')[0].textContent = text;
+	item.getElementsByClassName('notify_text')[0].innerHTML = text;
 
 	for (var i = 0; i < btns.length; i++) {
 		var button = document.createElement("button");
