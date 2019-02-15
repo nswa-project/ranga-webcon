@@ -93,6 +93,7 @@ page_network.reload = () => {
 			let item = itemT.cloneNode(true);
 			item.getElementsByClassName('p-network-item-ifname')[0].textContent = d[0];
 			item.getElementsByClassName('p-network-item-type')[0].textContent = webcon.trKeyword(d[1]);
+
 			if (parseInt(d[2]) === 1) {
 				let btn = item.getElementsByClassName('p-network-item-btn-close')[0];
 				btn.classList.remove('hide');
@@ -107,7 +108,12 @@ page_network.reload = () => {
 					btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.server, d[0], d[1]), false);
 				}
 			}
-			item.getElementsByClassName('p-network-item-data')[0].textContent = d[3];
+
+			let stat = d[3].split(',');
+			if (stat.length >= 2) {
+				item.getElementsByClassName('p-network-item-data')[0].innerHTML = "已发送: " + utils.formatBytes(stat[1]) + "&nbsp;&nbsp;&nbsp;已接收: " + utils.formatBytes(stat[0]);
+			}
+
 			item.classList.remove('hide');
 			div.appendChild(item);
 		});
