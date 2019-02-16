@@ -73,8 +73,9 @@ dialog.textWidget = dialog_back => {
 
 dialog.simple = (text, close_btn_text) => {
 	close_btn_text = close_btn_text || "好";
-	dialog.show(null, null, text, [{
+	let dlg = dialog.show(null, null, text, [{
 		name: close_btn_text,
 		func: dialog.close
-    }]);
+	}]);
+	dlg.getElementsByTagName('button')[0].focus();
 }
