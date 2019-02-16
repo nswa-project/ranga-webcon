@@ -250,7 +250,7 @@
 				<button id="menu" class="btnFlat"><i class="icon icon-menu"></i></button>
 				<div id="webcon_title"></div>
 				<div id="webcon_buttons"></div>
-				<button class="btnFlat"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
+				<button class="btnFlat" id="cmdline"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
 				<button class="btnFlat" id="login"><i class="icon icon-user"></i><span>登录</span></button>
 			</div>
 
@@ -308,6 +308,10 @@
 
 		document.getElementById('menu').addEventListener('click', e => {
 			document.getElementById('nav').classList.add('nav_show');
+		});
+
+		document.getElementById('cmdline').addEventListener('click', e => {
+			window.open('https://glider0.github.io/doc.zh/euman.html', '_blank');
 		});
 
 		document.getElementById('login').addEventListener('click', e => {
