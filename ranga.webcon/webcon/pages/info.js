@@ -25,7 +25,7 @@ const page_info_init = () => {
 		div.innerHTML += "系统负载：" + info.uptime + "<br>";
 		utils.pageAddSection(div, 'Ranga 系统法律信息');
 		div.innerHTML += "<a target=_blank href='/osl.html'>开放源代码许可<br>";
-		div.innerHTML += "<a target=_blank href='/eul.html'>Ranga 最终用户许可协议<br>";
+		div.innerHTML += "<a target=_blank href='/eul.txt'>Ranga 最终用户许可协议<br>";
 		utils.pageAddSection(div, 'Web 控制台法律信息');
 		div.innerHTML += "<a target=_blank href='https://github.com/glider0/ranga-webcon/COPYING'>Web 控制台授权<br>";
 		div.innerHTML += "<a target=_blank href='https://fontawesome.com/license'>Font Awesome 图标创作共用许可<br>";
