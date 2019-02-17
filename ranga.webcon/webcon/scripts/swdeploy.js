@@ -1,9 +1,7 @@
 var swdeploy = {};
 
 swdeploy.poll = (pre, t) => {
-	utils.delay(800).then(v => {
-		return ranga.api.swdeploy.log()
-	}).then(proto => {
+	ranga.api.swdeploy.log().then(proto => {
 		pre.textContent = proto.payload;
 		return ranga.api.swdeploy.status()
 	}).then(proto => {
