@@ -80,11 +80,11 @@ ranga.protoAjax = (url, data) => {
 }
 
 ranga.api.auth = password => {
-	return ranga.protoAjax("/cgi-bin/auth.sh?m=pw&pw=" + encodeURIComponent(password), null);
+	return ranga.protoAjax("/cgi-bin/auth?m=pw&pw=" + encodeURIComponent(password), null);
 }
 
 ranga.api.disp = (section, target, args) => {
-	return ranga.protoAjax("/cgi-bin/disp.sh?section=" + encodeURIComponent(section) + "&target=" + encodeURIComponent(target), args.join("\n") + "\n");
+	return ranga.protoAjax("/cgi-bin/disp?section=" + encodeURIComponent(section) + "&target=" + encodeURIComponent(target), args.join("\n") + "\n");
 }
 
 ranga.api.config = (target, args) => {
@@ -100,37 +100,37 @@ ranga.api.query = (target, args) => {
 }
 
 ranga.api.addonList = () => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=list", null);
+	return ranga.protoAjax("/cgi-bin/addon?action=list", null);
 }
 
 ranga.api.componentsList = () => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=ls-components", null);
+	return ranga.protoAjax("/cgi-bin/addon?action=ls-components", null);
 }
 
 ranga.api.addonInfo = pkgname => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=info&pkgname=" + encodeURIComponent(pkgname), null);
+	return ranga.protoAjax("/cgi-bin/addon?action=info&pkgname=" + encodeURIComponent(pkgname), null);
 }
 
 ranga.api.addonInstall = blob => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=install", blob);
+	return ranga.protoAjax("/cgi-bin/addon?action=install", blob);
 }
 
 ranga.api.addonRemove = pkgname => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=remove&pkgname=" + encodeURIComponent(pkgname), null);
+	return ranga.protoAjax("/cgi-bin/addon?action=remove&pkgname=" + encodeURIComponent(pkgname), null);
 }
 
 ranga.api.setWebcon = extension => {
-	return ranga.protoAjax("/cgi-bin/addon.sh?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
+	return ranga.protoAjax("/cgi-bin/addon?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
 }
 
 ranga.api.swdeploy.upload = blob => {
-	return ranga.protoAjax("/cgi-bin/swupload.sh?action=patch", blob);
+	return ranga.protoAjax("/cgi-bin/swupload?action=patch", blob);
 }
 
 ranga.api.swdeploy.log = () => {
-	return ranga.protoAjax("/cgi-bin/swupload.sh?action=log", null);
+	return ranga.protoAjax("/cgi-bin/swupload?action=log", null);
 }
 
 ranga.api.swdeploy.status = blob => {
-	return ranga.protoAjax("/cgi-bin/swupload.sh?action=status", blob);
+	return ranga.protoAjax("/cgi-bin/swupload?action=status", blob);
 }
