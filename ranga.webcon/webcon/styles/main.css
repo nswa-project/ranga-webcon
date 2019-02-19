@@ -302,3 +302,16 @@ input[type="checkbox"]:checked + label::before {
 	justify-content: flex-end;
 	padding: 6px;
 }
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadein {
+	animation: .3s fadeIn forwards;
+}
