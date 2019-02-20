@@ -63,7 +63,7 @@
 }
 
 .icon-mwan::before {
-	content: "<";
+	content: "\3C";
 }
 
 .icon-less::before {
@@ -71,7 +71,7 @@
 }
 
 .icon-reload::before {
-	content: ">";
+	content: "\3E";
 }
 
 .icon-dns::before {
