@@ -110,9 +110,6 @@ select {
 	border-radius: 4px;
 	color: #202124;
 	cursor: pointer;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
 	max-width: 100%;
 	outline: none;
 	padding-bottom: 6px;
