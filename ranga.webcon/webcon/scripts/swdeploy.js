@@ -29,5 +29,8 @@ swdeploy.start = blob => {
 	ranga.api.swdeploy.upload(blob).then(proto => {
 		pre.textContent = proto.payload;
 		swdeploy.poll(pre, t);
-	}).catch(defErrorHandler);
+	}).catch(e => {
+		defErrorHandler(e);
+		dialog.close(d);
+	});
 }
