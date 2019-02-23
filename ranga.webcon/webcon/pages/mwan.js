@@ -113,7 +113,9 @@ const page_mwan_init = () => {
 			nrvlan = '0';
 
 		webcon.lockScreen();
-		ranga.api.config('misc', ['set-misc', 'rvlan', nrvlan]).then(proto => {}).catch(defErrorHandler).finally(() => {
+		ranga.api.config('misc', ['set-misc', 'rvlan', nrvlan]).then(proto => {
+			return ranga.api.action('restart', ['rvlan-setup']);
+		}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();
 		});
 	});
