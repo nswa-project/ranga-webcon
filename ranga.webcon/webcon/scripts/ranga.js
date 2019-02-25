@@ -70,7 +70,8 @@ ranga.protoAjax = (url, data) => {
 			if (success && ('code' in proto) && proto.code === '0') {
 				resolve(proto);
 			} else {
-				proto["_ranga_proto_data"] = 1;
+				if (proto !== null)
+					proto["_ranga_proto_data"] = 1;
 				reject(proto);
 			}
 		});
