@@ -77,7 +77,7 @@ page_network.serverPoll = (ifname) => {
 		}
 
 		if (needPoll)
-			return page_network.serverPoll();
+			return page_network.serverPoll(ifname);
 	}).catch(e => {
 		defErrorHandler(e);
 		console.log('onekey: stop');
@@ -151,6 +151,7 @@ const page_network_init = () => {
 			var currentPromise = Promise.resolve();
 			stopStartServer = false;
 
+			webcon.unlockScreen();
 			for (let i = 0; i < arr.length; i++) {
 				if (arr[i] === '') continue;
 				let d = arr[i].split(':');
@@ -158,6 +159,7 @@ const page_network_init = () => {
 				if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
 				let ifname = d[0];
 				currentPromise = currentPromise.then(() => {
+					webcon.lockScreen();
 					if (stopStartServer) return Promise.resolve();
 					console.log('onekey: start: ' + ifname);
 					webcon.updateScreenLockTextWidget('准备：' + ifname);
