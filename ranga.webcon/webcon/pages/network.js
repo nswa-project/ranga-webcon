@@ -1,5 +1,9 @@
 var page_network = {};
 
+page_network.getElementById = id => {
+	return document.getElementById('p-network-' + id);
+}
+
 page_network.synctime = type => {
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true' || type !== 'netkeeper') {
 		return Promise.resolve();
@@ -130,6 +134,10 @@ page_network.reload = () => {
 const page_network_init = () => {
 	webcon.addButton('刷新', 'icon-reload', b => {
 		page_network.reload();
+	});
+
+	page_network.getElementById('onekey').addEventListener('click', e => {
+		alert('FIXME');
 	});
 
 	page_network.reload();

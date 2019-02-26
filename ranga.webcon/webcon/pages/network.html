@@ -23,11 +23,12 @@
 			flex-flow: column;
 			align-items: stretch;
 		}
-		
+
 		.p-network-item-ifname {
 			font-size: 1.12em;
 			font-weight: bold;
 		}
+
 		.p-network-item-b {
 			display: flex;
 			flex-flow: row wrap;
@@ -51,6 +52,9 @@
 			<button class="btnFlat p-network-item-btn-server hide"><i class="icon icon-airplane"></i>启动拦截服务器</button>
 			<button class="btnFlat p-network-item-btn-close hide"><i class="icon icon-close"></i>断开</button>
 		</div>
+	</div>
+	<div>
+		<button class="btnFlat" id="p-network-onekey">为所有未连接的 NK 接口启动拦截服务器</button>
 	</div>
 	<div id="page_network_main"></div>
 </div>
