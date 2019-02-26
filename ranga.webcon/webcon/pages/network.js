@@ -46,7 +46,7 @@ page_network.close = (name, type) => {
 }
 
 page_network.serverPoll = () => {
-	utils.delay(1000).then(v => {
+	return utils.delay(1000).then(v => {
 		return ranga.api.action('network', ['server-status']);
 	}).then(proto => {
 		let status = parseInt(proto.payload);
@@ -72,12 +72,17 @@ page_network.serverPoll = () => {
 				webcon.unlockScreen();
 				needPoll = false;
 				dialog.simple('拦截服务器已超时');
+				return Promise.reject();
 				break;
 		}
 
 		if (needPoll)
 			return page_network.serverPoll();
-	}).catch(defErrorHandler);
+	}).catch(e => {
+		defErrorHandler(e);
+		console.log('onekey: stop');
+		stopStartServer = true;
+	});
 }
 
 page_network.server = (name, type) => {
@@ -131,13 +136,41 @@ page_network.reload = () => {
 	}).catch(defErrorHandler);
 }
 
+var stopStartServer = false;
+
 const page_network_init = () => {
 	webcon.addButton('刷新', 'icon-reload', b => {
 		page_network.reload();
 	});
 
 	page_network.getElementById('onekey').addEventListener('click', e => {
-		alert('FIXME');
+		webcon.lockScreen('正在获取接口信息...')
+		ranga.api.query('network', []).then(proto => {
+			let arr = proto.payload.split('\n');
+
+			var currentPromise = Promise.resolve();
+			stopStartServer = false;
+
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] === '') continue;
+				let d = arr[i].split(':');
+				if (d.length < 4) continue;
+				if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
+				let ifname = d[0];
+				currentPromise = currentPromise.then(() => {
+					if (stopStartServer) return Promise.resolve();
+					console.log('onekey: start: ' + ifname);
+					webcon.updateScreenLockTextWidget('准备：' + ifname);
+					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
+						console.log('onekey: polling: ' + ifname);
+						return page_network.serverPoll();
+					});
+				});
+			}
+			return currentPromise;
+		}).catch(defErrorHandler).finally(() => {
+			webcon.unlockScreen();
+		});
 	});
 
 	page_network.reload();
