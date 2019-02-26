@@ -45,7 +45,7 @@ page_network.close = (name, type) => {
 	});
 }
 
-page_network.serverPoll = () => {
+page_network.serverPoll = (ifname) => {
 	return utils.delay(1000).then(v => {
 		return ranga.api.action('network', ['server-status']);
 	}).then(proto => {
@@ -55,13 +55,13 @@ page_network.serverPoll = () => {
 
 		switch (status) {
 			case 1:
-				webcon.updateScreenLockTextWidget('拦截服务器启动中');
+				webcon.updateScreenLockTextWidget('拦截服务器启动中 (' + ifname +')');
 				break;
 			case 2:
-				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪');
+				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪 (' + ifname +')');
 				break;
 			case 3:
-				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息');
+				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息 (' + ifname +')');
 				break;
 			case 4:
 				webcon.unlockScreen();
@@ -71,7 +71,7 @@ page_network.serverPoll = () => {
 			case 5:
 				webcon.unlockScreen();
 				needPoll = false;
-				dialog.simple('拦截服务器已超时');
+				dialog.simple('拦截服务器已超时 (' + ifname +')');
 				return Promise.reject();
 				break;
 		}
@@ -163,7 +163,7 @@ const page_network_init = () => {
 					webcon.updateScreenLockTextWidget('准备：' + ifname);
 					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
 						console.log('onekey: polling: ' + ifname);
-						return page_network.serverPoll();
+						return page_network.serverPoll(ifname);
 					});
 				});
 			}
