@@ -1,5 +1,9 @@
 var page_network = {};
 
+page_network.getElementById = id => {
+	return document.getElementById('p-network-' + id);
+}
+
 page_network.synctime = type => {
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true' || type !== 'netkeeper') {
 		return Promise.resolve();
@@ -41,8 +45,8 @@ page_network.close = (name, type) => {
 	});
 }
 
-page_network.serverPoll = () => {
-	utils.delay(1000).then(v => {
+page_network.serverPoll = (ifname) => {
+	return utils.delay(1000).then(v => {
 		return ranga.api.action('network', ['server-status']);
 	}).then(proto => {
 		let status = parseInt(proto.payload);
@@ -51,13 +55,13 @@ page_network.serverPoll = () => {
 
 		switch (status) {
 			case 1:
-				webcon.updateScreenLockTextWidget('拦截服务器启动中');
+				webcon.updateScreenLockTextWidget('拦截服务器启动中 (' + ifname + ')');
 				break;
 			case 2:
-				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪');
+				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪 (' + ifname + ')');
 				break;
 			case 3:
-				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息');
+				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息 (' + ifname + ')');
 				break;
 			case 4:
 				webcon.unlockScreen();
@@ -67,19 +71,26 @@ page_network.serverPoll = () => {
 			case 5:
 				webcon.unlockScreen();
 				needPoll = false;
-				dialog.simple('拦截服务器已超时');
+				dialog.simple('拦截服务器已超时 (' + ifname + ')');
+
+				console.log('onekey: stop');
+				stopStartServer = true;
 				break;
 		}
 
 		if (needPoll)
-			return page_network.serverPoll();
-	}).catch(defErrorHandler);
+			return page_network.serverPoll(ifname);
+	}).catch(e => {
+		defErrorHandler(e);
+		console.log('onekey: stop');
+		stopStartServer = true;
+	});
 }
 
 page_network.server = (name, type) => {
 	webcon.lockScreen();
 	ranga.api.action('network', ['start-server', name]).then(proto => {
-		page_network.serverPoll();
+		page_network.serverPoll(name);
 	}).catch(e => {
 		defErrorHandler(e);
 		webcon.unlockScreen();
@@ -127,9 +138,44 @@ page_network.reload = () => {
 	}).catch(defErrorHandler);
 }
 
+var stopStartServer = false;
+
 const page_network_init = () => {
 	webcon.addButton('刷新', 'icon-reload', b => {
 		page_network.reload();
+	});
+
+	page_network.getElementById('onekey').addEventListener('click', e => {
+		webcon.lockScreen('正在获取接口信息...')
+		ranga.api.query('network', []).then(proto => {
+			let arr = proto.payload.split('\n');
+
+			var currentPromise = Promise.resolve();
+			stopStartServer = false;
+
+			webcon.unlockScreen();
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] === '') continue;
+				let d = arr[i].split(':');
+				if (d.length < 4) continue;
+				if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
+				let ifname = d[0];
+				currentPromise = currentPromise.then(() => {
+					if (stopStartServer) return Promise.resolve();
+					webcon.lockScreen();
+					console.log('onekey: start: ' + ifname);
+					webcon.updateScreenLockTextWidget('准备：' + ifname);
+					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
+						console.log('onekey: polling: ' + ifname);
+						return page_network.serverPoll(ifname);
+					});
+				});
+			}
+			return currentPromise;
+		}).catch(defErrorHandler).finally(() => {
+			console.log('onekey: finally');
+			webcon.unlockScreen();
+		});
 	});
 
 	page_network.reload();
