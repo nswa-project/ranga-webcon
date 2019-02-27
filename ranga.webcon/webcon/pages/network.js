@@ -88,7 +88,7 @@ page_network.serverPoll = (ifname) => {
 page_network.server = (name, type) => {
 	webcon.lockScreen();
 	ranga.api.action('network', ['start-server', name]).then(proto => {
-		page_network.serverPoll();
+		page_network.serverPoll(name);
 	}).catch(e => {
 		defErrorHandler(e);
 		webcon.unlockScreen();
