@@ -55,13 +55,13 @@ page_network.serverPoll = (ifname) => {
 
 		switch (status) {
 			case 1:
-				webcon.updateScreenLockTextWidget('拦截服务器启动中 (' + ifname +')');
+				webcon.updateScreenLockTextWidget('拦截服务器启动中 (' + ifname + ')');
 				break;
 			case 2:
-				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪 (' + ifname +')');
+				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪 (' + ifname + ')');
 				break;
 			case 3:
-				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息 (' + ifname +')');
+				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息 (' + ifname + ')');
 				break;
 			case 4:
 				webcon.unlockScreen();
@@ -71,8 +71,10 @@ page_network.serverPoll = (ifname) => {
 			case 5:
 				webcon.unlockScreen();
 				needPoll = false;
-				dialog.simple('拦截服务器已超时 (' + ifname +')');
-				return Promise.reject();
+				dialog.simple('拦截服务器已超时 (' + ifname + ')');
+
+				console.log('onekey: stop');
+				stopStartServer = true;
 				break;
 		}
 
@@ -159,8 +161,8 @@ const page_network_init = () => {
 				if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
 				let ifname = d[0];
 				currentPromise = currentPromise.then(() => {
-					webcon.lockScreen();
 					if (stopStartServer) return Promise.resolve();
+					webcon.lockScreen();
 					console.log('onekey: start: ' + ifname);
 					webcon.updateScreenLockTextWidget('准备：' + ifname);
 					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
@@ -171,6 +173,7 @@ const page_network_init = () => {
 			}
 			return currentPromise;
 		}).catch(defErrorHandler).finally(() => {
+			console.log('onekey: finally');
 			webcon.unlockScreen();
 		});
 	});
