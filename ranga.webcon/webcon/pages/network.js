@@ -145,7 +145,11 @@ const page_network_init = () => {
 		page_network.reload();
 	});
 
-	page_network.getElementById('onekey').addEventListener('click', e => {
+	let onekeyButton = page_network.getElementById('onekey');
+	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
+		onekeyButton.classList.remove('hide');
+	}
+	onekeyButton.addEventListener('click', e => {
 		webcon.lockScreen('正在获取接口信息...')
 		ranga.api.query('network', []).then(proto => {
 			let arr = proto.payload.split('\n');
