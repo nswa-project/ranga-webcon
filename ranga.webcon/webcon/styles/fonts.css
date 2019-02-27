@@ -113,3 +113,7 @@
 .icon-warning::before {
 	content: "H";
 }
+
+.icon-cron::before {
+	content: "I";
+}
