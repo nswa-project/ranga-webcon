@@ -13,16 +13,17 @@
 			flex-flow: row;
 			align-items: center;
 		}
-		
+
 		.p-cron-item button i {
 			margin-right: 0;
 		}
-		
+
 		.p-cron-item button {
 			margin-top: 0 !important;
 			margin-right: 14px;
 			padding: 10px;
 		}
+
 	</style>
 	<div id="p-cron-item_t" class="hide p-cron-item">
 		<button class="btnFlat"><i class="icon icon-close"></i></button>
@@ -32,4 +33,9 @@
 		计划任务设置的修改在重启 NSWA Ranga 系统或重启 CRON 服务之前不会生效，因此在修改这些设置后，你可以点按“重启 CRON 服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成计划任务的多个配置，然后执行一次。<br>
 		<button class="btnFlat" id='p-cron-restart'>重启 CRON 服务</button>
 	</div>
+	<h1>计划任务列表</h1>
+	<div class="tips">要添加新的计划任务，请使用 Web 控制台右上角的按钮。</div>
+	<div id='p-cron-list'>
+	</div>
+	<button class="btnFlat" id='p-dns-clearbind'>清除全部计划任务</button>
 </div>
