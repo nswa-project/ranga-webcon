@@ -136,6 +136,10 @@
 
 		#scroll_area {
 			overflow-y: auto;
+			flex-grow: 1;
+			display: flex;
+			flex-flow: column;
+			align-items: stretch;
 		}
 
 		#webcon_notify:not(:empty) {
@@ -145,6 +149,7 @@
 
 		#webcon_content {
 			padding: 14px;
+			flex-grow: 1;
 		}
 
 		button i {
