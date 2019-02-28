@@ -166,8 +166,8 @@ webcon.closeNotify = notify => {
 
 webcon.onlineInited = false;
 webcon.setupOnlineScript = () => {
-	if (onlineInited) return;
-	onlineInited = true;
+	if (webcon.onlineInited) return;
+	webcon.onlineInited = true;
 	if (utils.getLocalStorageItem('disable-nswa-online') !== 'true') {
 		webcon.loadScript("online", "https://glider0.github.io/nswa/online.ranga/main.js").then(a => {
 			eval("nswaOnlineInit(1)");
