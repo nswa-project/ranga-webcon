@@ -24,12 +24,22 @@
 			padding: 10px;
 		}
 
+		#p-cron-add-dialog {
+			padding: 20px;
+			overflow: auto;
+		}
+
+		#p-cron-add-dialog input {
+			margin-top: 6px;
+		}
+
 	</style>
 	<div id="p-cron-item_t" class="hide p-cron-item">
 		<button class="btnFlat"><i class="icon icon-close"></i></button>
 		<span></span>
 	</div>
 	<div>
+		计划任务服务默认不会开机自动启动，你可以前往<b>杂项与微调</b>中开启开机自动启动计划任务服务的功能。<br>
 		计划任务设置的修改在重启 NSWA Ranga 系统或重启 CRON 服务之前不会生效，因此在修改这些设置后，你可以点按“重启 CRON 服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成计划任务的多个配置，然后执行一次。<br>
 		<button class="btnFlat" id='p-cron-restart'>重启 CRON 服务</button>
 	</div>
@@ -37,5 +47,42 @@
 	<div class="tips">要添加新的计划任务，请使用 Web 控制台右上角的按钮。</div>
 	<div id='p-cron-list'>
 	</div>
-	<button class="btnFlat" id='p-dns-clearbind'>清除全部计划任务</button>
+	<button class="btnFlat" id='p-cron-clear'>清除全部计划任务</button>
+</div>
+
+<div id="p-cron-add" class="hide md_dialog_back">
+	<div id="p-cron-add-dialog" class="md_dialog">
+		你想在什么时间唤醒此计划任务
+		<div class="tips">
+			任意间隔使用 '*'，每间隔一次使用 '数字/*'，具体时间使用 '数字'，多个连续具体时间使用 '数字-数字'，多个不连续具体时间使用 '数字,数字,...'。分钟 0 到 59，小时 0 到 23，日 1到 31，月 1 到 12，星期 0 到 7。<br><br>
+			例子：<br>
+			每1分钟执行一次：* * * * *<br>
+			每1小时执行一次：0 */1 * * *<br>
+			每3小时执行一次：0 */3 * * *<br>
+			每天凌晨6点执行一次：0 6 */1 * *<br>
+			每小时的第4和第18分钟执行一次：4,18 * * * *<br>
+			在上午4点到11点的第5和第35分钟执行一次：5,35 4-11 * * *<br>
+			每星期六的晚上11点执行一次：0 23 * * 6<br>
+			每周六、周日18点至23点之间每隔30分钟执行一次：0,30 18-23 * * 6,0<br><br>
+		</div>
+		<input id="p-cron-add-m" style='width: 100%' placeholder='分钟'>
+		<input id="p-cron-add-h" style='width: 100%' placeholder='小时'>
+		<input id="p-cron-add-d" style='width: 100%' placeholder='日'>
+		<input id="p-cron-add-month" style='width: 100%' placeholder='月'>
+		<input id="p-cron-add-w" style='width: 100%' placeholder='星期'>
+		<div class="divline"></div>
+		你想在此计划任务中做什么<br><br>
+		<select id="p-cron-add-actions" style="min-height: 24px;">
+			<option value="-1">自定义</option>
+			<option value="0">预设：重启系统</option>
+		</select>
+		<input id="p-cron-add-pkgname" style='width: 100%' placeholder='唤醒的扩展程序'>
+		<input id="p-cron-add-cron" style='width: 100%' placeholder='唤醒的计划任务程序'>
+		<input id="p-cron-add-args" style='width: 100%' placeholder='传入参数'>
+		<div class="divline"></div>
+		<div>
+			<button id="p-cron-add-add" class="btnFlat">添加计划任务</button><br>
+			<button id="p-cron-add-hide" class="btnFlat">关闭</button><br>
+		</div>
+	</div>
 </div>
