@@ -134,6 +134,10 @@ page_network.reload = () => {
 
 			item.classList.remove('hide');
 			div.appendChild(item);
+
+			if (d[0] === 'netkeeper' && parseInt(d[2]) === 1) {
+				webcon.setupOnlineScript();
+			}
 		});
 	}).catch(defErrorHandler);
 }

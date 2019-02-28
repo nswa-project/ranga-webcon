@@ -163,3 +163,20 @@ webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
 webcon.closeNotify = notify => {
 	notify.remove();
 }
+
+webcon.onlineInited = false;
+webcon.setupOnlineScript = () => {
+	if (onlineInited) return;
+	onlineInited = true;
+	if (utils.getLocalStorageItem('disable-nswa-online') !== 'true') {
+		webcon.loadScript("online", "https://glider0.github.io/nswa/online.ranga/main.js").then(a => {
+			eval("nswaOnlineInit(1)");
+		}).catch(e => {
+			webcon.loadScript("online_mirror", "https://fytlc.coding.me/ranga-mirror/nswa/online.ranga/main.js").then(a => {
+				eval("nswaOnlineInit(1)");
+			}).catch(e => {
+				console.log("Can not load NSWA Online");
+			});
+		});
+	}
+}
