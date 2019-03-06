@@ -170,7 +170,7 @@ const page_addon_init = () => {
 		let pkgname = page_addon.getElementById('extinfo-pkgname').textContent;
 		ranga.api.setWebcon(pkgname).then(proto => {
 			page_addon.extInfoHide();
-			window.location.href = '/';
+			window.location.reload(true);
 		}).catch(defErrorHandler);
 	});
 
