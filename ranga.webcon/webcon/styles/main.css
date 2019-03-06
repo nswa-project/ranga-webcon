@@ -42,7 +42,10 @@ a:focus {
     user-select: none;
 }
 
-::selection,
+::selection {
+    background: #b3e5fc;
+}
+
 ::-moz-selection {
     background: #b3e5fc;
 }
