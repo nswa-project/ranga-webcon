@@ -88,6 +88,8 @@ const page_interface_init = () => {
 		ranga.api.config('interface', ['set', page_interface.ifname, 'type', v]).then(proto => {
 			v = (page_interface.getElementById('nk').checked ? 'on' : 'off');
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'nkplugin', v]);
+		}).then(proto => {
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 的协议类型配置已经被修改。");
 		}).catch(defErrorHandler);
 	});
 
@@ -96,6 +98,8 @@ const page_interface_init = () => {
 		ranga.api.config('interface', ['set', page_interface.ifname, 'usrnam', v]).then(proto => {
 			v = page_interface.getElementById('passwd').value;
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'passwd', v]);
+		}).then(proto => {
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 的认证信息配置已经被修改。");
 		}).catch(defErrorHandler);
 	});
 
@@ -110,22 +114,29 @@ const page_interface_init = () => {
 		}).then(proto => {
 			v = (page_interface.getElementById('defroute').checked ? '1' : '0');
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'defaultroute', v]);
+		}).then(proto => {
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 的静态地址配置已经被修改。");
 		}).catch(defErrorHandler);
 	});
 
 	page_interface.getElementById('set-mac').addEventListener('click', e => {
 		let v = page_interface.getElementById('macaddr').value;
-		ranga.api.config('interface', ['set', page_interface.ifname, 'macaddr', v]).then(proto => {}).catch(defErrorHandler);
+		ranga.api.config('interface', ['set', page_interface.ifname, 'macaddr', v]).then(proto => {
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 的网卡物理地址配置已经被修改。");
+		}).catch(defErrorHandler);
 	});
 
 	page_interface.getElementById('set-rvlan').addEventListener('click', e => {
 		let v = page_interface.getElementById('rvlan').value;
-		ranga.api.config('interface', ['set', page_interface.ifname, 'rvlan', v]).then(proto => {}).catch(defErrorHandler);
+		ranga.api.config('interface', ['set', page_interface.ifname, 'rvlan', v]).then(proto => {
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 的 Reverse VLAN 配置已经被修改。");
+		}).catch(defErrorHandler);
 	});
 
 	page_interface.getElementById('delete').addEventListener('click', e => {
 		ranga.api.config('interface', ['remove', page_interface.ifname]).then(proto => {
 			page_interface.reload();
+			dialog.toast("接口 ‘" + page_interface.ifname + "' 已经被删除。");
 		}).catch(defErrorHandler);
 	});
 

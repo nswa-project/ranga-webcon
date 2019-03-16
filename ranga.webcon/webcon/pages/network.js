@@ -39,7 +39,9 @@ page_network.conn = (name, type) => {
 
 page_network.close = (name, type) => {
 	webcon.lockScreen();
-	ranga.api.action('network', ['down', name]).then(proto => {}).catch(defErrorHandler).finally(() => {
+	ranga.api.action('network', ['down', name]).then(proto => {
+		dialog.toast("已断开接口 ‘" + name + "' 的连接。");
+	}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
 		page_network.reload();
 	});
