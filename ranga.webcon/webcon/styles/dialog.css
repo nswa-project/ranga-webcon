@@ -55,9 +55,33 @@
 	font-weight: normal;
 }
 
+.md_toast {
+	position: fixed;
+	left: 36px;
+	bottom: 30px;
+
+	background-color: #202124;
+	color: white;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.24), 0 4px 20px 0 rgba(0, 0, 0, 0.23);
+
+	min-width: 400px;
+	max-width: 660px;
+	padding: 16px 24px;
+
+	display: flex;
+	flex-direction: row;
+}
+
 @media (max-width: 750px) {
 	.md_dialog {
 		min-width: calc(100vw - 40px);
 		max-width: calc(100vw - 40px);
+	}
+
+	.md_toast {
+		min-width: calc(100vw);
+		max-width: calc(100vw);
+		left: 0;
+		bottom: 0;
 	}
 }

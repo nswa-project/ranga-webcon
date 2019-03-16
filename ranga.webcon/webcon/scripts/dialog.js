@@ -79,3 +79,14 @@ dialog.simple = (text, close_btn_text) => {
 	}]);
 	dlg.getElementsByTagName('button')[0].focus();
 }
+
+dialog.toast = (text) => {
+	let toast = document.createElement("div");
+	toast.classList.add("md_toast");
+	toast.innerHTML = text;
+	document.body.appendChild(toast);
+
+	setTimeout(() => {
+		toast.parentElement.removeChild(toast);
+	}, 5000)
+}
