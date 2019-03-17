@@ -50,9 +50,7 @@ page_network.close = (name, type) => {
 }
 
 page_network.serverPoll = (ifname) => {
-	return utils.delay(1000).then(v => {
-		return ranga.api.action('network', ['server-status']);
-	}).then(proto => {
+	return ranga.api.action('network', ['server-status']).then(proto => {
 		let status = parseInt(proto.payload);
 		let needPoll = true;
 		console.log("page_network.serverPoll: status: " + status);
