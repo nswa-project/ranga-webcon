@@ -143,18 +143,21 @@ const page_mwan_init = () => {
 
 	page_mwan.getElementById('addif').addEventListener('change', e => {
 		let addif = page_mwan.getElementById('addif'),
-			ifname = page_mwan.getElementById('ifs').value;
-		action = 'remove';
+			ifname = page_mwan.getElementById('ifs').value,
+			action = 'remove',
+			action_nice= '从多宿主列表中删除';
 
 		if (ifname === '')
 			return;
 
 		if (addif.checked === true) {
 			action = 'add';
+			action_nice= '添加到多宿主列表';
 		}
 
 		ranga.api.config('mwan', [action, ifname]).then(proto => {
 			page_mwan.interfaceEdit(addif.checked, ifname);
+			dialog.toast("已经将接口 ‘" + ifname + "' " + action_nice + "。但需要重启多宿主服务以生效。");
 		}).catch(defErrorHandler);
 	});
 
@@ -190,6 +193,8 @@ const page_mwan_init = () => {
 			return ranga.api.config('mwan', ['set', ifname, 'metric', metric]);
 		}).then(proto => {
 			return ranga.api.config('mwan', ['set', ifname, 'weight', weight]);
+		}).then(proto => {
+			dialog.toast("接口 ‘" + ifname + "' 的多宿主配置已经更改。但需要重启多宿主服务以生效。");
 		}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();
 		});

@@ -5,18 +5,24 @@ page_misc.getElementById = id => {
 }
 
 page_misc.setFlag = e => {
-	let element = e.target;
-	let value = (element.checked ? '1' : '0');
-	let key = element.dataset.x;
-	ranga.api.config('misc', ['set-flag', key, value]).then(proto => {}).catch(defErrorHandler)
+	let element = e.target,
+		value = (element.checked ? '1' : '0'),
+		key = element.dataset.x,
+		toastString = element.dataset.toast;
+	ranga.api.config('misc', ['set-flag', key, value]).then(proto => {
+		dialog.toast(toastString);
+	}).catch(defErrorHandler)
 }
 
 page_misc.setMisc = e => {
-	let element = e.target;
-	let key = element.dataset.x;
-	let valueElement = element.dataset.v;
-	let value = page_misc.getElementById(valueElement).value;
-	ranga.api.config('misc', ['set-misc', key, value]).then(proto => {}).catch(defErrorHandler)
+	let element = e.target,
+		key = element.dataset.x,
+		valueElement = element.dataset.v,
+		value = page_misc.getElementById(valueElement).value,
+		toastString = element.dataset.toast;
+	ranga.api.config('misc', ['set-misc', key, value]).then(proto => {
+		dialog.toast(toastString);
+	}).catch(defErrorHandler)
 }
 
 const page_misc_init = () => {
@@ -42,11 +48,11 @@ const page_misc_init = () => {
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
-	
+
 	page_misc.getElementById('cp').addEventListener('change', page_misc.setFlag);
 	page_misc.getElementById('cron').addEventListener('change', page_misc.setFlag);
 	page_misc.getElementById('ed').addEventListener('change', page_misc.setFlag);
 	page_misc.getElementById('anydial').addEventListener('change', page_misc.setFlag);
-	
+
 	page_misc.getElementById('set-ppp').addEventListener('click', page_misc.setMisc);
 }

@@ -7,12 +7,16 @@ page_system.getElementById = id => {
 const page_system_init = () => {
 	page_system.getElementById('syncdate').addEventListener('click', e => {
 		let ts = utils.getUNIXTimestamp();
-		ranga.api.action('date', ['' + ts]).then(proto => {}).catch(defErrorHandler);
+		ranga.api.action('date', ['' + ts]).then(proto => {
+			dialog.toast("系统时钟已更新。");
+		}).catch(defErrorHandler);
 	});
 	
 	page_system.getElementById('date').addEventListener('click', e => {
 		let ts = parseInt(page_system.getElementById('unixtime').value);
-		ranga.api.action('date', ['' + ts]).then(proto => {}).catch(defErrorHandler);
+		ranga.api.action('date', ['' + ts]).then(proto => {
+			dialog.toast("系统时钟已更新。");
+		}).catch(defErrorHandler);
 	});
 
 	page_system.getElementById('reboot').addEventListener('click', e => {

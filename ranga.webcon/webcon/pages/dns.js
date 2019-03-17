@@ -156,6 +156,8 @@ const page_dns_init = () => {
 			return ranga.api.config('dhcp', ['set', 'start', start]);
 		}).then(proto => {
 			return ranga.api.config('dhcp', ['set', 'limit', limit]);
+		}).then(proto => {
+			dialog.toast("动态主机配置协议配置已经更改。但需要重启动态主机配置服务以生效。");
 		}).catch(defErrorHandler);
 	});
 
@@ -171,6 +173,8 @@ const page_dns_init = () => {
 			return ranga.api.config('dns', ['set', 'port', port]);
 		}).then(proto => {
 			return ranga.api.config('dns', ['set', 'queryport', queryport]);
+		}).then(proto => {
+			dialog.toast("域名系统配置已经更改。但需要重启域名系统服务以生效。");
 		}).catch(defErrorHandler);
 	});
 }

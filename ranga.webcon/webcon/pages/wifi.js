@@ -92,7 +92,9 @@ const page_wifi_init = () => {
 
 	page_wifi.getElementById('set-chiper').addEventListener('click', e => {
 		let chiper = page_wifi.getElementById('chiper').value;
-		ranga.api.config('wifi', ['set', '' + page_wifi.id, 'chiper', chiper]).then(proto => {}).catch(defErrorHandler);
+		ranga.api.config('wifi', ['set', '' + page_wifi.id, 'chiper', chiper]).then(proto => {
+			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的加密套件已经被修改。但需要重启无线服务以生效。");
+		}).catch(defErrorHandler);
 	});
 
 	page_wifi.getElementById('set-psk').addEventListener('click', e => {
@@ -100,7 +102,9 @@ const page_wifi_init = () => {
 			key = page_wifi.getElementById('pskkey').value;
 		ranga.api.config('wifi', ['set', '' + page_wifi.id, 'psk.ssid', ssid]).then(proto => {
 			return ranga.api.config('wifi', ['set', '' + page_wifi.id, 'psk.key', key]);
-		}).then(proto => {}).catch(defErrorHandler);
+		}).then(proto => {
+			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的预共享密钥已经被修改。但需要重启无线服务以生效。");
+		}).catch(defErrorHandler);
 
 	});
 
@@ -115,7 +119,9 @@ const page_wifi_init = () => {
 			return ranga.api.config('wifi', ['set', '' + page_wifi.id, 'htmode', htmode]);
 		}).then(proto => {
 			return ranga.api.config('wifi', ['set', '' + page_wifi.id, 'noscan', noscan]);
-		}).then(proto => {}).catch(defErrorHandler);
+		}).then(proto => {
+			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的无线电配置已经被修改。但需要重启无线服务以生效。");
+		}).catch(defErrorHandler);
 	});
 
 	page_wifi.getElementById('restart').addEventListener('click', e => {

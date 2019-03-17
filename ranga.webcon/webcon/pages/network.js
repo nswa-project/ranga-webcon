@@ -22,7 +22,9 @@ page_network.conn = (name, type) => {
 
 	page_network.synctime(type).then(proto => {
 		return ranga.api.action('network', [action, name]);
-	}).then(proto => {}).catch(proto => {
+	}).then(proto => {
+		dialog.toast("接口 ‘" + name + "' 已连接。");
+	}).catch(proto => {
 		defErrorHandler(proto);
 		if (type === 'netkeeper' && !(utils.isNil(proto))) {
 			if (proto.code === '7') {
@@ -69,6 +71,7 @@ page_network.serverPoll = (ifname) => {
 				webcon.unlockScreen();
 				needPoll = false;
 				page_network.reload();
+				dialog.toast("接口 ‘" + ifname + "' 的拦截过程已经结束。");
 				break;
 			case 5:
 				webcon.unlockScreen();
