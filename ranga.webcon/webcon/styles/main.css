@@ -3,6 +3,8 @@ body {
 	--theme-color-hover-bg: rgba(0, 136, 204, 0.25);
 	--theme-color-disabled: #4e4e4e;
 	--theme-color-disabled-bg: #f0f0f0;
+	--theme-color-selection: black;
+	--theme-color-selection-bg: #b3e5fc;
 }
 
 *::-moz-focus-inner {
@@ -35,19 +37,27 @@ a:focus {
 }
 
 .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
 ::selection {
-    background: #b3e5fc;
+	background: var(--theme-color-selection-bg);
+	color: var(--theme-color-selection);
 }
 
 ::-moz-selection {
-    background: #b3e5fc;
+	background: var(--theme-color-selection-bg);
+	color: var(--theme-color-selection);
+}
+
+pre {
+	font-family: 'Roboto Mono', 'DejaVu Sans Mono', 'Noto Mono', 'Noto Sans Mono', 'Lucida Console', Courier, monospace;
+	font-size: .8em;
+	margin: 0;
 }
 
 textarea,
