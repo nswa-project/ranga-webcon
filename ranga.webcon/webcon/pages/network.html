@@ -15,10 +15,10 @@
 
 		.p-network-item-icon {
 			font-size: 1.4em;
+			margin-right: 10px;
 		}
 
 		.p-network-item-a-a {
-			margin-left: 10px;
 			display: flex;
 			flex-flow: column;
 			align-items: stretch;
@@ -55,6 +55,9 @@
 	</div>
 	<div>
 		<button class="btnFlat hide" id="p-network-onekey">为所有未连接的 NK 接口启动拦截服务器</button>
+		<div id="p-network-scdial" class="tips hide">
+			<i class="icon icon-warning p-network-item-icon"></i>由于新型实验性拦截服务已经启用，传统拦截服务器被禁用
+		</div>
 	</div>
 	<div id="page_network_main"></div>
 </div>

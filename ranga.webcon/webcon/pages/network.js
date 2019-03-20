@@ -107,9 +107,20 @@ page_network.reload = () => {
 	div.textContent = '';
 	let itemT = document.getElementById('p-network-item_t');
 
+	let f_scdial_enable = false;
+
 	ranga.api.query('network', []).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			console.log(i);
+			if (i.startsWith('!')) {
+				switch (i) {
+					case "!scdial-is-enabled":
+						f_scdial_enable = true;
+						break;
+				}
+				return;
+			}
+
 			let d = i.split(':');
 			if (d.length < 4) return;
 
@@ -128,7 +139,11 @@ page_network.reload = () => {
 				if (d[1] === 'netkeeper') {
 					btn = item.getElementsByClassName('p-network-item-btn-server')[0];
 					btn.classList.remove('hide');
-					btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.server, d[0], d[1]), false);
+					if (f_scdial_enable) {
+						btn.disabled = true;
+					} else {
+						btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.server, d[0], d[1]), false);
+					}
 				}
 			}
 
@@ -144,6 +159,10 @@ page_network.reload = () => {
 				webcon.setupOnlineScript();
 			}
 		});
+
+		if (f_scdial_enable) {
+			page_network.getElementById('scdial').classList.remove('hide');
+		}
 	}).catch(defErrorHandler);
 }
 
