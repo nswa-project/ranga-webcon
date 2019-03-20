@@ -25,6 +25,16 @@ page_misc.setMisc = e => {
 	}).catch(defErrorHandler)
 }
 
+page_misc.setSvc = e => {
+	let element = e.target,
+		value = (element.checked ? 'enable' : 'disable'),
+		key = element.dataset.x,
+		toastString = element.dataset.toast;
+	ranga.api.config('svc', [key, value]).then(proto => {
+		dialog.toast(toastString);
+	}).catch(defErrorHandler)
+}
+
 const page_misc_init = () => {
 	webcon.lockScreen();
 	ranga.api.config('misc', ['ls']).then(proto => {
@@ -43,8 +53,13 @@ const page_misc_init = () => {
 		page_misc.getElementById('cron').checked = (data['nswa.flags.enable_cron_autostart'] === '1');
 		page_misc.getElementById('ed').checked = (data['nswa.flags.enable_early_dial'] === '1');
 		page_misc.getElementById('anydial').checked = (data['nswa.flags.permit_anonymous_dial'] === '1');
+		page_misc.getElementById('scdial').checked = (data['nswa.flags.enable_forever_nkserver'] === '1');
 		page_misc.getElementById('ppp').value = data['nswa.misc.autoppp'];
 
+		return ranga.api.config('svc', ['offload', 'is-enabled']);
+	}).then(proto => {
+		if (proto.payload.startsWith('enabled'))
+			page_misc.getElementById('offload').checked = true;
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
@@ -53,6 +68,9 @@ const page_misc_init = () => {
 	page_misc.getElementById('cron').addEventListener('change', page_misc.setFlag);
 	page_misc.getElementById('ed').addEventListener('change', page_misc.setFlag);
 	page_misc.getElementById('anydial').addEventListener('change', page_misc.setFlag);
+	page_misc.getElementById('scdial').addEventListener('change', page_misc.setFlag);
 
 	page_misc.getElementById('set-ppp').addEventListener('click', page_misc.setMisc);
+
+	page_misc.getElementById('offload').addEventListener('change', page_misc.setSvc);
 }
