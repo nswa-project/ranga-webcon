@@ -61,7 +61,7 @@ page_wifi.edit = () => {
 
 			let tmp = false;
 			if (data.noscan === '1') tmp = true;
-			page_wifi.getElementById('noscan').value = tmp;
+			page_wifi.getElementById('noscan').checked = tmp;
 
 			editPage.classList.remove('hide');
 		}).catch(defErrorHandlerPage).finally(() => {
