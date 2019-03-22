@@ -88,7 +88,7 @@ const page_dns_init = () => {
 	});
 
 	page_dns.getElementById('addbind').addEventListener('click', e => {
-		let d = dialog.show('icon-add', '添加绑定', "输入网际网协议版本4地址<br><input style='width: 100%' type=text><br><br>输入媒体访问地址<br><input style='width: 100%' type=text>", [{
+		let d = dialog.show('icon-add', '添加绑定', "输入网际网协议版本4地址<br><input style='width: 100%' type=text><br><br>输入媒体访问控制地址<br><input style='width: 100%' type=text>", [{
 			name: "添加",
 			func: (d => {
 				let inputs = d.getElementsByTagName('input');
