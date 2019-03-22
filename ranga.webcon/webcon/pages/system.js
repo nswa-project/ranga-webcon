@@ -11,7 +11,7 @@ const page_system_init = () => {
 			dialog.toast("系统时钟已更新。");
 		}).catch(defErrorHandler);
 	});
-	
+
 	page_system.getElementById('date').addEventListener('click', e => {
 		let ts = parseInt(page_system.getElementById('unixtime').value);
 		ranga.api.action('date', ['' + ts]).then(proto => {
@@ -27,7 +27,30 @@ const page_system_init = () => {
 
 	page_system.getElementById('log').addEventListener('click', e => {
 		ranga.api.query('log', []).then(proto => {
-			dialog.simple("<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>");
+			dialog.show(null, null, "<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>", [
+				{
+					name: "保存到文件",
+					func: (d => {
+						let blob = new Blob([proto.payload], {
+							type: "text/plain;charset=utf-8"
+						});
+						let a = document.createElement("a"),
+							url = URL.createObjectURL(blob);
+						a.href = url;
+						a.download = "ranga.log";
+						document.body.appendChild(a);
+						a.click();
+						setTimeout(() => {
+							document.body.removeChild(a);
+							window.URL.revokeObjectURL(url);
+						}, 0);
+					})
+				},
+				{
+					name: "好",
+					func: dialog.close
+				}
+			]);
 		}).catch(defErrorHandler);
 	});
 
