@@ -14,14 +14,17 @@ utils.formatBytes = (bytes, decimals) => {
 	return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-utils.ajaxGet = uri => {
+utils.ajaxGet2 = (uri, blob) => {
 	const promise = new Promise((resolve, reject) => {
 		let xhr = new XMLHttpRequest();
+
+		if (blob)
+			xhr.responseType = 'arraybuffer';
 
 		xhr.onreadystatechange = () => {
 			if (xhr.readyState === 4) {
 				if (xhr.status === 200) {
-					resolve(xhr.responseText);
+					resolve(blob ? xhr.response : xhr.responseText);
 				} else {
 					reject(xhr.status);
 				}
@@ -33,6 +36,10 @@ utils.ajaxGet = uri => {
 	});
 
 	return promise;
+}
+
+utils.ajaxGet = uri => {
+	return utils.ajaxGet2(uri, false);
 }
 
 utils.pageAddSection = (div, title) => {
