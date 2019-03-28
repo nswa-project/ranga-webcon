@@ -149,7 +149,7 @@
 				}
 
 				if (uriParams.theme_uuid === 'default') {
-					div.innerHTML = '位于 <b>' + utils.raw2HTMLString(uriDomain(uriParams.download_uri)) + '</b> 的站点正试图将你的 NSWA Ranga 的 Web 控制台主题重置回默认。';
+					div.innerHTML = '一个的站点正试图将你的 NSWA Ranga 的 Web 控制台主题重置回默认。';
 					document.getElementById('install').addEventListener('click', e => {
 						utils.idbRemove('theme', 'custom-css').then(() => {
 							back();

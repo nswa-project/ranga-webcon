@@ -3,7 +3,10 @@ var page_setting = {};
 const page_setting_init = () => {
 	let timesync = document.getElementById('p-setting-timesync'),
 		online = document.getElementById('p-setting-online'),
-		exp_onekey = document.getElementById('p-setting-exp-onekey');
+		exp_onekey = document.getElementById('p-setting-exp-onekey'),
+		theme = document.getElementById('p-setting-theme');
+
+	theme.textContent = webconThemeUUID ? webconThemeUUID : '默认主题';
 
 	timesync.addEventListener('change', e => {
 		localStorage.setItem("disable-netkeeper-timesync", timesync.checked ? "false" : "true");

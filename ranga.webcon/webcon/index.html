@@ -306,6 +306,7 @@
 	<script src="scripts/webcon.js?v=__RELVERSION__"></script>
 	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
 	<script>
+		var webconThemeUUID = null;
 		const defErrorHandler = proto => {
 			utils.promiseDebug(proto);
 			dialog.simple(utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
@@ -376,6 +377,7 @@
 				if (result.theme_compat !== '1') {
 					webcon.sendNotify('theme-not-compat', 'icon-warning', '当前使用的第三方主题与 Web 控制台不兼容', '请从第三方主题来源检查更新的版本，以获取和最新 Web 控制台兼容的主题。', 'info', true, []);
 				} else {
+					webconThemeUUID = (utils.isNil(result.theme_uuid) ? "UNKNOWN" : result.theme_uuid);
 					let s = document.createElement("style");
 					s.innerHTML = result.data;
 					document.getElementsByTagName("head")[0].appendChild(s);
