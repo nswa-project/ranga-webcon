@@ -141,7 +141,7 @@
 							}]);
 						}
 					}
-					if (!('download_uri' in uriParams) || !('theme_uuid' in uriParams) || !('theme_version' in uriParams)) {
+					if (!('download_uri' in uriParams) || !('theme_uuid' in uriParams) || !('theme_version' in uriParams) || !('theme_compat' in uriParams)) {
 						alert('Invalid argument');
 						back();
 					}
@@ -169,7 +169,8 @@
 										id: 'custom-css',
 										data: css,
 										theme_uuid: uriParams.theme_uuid,
-										theme_version: uriParams.theme_version
+										theme_version: uriParams.theme_version,
+										theme_compat: uriParams.theme_compat
 									});
 
 								tran.onsuccess = function(event) {
