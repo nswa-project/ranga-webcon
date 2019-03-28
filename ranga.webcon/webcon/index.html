@@ -350,6 +350,39 @@
 			ipt.focus();
 		});
 
+		let request = indexedDB.open('webcon', 1);
+		request.onerror = function(event) {
+			console.log('indexedDB open error');
+		};
+		request.onsuccess = function(event) {
+			db = request.result;
+
+			let tran = db.transaction(['theme'])
+				.objectStore('theme')
+				.get('custom-css');
+
+			tran.onsuccess = function(event) {
+				if (tran.result) {
+					let s = document.createElement("style");
+					s.innerHTML = tran.result.data;
+					document.getElementsByTagName("head")[0].appendChild(s);
+				}
+			};
+
+			tran.onerror = function(event) {
+				console.log('indexedDB read error');
+			}
+		};
+		request.onupgradeneeded = function(event) {
+			db = event.target.result;
+			var objectStore;
+			if (!db.objectStoreNames.contains('theme')) {
+				objectStore = db.createObjectStore('theme', {
+					keyPath: 'key'
+				});
+			}
+		}
+
 		selectPage('network', '网络连接');
 
 	</script>
