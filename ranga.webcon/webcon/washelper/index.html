@@ -168,8 +168,8 @@
 									.put({
 										id: 'custom-css',
 										data: css,
-										theme_uuid: themeUUID,
-										theme_version: themeVersion
+										theme_uuid: uriParams.theme_uuid,
+										theme_version: uriParams.theme_version
 									});
 
 								tran.onsuccess = function(event) {
