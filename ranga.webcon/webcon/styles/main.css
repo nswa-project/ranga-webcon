@@ -1,10 +1,16 @@
 body {
 	--theme-color: #08c;
 	--theme-color-hover-bg: rgba(0, 136, 204, 0.25);
+	--theme-color-hover-a: #005580;
 	--theme-color-disabled: #4e4e4e;
 	--theme-color-disabled-bg: #f0f0f0;
 	--theme-color-selection: black;
 	--theme-color-selection-bg: #b3e5fc;
+	--theme-color-input-bg: #f1f3f4;
+	--theme-color-input-hover-bg: #e8eaed;
+	--theme-color-input-placeholder: #555555;
+	--theme-color-select-fg: #202124;
+	--theme-color-select-foucs-shadow: rgba(26, 115, 232, 0.4);
 }
 
 *::-moz-focus-inner {
@@ -22,7 +28,7 @@ a {
 }
 
 a:hover {
-	color: #005580;
+	color: var(--theme-color-hover-a);
 	text-decoration: none;
 	outline: 0;
 }
@@ -69,7 +75,7 @@ input:not([type]) {
 	font-size: 16px;
 	border: none;
 	border-radius: 999px;
-	background-color: #f1f3f4;
+	background-color: var(--theme-color-input-bg);
 }
 
 textarea:focus,
@@ -80,14 +86,14 @@ input:not([type]):focus {
 	outline: 0;
 	border: none;
 	border-radius: 999px;
-	background-color: #e8eaed;
+	background-color: var(--theme-color-input-hover-bg);
 }
 
 input[type=password]::placeholder,
 input[type=text]::placeholder,
 input[type=number]::placeholder,
 input:not([type])::placeholder {
-	color: #555555;
+	color: var(--theme-color-input-placeholder);
 }
 
 textarea,
@@ -130,11 +136,11 @@ select {
 	margin: 0 4px;
 	-webkit-appearance: none;
 	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjEycHgiIHZpZXdCb3g9IjAgMCAyNCAxMiIgZmlsbD0iIzVGNjM2OCI+PGc+PHBhdGggZD0iTSAwIDAgTCAyNCAwIEwgMTIgMTIgeiIvPjwvZz48L3N2Zz4K) calc(100% - 8px) center no-repeat;
-	background-color: #f1f3f4;
+	background-color: var(--theme-color-input-bg);
 	background-size: 10px;
 	border: none;
 	border-radius: 4px;
-	color: #202124;
+	color: var(--theme-color-select-fg);
 	cursor: pointer;
 	max-width: 100%;
 	outline: none;
@@ -156,7 +162,7 @@ select[disabled] {
 }
 
 select:focus {
-	box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.4);
+	box-shadow: 0 0 0 2px var(--theme-color-select-foucs-shadow);
 }
 
 select:active {
