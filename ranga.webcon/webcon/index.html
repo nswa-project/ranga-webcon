@@ -371,42 +371,17 @@
 			ipt.focus();
 		});
 
-		let request = indexedDB.open('webcon', 1);
-		request.onerror = function(event) {
-			console.log('indexedDB open error');
-		};
-		request.onsuccess = function(event) {
-			db = request.result;
-
-			let tran = db.transaction(['theme'])
-				.objectStore('theme')
-				.get('custom-css');
-
-			tran.onsuccess = function(event) {
-				if (tran.result) {
-					if (tran.result.theme_compat !== '1') {
-						webcon.sendNotify('theme-not-compat', 'icon-warning', '当前使用的第三方主题与 Web 控制台不兼容', '请从第三方主题来源检查更新的版本，以获取和最新 Web 控制台兼容的主题。', 'info', true, []);
-					} else {
-						let s = document.createElement("style");
-						s.innerHTML = tran.result.data;
-						document.getElementsByTagName("head")[0].appendChild(s);
-					}
+		utils.idbGet('theme', 'custom-css').then(result => {
+			if (!utils.isNil(result)) {
+				if (result.theme_compat !== '1') {
+					webcon.sendNotify('theme-not-compat', 'icon-warning', '当前使用的第三方主题与 Web 控制台不兼容', '请从第三方主题来源检查更新的版本，以获取和最新 Web 控制台兼容的主题。', 'info', true, []);
+				} else {
+					let s = document.createElement("style");
+					s.innerHTML = result.data;
+					document.getElementsByTagName("head")[0].appendChild(s);
 				}
-			};
-
-			tran.onerror = function(event) {
-				console.log('indexedDB read error');
 			}
-		};
-		request.onupgradeneeded = function(event) {
-			db = event.target.result;
-			var objectStore;
-			if (!db.objectStoreNames.contains('theme')) {
-				objectStore = db.createObjectStore('theme', {
-					keyPath: 'key'
-				});
-			}
-		}
+		});
 
 		selectPage('network', '网络连接');
 

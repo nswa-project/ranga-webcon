@@ -83,3 +83,107 @@ utils.delay = (t, v) => {
 		setTimeout(resolve.bind(null, v), t)
 	});
 }
+
+utils.idbPut = (table, data) => {
+	const promise = new Promise((resolve, reject) => {
+		let request = indexedDB.open('webcon', 1);
+		request.onerror = function (event) {
+			console.log('indexedDB open error');
+			reject();
+		};
+
+		request.onsuccess = function (event) {
+			let tran = request.result.transaction([table], 'readwrite')
+				.objectStore(table)
+				.put(data);
+
+			tran.onsuccess = function (event) {
+				resolve();
+			};
+
+			tran.onerror = function (event) {
+				console.log('indexedDB update error');
+				reject();
+			}
+		};
+
+		request.onupgradeneeded = function (event) {
+			let db = event.target.result;
+			if (!db.objectStoreNames.contains(table)) {
+				db.createObjectStore(table, {
+					keyPath: 'id'
+				});
+			}
+		}
+	});
+
+	return promise;
+}
+
+utils.idbGet = (table, id) => {
+	const promise = new Promise((resolve, reject) => {
+		let request = indexedDB.open('webcon', 1);
+		request.onerror = function (event) {
+			console.log('indexedDB open error');
+			reject();
+		};
+		request.onsuccess = function (event) {
+			let tran = request.result.transaction([table])
+				.objectStore(table)
+				.get(id);
+
+			tran.onsuccess = function (event) {
+				resolve(tran.result);
+			};
+
+			tran.onerror = function (event) {
+				console.log('indexedDB read error');
+				reject();
+			}
+		};
+		request.onupgradeneeded = function (event) {
+			let db = event.target.result;
+			if (!db.objectStoreNames.contains(table)) {
+				db.createObjectStore(table, {
+					keyPath: 'id'
+				});
+			}
+		}
+	});
+
+	return promise;
+}
+
+utils.idbRemove = (table, id) => {
+	const promise = new Promise((resolve, reject) => {
+		let request = indexedDB.open('webcon', 1);
+		request.onerror = function (event) {
+			console.log('indexedDB open error');
+			reject();
+		};
+		request.onsuccess = function (event) {
+			let tran = request.result.transaction([table], 'readwrite')
+				.objectStore(table)
+				.delete(id);
+
+			tran.onsuccess = function (event) {
+				resolve(tran.result);
+			};
+
+			tran.onerror = function (event) {
+				console.log('indexedDB remove error');
+				reject();
+			}
+		};
+		request.onupgradeneeded = function (event) {
+			let db = event.target.result;
+			if (!db.objectStoreNames.contains(table)) {
+				db.createObjectStore(table, {
+					keyPath: 'id'
+				});
+			}
+		}
+	});
+
+	return promise;
+}
