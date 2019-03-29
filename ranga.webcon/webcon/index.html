@@ -234,6 +234,8 @@
 					</g>
 				</svg>
 			</div>
+			<input type="radio" name="radio" id="radio-placeholder" style="display: none;">
+
 			<input type="radio" name="radio" id="radio-network" checked>
 			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', '网络连接')"><i class="icon icon-network"></i>网络连接</label>
 
@@ -335,6 +337,24 @@
 				webcon.contentSetTitle('加载失败');
 			});
 			setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
+		}
+
+		const iframePage = (uri, title, showUri) => {
+			document.getElementById('radio-placeholder').checked = true;
+			webcon.contentLoadData('', false);
+			webcon.removeAllButtons();
+			webcon.contentSetTitle('加载中');
+			webcon.loadScript("extra_js_iframe", "extra/iframe.js?v=__RELVERSION__").then(first => {
+				return webcon.contentLoadUri("extra/iframe.html?v=__RELVERSION__", true);
+			}).then(e => {
+				webcon.contentSetTitle(title);
+				window.extraIframeLoad(uri, showUri);
+			}).catch(e => {
+				utils.promiseDebug(e);
+				dialog.simple("加载页面过程中发生网络错误或 Web 控制台错误");
+				webcon.contentSetTitle('加载失败');
+			});
+			utils.delay(100).then(v => (document.getElementById('nav').classList.remove('nav_show')));
 		}
 
 		document.getElementById('menu').addEventListener('click', e => {
