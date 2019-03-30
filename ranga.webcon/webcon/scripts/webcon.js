@@ -180,3 +180,24 @@ webcon.setupOnlineScript = () => {
 		});
 	}
 }
+
+webcon.reloadTheme = () => {
+	let tmp = document.getElementById('_USER_THEME');
+	if (!utils.isNil(tmp)) {
+		tmp.parentElement.removeChild(tmp);
+	}
+	utils.idbGet('theme', 'custom-css').then(result => {
+		if (!utils.isNil(result)) {
+			if (result.theme_compat !== '1') {
+				webcon.sendNotify('theme-not-compat', 'icon-warning', '当前使用的第三方主题与 Web 控制台不兼容', '请从第三方主题来源检查更新的版本，以获取和最新 Web 控制台兼容的主题。', 'info', true, []);
+			} else {
+				webconThemeUUID = (utils.isNil(result.theme_uuid) ? "UNKNOWN" : result.theme_uuid);
+				let s = document.createElement("style");
+				s.id = '_USER_THEME';
+				s.innerHTML = result.data;
+				document.getElementsByTagName("head")[0].appendChild(s);
+			}
+		}
+	});
+
+}

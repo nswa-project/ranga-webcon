@@ -84,6 +84,11 @@ utils.delay = (t, v) => {
 	});
 }
 
+utils.URIDomain = uri => {
+	var url = new URL(uri);
+	return url.hostname;
+}
+
 utils.idbPut = (table, data) => {
 	const promise = new Promise((resolve, reject) => {
 		let request = indexedDB.open('webcon', 1);

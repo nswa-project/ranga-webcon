@@ -1,4 +1,4 @@
-<div class="fadein" id="page_setting_main">
+<div class="page fadein" id="page_setting_main">
 	<style>
 		#page_setting_main .tips {
 			margin-bottom: 10px;
@@ -12,18 +12,21 @@
 	某些设置存储在你的浏览器客户端，因此不同终端之间互不影响。如果你的浏览器不支持 Local Storage 以及 IndexedDB，那么你无法保存某些设置。
 	<h1>Web 控制台主题</h1>
 	<div class="tips">Web 控制台可以动态加载第三方主题代码来进行定制。</div>
-	当前主题：<span id="p-setting-theme"></span><br><br>
-	<a target="_blank" href="https://glider0.github.io/was/themes.html">从 Ranga 网上应用店查找主题</a><br>
-	<a target="_blank" href="https://glider0.github.io/was/themes.html">手动设置自定义主题</a>
+	当前主题：<span id="p-setting-theme"></span><br>
+	<button class="btnFlat" id="p-setting-themestore">从 Ranga 网上应用店查找主题</button><button class="btnFlat" id="p-setting-settheme">手动设置自定义主题</button>
+	
 	<h1>Web 控制台 PWA 渐进式应用程序</h1>
 	<div class="tips">Web 控制台可以通过 PWA 技术添加到你的智能手机的主屏幕上，并达到类似与原生应用的使用体验。支持 Android 和 iOS。</div>
 	<a href="/pwa">打开 PWA 引导页面</a>
+	
 	<h1>自动同步时间（仅限 Netkeeper）</h1>
 	<div class="tips">Netkeeper 是基于以太网的点对点协议的专有协议，此协议要求建立连接前客户端的系统时钟误差不得超过 2 至 3 秒。Web 控制台可以在连接 Netkeeper 之前将浏览器时间（你的系统时间）同步到 NSWA Ranga 系统。如果你不使用自动同步时间，你很可能需要每次连接之前前往“系统管理”手动设置时间。自动同步时间不会对 Netkeeper 之外的协议生效。</div>
 	<input type="checkbox" id="p-setting-timesync" checked><label for="p-setting-timesync" class="checkbox_label">启用自动同步时间（仅限 Netkeeper）</label>
+	
 	<h1>NSWA Online 推送</h1>
 	<div class="tips">NSWA Online 会在你打开 Web 控制台后联机获取<b>最新公告</b>、<b>在线系统软件更新</b>、<b>观感样式调整</b>和<b>节日涂鸦</b>等显示在 Web 控制台上。这是一个 Web 控制台的功能而不是 NSWA Ranga 的功能，它只会发生在你的浏览器里，NSWA Ranga 正式版本系统内没有任何访问我们服务器并私自获取、更新软件或数据的功能！NSWA Online 隐私政策：我们不收集、不发送、不在服务器存储你的任何个人数据，我们可能会在你的浏览器本地存储一些数据标记，例如你是否选择将一条更新提醒忽略不显示，这些数据只会存储在浏览器本地存储而不会通过网络传输。</div>
 	<input type="checkbox" id="p-setting-online" checked><label for="p-setting-online" class="checkbox_label">启用 NSWA Online 推送</label>
+	
 	<h1>Web 控制台实验性功能</h1>
 	<div class="tips">以下是一些 Web 控制台尚处于实验阶段的功能，其可能具有潜在缺陷。</div>
 	<input type="checkbox" id="p-setting-exp-onekey"><label for="p-setting-exp-onekey" class="checkbox_label">在“网络连接”页显示“为所有未连接的 NK 接口启动拦截服务器”按钮</label>
