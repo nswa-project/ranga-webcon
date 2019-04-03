@@ -308,8 +308,14 @@ select:active {
 }
 
 .flexRowCenter {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-flow: row;
+	-moz-flex-flow: row;
 	flex-flow: row;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
 }
 
@@ -320,6 +326,8 @@ select:active {
 }
 
 .flexGrow {
+	-webkit-flex-grow: 1;
+	-moz-flex-grow: 1;
 	flex-grow: 1;
 }
 
@@ -379,7 +387,11 @@ select:active {
 }
 
 .notify .notify_btns {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
 	justify-content: flex-end;
 	padding: 6px;
 }
