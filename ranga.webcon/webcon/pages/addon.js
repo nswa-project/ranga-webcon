@@ -104,15 +104,15 @@ const page_addon_init = () => {
 
 			let item = itemT.cloneNode(true);
 			let descdiv = item.getElementsByClassName('p-addon-item-author')[0];
-			item.getElementsByClassName('p-addon-item-name')[0].textContent = data['name[zh_CN]'] || data['name'];
-			item.getElementsByClassName('p-addon-item-version')[0].textContent = data['version'];
-			descdiv.textContent = data['desc'];
+			item.getElementsByClassName('p-addon-item-name')[0].textContent = data['name[zh_CN]'] || data['name'] || "";
+			item.getElementsByClassName('p-addon-item-version')[0].textContent = data['version'] || "";
+			descdiv.textContent = data['desc'] || "";
 			item.getElementsByTagName('button')[0].classList.add('hide');
 			item.classList.remove('hide');
 
 			descdiv.innerHTML += '<br>';
 
-			let actionsString = data['actions[zh_CN]'] || data['actions'];
+			let actionsString = data['actions[zh_CN]'] || data['actions'] || "";
 			actionsString.split('|').forEach(j => {
 				let arr = j.split('@');
 				if (arr.length < 2)
