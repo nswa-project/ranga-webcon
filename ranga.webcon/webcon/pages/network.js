@@ -49,7 +49,7 @@ page_network.close = (name, type) => {
 	});
 }
 
-page_network.serverPoll = (ifname) => {
+page_network.serverPoll = (dlg, ifname) => {
 	return utils.delay(1000).then(v => {
 		return ranga.api.action('network', ['server-status']);
 	}).then(proto => {
@@ -59,13 +59,13 @@ page_network.serverPoll = (ifname) => {
 
 		switch (status) {
 			case 1:
-				webcon.updateScreenLockTextWidget('拦截服务器启动中 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, '拦截服务器启动中 (' + ifname + ')');
 				break;
 			case 2:
-				webcon.updateScreenLockTextWidget('拦截服务器已经准备就绪 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, '拦截服务器已经准备就绪 (' + ifname + ')');
 				break;
 			case 3:
-				webcon.updateScreenLockTextWidget('拦截服务器已捕获认证信息 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, '拦截服务器已捕获认证信息 (' + ifname + ')');
 				break;
 			case 4:
 				webcon.unlockScreen();
@@ -84,7 +84,7 @@ page_network.serverPoll = (ifname) => {
 		}
 
 		if (needPoll)
-			return page_network.serverPoll(ifname);
+			return page_network.serverPoll(dlg, ifname);
 	}).catch(e => {
 		defErrorHandler(e);
 		console.log('onekey: stop');
@@ -93,9 +93,9 @@ page_network.serverPoll = (ifname) => {
 }
 
 page_network.server = (name, type) => {
-	webcon.lockScreen();
+	let dlg = webcon.lockScreen();
 	ranga.api.action('network', ['start-server', name]).then(proto => {
-		page_network.serverPoll(name);
+		page_network.serverPoll(dlg, name);
 	}).catch(e => {
 		defErrorHandler(e);
 		webcon.unlockScreen();
@@ -194,12 +194,12 @@ const page_network_init = () => {
 				let ifname = d[0];
 				currentPromise = currentPromise.then(() => {
 					if (stopStartServer) return Promise.resolve();
-					webcon.lockScreen();
+					let dlg = webcon.lockScreen();
 					console.log('onekey: start: ' + ifname);
-					webcon.updateScreenLockTextWidget('准备：' + ifname);
+					webcon.updateScreenLockTextWidget(dlg, '准备：' + ifname);
 					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
 						console.log('onekey: polling: ' + ifname);
-						return page_network.serverPoll(ifname);
+						return page_network.serverPoll(dlg, ifname);
 					});
 				});
 			}

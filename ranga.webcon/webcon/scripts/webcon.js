@@ -69,7 +69,7 @@ webcon.contentLoadUri = (uri, html) => {
 	});
 }
 
-webcon.dialogForLockScreen = null;
+webcon.lockScreenDialogStack = [];
 
 webcon.lockScreen = text => {
 	if (utils.isNil(text))
@@ -77,24 +77,28 @@ webcon.lockScreen = text => {
 
 	text = '<div class="circular" style="margin: 2px;"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 10px">' + text + '</span>';
 
-	webcon.dialogForLockScreen = dialog.adv(null, null, text, [], {
+	let tmp = dialog.adv(null, null, text, [], {
 		noMinHeight: 1
 	});
 
-	let widget = dialog.textWidget(webcon.dialogForLockScreen);
+	let widget = dialog.textWidget(tmp);
 	widget.classList.add('flexRowCenter');
+
+	webcon.lockScreenDialogStack.push(tmp);
+
+	return tmp;
 }
 
 webcon.unlockScreen = () => {
-	if (!utils.isNil(webcon.dialogForLockScreen)) {
-		dialog.close(webcon.dialogForLockScreen);
-		webcon.dialogForLockScreen = null;
+	let tmp = webcon.lockScreenDialogStack.pop();
+	if (!utils.isNil(tmp)) {
+		dialog.close(tmp);
 	}
 }
 
-webcon.updateScreenLockTextWidget = text => {
-	if (!utils.isNil(webcon.dialogForLockScreen)) {
-		dialog.textWidget(webcon.dialogForLockScreen).getElementsByTagName('span')[0].innerHTML = text;
+webcon.updateScreenLockTextWidget = (dlg, text) => {
+	if (!utils.isNil(dlg)) {
+		dialog.textWidget(dlg).getElementsByTagName('span')[0].innerHTML = text;
 	}
 }
 
