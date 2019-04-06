@@ -1,15 +1,42 @@
 <div class="page fadein" id="page_system_main">
 	<style>
-		#page_system_main .tips {
-			margin-bottom: 10px;
-		}
-		
 		#page_system_main button {
-			margin-top: 6px;
+			margin-top: 8px;
 		}
+
+		.p-system-item {
+			border-bottom: 1px solid #dedede;
+			margin-top: 12px;
+			padding: 0 10px;
+			padding-bottom: 4px;
+		}
+
+		.p-system-item-a {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+		}
+
+		.p-system-item-icon {
+			font-size: 1.4em;
+			align-self: flex-start;
+			margin: 12px 12px 0 0;
+		}
+
+		.p-system-item-a-a {
+			display: flex;
+			flex-flow: column;
+			align-items: stretch;
+			margin-bottom: 4px;
+		}
+
+		.p-system-item-btns {
+			text-align: right;
+		}
+
 	</style>
 	<h1>设置系统时钟</h1>
-	<div class="tips">将系统时钟设置为指定值，或者从浏览器同步系统时钟。</div>
+	<div class="tips" style="margin-bottom: 10px;">将系统时钟设置为指定值，或者从浏览器同步系统时钟。</div>
 	<table>
 		<tr>
 			<td>UNIXTimestamp</td>
@@ -25,7 +52,7 @@
 	<div class="tips">系统日志可能有助于排查系统和连接问题。</div>
 	<button class="btnFlat" id="p-system-log">查看系统日志缓冲区</button>
 	<h1>修改超级用户密码</h1>
-	<div class="tips">超级用户可以访问完整 NSWA Ranga 系统 API，我们建议您设置为一个较安全的密码。</div>
+	<div class="tips" style="margin-bottom: 10px;">超级用户可以访问完整 NSWA Ranga 系统 API，我们建议您设置为一个较安全的密码。</div>
 	<table>
 		<tr>
 			<td>新密码</td>
@@ -39,4 +66,22 @@
 		</tr>
 	</table>
 	<button class="btnFlat" id="p-system-chpw">修改密码</button>
+	<h1>额外（可选）服务</h1>
+	<div id="p-system-item_t" class="p-system-item hide">
+		<div class="p-system-item-a">
+			<i class="icon icon-system p-system-item-icon"></i>
+			<div class="p-system-item-a-a flexGrow">
+				<span class="p-system-item-name"></span>
+				<span class="p-system-item-info tips"></span>
+				<div class="p-system-item-btns">
+					<button class="btnFlat p-network-item-btn-config hide">服务特定配置</button>
+					<button class="btnFlat p-network-item-btn-start">启动</button>
+					<button class="btnFlat p-network-item-btn-stop">停止</button>
+					<button class="btnFlat p-network-item-btn-restart">重新启动</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="p-system-opts"></div>
+
 </div>
