@@ -117,3 +117,7 @@
 .icon-cron::before {
 	content: "I";
 }
+
+.icon-usb::before {
+	content: "J";
+}

@@ -1,0 +1,59 @@
+<div class="page fadein" id="page_edev_main">
+	<style>
+		.p-edev-item {
+			border-bottom: 1px solid #dedede;
+			margin-top: 12px;
+			padding: 0 10px;
+			padding-bottom: 4px;
+		}
+
+		.p-edev-item-a {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+		}
+
+		.p-edev-item-icon {
+			font-size: 1.4em;
+			margin-right: 14px;
+		}
+
+		.p-edev-item-a-a {
+			display: flex;
+			flex-flow: column;
+			align-items: stretch;
+			margin-bottom: 4px;
+		}
+
+		#p-edev-df,
+		#p-edev-umount {
+			margin-top: 8px;
+		}
+	</style>
+	<h1>通用串行总线</h1>
+	<div id="p-edev-item_t" class="p-edev-item hide">
+		<div class="p-edev-item-a">
+			<i class="icon icon-usb p-edev-item-icon"></i>
+			<div class="p-edev-item-a-a">
+				<span class="p-edev-item-prod"></span>
+				<span class="p-edev-item-info tips"></span>
+			</div>
+		</div>
+	</div>
+	<div id="p-edev-usb">
+	</div>
+	<h1>附加主要文件系统</h1>
+	<div>
+		<div id="p-edev-mainfs">
+		</div>
+		<div id="p-edev-df" class="hide">
+			<div id="p-edev-df-text" class="tips">
+			</div>
+			<div class="progressbarbg">
+				<div id="p-edev-df-pb" class="progressbar"></div>
+			</div>
+			<div class="tips" style="margin-top: 16px;">要安全热拔掉除附加主要文件系统所在的存储设备，必须卸载文件系统以避免数据丢失和严重的文件系统错误。</div>
+			<button class="btnFlat" id='p-edev-umount'>卸载文件系统</button>
+		</div>
+	</div>
+</div>

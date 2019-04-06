@@ -250,6 +250,17 @@ select:active {
 	position: relative;
 }
 
+.progressbarbg {
+	margin: 8px 0;
+	background: var(--theme-color-input-bg);
+	height: 8px; 
+}
+
+.progressbar {
+	background: var(--theme-color);
+	height: 8px; 
+}
+
 /* https://codepen.io/ConAntonakos/pen/ryMaOX?editors=1111 */
 .circular {
 	height: 48px;
