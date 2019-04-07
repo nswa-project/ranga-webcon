@@ -116,11 +116,14 @@ const page_system_init = () => {
 		let div = page_system.$('opts');
 		div.textContent = '';
 		let itemT = page_system.$('item_t');
+		let hasItem = false;
 
 		webcon.lockScreen();
 		proto.payload.split('\n').forEach(i => {
 			if (i === '')
 				return;
+
+			hasItem = true;
 
 			let name = i,
 				desc = '',
@@ -147,6 +150,10 @@ const page_system_init = () => {
 			item.classList.remove('hide');
 			div.appendChild(item);
 		})
+
+		if (!hasItem) {
+			div.textContent = '未安装任何额外（可选）服务';
+		}
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
