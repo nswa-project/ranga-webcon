@@ -45,6 +45,22 @@ page_system.optSvcAction = (action, name) => {
 	}
 }
 
+page_system.optSvcAuto = (name, checkbox) => {
+	let action = 'disable';
+	if (checkbox.checked)
+		action = 'enable';
+
+	webcon.lockScreen();
+	ranga.api.action('opt', [action, name]).then(proto => {
+		dialog.toast('已经更新自动启动配置。')
+	}).catch(e => {
+		defErrorHandler(e);
+		checkbox.checked = !checkbox.checked;
+	}).finally(() => {
+		webcon.unlockScreen();
+	})
+}
+
 const page_system_init = () => {
 	page_system.$('syncdate').addEventListener('click', e => {
 		let ts = utils.getUNIXTimestamp();
@@ -112,7 +128,15 @@ const page_system_init = () => {
 	});
 
 
-	ranga.api.action('opt', ['ls']).then(proto => {
+	let optEnabled = new Set();
+	ranga.api.action('opt', ['ls-enabled']).then(proto => {
+		proto.payload.split('\n').forEach(i => {
+			if (i !== '')
+				optEnabled.add(i);
+		});
+		console.log(optEnabled);
+		return ranga.api.action('opt', ['ls']);
+	}).then(proto => {
 		let div = page_system.$('opts');
 		div.textContent = '';
 		let itemT = page_system.$('item_t');
@@ -143,9 +167,16 @@ const page_system_init = () => {
 				tmp.classList.remove('hide');
 				tmp.addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'config', i));
 			}
-			item.getElementsByClassName('p-network-item-btn-start')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'start', i));
-			item.getElementsByClassName('p-network-item-btn-stop')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'stop', i));
-			item.getElementsByClassName('p-network-item-btn-restart')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'restart', i));
+			item.getElementsByClassName('p-system-item-btn-start')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'start', i));
+			item.getElementsByClassName('p-system-item-btn-stop')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'stop', i));
+			item.getElementsByClassName('p-system-item-btn-restart')[0].addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'restart', i));
+			let tmp = item.getElementsByClassName('p-system-item-auto')[0];
+			if (optEnabled.has(i))
+				tmp.checked = true;
+			let genid = "p-system-item-auto-cb-" + i;
+			tmp.id = genid;
+			item.getElementsByClassName('p-system-item-auto-label')[0].htmlFor = genid;
+			tmp.addEventListener('change', ((f, a) => e => f(a, e.target))(page_system.optSvcAuto, i));
 
 			item.classList.remove('hide');
 			div.appendChild(item);

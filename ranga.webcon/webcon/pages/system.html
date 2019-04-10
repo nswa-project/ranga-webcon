@@ -34,6 +34,10 @@
 			text-align: right;
 		}
 
+		.p-system-item-btns label {
+			margin-right: 8px;
+		}
+
 	</style>
 	<h1>设置系统时钟</h1>
 	<div class="tips" style="margin-bottom: 10px;">将系统时钟设置为指定值，或者从浏览器同步系统时钟。</div>
@@ -74,10 +78,11 @@
 				<span class="p-system-item-name"></span>
 				<span class="p-system-item-info tips"></span>
 				<div class="p-system-item-btns">
-					<button class="btnFlat p-network-item-btn-config hide">服务特定配置</button>
-					<button class="btnFlat p-network-item-btn-start">启动</button>
-					<button class="btnFlat p-network-item-btn-stop">停止</button>
-					<button class="btnFlat p-network-item-btn-restart">重新启动</button>
+					<input type="checkbox" class="p-system-item-auto"><label class="p-system-item-auto-label checkbox_label">开机自启动</label>
+					<button class="btnFlat p-system-item-btn-config hide">服务特定配置</button>
+					<button class="btnFlat p-system-item-btn-start">启动</button>
+					<button class="btnFlat p-system-item-btn-stop">停止</button>
+					<button class="btnFlat p-system-item-btn-restart">重新启动</button>
 				</div>
 			</div>
 		</div>
