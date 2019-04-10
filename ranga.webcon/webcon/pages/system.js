@@ -163,7 +163,7 @@ const page_system_init = () => {
 			item.getElementsByClassName('p-system-item-name')[0].textContent = name;
 			item.getElementsByClassName('p-system-item-info')[0].innerHTML = desc;
 			if (config) {
-				let tmp = item.getElementsByClassName('p-network-item-btn-config')[0];
+				let tmp = item.getElementsByClassName('p-system-item-btn-config')[0];
 				tmp.classList.remove('hide');
 				tmp.addEventListener('click', ((f, a, b) => e => f(a, b))(page_system.optSvcAction, 'config', i));
 			}
