@@ -61,9 +61,9 @@ a:focus {
 }
 
 pre {
-	font-family: 'Roboto Mono', 'DejaVu Sans Mono', 'Noto Mono', 'Noto Sans Mono', 'Lucida Console', Courier, monospace;
+	font-family: 'Roboto Mono', 'DejaVu Sans Mono', 'Noto Mono', 'Noto Sans Mono', SFMono-Regular, Consolas, 'Lucida Console', Courier, monospace;
 	font-size: .8em;
-	margin: 0;
+	margin: 6px 0;
 }
 
 textarea,
