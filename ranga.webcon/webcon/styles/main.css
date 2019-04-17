@@ -330,16 +330,25 @@ select:active {
 	align-items: center;
 }
 
-.divline {
-	background-color: #ebebeb;
-	height: 1px;
-	margin: 10px 0;
+.flexColumn {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	-moz-flex-flow: column;
+	flex-flow: column;
 }
 
 .flexGrow {
 	-webkit-flex-grow: 1;
 	-moz-flex-grow: 1;
 	flex-grow: 1;
+}
+
+.divline {
+	background-color: #ebebeb;
+	height: 1px;
+	margin: 10px 0;
 }
 
 .tips {
