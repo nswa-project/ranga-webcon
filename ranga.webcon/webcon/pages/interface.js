@@ -17,8 +17,7 @@ page_interface.edit = (ifname) => {
 
 		page_interface.getElementById('proto').value = data.type;
 		let tmp = false;
-		if (data.nkplugin === 'on') tmp = true;
-		page_interface.getElementById('nk').checked = tmp;
+		page_interface.getElementById('nk').value = data.nkplugin;
 		page_interface.getElementById('usrnam').value = data.usrnam;
 		page_interface.getElementById('passwd').value = data.passwd;
 		page_interface.getElementById('ipaddr').value = data.ipaddr;
@@ -86,7 +85,7 @@ const page_interface_init = () => {
 	page_interface.getElementById('set-proto').addEventListener('click', e => {
 		let v = page_interface.getElementById('proto').value;
 		ranga.api.config('interface', ['set', page_interface.ifname, 'type', v]).then(proto => {
-			v = (page_interface.getElementById('nk').checked ? 'on' : 'off');
+			v = page_interface.getElementById('nk').value;
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'nkplugin', v]);
 		}).then(proto => {
 			dialog.toast("接口 ‘" + page_interface.ifname + "' 的协议类型配置已经被修改。");
