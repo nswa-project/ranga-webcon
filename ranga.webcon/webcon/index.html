@@ -311,12 +311,12 @@
 	<script src="scripts/dialog.js?v=__RELVERSION__"></script>
 	<script>
 		var webconThemeUUID = null;
-		const defErrorHandler = proto => {
+		var defErrorHandler = proto => {
 			utils.promiseDebug(proto);
 			dialog.simple(utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
 		}
 
-		const defErrorHandlerPage = proto => {
+		var defErrorHandlerPage = proto => {
 			utils.promiseDebug(proto);
 			let msg = (utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
 			webcon.contentLoadData(msg, false);

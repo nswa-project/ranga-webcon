@@ -40,6 +40,11 @@ page_addon.extInfoHide = () => {
 	}
 }
 
+page_addon.openWcapp = (pkgname, name) => {
+	iframePage('/cgi-bin/wcapp/' + encodeURIComponent(pkgname) + '/', '由 ' + name + ' 提供的页面');
+	return false;
+}
+
 page_addon.extensionItem = pkgname => {
 	let itemT = page_addon.getElementById('item_t');
 	let div = page_addon.getElementById('exts');
@@ -53,6 +58,20 @@ page_addon.extensionItem = pkgname => {
 		item.getElementsByClassName('p-addon-item-version')[0].textContent = pkgname + " 版本: " + data['%ver'];
 		item.getElementsByClassName('p-addon-item-author')[0].textContent = data['%author'];
 		item.getElementsByTagName('button')[0].addEventListener('click', ((f, a) => e => f(a))(page_addon.extInfoShow, pkgname));
+
+		if ('%wcapp' in data && data['%wcapp'] === 'v1') {
+			let descdiv = item.getElementsByClassName('p-addon-item-links')[0];
+			let a = document.createElement('a');
+			a.textContent = data['%wcappv1-name'] || "?";
+			a.href = "#!";
+			a.style.marginRight = '10px';
+			a.addEventListener('click', ((f, a, b) => e => {
+				e.preventDefault();
+				return f(a, b);
+			})(page_addon.openWcapp, pkgname, data['%name']), false);
+			descdiv.appendChild(a);
+		}
+
 		item.classList.remove('hide');
 		div.appendChild(item);
 	});
@@ -110,7 +129,7 @@ const page_addon_init = () => {
 			item.getElementsByTagName('button')[0].classList.add('hide');
 			item.classList.remove('hide');
 
-			descdiv.innerHTML += '<br>';
+			let linkdiv = item.getElementsByClassName('p-addon-item-links')[0];
 
 			let actionsString = data['actions[zh_CN]'] || data['actions'] || "";
 			actionsString.split('|').forEach(j => {
@@ -123,7 +142,7 @@ const page_addon_init = () => {
 				a.target = '_blank';
 				a.href = arr[1];
 				a.style.marginRight = '10px';
-				descdiv.appendChild(a);
+				linkdiv.appendChild(a);
 			});
 
 			div.appendChild(item);

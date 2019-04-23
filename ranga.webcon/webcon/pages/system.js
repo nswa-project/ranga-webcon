@@ -84,7 +84,7 @@ const page_system_init = () => {
 
 	page_system.$('log').addEventListener('click', e => {
 		ranga.api.query('log', []).then(proto => {
-			dialog.show(null, null, "<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>", [
+			dialog.adv(null, null, "<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>", [
 				{
 					name: "保存到文件",
 					func: (d => {
@@ -107,7 +107,9 @@ const page_system_init = () => {
 					name: "好",
 					func: dialog.close
 				}
-			]);
+			], {
+				noMaxWidth: 1
+			});
 		}).catch(defErrorHandler);
 	});
 

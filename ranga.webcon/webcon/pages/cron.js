@@ -35,7 +35,8 @@ page_cron.rem = n => {
 }
 
 page_cron.actionsList = [
-	["ranga.ext.base", "reboot", ""]
+	["ranga.ext.base", "reboot", ""],
+	["ranga.seth.helper", "sync", ""]
 ];
 
 const page_cron_init = () => {

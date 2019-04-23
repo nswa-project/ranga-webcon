@@ -47,6 +47,10 @@ dialog.adv = (icon, title, text, btns, configs) => {
 	if ('noMinHeight' in configs) {
 		dialog_text.style.minHeight = 0;
 	}
+	
+	if ('noMaxWidth' in configs) {
+		dialog.style.maxWidth = '100vw';
+	}
 
 	document.body.appendChild(dialog_back);
 	return dialog_back;
