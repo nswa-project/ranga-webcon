@@ -174,7 +174,7 @@ const page_network_init = () => {
 		page_network.reload().finally(() => (b.disabled = false));
 	});
 
-	webcon.addButton('额外工具', 'icon-tool', b => webcon.dropDownMenu(b, [
+	let extra_tools_arr = [
 		{
 			name: 'Seth 安全断开',
 			func: (n => {
@@ -194,7 +194,7 @@ const page_network_init = () => {
 					}
 				])
 			})
-		}, {
+			}, {
 			name: '拨号医生',
 			func: (n => {
 				dialog.show(null, null, "请注意：<b>直接运行拨号医生可能报告完全错误的诊断结果</b>，在连接（拦截法除外）失败时，拨号医生会自动弹出通知以启动，这时的结果正确率较高。但你仍然可以随时强制启动拨号医生，以诊断拦截法或上次自动拨号的连接问题，但结果可能不准确甚至完全错误。", [
@@ -210,44 +210,46 @@ const page_network_init = () => {
 				])
 			})
 		}
-	]));
+	];
 
-	let onekeyButton = page_network.getElementById('onekey');
 	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
-		onekeyButton.classList.remove('hide');
-	}
-	onekeyButton.addEventListener('click', e => {
-		webcon.lockScreen('正在获取接口信息...')
-		ranga.api.query('network', []).then(proto => {
-			let arr = proto.payload.split('\n');
+		extra_tools_arr.push({
+			name: '为所有 NK 接口启动拦截',
+			func: (n => {
+				webcon.lockScreen('正在获取接口信息...')
+				ranga.api.query('network', []).then(proto => {
+					let arr = proto.payload.split('\n');
 
-			var currentPromise = Promise.resolve();
-			stopStartServer = false;
+					var currentPromise = Promise.resolve();
+					stopStartServer = false;
 
-			webcon.unlockScreen();
-			for (let i = 0; i < arr.length; i++) {
-				if (arr[i] === '') continue;
-				let d = arr[i].split(':');
-				if (d.length < 4) continue;
-				if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
-				let ifname = d[0];
-				currentPromise = currentPromise.then(() => {
-					if (stopStartServer) return Promise.resolve();
-					let dlg = webcon.lockScreen();
-					console.log('onekey: start: ' + ifname);
-					webcon.updateScreenLockTextWidget(dlg, '准备：' + ifname);
-					return ranga.api.action('network', ['start-server', ifname]).then(proto => {
-						console.log('onekey: polling: ' + ifname);
-						return page_network.serverPoll(dlg, ifname);
-					});
+					webcon.unlockScreen();
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i] === '') continue;
+						let d = arr[i].split(':');
+						if (d.length < 4) continue;
+						if (parseInt(d[2]) === 1 || d[1] !== 'netkeeper') continue;
+						let ifname = d[0];
+						currentPromise = currentPromise.then(() => {
+							if (stopStartServer) return Promise.resolve();
+							let dlg = webcon.lockScreen();
+							console.log('onekey: start: ' + ifname);
+							webcon.updateScreenLockTextWidget(dlg, '准备：' + ifname);
+							return ranga.api.action('network', ['start-server', ifname]).then(proto => {
+								console.log('onekey: polling: ' + ifname);
+								return page_network.serverPoll(dlg, ifname);
+							});
+						});
+					}
+					return currentPromise;
+				}).catch(defErrorHandler).finally(() => {
+					console.log('onekey: finally');
+					webcon.unlockScreen();
 				});
-			}
-			return currentPromise;
-		}).catch(defErrorHandler).finally(() => {
-			console.log('onekey: finally');
-			webcon.unlockScreen();
+			})
 		});
-	});
+	}
+	webcon.addButton('额外工具', 'icon-tool', b => webcon.dropDownMenu(b, extra_tools_arr));
 
 	page_network.reload();
 }
