@@ -253,12 +253,98 @@ select:active {
 .progressbarbg {
 	margin: 8px 0;
 	background: var(--theme-color-input-bg);
-	height: 8px; 
+	height: 8px;
 }
 
 .progressbar {
 	background: var(--theme-color);
-	height: 8px; 
+	height: 8px;
+}
+
+.menu_back {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+.menu_wrapper {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.menu {
+	box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	-webkit-overflow-scrolling: touch;
+	overflow: auto;
+	background-color: #fff;
+	max-height: calc(100vh - 64px);
+	max-width: 200px;
+	min-width: 200px;
+	padding: 8px 0;
+	position: fixed;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.menu * {
+	flex-shrink: 0;
+}
+
+.menu button::-moz-focus-inner {
+	border: none;
+}
+
+.menu button {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+	padding: 8px 10px;
+	text-align: left;
+	text-decoration: none;
+	width: 100%;
+	border: 0px;
+	border-radius: 0px;
+	font-size: 1em;
+	background-color: white;
+	color: black;
+	outline: none;
+	font-weight: normal;
+	transition: background-color .3s;
+
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.menu button:hover {
+	background-color: #ebebeb;
+	color: black;
+	outline: none;
+}
+
+.menu button:active {
+	background-color: #d4d4d4;
+	color: black;
+	outline: none;
+}
+
+.menu button:focus {
+	padding: 8px 10px;
+	outline: none;
+	border: 0px;
 }
 
 /* https://codepen.io/ConAntonakos/pen/ryMaOX?editors=1111 */

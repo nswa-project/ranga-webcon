@@ -101,6 +101,45 @@ webcon.updateScreenLockTextWidget = (dlg, text) => {
 		dialog.textWidget(dlg).getElementsByTagName('span')[0].innerHTML = text;
 	}
 }
+webcon.dropDownMenuClose = m => {
+	
+}
+
+webcon.dropDownMenu = (e, list) => {
+	let menu_wrapper = document.createElement('div'),
+		menu = document.createElement('div');
+	menu_wrapper.classList.add('menu_wrapper');
+	menu.classList.add('menu');
+
+	list.forEach(i => {
+		let btn = document.createElement('button');
+		btn.textContent = i.name;
+		btn.addEventListener('click', ((f, a) => e => {
+			e.stopPropagation();
+			e.preventDefault();
+			f(a);
+			menu_wrapper.parentElement.removeChild(menu_wrapper);
+		})(i.func, null), false);
+		menu.appendChild(btn);
+	});
+
+	menu_wrapper.appendChild(menu);
+
+	let back = document.createElement('div');
+	back.classList.add('menu_back');
+	back.addEventListener('click', e => {
+		e.stopPropagation();
+		e.preventDefault();
+		menu_wrapper.parentElement.removeChild(menu_wrapper);
+	});
+	menu_wrapper.appendChild(back);
+
+	//e.parentNode.insertBefore(menu_wrapper, e.nextSibling);
+	e.style.position = 'relative';
+	e.appendChild(menu_wrapper);
+
+	return menu_wrapper;
+}
 
 webcon.kwdMap = {
 	netkeeper: '基于以太网的点对点协议（Netkeeper）',

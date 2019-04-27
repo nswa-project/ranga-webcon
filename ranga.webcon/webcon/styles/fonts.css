@@ -121,3 +121,7 @@
 .icon-usb::before {
 	content: "J";
 }
+
+.icon-tool::before {
+	content: "K";
+}

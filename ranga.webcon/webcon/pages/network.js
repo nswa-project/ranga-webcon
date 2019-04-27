@@ -109,7 +109,7 @@ page_network.reload = () => {
 
 	let f_scdial_enable = false;
 
-	ranga.api.query('network', []).then(proto => {
+	return ranga.api.query('network', []).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			console.log(i);
 			if (i.startsWith('!')) {
@@ -170,8 +170,47 @@ var stopStartServer = false;
 
 const page_network_init = () => {
 	webcon.addButton('刷新', 'icon-reload', b => {
-		page_network.reload();
+		b.disabled = true;
+		page_network.reload().finally(() => (b.disabled = false));
 	});
+
+	webcon.addButton('额外工具', 'icon-tool', b => webcon.dropDownMenu(b, [
+		{
+			name: 'Seth 安全断开',
+			func: (n => {
+				dialog.show("icon-info", "Seth 安全断开", "使用 Seth 安全断开的账户，只要当前同步的 Seth 数据在当下有效，并且断开后账户不在其他地方连接，则下次可以免同步 Seth 数据进行拨号！Seth 安全断开适合于准备进行重启或关机前执行，因为 Seth 数据存储在设备的内存中，断电后将会丢失（由于 NSWA Ranga 主要采用擦除寿命很有限的闪存，而数据很大且频繁被更新，如果存储在闪存将会影响设备寿命）。Seth 安全断开不会断开未启用 <b>Seth_v1</b> Netkeeper 扩展的接口", [
+					{
+						name: '我知道了',
+						func: (d => {
+							webcon.lockScreen();
+							ranga.api.action('seth', ['safe-hangup']).then(proto => {
+								page_network.reload();
+								dialog.toast('Seth 安全断开完成');
+							}).catch(defErrorHandler).finally(() => {
+								webcon.unlockScreen();
+							})
+							dialog.close(d);
+						})
+					}
+				])
+			})
+		}, {
+			name: '拨号医生',
+			func: (n => {
+				dialog.show(null, null, "请注意：<b>直接运行拨号医生可能报告完全错误的诊断结果</b>，在连接（拦截法除外）失败时，拨号医生会自动弹出通知以启动，这时的结果正确率较高。但你仍然可以随时强制启动拨号医生，以诊断拦截法或上次自动拨号的连接问题，但结果可能不准确甚至完全错误。", [
+					{
+						name: '我知道了',
+						func: (d => {
+							webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
+								doctor.analysis();
+							});
+							dialog.close(d);
+						})
+					}
+				])
+			})
+		}
+	]));
 
 	let onekeyButton = page_network.getElementById('onekey');
 	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
