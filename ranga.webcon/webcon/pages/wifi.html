@@ -14,7 +14,7 @@
 	</select>
 	<div id="page_wifi_edit" class="hide">
 		<div style="margin-top: 8px">
-			无线设置的修改在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按“重启无线服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。<br>
+			无线设置的修改在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按 “重启无线服务” 按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。<br>
 			<button class="btnFlat" id='p-wifi-restart'>重启无线服务</button>
 		</div>
 		<h1>无线设备状态</h1>
@@ -22,19 +22,19 @@
 		<h1>加密套件</h1>
 		<select id="p-wifi-chiper" style="min-height: 24px; max-width: 100%;">
 			<option value="RANGA_WIRELESS_WPA3_SAE">Wi-Fi 保护访问 3 等时同等认证</option>
-			<option value="RANGA_WIRELESS_WPA3MIX2_SAE_AND_PSK">Wi-Fi 保护访问 3 等时同等认证、Wi-Fi 保护访问II 预共享密钥混合模式</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_CCMP">Wi-Fi 保护访问II 预共享密钥（具有 CBC-MAC 计数器协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP">Wi-Fi 保护访问II 预共享密钥（临时密钥完整性协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问II 预共享密钥（双协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_AND_WPA_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问II、Wi-Fi 保护访问预共享密钥混合模式（双协议）</option>
+			<option value="RANGA_WIRELESS_WPA3MIX2_SAE_AND_PSK">Wi-Fi 保护访问 3 等时同等认证、Wi-Fi 保护访问 2 预共享密钥混合模式</option>
+			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_CCMP">Wi-Fi 保护访问 2 预共享密钥（具有 CBC-MAC 计数器协议）</option>
+			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP">Wi-Fi 保护访问 2 预共享密钥（临时密钥完整性协议）</option>
+			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问 2 预共享密钥（双协议）</option>
+			<option value="NSWA_WIFI_ENC_WPA2_AND_WPA_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问 2、Wi-Fi 保护访问预共享密钥混合模式（双协议）</option>
 			<option value="NSWA_WIFI_ENC_WPA_PSK_WITH_CCMP">Wi-Fi 保护访问预共享密钥（具有 CBC-MAC 计数器协议）</option>
 			<option value="NSWA_WIFI_ENC_WPA_PSK_WITH_TKIP">Wi-Fi 保护访问预共享密钥（临时密钥完整性协议）</option>
 			<option value="RANGA_WIRELESS_OPEN">开放</option>
 		</select><br>
 		<button class="btnFlat" id='p-wifi-set-chiper'>设置密码套件</button>
-		<div class="tips">NSWA Ranga 的暂时可能不支持 ”Wi-Fi 保护访问 3“ 系列的套件。</div>
+		<div class="tips">NSWA Ranga 可能暂时不支持 “Wi-Fi 保护访问 3” 系列的套件。</div>
 		<h1>预共享密钥</h1>
-		<div class="tips">当使用"预共享密钥"时，使用下面的预共享密钥进行认证。密钥少于 8 位时，NSWA Ranga 会自动禁用此无线设备，这是在 NSWA Ranga 上禁用某个或全部无线设备的通用方法。</div>
+		<div class="tips">当使用 “预共享密钥” 时，使用下面的预共享密钥进行认证。密钥少于 8 位时，NSWA Ranga 会自动禁用此无线设备，这是在 NSWA Ranga 上禁用某个或全部无线设备的通用方法。</div>
 		<table>
 			<tr>
 				<td>服务集标识符</td>
@@ -49,7 +49,7 @@
 		</table>
 		<button class="btnFlat" id='p-wifi-set-psk'>设置预共享密钥</button>
 		<h1>无线电参数</h1>
-		<div class="tips">某些设置，如 “RTS 阈值”、“距离优化”、“无线电功率” 暂时不支持由 Web 控制台设置，请使用命令行工具。地区代码使用 ISO/IEC 3166-1 alpha-2 标准，常见地区代码：00 - 世界，CN - 中国，US - 美国，TW - 台湾，AU - 澳洲。地区代码将影响无线监管域，从而影响驱动程序能选择的信道、最大无线电功率、调制方式等，请在遵守当地无线电管制条例的前提下使用此功能。有些设备在设备中硬编码了最大无线电功率或其他参数，即使你设置其他地区代码也无法绕过。置空地区代码将导致回退到驱动程序默认值，可能是“世界”监管域。</div>
+		<div class="tips">某些设置，如 “RTS 阈值”、“距离优化”、“无线电功率” 暂时不支持由 Web 控制台设置，请使用命令行工具。地区代码使用 ISO/IEC 3166-1 alpha-2 标准，常见地区代码：00 - 世界，CN - 中国，US - 美国，TW - 台湾，AU - 澳洲。地区代码将影响无线监管域，从而影响驱动程序能选择的信道、最大无线电功率、调制方式等，请在遵守当地无线电管制条例的前提下使用此功能。有些设备在设备中硬编码了最大无线电功率或其他参数，即使你设置其他地区代码也无法绕过。置空地区代码将导致回退到驱动程序默认值，可能是 “世界” 监管域。</div>
 		<table>
 			<tr>
 				<td>地区代码</td>
