@@ -102,7 +102,7 @@ webcon.updateScreenLockTextWidget = (dlg, text) => {
 	}
 }
 webcon.dropDownMenuClose = m => {
-	
+
 }
 
 webcon.dropDownMenu = (e, list) => {
@@ -211,11 +211,16 @@ webcon.onlineInited = false;
 webcon.setupOnlineScript = () => {
 	if (webcon.onlineInited) return;
 	webcon.onlineInited = true;
+
+	let scriptname = 'main.js';
 	if (utils.getLocalStorageItem('disable-nswa-online') !== 'true') {
-		webcon.loadScript("online", "https://glider0.github.io/nswa/online.ranga/main.js").then(a => {
+		if (utils.getLocalStorageItem('nswa-online-debug-channel') === 'true') {
+			scriptname = 'main-debug.js';
+		}
+		webcon.loadScript("online", "https://glider0.github.io/nswa/online.ranga/" + scriptname).then(a => {
 			eval("nswaOnlineInit(1)");
 		}).catch(e => {
-			webcon.loadScript("online_mirror", "https://fytlc.coding.me/ranga-mirror/nswa/online.ranga/main.js").then(a => {
+			webcon.loadScript("online_mirror", "https://fytlc.coding.me/ranga-mirror/nswa/online.ranga/" + scriptname).then(a => {
 				eval("nswaOnlineInit(1)");
 			}).catch(e => {
 				console.log("Can not load NSWA Online");
