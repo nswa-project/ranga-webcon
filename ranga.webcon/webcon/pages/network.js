@@ -184,6 +184,8 @@ const page_network_init = () => {
 						func: (d => {
 							webcon.lockScreen();
 							ranga.api.action('seth', ['safe-hangup']).then(proto => {
+								return utils.delay(800);
+							}).then(() => {
 								page_network.reload();
 								dialog.toast('Seth 安全断开完成');
 							}).catch(defErrorHandler).finally(() => {
