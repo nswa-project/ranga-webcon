@@ -35,7 +35,7 @@
 	<input type="checkbox" id="p-misc-anydial" data-x="permit_anonymous_dial" data-toast="允许匿名用户操作网络连接配置已经被修改。"><label for="p-misc-anydial" class="checkbox_label">允许匿名用户操作网络连接</label>
 
 	<h1>流量卸载（Flow Offload）</h1>
-	<div class="tips">流量卸载（Flow Offload）可以为转发的流量建立高速“旁路”，从而降低转发数据包带来的 CPU 开销，在高负载时提升网络性能。此功能并非 HW NAT 等硬件加速。<b>此功能与 QoS 不能同时启用！修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
+	<div class="tips">流量卸载（Flow Offload）可以为转发的流量建立高速“旁路”，从而降低转发数据包带来的 CPU 开销，在高负载时提升网络性能。此功能并非 HW NAT 等硬件加速。此设置只有在内核版本（见“关于 Ranga”中“Ranga 软件版本”）大于等于 4.14.0 的设备上生效。<b>此功能与 QoS 不能同时启用！修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
 	<input type="checkbox" id="p-misc-offload" data-x="offload" data-toast="流量卸载（Flow Offload）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-offload" class="checkbox_label">启用流量卸载（Flow Offload）</label>
 
 	<h1>新型实验性拦截服务</h1>
