@@ -101,9 +101,6 @@ webcon.updateScreenLockTextWidget = (dlg, text) => {
 		dialog.textWidget(dlg).getElementsByTagName('span')[0].innerHTML = text;
 	}
 }
-webcon.dropDownMenuClose = m => {
-
-}
 
 webcon.dropDownMenu = (e, list) => {
 	let menu_wrapper = document.createElement('div'),

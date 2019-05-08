@@ -88,25 +88,34 @@ page_addon.install = blob => {
 }
 
 const page_addon_init = () => {
-	webcon.addButton('安装新扩展程序', 'icon-add', b => {
-		let d = dialog.show('icon-add', '安装新扩展程序', "安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。通过 Web 控制台上传扩展程序是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。<br><br>选择扩展程序包：<input type=file accept='.zip,.npks' /><br>", [{
-			name: "上传",
-			func: (d => {
-				let files = d.getElementsByTagName('input')[0].files;
-				let file = files[0];
-				let reader = new FileReader();
-				let blob = file.slice(0, file.size);
-				reader.readAsArrayBuffer(blob);
+	webcon.addButton('安装新扩展程序', 'icon-add', b => webcon.dropDownMenu(b, [{
+			name: '上传扩展程序',
+			func: (() => {
+				let d = dialog.show('icon-add', '安装新扩展程序', "安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。通过 Web 控制台上传扩展程序是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。<br><br>选择扩展程序包：<input type=file accept='.zip,.npks' /><br>", [{
+					name: "上传",
+					func: (d => {
+						let files = d.getElementsByTagName('input')[0].files;
+						let file = files[0];
+						let reader = new FileReader();
+						let blob = file.slice(0, file.size);
+						reader.readAsArrayBuffer(blob);
 
-				page_addon.install(blob);
+						page_addon.install(blob);
 
-				dialog.close(d);
+						dialog.close(d);
+					})
+				}, {
+					name: "取消",
+					func: dialog.close
+				}]);
 			})
 		}, {
-			name: "取消",
-			func: dialog.close
-		}]);
-	});
+			name: '打开 Ranga 网上应用店',
+			func: (() => {
+				iframePage('https://glider0.github.io/was2/index.html', 'Ranga 网上应用店 - 扩展程序')
+			})
+		}
+	]));
 
 	webcon.lockScreen();
 	ranga.api.componentsList().then(proto => {
