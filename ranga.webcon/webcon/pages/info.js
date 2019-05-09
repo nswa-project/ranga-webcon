@@ -2,9 +2,7 @@ var page_info = {};
 
 const page_info_init = () => {
 	let div = document.getElementById('page_info_main');
-	ranga.api.query('sysinfo', ['-vpuU']).then(proto => {
-		let info = ranga.parseProto(proto.payload + "\n\n");
-		console.log(info);
+	ranga.sysinfo().then(info => {
 		utils.pageAddSection(div, 'Ranga 软件版本');
 		div.innerHTML += "系统版本：" + info.version + "<br>";
 		div.innerHTML += "内核版本：" + info.kernel + "<br>";
@@ -14,6 +12,9 @@ const page_info_init = () => {
 		div.innerHTML += "芯片：" + info.chip + "<br>";
 		div.innerHTML += "板子：" + info.board + "<br>";
 		div.innerHTML += "模型名称：" + info.model + "<br>";
+		return ranga.api.query('sysinfo', ['-uU']);
+	}).then(proto => {
+		let info = ranga.parseProto(proto.payload + "\n\n");
 		utils.pageAddSection(div, '资源使用');
 		let arr = info.memory.split('/');
 		div.innerHTML += "总内存：" + arr[0] + " 千字节<br>";

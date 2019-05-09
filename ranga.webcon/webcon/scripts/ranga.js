@@ -135,3 +135,21 @@ ranga.api.swdeploy.log = () => {
 ranga.api.swdeploy.status = blob => {
 	return ranga.protoAjax("/cgi-bin/swupload?action=status", blob);
 }
+
+ranga.cachedSysinfo = null;
+ranga.sysinfo = ignoreCache => {
+	const promise = new Promise((resolve, reject) => {
+		if (ranga.cachedSysinfo === null || ignoreCache) {
+			ranga.api.query('sysinfo', ['-vp']).then(proto => {
+				ranga.cachedSysinfo = ranga.parseProto(proto.payload + "\n\n");
+				resolve(ranga.cachedSysinfo);
+			}).catch(e => {
+				reject();
+			})
+		} else {
+			resolve(ranga.cachedSysinfo);
+		}
+	});
+
+	return promise;
+}
