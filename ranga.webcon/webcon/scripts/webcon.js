@@ -246,3 +246,68 @@ webcon.reloadTheme = () => {
 	});
 
 }
+
+webcon.listenForExternalRequest = () => {
+	window.addEventListener('message', e => {
+		let data = e.data,
+			origin = e.origin;
+		console.log(data);
+		switch (data.type) {
+			case 'set-theme':
+				if (!('theme_css' in data) || !('theme_uuid' in data) || !('theme_version' in data) || !('theme_compat' in data)) {
+					return;
+				}
+
+				dialog.show('icon-warning', '外部应用程序请求', '位于 <b>' + utils.raw2HTMLString(utils.URIDomain(origin)) + '</b> 的站点正试图向你的 NSWA Ranga 的 Web 控制台设置自定义主题。安装第三方主题可能会导致 Web 控制台外观被恶意篡改，从而使你受骗。' + (origin.startsWith('https:') ? '' : '<br><br>您与此站点的连接不是私密连接。这意味着你的数据未经加密在互联网上传输，这可能导致主题被恶意替换。'), [{
+					name: '继续',
+					func: (d => {
+						if (data.theme_uuid === 'default') {
+							utils.idbRemove('theme', 'custom-css').then(() => {
+								dialog.close(d);
+								webcon.reloadTheme();
+							});
+						} else {
+							utils.idbPut('theme', {
+								id: 'custom-css',
+								data: data.theme_css,
+								theme_uuid: data.theme_uuid,
+								theme_version: data.theme_version,
+								theme_compat: data.theme_compat
+							}).then(() => {
+								dialog.close(d);
+								webcon.reloadTheme();
+							});
+						}
+					})
+					}, {
+					name: '拒绝',
+					func: dialog.close
+					}]);
+				break;
+			case 'inst-ext':
+				if (!('ext_blob' in data)) {
+					return;
+				}
+				dialog.show('icon-warning', '外部应用程序请求', '位于 <b>' + utils.raw2HTMLString(utils.URIDomain(origin)) + '</b> 的站点正试图向你的 NSWA Ranga 安装扩展程序。安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。' + (origin.startsWith('https:') ? '' : '<br><br>您与此站点的连接不是私密连接。这意味着你的数据未经加密在互联网上传输，这可能导致扩展程序被恶意替换。'), [{
+					name: '继续',
+					func: (d => {
+						let passwd = prompt('若要安装扩展程序，您必须经过认证\n\n输入超级用户密码继续', 'ranga');
+						ranga.api.auth(passwd).then(proto => {
+							webcon.setToken(proto.payload);
+							webcon.lockScreen('正在安装扩展程序');
+							return ranga.api.addonInstall(data.ext_blob);
+						}).then(proto => {
+							dialog.simple("<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>");
+						}).catch(defErrorHandler).finally(() => {
+							dialog.close(d);
+							webcon.unlockScreen();
+						});
+					})
+					}, {
+					name: '拒绝',
+					func: dialog.close
+					}]);
+				break;
+		}
+	});
+}

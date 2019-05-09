@@ -2,7 +2,7 @@ var page_info = {};
 
 const page_info_init = () => {
 	let div = document.getElementById('page_info_main');
-	ranga.sysinfo().then(info => {
+	ranga.sysinfo(false).then(info => {
 		utils.pageAddSection(div, 'Ranga 软件版本');
 		div.innerHTML += "系统版本：" + info.version + "<br>";
 		div.innerHTML += "内核版本：" + info.kernel + "<br>";
