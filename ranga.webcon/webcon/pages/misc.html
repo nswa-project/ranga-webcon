@@ -34,9 +34,10 @@
 	<div class="tips">允许匿名用户操作网络连接（如连接、断开连接等），否则只有登录超级用户后才能操作网络连接。不包括 NSWA Ranga 系统设置，无论如何，只有超级用户才能访问系统设置功能。</div>
 	<input type="checkbox" id="p-misc-anydial" data-x="permit_anonymous_dial" data-toast="允许匿名用户操作网络连接配置已经被修改。"><label for="p-misc-anydial" class="checkbox_label">允许匿名用户操作网络连接</label>
 
-	<h1>流量卸载（Flow Offload）</h1>
-	<div class="tips">流量卸载（Flow Offload）可以为转发的流量建立高速“旁路”，从而降低转发数据包带来的 CPU 开销，在高负载时提升网络性能。此功能并非 HW NAT 等硬件加速。此设置只有在内核版本（见“关于 Ranga”中“Ranga 软件版本”）大于等于 4.14.0 的设备上生效。<b>此功能与 QoS 不能同时启用！修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
-	<input type="checkbox" id="p-misc-offload" data-x="offload" data-toast="流量卸载（Flow Offload）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-offload" class="checkbox_label">启用流量卸载（Flow Offload）</label>
+	<h1>流量卸载（Flow Offloading）</h1>
+	<div class="tips">流量卸载（Flow Offloading）可以为转发的流量建立高速“旁路”，从而降低转发数据包带来的 CPU 开销，在高负载时提升网络性能。硬件流量卸载（Hardware Flow Offloading）是通过 HW NAT 实现的，只有当流量卸载（Flow Offloading）启用的前提下启用才会生效，并且仅支持少量的芯片。此设置只有在内核版本（见“关于 Ranga”中“Ranga 软件版本”）大于等于 4.14.0 的设备上生效。<b>此功能与 QoS 不能同时启用！修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
+	<input type="checkbox" id="p-misc-offload" data-x="offload" data-toast="流量卸载（Flow Offloading）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-offload" class="checkbox_label">启用流量卸载（Flow Offloading）</label><br>
+	<input type="checkbox" id="p-misc-hwoffload" data-x="hwoffload" data-toast="硬件流量卸载（Hardware Flow Offloading）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-hwoffload" class="checkbox_label">尝试进行硬件流量卸载（Hardware Flow Offloading）（实验性）</label>
 
 	<h1>新型实验性拦截服务</h1>
 	<div class="tips">传统拦截法需要手动在 Web 控制台或者命令行工具告诉 NSWA Ranga 启动拦截服务器，然后进行拨号，并且具有 1 分钟的超时时间。新型实验性拦截服务无需先告诉 NSWA Ranga 需要启动拦截服务器，就可以拦截 PPPoE 连接并拨号，拨号时应该将你的帐号后附加 @接口名 以让 NSWA Ranga 能够确定对应的接口名，如果不带接口名，NSWA Ranga 将从 'netkeeper' 接口建立连接，本条应该为所有使用多宿主的用户所注意。本功能不建议小内存设备启用。<b>修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>

@@ -1,6 +1,6 @@
 var page_misc = {};
 
-page_misc.getElementById = id => {
+page_misc.$ = id => {
 	return document.getElementById('p-misc-' + id);
 }
 
@@ -18,7 +18,7 @@ page_misc.setMisc = e => {
 	let element = e.target,
 		key = element.dataset.x,
 		valueElement = element.dataset.v,
-		value = page_misc.getElementById(valueElement).value,
+		value = page_misc.$(valueElement).value,
 		toastString = element.dataset.toast;
 	ranga.api.config('misc', ['set-misc', key, value]).then(proto => {
 		dialog.toast(toastString);
@@ -49,28 +49,30 @@ const page_misc_init = () => {
 		});
 		console.log(data);
 
-		page_misc.getElementById('cp').checked = (data['nswa.flags.enable_captive_portal'] === '1');
-		page_misc.getElementById('cron').checked = (data['nswa.flags.enable_cron_autostart'] === '1');
-		page_misc.getElementById('ed').checked = (data['nswa.flags.enable_early_dial'] === '1');
-		page_misc.getElementById('anydial').checked = (data['nswa.flags.permit_anonymous_dial'] === '1');
-		page_misc.getElementById('scdial').checked = (data['nswa.flags.enable_forever_nkserver'] === '1');
-		page_misc.getElementById('ppp').value = data['nswa.misc.autoppp'];
+		page_misc.$('cp').checked = (data['nswa.flags.enable_captive_portal'] === '1');
+		page_misc.$('cron').checked = (data['nswa.flags.enable_cron_autostart'] === '1');
+		page_misc.$('ed').checked = (data['nswa.flags.enable_early_dial'] === '1');
+		page_misc.$('anydial').checked = (data['nswa.flags.permit_anonymous_dial'] === '1');
+		page_misc.$('scdial').checked = (data['nswa.flags.enable_forever_nkserver'] === '1');
+		page_misc.$('ppp').value = data['nswa.misc.autoppp'];
 
-		return ranga.api.config('svc', ['offload', 'is-enabled']);
+		return ranga.api.config('svc', ['show']);
 	}).then(proto => {
-		if (proto.payload.startsWith('enabled'))
-			page_misc.getElementById('offload').checked = true;
+		let data = ranga.parseProto(proto.payload + '\n\n');
+			page_misc.$('offload').checked = (data['offload'] === 'enabled');
+			page_misc.$('hwoffload').checked = (data['hwoffload'] === 'enabled');
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
 
-	page_misc.getElementById('cp').addEventListener('change', page_misc.setFlag);
-	page_misc.getElementById('cron').addEventListener('change', page_misc.setFlag);
-	page_misc.getElementById('ed').addEventListener('change', page_misc.setFlag);
-	page_misc.getElementById('anydial').addEventListener('change', page_misc.setFlag);
-	page_misc.getElementById('scdial').addEventListener('change', page_misc.setFlag);
+	page_misc.$('cp').addEventListener('change', page_misc.setFlag);
+	page_misc.$('cron').addEventListener('change', page_misc.setFlag);
+	page_misc.$('ed').addEventListener('change', page_misc.setFlag);
+	page_misc.$('anydial').addEventListener('change', page_misc.setFlag);
+	page_misc.$('scdial').addEventListener('change', page_misc.setFlag);
 
-	page_misc.getElementById('set-ppp').addEventListener('click', page_misc.setMisc);
+	page_misc.$('set-ppp').addEventListener('click', page_misc.setMisc);
 
-	page_misc.getElementById('offload').addEventListener('change', page_misc.setSvc);
+	page_misc.$('offload').addEventListener('change', page_misc.setSvc);
+	page_misc.$('hwoffload').addEventListener('change', page_misc.setSvc);
 }
