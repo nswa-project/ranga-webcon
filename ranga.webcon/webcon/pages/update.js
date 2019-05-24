@@ -1,8 +1,12 @@
 var page_update = {};
 
+page_update.$ = id => {
+	return document.getElementById('p-update-' + id);
+}
+
 const page_update_init = () => {
-	document.getElementById('p-update-upload').addEventListener('click', e => {
-		let files = document.getElementById('p-update-file').files;
+	page_update.$('upload').addEventListener('click', e => {
+		let files = page_update.$('file').files;
 		if (!files.length) {
 			dialog.simple('请选择一个文件');
 			return;
@@ -17,7 +21,12 @@ const page_update_init = () => {
 		reader.readAsArrayBuffer(blob);
 
 		webcon.loadScript('swdeploy', 'scripts/swdeploy.js?v=__RELVERSION__').then(e => {
+			swdeploy.reboot = page_update.$('reboot').checked;
+			if (page_update.$('fpearseconfig').checked) {
+				ranga.api.swdeploy.action('fp_earse_configure');
+			}
 			swdeploy.start(blob);
+			swdeploy.reboot = false;
 		})
 	});
 }

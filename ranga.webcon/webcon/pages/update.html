@@ -3,10 +3,17 @@
 		#page_update_main .tips {
 			margin-bottom: 10px;
 		}
-		
+
 		#page_update_main button {
 			margin-top: 6px;
 		}
+
+		#p-update-options {
+			margin: 10px 4px;
+			padding-left: 8px;
+			border-left: 3px solid var(--theme-color);
+		}
+
 	</style>
 	<h1>使用 NSWA Online 推送更新系统</h1>
 	如果你没有关闭 Web 控制台的 NSWA Online 推送功能，新版本发布后，在你打开 Web 控制台时会向你推送。弹出更新通知。
@@ -19,7 +26,11 @@ ranga-cli swdeploy sync</pre>
 ranga-cli swdeploy flash /path/to/firmware.bin</pre>
 	有关命令行工具进行系统更新的更多用法，请运行 <code>ranga-cli swdeploy -h</code> 获得帮助信息。
 	<h1>使用 Web 控制台上传固件</h1>
-	<div class="tips">通过 Web 控制台上传系统固件更新是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API</div><br>
+	<div class="tips">通过 Web 控制台上传系统固件更新是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。"下次完整包更新时抹掉当前系统配置" 会在你（主动或被动）重启系统之前一直有效；"礼貌地要求安装完毕后执行重启" 并非一个强制性的操作，而是向更新程序提出请求，可以被更新程序忽略，同时，更新程序也可能自行决定是否应该重启，而不管你是否请求，但是，对于大部分无需重启的更新，使用此功能将会在更新完毕后重启。</div><br>
 	选择固件文件：<input type="file" id="p-update-file" /><br>
+	<div id="p-update-options">
+		<input type="checkbox" id="p-update-fpearseconfig"><label for="p-update-fpearseconfig" class="checkbox_label">下次完整包更新时抹掉当前系统配置</label><br>
+		<input type="checkbox" id="p-update-reboot"><label for="p-update-reboot" class="checkbox_label">礼貌地要求安装完毕后执行重启</label><br>
+	</div>
 	<button class="btnFlat" id="p-update-upload" type="button">上传</button><br>
 </div>

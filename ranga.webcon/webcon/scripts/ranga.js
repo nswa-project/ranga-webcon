@@ -124,8 +124,8 @@ ranga.api.setWebcon = extension => {
 	return ranga.protoAjax("/cgi-bin/addon?action=setwebcon&pkgname=" + encodeURIComponent(extension), null);
 }
 
-ranga.api.swdeploy.upload = blob => {
-	return ranga.protoAjax("/cgi-bin/swupload?action=patch", blob);
+ranga.api.swdeploy.upload = (blob, reboot = false) => {
+	return ranga.protoAjax("/cgi-bin/swupload?action=patch" + (reboot ? "&reboot=1" : ""), blob);
 }
 
 ranga.api.swdeploy.log = () => {
@@ -134,6 +134,18 @@ ranga.api.swdeploy.log = () => {
 
 ranga.api.swdeploy.status = blob => {
 	return ranga.protoAjax("/cgi-bin/swupload?action=status", blob);
+}
+
+ranga.api.swdeploy.action = action => {
+	switch (action) {
+		case 'fp_earse_configure':
+			return ranga.protoAjax("/cgi-bin/swupload?action=" + action, null);
+			break;
+		default:
+			console.error("ranga.api.swdeploy.action: unsupported action invoked: " + action);
+			return Promise.reject();
+			break;
+	}
 }
 
 ranga.cachedSysinfo = null;

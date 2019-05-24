@@ -1,5 +1,7 @@
 var swdeploy = {};
 
+swdeploy.reboot = false;
+
 swdeploy.poll = (pre, t) => {
 	ranga.api.swdeploy.log().then(proto => {
 		pre.textContent = proto.payload;
@@ -26,7 +28,7 @@ swdeploy.start = blob => {
 	let t = dialog.textWidget(d);
 	let pre = t.getElementsByTagName('pre')[0];
 
-	ranga.api.swdeploy.upload(blob).then(proto => {
+	ranga.api.swdeploy.upload(blob, swdeploy.reboot).then(proto => {
 		pre.textContent = proto.payload;
 		swdeploy.poll(pre, t);
 	}).catch(e => {

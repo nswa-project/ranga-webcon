@@ -61,6 +61,7 @@ const page_misc_init = () => {
 		let data = ranga.parseProto(proto.payload + '\n\n');
 			page_misc.$('offload').checked = (data['offload'] === 'enabled');
 			page_misc.$('hwoffload').checked = (data['hwoffload'] === 'enabled');
+			page_misc.$('mssclamping').checked = (data['mssclamping'] === 'enabled');
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
@@ -75,4 +76,5 @@ const page_misc_init = () => {
 
 	page_misc.$('offload').addEventListener('change', page_misc.setSvc);
 	page_misc.$('hwoffload').addEventListener('change', page_misc.setSvc);
+	page_misc.$('mssclamping').addEventListener('change', page_misc.setSvc);
 }
