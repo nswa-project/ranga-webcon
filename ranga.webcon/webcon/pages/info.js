@@ -6,7 +6,7 @@ const page_info_init = () => {
 		utils.pageAddSection(div, 'Ranga 软件版本');
 		div.innerHTML += "系统版本：" + info.version + "<br>";
 		div.innerHTML += "内核版本：" + info.kernel + "<br>";
-		div.innerHTML += "<a target=_blank href='https://glider0.github.io/updates/'>系统更新发布站点</a><br>";
+		div.innerHTML += "<a target=_blank href='" + webcon.supportSiteMain + "/updates/'>系统更新发布站点</a><br>";
 		utils.pageAddSection(div, '设备信息');
 		div.innerHTML += "架构：" + info.arch + "<br>";
 		div.innerHTML += "芯片：" + info.chip + "<br>";

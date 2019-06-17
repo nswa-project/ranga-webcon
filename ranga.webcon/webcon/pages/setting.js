@@ -12,7 +12,7 @@ const page_setting_init = () => {
 
 	theme.textContent = webconThemeUUID ? webconThemeUUID : '默认主题';
 	page_setting.$('themestore').addEventListener('click', e => {
-		iframePage('https://glider0.github.io/was2/themes.html', 'Ranga 网上应用店 - 主题')
+		iframePage(webcon.supportSiteMain + '/was2/themes.html', 'Ranga 网上应用店 - 主题')
 	});
 
 	page_setting.$('settheme').addEventListener('click', e => {
