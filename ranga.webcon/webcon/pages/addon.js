@@ -88,7 +88,7 @@ page_addon.install = blob => {
 }
 
 const page_addon_init = () => {
-	webcon.addButton('安装新扩展程序', 'icon-add', b => webcon.dropDownMenu(b, [{
+	webcon.addButton('添加', 'icon-add', b => webcon.dropDownMenu(b, [{
 			name: '上传扩展程序',
 			func: (() => {
 				let d = dialog.show('icon-add', '安装新扩展程序', "安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。通过 Web 控制台上传扩展程序是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。<br><br>选择扩展程序包：<input type=file accept='.zip,.npks' /><br>", [{
@@ -112,7 +112,44 @@ const page_addon_init = () => {
 		}, {
 			name: '打开 Ranga 网上应用店',
 			func: (() => {
-				iframePage('https://glider0.github.io/was2/index.html', 'Ranga 网上应用店 - 扩展程序')
+				iframePage(webcon.supportSiteMain + '/was2/index.html', 'Ranga 网上应用店 - 扩展程序')
+			})
+		}, {
+			name: '部署系统组件',
+			func: (() => {
+				let d = dialog.show('icon-add', '部署系统组件', "输入希望部署的系统组件的 UUID 标识码。部分系统组件也可能有一个人类友好名字。<br><br><input style='width: 100%'>", [{
+					name: "上传",
+					func: (d => {
+						let uuid = d.getElementsByTagName('input')[0].value;
+						if (utils.isNil(uuid) || uuid == "") {
+							dialog.simple("空的 UUID 不被支持。");
+						} else {
+							webcon.lockScreen("正在下载组件...");
+							webcon.loadScript('swdeploy', 'scripts/swdeploy.js').then(e => {
+								return utils.ajaxGet2(webcon.supportSiteMain + '/swdl/component/' + uuid, true).catch(e => {
+									dialog.simple("下载失败，UUID 对应的组件不存在，或者你的网络连接有问题。");
+									return Promise.reject(utils.inhibitorForPromiseErrorHandler);
+								});
+							}).then(blob => {
+								swdeploy.start(blob);
+							}).catch(defErrorHandler).finally(() => {
+								webcon.unlockScreen();
+							});
+						}
+						dialog.close(d);
+					})
+				}, {
+					name: "取消",
+					func: dialog.close
+				}]);
+				let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
+				ipt.addEventListener('keyup', e => {
+					e.preventDefault();
+					if (e.keyCode === 13) {
+						d.getElementsByTagName('button')[0].click();
+					}
+				});
+				ipt.focus();
 			})
 		}
 	]));

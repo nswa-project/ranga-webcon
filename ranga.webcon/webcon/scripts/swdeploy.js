@@ -24,7 +24,7 @@ swdeploy.poll = (pre, t) => {
 }
 
 swdeploy.start = blob => {
-	let d = dialog.show('icon-update', '安装 OTA 更新', '<pre></pre>', []);
+	let d = dialog.show('icon-update', '正在执行软件变更', '<pre></pre>', []);
 	let t = dialog.textWidget(d);
 	let pre = t.getElementsByTagName('pre')[0];
 
