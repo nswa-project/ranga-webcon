@@ -312,11 +312,15 @@
 	<script>
 		var webconThemeUUID = null;
 		var defErrorHandler = proto => {
+			if (proto == utils.inhibitorForPromiseErrorHandler)
+				return;
 			utils.promiseDebug(proto);
 			dialog.simple(utils.isFailedProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
 		}
 
 		var defErrorHandlerPage = proto => {
+			if (proto == utils.inhibitorForPromiseErrorHandler)
+				return;
 			utils.promiseDebug(proto);
 			let msg = (utils.isFailedProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
 			webcon.contentLoadData(msg, false);

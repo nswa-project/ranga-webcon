@@ -1,5 +1,7 @@
 var utils = {};
 
+utils.inhibitorForPromiseErrorHandler = {};
+
 utils.getUNIXTimestamp = () => {
 	return parseInt(new Date().getTime() / 1000);
 }
