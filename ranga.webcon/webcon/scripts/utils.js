@@ -65,14 +65,28 @@ utils.isNil = value => {
 	return (typeof value === 'undefined' || value === null);
 }
 
+utils.isProto = object => {
+	try {
+		return ('_ranga_proto_data' in object);
+	} catch (e) {
+		return false;
+	}
+}
+
 utils.promiseDebug = e => {
-	if (!utils.isNil(e)) {
-		if ('_ranga_proto_data' in e) {
-			console.log(e)
-		} else if ('message' in e && 'stack' in e) {
-			console.error(e.message);
-			console.error(e.stack);
-		}
+	if (utils.isNil(e))
+		return;
+	if (!(e instanceof Object)) {
+		console.log("utils.promiseDebug: unexpected type!");
+		console.log(e);
+		return;
+	}
+
+	if ('_ranga_proto_data' in e) {
+		console.log(e)
+	} else if ('message' in e && 'stack' in e) {
+		console.error(e.message);
+		console.error(e.stack);
 	}
 }
 

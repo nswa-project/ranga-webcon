@@ -313,12 +313,12 @@
 		var webconThemeUUID = null;
 		var defErrorHandler = proto => {
 			utils.promiseDebug(proto);
-			dialog.simple(utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
+			dialog.simple(utils.isProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
 		}
 
 		var defErrorHandlerPage = proto => {
 			utils.promiseDebug(proto);
-			let msg = (utils.isNil(proto) ? "网络错误或 Web 控制台错误" : ranga.errstr(proto.code));
+			dialog.simple(utils.isProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
 			webcon.contentLoadData(msg, false);
 			webcon.removeAllButtons();
 		}
@@ -364,7 +364,7 @@
 		});
 
 		document.getElementById('cmdline').addEventListener('click', e => {
-			window.open('https://glider0.github.io/doc.zh/euman.html', '_blank');
+			window.open(webcon.supportSiteMain + '/doc.zh/euman.html', '_blank');
 		});
 
 		document.getElementById('login').addEventListener('click', e => {
