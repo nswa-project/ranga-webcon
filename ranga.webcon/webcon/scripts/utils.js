@@ -65,7 +65,7 @@ utils.isNil = value => {
 	return (typeof value === 'undefined' || value === null);
 }
 
-utils.isProto = object => {
+utils.isFailedProto = object => {
 	try {
 		return ('_ranga_proto_data' in object);
 	} catch (e) {
