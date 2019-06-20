@@ -34,8 +34,14 @@ doctor.analysis = () => {
 
 		if (code in doctor.results) {
 			let result = doctor.results["" + code];
-			dialog.simple("对你的问题的最佳猜测: <b>" + result[0] + "</b><br>" + result[1] + "<br><br><b>请尝试以下解决方法：</b><br>" + result[2].replace(/\|/gi, '<br>') + ((log === null) ? "" :
-				"<br><br>以下是最近一次拨号的日志，可能对解决问题有所帮助（包含你的拨号用户名，分享之前建议根据需要进行脱敏处理）<br><pre style='overflow-x: auto;'>" + utils.raw2HTMLString(log) + "</pre>"));
+
+			dialog.adv(null, null, "对你的问题的最佳猜测: <b>" + result[0] + "</b><br>" + result[1] + "<br><br><b>请尝试以下解决方法：</b><br>" + result[2].replace(/\|/gi, '<br>') + ((log === null) ? "" :
+				"<br><br>以下是最近一次拨号的日志，可能对解决问题有所帮助（包含你的拨号用户名，分享之前建议根据需要进行脱敏处理）<br><pre style='overflow-x: auto;'>" + utils.raw2HTMLString(log) + "</pre>"), [{
+				name: "好",
+				func: dialog.close
+			}], {
+				noMaxWidth: 1
+			});
 		} else {
 			dialog.simple("Invalid response code. You may need to upgrade web-console.");
 		}
