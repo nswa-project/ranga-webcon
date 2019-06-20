@@ -212,30 +212,37 @@ utils.sethGetTimeStamp = blob => {
 
 utils.sethGetNKPin = (timestamp, blob) => {
 	const promise = new Promise((resolve, reject) => {
-		let start = utils.sethGetTimeStamp(blob);
-		let offset = parseInt((timestamp - start) / 5) * 7;
-		if (offset > 0) {
-			new Response(blob.slice(offset + 8, 7)).arrayBuffer().then(y => {
-				let buf = new ArrayBuffer(10);
-				let array = new Uint8Array(buffer),
-					dataArray = new Uint8Array(y);
+		utils.sethGetTimeStamp(blob).then(start => {
+			let offset = parseInt((timestamp - start) / 5) * 7;
+			console.log("utils.sethGetNKPin: offset: " + offset + ", size: " + blob.size);
+			if (offset > 0) {
+				offset += 8;
+				new Response(blob.slice(offset, offset + 8)).arrayBuffer().then(y => {
+					let buffer = new ArrayBuffer(10);
+					let array = new Uint8Array(buffer),
+						dataArray = new Uint8Array(y);
 
-				array[0] = 13; // '\r'
-				array[1] = 49; // '1'
-				array[2] = dataArray[0];
-				array[3] = dataArray[1];
-				array[4] = dataArray[2];
-				array[5] = dataArray[3];
-				array[6] = dataArray[4];
-				array[7] = 32; // ' '
-				array[8] = dataArray[5];
-				array[9] = dataArray[6];
-
-				resolve(utils.ArrayBufferToHexedString(array.buffer));
-			}).catch(() => reject());
-		} else {
-			reject()
-		}
+					array[0] = 13; // '\r'
+					array[1] = 49; // '1'
+					array[2] = dataArray[0];
+					array[3] = dataArray[1];
+					array[4] = dataArray[2];
+					array[5] = dataArray[3];
+					array[6] = dataArray[4];
+					array[7] = 32; // ' '
+					array[8] = dataArray[5];
+					array[9] = dataArray[6];
+					
+					let binary = '';
+					for (var i = 0; i < array.byteLength; i++) {
+						binary += String.fromCharCode(array[i]);
+					}
+					resolve(btoa(binary));
+				}).catch(() => reject());
+			} else {
+				reject()
+			}
+		}).catch(() => reject());
 	});
 	return promise;
 }
