@@ -6,6 +6,10 @@ utils.getUNIXTimestamp = () => {
 	return parseInt(new Date().getTime() / 1000);
 }
 
+utils.UNIXToDateString = timestamp => {
+	return new Date(timestamp * 1000).toString();
+}
+
 utils.formatBytes = (bytes, decimals) => {
 	if (bytes == 0) return '0 Bytes';
 	let k = 1024;
@@ -103,18 +107,29 @@ utils.URIDomain = uri => {
 	return url.hostname;
 }
 
+utils.ArrayBufferToHexedString = buffer => {
+	return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
+}
+
+utils.__idbCreateTable = (event, table) => {
+	let db = event.target.result;
+	if (!db.objectStoreNames.contains(table)) {
+		db.createObjectStore(table, {
+			keyPath: 'id'
+		});
+	}
+}
+
 utils.idbPut = (table, data) => {
 	const promise = new Promise((resolve, reject) => {
-		let request = indexedDB.open('webcon', 1);
+		let request = indexedDB.open(table, 1);
 		request.onerror = function (event) {
 			console.log('indexedDB open error');
 			reject();
 		};
 
 		request.onsuccess = function (event) {
-			let tran = request.result.transaction([table], 'readwrite')
-				.objectStore(table)
-				.put(data);
+			let tran = request.result.transaction([table], 'readwrite').objectStore(table).put(data);
 
 			tran.onsuccess = function (event) {
 				resolve();
@@ -127,12 +142,7 @@ utils.idbPut = (table, data) => {
 		};
 
 		request.onupgradeneeded = function (event) {
-			let db = event.target.result;
-			if (!db.objectStoreNames.contains(table)) {
-				db.createObjectStore(table, {
-					keyPath: 'id'
-				});
-			}
+			utils.__idbCreateTable(event, table);
 		}
 	});
 
@@ -141,32 +151,23 @@ utils.idbPut = (table, data) => {
 
 utils.idbGet = (table, id) => {
 	const promise = new Promise((resolve, reject) => {
-		let request = indexedDB.open('webcon', 1);
+		let request = indexedDB.open(table, 1);
 		request.onerror = function (event) {
 			console.log('indexedDB open error');
 			reject();
 		};
 		request.onsuccess = function (event) {
-			let tran = request.result.transaction([table])
-				.objectStore(table)
-				.get(id);
-
+			let tran = request.result.transaction([table]).objectStore(table).get(id);
 			tran.onsuccess = function (event) {
 				resolve(tran.result);
 			};
-
 			tran.onerror = function (event) {
 				console.log('indexedDB read error');
 				reject();
 			}
 		};
 		request.onupgradeneeded = function (event) {
-			let db = event.target.result;
-			if (!db.objectStoreNames.contains(table)) {
-				db.createObjectStore(table, {
-					keyPath: 'id'
-				});
-			}
+			utils.__idbCreateTable(event, table);
 		}
 	});
 
@@ -175,15 +176,13 @@ utils.idbGet = (table, id) => {
 
 utils.idbRemove = (table, id) => {
 	const promise = new Promise((resolve, reject) => {
-		let request = indexedDB.open('webcon', 1);
+		let request = indexedDB.open(table, 1);
 		request.onerror = function (event) {
 			console.log('indexedDB open error');
 			reject();
 		};
 		request.onsuccess = function (event) {
-			let tran = request.result.transaction([table], 'readwrite')
-				.objectStore(table)
-				.delete(id);
+			let tran = request.result.transaction([table], 'readwrite').objectStore(table).delete(id);
 
 			tran.onsuccess = function (event) {
 				resolve(tran.result);
@@ -195,14 +194,48 @@ utils.idbRemove = (table, id) => {
 			}
 		};
 		request.onupgradeneeded = function (event) {
-			let db = event.target.result;
-			if (!db.objectStoreNames.contains(table)) {
-				db.createObjectStore(table, {
-					keyPath: 'id'
-				});
-			}
+			utils.__idbCreateTable(event, table);
 		}
 	});
 
+	return promise;
+}
+
+utils.sethGetTimeStamp = blob => {
+	const promise = new Promise((resolve, reject) => {
+		new Response(blob.slice(0, 8)).arrayBuffer().then(y => {
+			resolve(parseInt(utils.ArrayBufferToHexedString(y), 16));
+		}).catch(() => reject());
+	});
+	return promise;
+}
+
+utils.sethGetNKPin = (timestamp, blob) => {
+	const promise = new Promise((resolve, reject) => {
+		let start = utils.sethGetTimeStamp(blob);
+		let offset = parseInt((timestamp - start) / 5) * 7;
+		if (offset > 0) {
+			new Response(blob.slice(offset + 8, 7)).arrayBuffer().then(y => {
+				let buf = new ArrayBuffer(10);
+				let array = new Uint8Array(buffer),
+					dataArray = new Uint8Array(y);
+
+				array[0] = 13; // '\r'
+				array[1] = 49; // '1'
+				array[2] = dataArray[0];
+				array[3] = dataArray[1];
+				array[4] = dataArray[2];
+				array[5] = dataArray[3];
+				array[6] = dataArray[4];
+				array[7] = 32; // ' '
+				array[8] = dataArray[5];
+				array[9] = dataArray[6];
+
+				resolve(utils.ArrayBufferToHexedString(array.buffer));
+			}).catch(() => reject());
+		} else {
+			reject()
+		}
+	});
 	return promise;
 }
