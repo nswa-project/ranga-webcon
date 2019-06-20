@@ -1,6 +1,6 @@
 var page_network = {};
 
-page_network.getElementById = id => {
+page_network.$ = id => {
 	return document.getElementById('p-network-' + id);
 }
 
@@ -92,6 +92,46 @@ page_network.serverPoll = (dlg, ifname) => {
 	});
 }
 
+page_network.seth = (name, type) => {
+	webcon.lockScreen();
+	utils.idbGet('sethblob', name).then(r => {
+		if (!utils.isNil(r) && ('blob' in r)) {
+			return Promise.resolve(r.blob)
+		} else {
+			return Promise.reject();
+		}
+	}).catch(e => {
+		utils.promiseDebug(e);
+		dialog.simple('此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。');
+		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
+	}).then(blob => {
+		return utils.sethGetNKPin(utils.getUNIXTimestamp(), blob);
+	}).catch(e => {
+		utils.promiseDebug(e);
+		dialog.simple('无法从 Seth 数据中获取当前 NK PIN 和 Hash，请确定数据未过期，且当前时间正确。');
+		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
+	}).then(pin => {
+		console.log("sethng: NK PIN and Hash: " + pin);
+		return ranga.api.action('network', ['nkdial', name, pin]);
+	}).then(proto => {
+		dialog.toast("接口 ‘" + name + "' 已连接。");
+	}).catch(e => {
+		if (e == utils.inhibitorForPromiseErrorHandler)
+			return;
+		defErrorHandler(e);
+		if (type === 'netkeeper' && !(utils.isNil(e))) {
+			if (e.code === '7') {
+				webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
+					doctor.notify();
+				});
+			}
+		}
+	}).finally(() => {
+		webcon.unlockScreen();
+		page_network.reload();
+	});
+}
+
 page_network.server = (name, type) => {
 	let dlg = webcon.lockScreen();
 	ranga.api.action('network', ['start-server', name]).then(proto => {
@@ -137,6 +177,9 @@ page_network.reload = () => {
 				btn.classList.remove('hide');
 				btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.conn, d[0], d[1]), false);
 				if (d[1] === 'netkeeper') {
+					btn = item.getElementsByClassName('p-network-item-btn-seth')[0];
+					btn.classList.remove('hide');
+					btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.seth, d[0], d[1]), false);
 					btn = item.getElementsByClassName('p-network-item-btn-server')[0];
 					btn.classList.remove('hide');
 					if (f_scdial_enable) {
@@ -161,7 +204,7 @@ page_network.reload = () => {
 		});
 
 		if (f_scdial_enable) {
-			page_network.getElementById('scdial').classList.remove('hide');
+			page_network.$('scdial').classList.remove('hide');
 		}
 	}).catch(defErrorHandler);
 }
