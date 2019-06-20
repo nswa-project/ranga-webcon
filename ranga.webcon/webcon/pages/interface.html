@@ -73,6 +73,12 @@
 			</tr>
 		</table>
 		<button class="btnFlat" id='p-interface-set-proto'>设置</button>
+		<h1>Seth 数据</h1>
+		<div class="tips"><b>仅在你启用了"Netkeeper 扩展"的情况下才有效</b>。Web 控制台支持将 Seth 数据存储到你的浏览器 IndexedDB 中，当你设置 Seth 数据后，你可以在当前浏览器上使用"Seth 连接"方式连接到此网络。你可以直接从文件设置 Seth 数据或者从 Seth 服务器更新数据。若要从 Seth 服务器更新数据，你必须输入秘密代码（Secret）。</div>
+		<div id="p-interface-seth-info"></div>
+		<input type="file" style="display: none" id="p-interface-seth-input-file">
+		<button class="btnFlat" id='p-interface-seth-file'>从文件设置</button>
+		<button class="btnFlat" id='p-interface-seth-server'>从 Seth 服务器设置</button>
 		<h1>认证</h1>
 		<div class="tips">当选定的协议存在认证扩展时，使用下面的认证信息进行认证，例如点对点协议的密码身份验证协议和挑战握手认证协议、802.1X 安全性等</div>
 		<table>
