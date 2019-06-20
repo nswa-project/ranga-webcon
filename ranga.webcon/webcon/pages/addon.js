@@ -118,7 +118,7 @@ const page_addon_init = () => {
 			name: '部署系统组件',
 			func: (() => {
 				let d = dialog.show('icon-add', '部署系统组件', "输入希望部署的系统组件的 UUID 标识码。部分系统组件也可能有一个人类友好名字。<br><br><input style='width: 100%'>", [{
-					name: "上传",
+					name: "部署",
 					func: (d => {
 						let uuid = d.getElementsByTagName('input')[0].value;
 						if (utils.isNil(uuid) || uuid == "") {
