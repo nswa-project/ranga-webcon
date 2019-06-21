@@ -107,6 +107,8 @@ page_network.seth = (name, type) => {
 	}).then(blob => {
 		return utils.sethGetNKPin(utils.getUNIXTimestamp(), blob);
 	}).catch(e => {
+		if (e === utils.inhibitorForPromiseErrorHandler)
+			return Promise.reject(e);
 		utils.promiseDebug(e);
 		dialog.simple('无法从 Seth 数据中获取当前 NK PIN 和 Hash，请确定数据未过期，且当前时间正确。');
 		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
@@ -116,8 +118,8 @@ page_network.seth = (name, type) => {
 	}).then(proto => {
 		dialog.toast("接口 ‘" + name + "' 已连接。");
 	}).catch(e => {
-		if (e == utils.inhibitorForPromiseErrorHandler)
-			return;
+		if (e === utils.inhibitorForPromiseErrorHandler)
+			return Promise.reject(e);
 		defErrorHandler(e);
 		if (type === 'netkeeper' && !(utils.isNil(e))) {
 			if (e.code === '7') {

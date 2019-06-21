@@ -11,7 +11,7 @@ page_interface.updateSethInfomationWidget = (ifname) => {
 	return utils.idbGet('seth', ifname).then(r => {
 		console.log(r);
 		if (!utils.isNil(r) && ('ts' in r) && ('ts_end' in r)) {
-			widget.textContent = '此数据声称它可以在 "' + utils.UNIXToDateString(r.ts) + '" 到 "' + utils.UNIXToDateString(r.ts_end) + '" 内有效。';
+			widget.textContent = '此接口已配置 Seth 数据。此数据声称它可以在 "' + utils.UNIXToDateString(r.ts) + '" 到 "' + utils.UNIXToDateString(r.ts_end) + '" 内有效。';
 		} else {
 			widget.textContent = '此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。';
 		}
