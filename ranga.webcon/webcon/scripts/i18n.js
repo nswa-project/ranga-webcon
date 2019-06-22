@@ -48,11 +48,10 @@ i18n.runHooks = () => {
 	if (!i18n.enabled)
 		return;
 
-	let arr = document.getElementsByClassName('_tr');
-
-	for (let i = 0; i < arr.length; i++) {
-		console.log('i18n: tr: ' + arr[i].textContent);
-		arr[i].textContent = i18n.tr(arr[i].textContent);
-		arr[i].classList.remove('_tr');
-	}
+	let a = document.getElementsByClassName('_tr');
+	Array.from(a).forEach(i => {
+		console.log('i18n: tr: ' + i.textContent);
+		i.textContent = i18n.tr(i.textContent);
+		i.classList.remove('_tr');
+	});
 }

@@ -35,6 +35,12 @@
 			flex-flow: column;
 			align-items: center;
 			justify-content: center;
+
+			line-height: 1.4;
+		}
+
+		button {
+			line-height: 1.4;
 		}
 
 		#main {
@@ -236,43 +242,69 @@
 			<input type="radio" name="radio" id="radio-placeholder" style="display: none;">
 
 			<input type="radio" name="radio" id="radio-network" checked>
-			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', _('Networking'))"><i class="icon icon-network"></i><div class="_tr">Networking</div></label>
+			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', _('Networking'))"><i class="icon icon-network"></i>
+				<div class="_tr">Networking</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-interface">
-			<label class="btnFlat navItem" for="radio-interface" onclick="selectPage('interface', _('Interface configuration'))"><i class="icon icon-interface"></i><div class="_tr">Interface configuration</div></label>
+			<label class="btnFlat navItem" for="radio-interface" onclick="selectPage('interface', _('Interface configuration'))"><i class="icon icon-interface"></i>
+				<div class="_tr">Interface configuration</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-wifi">
-			<label class="btnFlat navItem" for="radio-wifi" onclick="selectPage('wifi', _('Wi-Fi'))"><i class="icon icon-wifi"></i><div class="_tr">Wi-Fi</div></label>
+			<label class="btnFlat navItem" for="radio-wifi" onclick="selectPage('wifi', _('Wi-Fi'))"><i class="icon icon-wifi"></i>
+				<div class="_tr">Wi-Fi</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-dns">
-			<label class="btnFlat navItem" for="radio-dns" onclick="selectPage('dns', _('DNS and Auto Configuration'))"><i class="icon icon-dns"></i><div class="_tr">DNS and Auto Configuration</div></label>
+			<label class="btnFlat navItem" for="radio-dns" onclick="selectPage('dns', _('DNS and Auto Configuration'))"><i class="icon icon-dns"></i>
+				<div class="_tr">DNS and Auto Configuration</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-system">
-			<label class="btnFlat navItem" for="radio-system" onclick="selectPage('system', _('System management'))"><i class="icon icon-system"></i><div class="_tr">System management</div></label>
+			<label class="btnFlat navItem" for="radio-system" onclick="selectPage('system', _('System management'))"><i class="icon icon-system"></i>
+				<div class="_tr">System management</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-addon">
-			<label class="btnFlat navItem" for="radio-addon" onclick="selectPage('addon', _('Addon'))"><i class="icon icon-addon"></i><div class="_tr">Addon</div></label>
+			<label class="btnFlat navItem" for="radio-addon" onclick="selectPage('addon', _('Addon'))"><i class="icon icon-addon"></i>
+				<div class="_tr">Addon</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-mwan">
-			<label class="btnFlat navItem" for="radio-mwan" onclick="selectPage('mwan', _('Multihoming'))"><i class="icon icon-mwan"></i><div class="_tr">Multihoming</div></label>
+			<label class="btnFlat navItem" for="radio-mwan" onclick="selectPage('mwan', _('Multihoming'))"><i class="icon icon-mwan"></i>
+				<div class="_tr">Multihoming</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-misc">
-			<label class="btnFlat navItem" for="radio-misc" onclick="selectPage('misc', _('Miscellaneous and Tweaks'))"><i class="icon icon-misc"></i><div class="_tr">Miscellaneous and Tweaks</div></label>
+			<label class="btnFlat navItem" for="radio-misc" onclick="selectPage('misc', _('Miscellaneous and Tweaks'))"><i class="icon icon-misc"></i>
+				<div class="_tr">Miscellaneous and Tweaks</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-cron">
-			<label class="btnFlat navItem" for="radio-cron" onclick="selectPage('cron', _('Scheduled Tasks'))"><i class="icon icon-cron"></i><div class="_tr">Scheduled Tasks</div></label>
+			<label class="btnFlat navItem" for="radio-cron" onclick="selectPage('cron', _('Scheduled Tasks'))"><i class="icon icon-cron"></i>
+				<div class="_tr">Scheduled Tasks</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-edev">
-			<label class="btnFlat navItem" for="radio-edev" onclick="selectPage('edev', _('Connected device'))"><i class="icon icon-usb"></i><div class="_tr">Connected device</div></label>
+			<label class="btnFlat navItem" for="radio-edev" onclick="selectPage('edev', _('Connected device'))"><i class="icon icon-usb"></i>
+				<div class="_tr">Connected device</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-setting">
-			<label class="btnFlat navItem" for="radio-setting" onclick="selectPage('setting', _('Web console preferences'))"><i class="icon icon-setting"></i><div class="_tr">Web console preferences</div></label>
+			<label class="btnFlat navItem" for="radio-setting" onclick="selectPage('setting', _('Web console preferences'))"><i class="icon icon-setting"></i>
+				<div class="_tr">Web console preferences</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-update">
-			<label class="btnFlat navItem" for="radio-update" onclick="selectPage('update', _('Software update'))"><i class="icon icon-update"></i><div class="_tr">Software update</div></label>
+			<label class="btnFlat navItem" for="radio-update" onclick="selectPage('update', _('Software update'))"><i class="icon icon-update"></i>
+				<div class="_tr">Software update</div>
+			</label>
 
 			<input type="radio" name="radio" id="radio-info">
-			<label class="btnFlat navItem" for="radio-info" onclick="selectPage('info', _('About Ranga'))"><i class="icon icon-info"></i><div class="_tr">About Ranga</div></label>
+			<label class="btnFlat navItem" for="radio-info" onclick="selectPage('info', _('About Ranga'))"><i class="icon icon-info"></i>
+				<div class="_tr">About Ranga</div>
+			</label>
 		</div>
 		<div id="wrapper">
 			<div id="bar">
@@ -393,14 +425,13 @@
 					d.getElementsByTagName('button')[0].click();
 				}
 			});
-			git
 			ipt.focus();
 		});
 
 		webcon.reloadTheme();
 		webcon.listenForExternalRequest();
 
-		i18n.init().then(() => {
+		i18n.init(utils.getLocalStorageItem('locale')).then(() => {
 			i18n.runHooks();
 			selectPage('network', _('Networking'));
 			return ranga.sysinfo(false);
