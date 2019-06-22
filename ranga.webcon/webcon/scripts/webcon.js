@@ -75,7 +75,7 @@ webcon.lockScreenDialogStack = [];
 
 webcon.lockScreen = text => {
 	if (utils.isNil(text))
-		text = '请稍候';
+		text = _('Please wait');
 
 	text = '<div class="circular" style="margin: 2px;"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 10px">' + text + '</span>';
 
@@ -138,21 +138,6 @@ webcon.dropDownMenu = (e, list) => {
 	e.appendChild(menu_wrapper);
 
 	return menu_wrapper;
-}
-
-webcon.kwdMap = {
-	netkeeper: '基于以太网的点对点协议（Netkeeper）',
-	pppoe: '基于以太网的点对点协议',
-	dhcp: '动态主机配置协议',
-	none: '未配置',
-	static: '静态'
-}
-
-webcon.trKeyword = keyword => {
-	if (keyword in webcon.kwdMap) {
-		return webcon.kwdMap["" + keyword];
-	}
-	return keyword;
 }
 
 webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
