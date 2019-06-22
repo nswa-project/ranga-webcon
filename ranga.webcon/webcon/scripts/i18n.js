@@ -1,5 +1,12 @@
 var i18n = {};
 
+String.prototype.format = () => {
+	var args = arguments;
+	return this.replace(/{(\d+)}/g, (match, number) => {
+		return typeof args[number] != 'undefined' ? args[number] : match;
+	});
+};
+
 i18n.enabled = false;
 
 i18n.tr = string => {
