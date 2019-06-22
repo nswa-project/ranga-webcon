@@ -124,6 +124,8 @@ What should you pay attention to?
 
 - Please open a Pull-requst or send the `.patch` file by open an Issue.
 
+- You need to use our I18N and L10N framework, please see "I18N and L10N" section.
+
 - You need to explain the purpose of your patch. For example, what problems have you encountered and how you solved it? What is the purpose of your added functionality?
 
 Source tree directory structure?
@@ -162,6 +164,8 @@ If you want to let i18n translate the content of your element, add class `_tr` t
 
 ### In JavaScript
 
+#### Static strings
+
 If you want to use a static string in JS code, please use `_("the string")` or `_('the string')`. For example
 
 ```JavaScript
@@ -174,6 +178,8 @@ webcon.addButton(_('Extra tools'), 'icon-tool',
 	}]));
 ```
 
+#### Variables
+
 If you want to translate a variable, use `i18n.tr()` instead. The message extractor will not extract it.
 
 ```JavaScript
@@ -181,6 +187,12 @@ return i18n.tr(sizes[i])
 ```
 
 If needed, add the message to `extra-l10n-messages` file.
+
+#### Do not forget runHooks
+
+If your JS dynamically adding elements with un-translated messages, please run `i18n.runHooks()` after adding.
+
+This should be rare, but if there is such a need, use it.
 
 ### How to do next
 
