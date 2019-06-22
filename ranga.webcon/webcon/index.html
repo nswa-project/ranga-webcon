@@ -284,8 +284,8 @@
 				<button id="menu" class="btnFlat"><i class="icon icon-menu"></i></button>
 				<div id="webcon_title"></div>
 				<div id="webcon_buttons"></div>
-				<button class="btnFlat" id="cmdline"><i class="icon icon-terminal"></i><span>命令行工具</span></button>
-				<button class="btnFlat" id="login"><i class="icon icon-user"></i><span>登录</span></button>
+				<button class="btnFlat" id="cmdline"><i class="icon icon-terminal"></i><span class="_tr">CLI Tools</span></button>
+				<button class="btnFlat" id="login"><i class="icon icon-user"></i><span class="_tr">Login</span></button>
 			</div>
 
 			<div id="notify_t" class="hide notify">
@@ -305,6 +305,7 @@
 	</div>
 
 	<script src="scripts/browsercheck.js?v=__RELVERSION__"></script>
+	<script src="scripts/i18n.js?v=__RELVERSION__"></script>
 	<script src="scripts/utils.js?v=__RELVERSION__"></script>
 	<script src="scripts/ranga.js?v=__RELVERSION__"></script>
 	<script src="scripts/webcon.js?v=__RELVERSION__"></script>
@@ -341,7 +342,9 @@
 				utils.promiseDebug(e);
 				dialog.simple("加载页面过程中发生网络错误或 Web 控制台错误");
 				webcon.contentSetTitle('加载失败');
-			});
+			}).finally(() => {
+				i18n.runHooks();
+			})
 			setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
 		}
 
@@ -395,23 +398,26 @@
 					d.getElementsByTagName('button')[0].click();
 				}
 			});
+			git
 			ipt.focus();
 		});
 
 		webcon.reloadTheme();
 		webcon.listenForExternalRequest();
 
-		ranga.sysinfo(false).then(info => {
+		i18n.init().then(() => {
+			i18n.runHooks();
+			selectPage('network', _('Networking'));
+			return ranga.sysinfo(false);
+		}).then(info => {
 			if ('verlock' in info && info.verlock.startsWith('fullpack')) {
-				dialog.show('icon-warning', '完整包更新失败', '上次完整包更新失败，可能是因为内存不足或硬件故障，请重试。如果多次重试仍然不能解决问题，请尝试关掉一部分系统服务，并减少连接人数后重试。', [{
-					name: '好',
+				dialog.show('icon-warning', _('Full package update failed'), _('The last full package update failed, possibly due to insufficient memory or hardware failure, please try again. If retrying multiple times still does not solve the problem, try turning off some of the system services and reducing the number of connections and try again.'), [{
+					name: _('OK'),
 					func: dialog.close
 				}]);
-				webcon.sendNotify('fullpackfail', 'icon-warning', '上次完整包更新失败，请重试', '', 'error', false, []);
+				webcon.sendNotify('fullpackfail', 'icon-warning', _('Full package update failed. Please try again.'), '', 'error', false, []);
 			}
 		}).catch(defErrorHandler);
-
-		selectPage('network', '网络连接');
 
 		// remove old indexeddb
 		indexedDB.deleteDatabase('webcon');
