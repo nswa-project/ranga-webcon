@@ -15,7 +15,7 @@ try:
 	fp = open(sys.argv[2], "r")
 	lines = fp.read().splitlines()
 	for line in lines:
-		kv = line.split(":", 1)
+		kv = line.split("|", 1)
 		if len(kv) != 2:
 			continue
 		if kv[0] in l10n:
@@ -29,5 +29,5 @@ except IOError:
 fp = open(sys.argv[2], "w")
 for key, value in l10n.items():
 	if key:
-		fp.write(key + ":" + value + "\n")
+		fp.write(key + "|" + value + "\n")
 fp.close()

@@ -236,48 +236,43 @@
 			<input type="radio" name="radio" id="radio-placeholder" style="display: none;">
 
 			<input type="radio" name="radio" id="radio-network" checked>
-			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', '网络连接')"><i class="icon icon-network"></i>网络连接</label>
+			<label class="btnFlat navItem" for="radio-network" onclick="selectPage('network', _('Networking'))"><i class="icon icon-network"></i><div class="_tr">Networking</div></label>
 
 			<input type="radio" name="radio" id="radio-interface">
-			<label class="btnFlat navItem" for="radio-interface" onclick="selectPage('interface', '接口配置')"><i class="icon icon-interface"></i>接口配置</label>
+			<label class="btnFlat navItem" for="radio-interface" onclick="selectPage('interface', _('Interface configuration'))"><i class="icon icon-interface"></i><div class="_tr">Interface configuration</div></label>
 
 			<input type="radio" name="radio" id="radio-wifi">
-			<label class="btnFlat navItem" for="radio-wifi" onclick="selectPage('wifi', '无线保真')"><i class="icon icon-wifi"></i>无线保真</label>
+			<label class="btnFlat navItem" for="radio-wifi" onclick="selectPage('wifi', _('Wi-Fi'))"><i class="icon icon-wifi"></i><div class="_tr">Wi-Fi</div></label>
 
 			<input type="radio" name="radio" id="radio-dns">
-			<label class="btnFlat navItem" for="radio-dns" onclick="selectPage('dns', '域名系统和自动配置')"><i class="icon icon-dns"></i>域名系统和自动配置</label>
+			<label class="btnFlat navItem" for="radio-dns" onclick="selectPage('dns', _('DNS and Auto Configuration'))"><i class="icon icon-dns"></i><div class="_tr">DNS and Auto Configuration</div></label>
 
 			<input type="radio" name="radio" id="radio-system">
-			<label class="btnFlat navItem" for="radio-system" onclick="selectPage('system', '系统管理')"><i class="icon icon-system"></i>系统管理</label>
+			<label class="btnFlat navItem" for="radio-system" onclick="selectPage('system', _('System management'))"><i class="icon icon-system"></i><div class="_tr">System management</div></label>
 
 			<input type="radio" name="radio" id="radio-addon">
-			<label class="btnFlat navItem" for="radio-addon" onclick="selectPage('addon', '附加组件')"><i class="icon icon-addon"></i>附加组件</label>
+			<label class="btnFlat navItem" for="radio-addon" onclick="selectPage('addon', _('Addon'))"><i class="icon icon-addon"></i><div class="_tr">Addon</div></label>
 
 			<input type="radio" name="radio" id="radio-mwan">
-			<label class="btnFlat navItem" for="radio-mwan" onclick="selectPage('mwan', '多宿主')"><i class="icon icon-mwan"></i>多宿主</label>
-
-			<!--
-			<input type="radio" name="radio" id="radio-ts">
-			<label class="btnFlat navItem" for="radio-ts" onclick="selectPage('ts', '流量整形')"><i class="icon icon-ts"></i>流量整形</label>
--->
+			<label class="btnFlat navItem" for="radio-mwan" onclick="selectPage('mwan', _('Multihoming'))"><i class="icon icon-mwan"></i><div class="_tr">Multihoming</div></label>
 
 			<input type="radio" name="radio" id="radio-misc">
-			<label class="btnFlat navItem" for="radio-misc" onclick="selectPage('misc', '杂项与微调')"><i class="icon icon-misc"></i>杂项与微调</label>
+			<label class="btnFlat navItem" for="radio-misc" onclick="selectPage('misc', _('Miscellaneous and Tweaks'))"><i class="icon icon-misc"></i><div class="_tr">Miscellaneous and Tweaks</div></label>
 
 			<input type="radio" name="radio" id="radio-cron">
-			<label class="btnFlat navItem" for="radio-cron" onclick="selectPage('cron', '计划任务')"><i class="icon icon-cron"></i>计划任务</label>
+			<label class="btnFlat navItem" for="radio-cron" onclick="selectPage('cron', _('Scheduled Tasks'))"><i class="icon icon-cron"></i><div class="_tr">Scheduled Tasks</div></label>
 
 			<input type="radio" name="radio" id="radio-edev">
-			<label class="btnFlat navItem" for="radio-edev" onclick="selectPage('edev', '已连接的设备')"><i class="icon icon-usb"></i>已连接的设备</label>
+			<label class="btnFlat navItem" for="radio-edev" onclick="selectPage('edev', _('Connected device'))"><i class="icon icon-usb"></i><div class="_tr">Connected device</div></label>
 
 			<input type="radio" name="radio" id="radio-setting">
-			<label class="btnFlat navItem" for="radio-setting" onclick="selectPage('setting', 'Web 控制台设置')"><i class="icon icon-setting"></i>Web 控制台设置</label>
+			<label class="btnFlat navItem" for="radio-setting" onclick="selectPage('setting', _('Web console preferences'))"><i class="icon icon-setting"></i><div class="_tr">Web console preferences</div></label>
 
 			<input type="radio" name="radio" id="radio-update">
-			<label class="btnFlat navItem" for="radio-update" onclick="selectPage('update', '软件更新')"><i class="icon icon-update"></i>软件更新</label>
+			<label class="btnFlat navItem" for="radio-update" onclick="selectPage('update', _('Software update'))"><i class="icon icon-update"></i><div class="_tr">Software update</div></label>
 
 			<input type="radio" name="radio" id="radio-info">
-			<label class="btnFlat navItem" for="radio-info" onclick="selectPage('info', '关于 Ranga')"><i class="icon icon-info"></i>关于 Ranga</label>
+			<label class="btnFlat navItem" for="radio-info" onclick="selectPage('info', _('About Ranga'))"><i class="icon icon-info"></i><div class="_tr">About Ranga</div></label>
 		</div>
 		<div id="wrapper">
 			<div id="bar">
@@ -316,14 +311,14 @@
 			if (proto === utils.inhibitorForPromiseErrorHandler)
 				return;
 			utils.promiseDebug(proto);
-			dialog.simple(utils.isFailedProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
+			dialog.simple(utils.isFailedProto(proto) ? ranga.errstr(proto.code) : _('Network error or web console error'));
 		}
 
 		var defErrorHandlerPage = proto => {
 			if (proto === utils.inhibitorForPromiseErrorHandler)
 				return;
 			utils.promiseDebug(proto);
-			let msg = (utils.isFailedProto(proto) ? ranga.errstr(proto.code) : "网络错误或 Web 控制台错误");
+			let msg = (utils.isFailedProto(proto) ? ranga.errstr(proto.code) : _('Network error or web console error'));
 			webcon.contentLoadData(msg, false);
 			webcon.removeAllButtons();
 		}
@@ -331,7 +326,7 @@
 		const selectPage = (page, title) => {
 			webcon.contentLoadData('', false);
 			webcon.removeAllButtons();
-			webcon.contentSetTitle('加载中');
+			webcon.contentSetTitle(_('Loading'));
 			webcon.loadScript("js_" + page, "pages/" + page + ".js?v=__RELVERSION__").then(first => {
 				return webcon.contentLoadUri("pages/" + page + ".html?v=__RELVERSION__", true);
 			}).then(e => {
@@ -340,8 +335,8 @@
 				eval('page_' + page + "_init()")
 			}).catch(e => {
 				utils.promiseDebug(e);
-				dialog.simple("加载页面过程中发生网络错误或 Web 控制台错误");
-				webcon.contentSetTitle('加载失败');
+				dialog.simple(_("A network error or web console error occurred while loading the page"));
+				webcon.contentSetTitle(_('Failed to load'));
 			}).finally(() => {
 				i18n.runHooks();
 			})
@@ -352,7 +347,7 @@
 			document.getElementById('radio-placeholder').checked = true;
 			webcon.contentLoadData('', false);
 			webcon.removeAllButtons();
-			webcon.contentSetTitle('加载中');
+			webcon.contentSetTitle(_('Loading'));
 			webcon.loadScript("extra_js_iframe", "extra/iframe.js?v=__RELVERSION__").then(first => {
 				return webcon.contentLoadUri("extra/iframe.html?v=__RELVERSION__", true);
 			}).then(e => {
@@ -360,8 +355,8 @@
 				window.extraIframeLoad(uri);
 			}).catch(e => {
 				utils.promiseDebug(e);
-				dialog.simple("加载页面过程中发生网络错误或 Web 控制台错误");
-				webcon.contentSetTitle('加载失败');
+				dialog.simple(_("A network error or web console error occurred while loading the page"));
+				webcon.contentSetTitle(_('Failed to load'));
 			});
 			utils.delay(100).then(v => (document.getElementById('nav').classList.remove('nav_show')));
 		}
@@ -375,20 +370,20 @@
 		});
 
 		document.getElementById('login').addEventListener('click', e => {
-			let d = dialog.show('icon-user', '登录', "请输入超级用户密码以完成登录<br><br><input style='width: 100%' type=password placeholder='置空将尝试默认密码 ranga'>", [{
-				name: "登录",
+			let d = dialog.show('icon-user', _('Login'), _("Please enter the superuser password to complete the login<br><br><input style='width: 100%' type=password placeholder='ranga will be used when empty'>"), [{
+				name: _("Login"),
 				func: (d => {
 					let passwd = d.getElementsByTagName('input')[0].value;
 					if (passwd === '')
 						passwd = 'ranga';
 					ranga.api.auth(passwd).then(proto => {
 						webcon.setToken(proto.payload);
-						dialog.simple('您已经通过鉴权。切换为超级用户身份。Web 控制台上外观不会有变化，在执行特权操作时才能看出差异。关闭浏览器、重启 NSWA Ranga、另一终端重新登录时本次授权将会自动失效。', '好');
+						dialog.simple(_('You have passed the authentication. Switch to superuser status. There is no change in appearance on the web console, and the difference can only be seen when performing privileged operations. When you close your browser, restart NSWA Ranga, or another terminal re-login, this session will automatically expire.'), _('OK'));
 					}).catch(defErrorHandler);
 					dialog.close(d);
 				})
 			}, {
-				name: "取消",
+				name: _("Cancel"),
 				func: dialog.close
 			}]);
 			let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];

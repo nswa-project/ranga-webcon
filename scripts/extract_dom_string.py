@@ -9,8 +9,8 @@ parser = AdvancedHTMLParser.AdvancedHTMLParser()
 for root, dirs, files in os.walk(sys.argv[1]):
 	for filename in files:
 		filename = os.path.join(root, filename)
-		print("=> " + filename, file=sys.stderr)
 		if os.path.isfile(filename) and filename.endswith(".html"):
+			print("=> " + filename, file=sys.stderr)
 			parser.parseFile(filename)
 			items = parser.getElementsByClassName("_tr")
 			for item in items:
