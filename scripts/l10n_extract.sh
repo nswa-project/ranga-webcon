@@ -10,6 +10,9 @@ echo "Extracting javascript strings..."
 echo "Extracting HTML strings..."
 "$BASEDIR/extract_dom_string.py" ranga.webcon >> "$TMPFILE"
 
+echo "Add extra strings..."
+cat extra-l10n-messages >> "$TMPFILE"
+
 for i in `ls l10n` ; do
 	echo "Merge new words to $i"
 	"$BASEDIR/merge_l10n.py" "$TMPFILE" "l10n/$i"
