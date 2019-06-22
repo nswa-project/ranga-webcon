@@ -16,7 +16,7 @@ $ (cd ranga.webcon; zip -FSr ../ranga-webcon.zip .)
 
 Then, you can use [Ranga command-line client](https://github.com/glider0/ranga-client/) to install it
 
-```
+```shell
 $ ranga-cli auth -p       # Log-in superuser first
 $ ranga-cli addon install-extension ranga-webcon.zip
 ```
@@ -25,7 +25,7 @@ Or you can install it in default web-console by uploading it.
 
 Then, you need to call NSWA Ranga system to change web-console.
 
-```
+```shell
 $ ranga-cli addon set-webcon rostc.ranga.webcon
 ```
 
@@ -33,7 +33,7 @@ Or you can do it in default web-console.
 
 To switch back to default web-console, run
 
-```
+```shell
 $ ranga-cli addon set-webcon ranga.webcon
 ```
 
@@ -94,7 +94,7 @@ server {
 
 And restart the nginx server.
 
-```
+```shell
 $ sudo service nginx restart
 ```
 
@@ -149,6 +149,67 @@ Source tree directory structure?
 `./pages/xxx.html` and `./pages/xxx.js` provide a "xxx" page for web-console.
 
 And many more ... :-)
+
+## I18N and L10N
+
+### In HTML
+
+If you want to let i18n translate the content of your element, add class `_tr` to this element. For example
+
+```HTML
+<button class="btnFlat" id="login"><i class="icon icon-user"></i><span class="_tr">Login</span></button>
+```
+
+### In JavaScript
+
+If you want to use a static string in JS code, please use `_("the string")` or `_('the string')`. For example
+
+```JavaScript
+webcon.addButton(_('Extra tools'), 'icon-tool',
+	b => webcon.dropDownMenu(b, [{
+		name: _('Action XXX'),
+		func: (n => { //... })
+	}, {
+		//....
+	}]));
+```
+
+If you want to translate a variable, use `i18n.tr()` instead. The message extractor will not extract it.
+
+```JavaScript
+return i18n.tr(sizes[i])
+```
+
+If needed, add the message to `extra-l10n-messages` file.
+
+### How to do next
+
+you need GNU bash, GNU grep, GNU sed, python3 and python3-AdvancedHTMLParser
+
+run this command to extract and merge new messages
+
+```shell
+$ ./scripts/l10n_extract.sh
+```
+
+If you want to add a new language (such like fr-FR), do this
+
+```shell
+$ touch l10n/fr-fr
+$ ./scripts/l10n_extract.sh
+
+# another method:
+$ ./scripts/l10n_extract.sh
+$ ./scripts/merge_l10n.py /tmp/ranga-webcon-l10n l10n/fr-fr
+```
+
+Edit the l10n file, Translate all messages to the language. And gen js file
+
+> For Chinese, only to edit `zh-cn` locale, and run `./scripts/zh-hans2hant.sh` to generate the zh-hant version.
+
+```shell
+$ ./script/gen_l10njs.sh
+```
 
 ## Copyright and warranty
 
