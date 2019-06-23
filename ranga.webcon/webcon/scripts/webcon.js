@@ -275,7 +275,7 @@ webcon.listenForExternalRequest = () => {
 				if (!('ext_blob' in data)) {
 					return;
 				}
-				dialog.show('icon-warning', _('External application request'), _('The site at <b>{0}</b> is trying to install an extension to your NSWA Ranga. Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances.').format(utils.raw2HTMLString(utils.URIDomain(origin))) + (origin.startsWith('https:') ? '' : '<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the extension to be maliciously replaced.'), [{
+				dialog.show('icon-warning', _('External application request'), _('The site at <b>{0}</b> is trying to install an extension to your NSWA Ranga. Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances.').format(utils.raw2HTMLString(utils.URIDomain(origin))) + (origin.startsWith('https:') ? '' : _('<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the extension to be maliciously replaced.')), [{
 					name: _('Continue'),
 					func: (d => {
 						let passwd = prompt(_('To install the extension, you must be authenticated\n\nEnter the superuser password to continue'), 'ranga');

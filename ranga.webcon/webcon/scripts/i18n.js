@@ -1,6 +1,6 @@
 var i18n = {};
 
-String.prototype.format = function() {
+String.prototype.format = function () {
 	let args = arguments;
 	return this.replace(/{(\d+)}/g, (match, number) => {
 		return typeof args[number] != 'undefined' ? args[number] : match;
@@ -16,9 +16,8 @@ i18n.tr = string => {
 	try {
 		if (string in l10n)
 			return l10n[string];
-	} catch (e) {
-		return string;
-	}
+	} catch (e) {}
+	return string;
 }
 _ = s => (i18n.tr(s))
 

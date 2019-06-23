@@ -15,7 +15,7 @@ swdeploy.poll = (pre, t) => {
 				return utils.delay(800).then(v => swdeploy.poll(pre, t));
 				break;
 			case 0:
-				t.innerHTML += "<b>安装完毕，请手动刷新 Web 控制台</b>"
+				t.innerHTML += _("<b>Installation is complete, please manually reload the web console</b>");
 				break;
 		}
 	}).catch(proto => {
@@ -24,7 +24,7 @@ swdeploy.poll = (pre, t) => {
 }
 
 swdeploy.start = blob => {
-	let d = dialog.show('icon-update', '正在执行软件变更', '<pre></pre>', []);
+	let d = dialog.show('icon-update', _('Software change in progress'), '<pre></pre>', []);
 	let t = dialog.textWidget(d);
 	let pre = t.getElementsByTagName('pre')[0];
 
