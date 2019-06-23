@@ -36,11 +36,12 @@
 			align-items: center;
 			justify-content: center;
 
-			line-height: 1.4;
+			line-height: 1.42;
 		}
 
-		button {
-			line-height: 1.4;
+		button,
+		label {
+			line-height: 1.54;
 		}
 
 		#main {
@@ -428,14 +429,14 @@
 			ipt.focus();
 		});
 
-		webcon.reloadTheme();
-		webcon.listenForExternalRequest();
-
 		i18n.init(utils.getLocalStorageItem('locale')).then(() => {
 			i18n.runHooks();
 			selectPage('network', _('Networking'));
 			return ranga.sysinfo(false);
 		}).then(info => {
+			webcon.reloadTheme();
+			webcon.listenForExternalRequest();
+
 			if ('verlock' in info && info.verlock.startsWith('fullpack')) {
 				dialog.show('icon-warning', _('Full package update failed'), _('The last full package update failed, possibly due to insufficient memory or hardware failure, please try again. If retrying multiple times still does not solve the problem, try turning off some of the system services and reducing the number of connections and try again.'), [{
 					name: _('OK'),

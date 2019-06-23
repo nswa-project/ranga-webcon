@@ -24,7 +24,7 @@ _ = s => (i18n.tr(s))
 
 i18n.init = locale => {
 	const promise = new Promise((resolve, reject) => {
-		if (typeof value === 'undefined' || value === null || locale === '') {
+		if (typeof locale === 'undefined' || locale === null || locale === '') {
 			locale = navigator.language;
 		}
 		if (locale !== "C") {
