@@ -11,13 +11,13 @@ page_interface.updateSethInfomationWidget = (ifname) => {
 	return utils.idbGet('seth', ifname).then(r => {
 		console.log(r);
 		if (!utils.isNil(r) && ('ts' in r) && ('ts_end' in r)) {
-			widget.textContent = '此接口已配置 Seth 数据。此数据声称它可以在 "' + utils.UNIXToDateString(r.ts) + '" 到 "' + utils.UNIXToDateString(r.ts_end) + '" 内有效。';
+			widget.textContent = _('Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".').format(utils.UNIXToDateString(r.ts), utils.UNIXToDateString(r.ts_end));
 		} else {
-			widget.textContent = '此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。';
+			widget.textContent = _('This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.');
 		}
 	}).catch(e => {
 		utils.promiseDebug(e);
-		widget.textContent = '此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。';
+		widget.textContent = _('This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.');
 	});
 }
 
@@ -37,7 +37,7 @@ page_interface.setSethData = (ifname, blob) => {
 		});
 	}).catch(e => {
 		utils.promiseDebug(e);
-		dialog.simple('无法设置 Seth 数据，请确保你的浏览器支持 IndexedDB');
+		dialog.simple(_('Unable to set Seth data, please make sure your browser supports IndexedDB'));
 	}).finally(() => {
 		page_interface.updateSethInfomationWidget(ifname);
 	});
@@ -81,7 +81,7 @@ page_interface.reload = () => {
 		editPage.classList.add('hide');
 	}
 	let div = document.getElementById('p-interface-iflist');
-	div.innerHTML = '选择你要配置的接口，或者点击右上方按钮添加新的接口';
+	div.innerHTML = _('Select the interface you want to configure, or click the upper right button to add a new interface.');
 	let itemT = document.getElementById('p-interface-item_t');
 
 	ranga.api.config('interface', ['ls']).then(proto => {
@@ -98,9 +98,9 @@ page_interface.reload = () => {
 }
 
 const page_interface_init = () => {
-	webcon.addButton('添加', 'icon-add', b => {
-		let d = dialog.show('icon-add', '添加新接口', "请输入新接口的名字，必须以 'md' 开头<br><br><input style='width: 100%'>", [{
-			name: "添加",
+	webcon.addButton(_('Add'), 'icon-add', b => {
+		let d = dialog.show('icon-add', _('Add new interface'), _("Please enter the name of the new interface, which must start with 'md'.") + "<br><br><input style='width: 100%'>", [{
+			name: _("Add"),
 			func: (d => {
 				let ifname = d.getElementsByTagName('input')[0].value;
 				ranga.api.config('interface', ['add', ifname]).then(proto => {
@@ -110,7 +110,7 @@ const page_interface_init = () => {
 				})
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 		let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
@@ -129,7 +129,7 @@ const page_interface_init = () => {
 			v = page_interface.$('nk').value;
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'nkplugin', v]);
 		}).then(proto => {
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 的协议类型配置已经被修改。");
+			dialog.toast(_("The protocol type configuration for interface '{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
@@ -141,26 +141,26 @@ const page_interface_init = () => {
 			let blob = file.slice(0, file.size);
 			reader.readAsArrayBuffer(blob);
 			page_interface.setSethData(page_interface.ifname, blob);
-			dialog.toast('Seth 数据已经更新');
+			dialog.toast(_('Seth data has been updated'));
 		}
 		file.click();
 	});
 
 	page_interface.$('seth-server').addEventListener('click', e => {
-		let d = dialog.show('icon-airplane', '从 Seth 服务器设置', "输入秘密代码（Secret）。<br><br><input style='width: 100%'>", [{
-			name: "部署",
+		let d = dialog.show('icon-airplane'), _('Load From Seth Server'), _("Enter the secret code (Secret).") + "<br><br><input style='width: 100%'>", [{
+			name: _("Load"),
 			func: (d => {
 				let secret = d.getElementsByTagName('input')[0].value;
 				if (utils.isNil(secret) || secret == "") {
-					dialog.simple("空的代码不被支持。");
+					dialog.simple(_("Empty code is not supported."));
 				} else {
-					webcon.lockScreen("正在下载 Seth 数据...");
+					webcon.lockScreen(_("Downloading Seth data..."));
 					utils.ajaxGet2('https://seth-dl.tienetech.tk/data/' + secret, true).catch(e => {
-						dialog.simple("下载失败，你的秘密代码（Secret）不正确，或者你的网络连接有问题。");
+						dialog.simple(_("Download failed, your secret code (Secret) is incorrect, or you have a problem with your Internet connection."));
 						return Promise.reject(utils.inhibitorForPromiseErrorHandler);
 					}).then(blob => {
 						page_interface.setSethData(page_interface.ifname, blob);
-						dialog.toast('Seth 数据已经更新');
+						dialog.toast(_('Seth data has been updated'));
 					}).catch(defErrorHandler).finally(() => {
 						webcon.unlockScreen();
 					});
@@ -168,7 +168,7 @@ const page_interface_init = () => {
 				dialog.close(d);
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 		let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
@@ -187,7 +187,7 @@ const page_interface_init = () => {
 			v = page_interface.$('passwd').value;
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'passwd', v]);
 		}).then(proto => {
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 的认证信息配置已经被修改。");
+			dialog.toast(_("The authentication configuration for interface '{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
@@ -202,29 +202,29 @@ const page_interface_init = () => {
 		}).then(proto => {
 			v = (page_interface.$('defroute').checked ? '1' : '0');
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'defaultroute', v]);
-		}).then(proto => {
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 的静态地址配置已经被修改。");
+		}).then(proto => { 
+			dialog.toast(_("The static address configuration for interface '{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
 	page_interface.$('set-mac').addEventListener('click', e => {
 		let v = page_interface.$('macaddr').value;
 		ranga.api.config('interface', ['set', page_interface.ifname, 'macaddr', v]).then(proto => {
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 的网卡物理地址配置已经被修改。");
+			dialog.toast(_("The physical address configuration for interface ‘{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
 	page_interface.$('set-rvlan').addEventListener('click', e => {
 		let v = page_interface.$('rvlan').value;
 		ranga.api.config('interface', ['set', page_interface.ifname, 'rvlan', v]).then(proto => {
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 的 Reverse VLAN 配置已经被修改。");
+			dialog.toast(_("The Reverse VLAN configuration for interface '{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
 	page_interface.$('delete').addEventListener('click', e => {
 		ranga.api.config('interface', ['remove', page_interface.ifname]).then(proto => {
 			page_interface.reload();
-			dialog.toast("接口 ‘" + page_interface.ifname + "' 已经被删除。");
+			dialog.toast(_("The interface '{0}' has been deleted.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});
 
