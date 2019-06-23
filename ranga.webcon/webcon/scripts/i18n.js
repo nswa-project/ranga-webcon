@@ -49,8 +49,7 @@ i18n.runHooks = () => {
 
 	let a = document.getElementsByClassName('_tr');
 	Array.from(a).forEach(i => {
-		console.log('i18n: tr: ' + i.textContent);
-		i.textContent = i18n.tr(i.textContent);
+		i.innerHTML = i18n.tr(i.innerHTML);
 		i.classList.remove('_tr');
 	});
 }

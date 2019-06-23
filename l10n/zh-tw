@@ -94,7 +94,7 @@ Netkeeper Extension|Netkeeper 擴充套件
 Non-enable|非使能
 Apply|應用
 Seth Data|Seth 資料
-<b >Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b>僅在你啟用了"Netkeeper 擴充套件"的情況下才有效</b>。Web 控制檯支援將 Seth 資料儲存到你的瀏覽器 IndexedDB 中，當你設定 Seth 資料後，你可以在當前瀏覽器上使用"Seth 連線"方式連線到此網路。你可以直接從檔案或者從 Seth 伺服器載入 Seth 資料。若要從 Seth 伺服器更新資料，你必須輸入祕密程式碼（Secret）。
+<b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b>僅在你啟用了"Netkeeper 擴充套件"的情況下才有效</b>。Web 控制檯支援將 Seth 資料儲存到你的瀏覽器 IndexedDB 中，當你設定 Seth 資料後，你可以在當前瀏覽器上使用"Seth 連線"方式連線到此網路。你可以直接從檔案或者從 Seth 伺服器載入 Seth 資料。若要從 Seth 伺服器更新資料，你必須輸入祕密程式碼（Secret）。
 Load From File|從檔案載入
 Authenticate|認證
 When the selected protocol has an authentication extension, the following authentication information is used for authentication. Such as PAP or CHAP of the PPPoE, 802.1X security, etc.|當選定的協議存在認證擴充套件時，使用下面的認證資訊進行認證。例如點對點協議的密碼身份驗證協議和挑戰握手認證協議、802.1X 安全性等。

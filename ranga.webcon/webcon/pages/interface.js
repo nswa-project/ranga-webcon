@@ -147,7 +147,7 @@ const page_interface_init = () => {
 	});
 
 	page_interface.$('seth-server').addEventListener('click', e => {
-		let d = dialog.show('icon-airplane'), _('Load From Seth Server'), _("Enter the secret code (Secret).") + "<br><br><input style='width: 100%'>", [{
+		let d = dialog.show('icon-airplane', _('Load From Seth Server'), _("Enter the secret code (Secret).") + "<br><br><input style='width: 100%'>", [{
 			name: _("Load"),
 			func: (d => {
 				let secret = d.getElementsByTagName('input')[0].value;
