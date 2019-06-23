@@ -16,7 +16,7 @@ $ (cd ranga.webcon; zip -FSr ../ranga-webcon.zip .)
 
 Then, you can use [Ranga command-line client](https://github.com/glider0/ranga-client/) to install it
 
-```shell
+```bash
 $ ranga-cli auth -p       # Log-in superuser first
 $ ranga-cli addon install-extension ranga-webcon.zip
 ```
@@ -25,7 +25,7 @@ Or you can install it in default web-console by uploading it.
 
 Then, you need to call NSWA Ranga system to change web-console.
 
-```shell
+```bash
 $ ranga-cli addon set-webcon rostc.ranga.webcon
 ```
 
@@ -33,7 +33,7 @@ Or you can do it in default web-console.
 
 To switch back to default web-console, run
 
-```shell
+```bash
 $ ranga-cli addon set-webcon ranga.webcon
 ```
 
@@ -94,7 +94,7 @@ server {
 
 And restart the nginx server.
 
-```shell
+```bash
 $ sudo service nginx restart
 ```
 
@@ -160,6 +160,8 @@ If you want to let i18n translate the content of your element, add class `_tr` t
 
 ```HTML
 <button class="btnFlat" id="login"><i class="icon icon-user"></i><span class="_tr">Login</span></button>
+
+<div class='_tr'>Long text...</div>
 ```
 
 ### In JavaScript
@@ -178,6 +180,26 @@ webcon.addButton(_('Extra tools'), 'icon-tool',
 	}]));
 ```
 
+If you need add some variable to a static string, you can use `String.prototype.format` provided by us. This makes it easier to i18n compared to spliced strings. Because the position of the sentence in the word may be different in different language habits.
+
+Assume such an example
+
+```
+The static address configuration for interface '{0}' has been modified. -> 接口 ‘{0}' 的静态地址配置已经被修改。
+```
+
+If you spliced strings, you will get
+
+```JavaScript
+dialog.toast(_("The static address configuration for interface ") + ifname + (" has been modified.")); // wrong way
+```
+
+So, how will you translate "The static address configuration for interface " and the " has been modified." to Chinese? This time should use `String.prototype.format`. This function takes a list of variable length parameters, then replaces `{0}`, `{1}` in the original string, and so on. So our code is
+
+```JavaScript
+dialog.toast(_("The static address configuration for interface '{0}' has been modified.").format(ifname));
+```
+
 #### Variables
 
 If you want to translate a variable, use `i18n.tr()` instead. The message extractor will not extract it.
@@ -186,7 +208,7 @@ If you want to translate a variable, use `i18n.tr()` instead. The message extrac
 return i18n.tr(sizes[i])
 ```
 
-If needed, add the message to `extra-l10n-messages` file.
+If needed, add the message to `extra-l10n-messages` file. But don't abuse this. In most cases this should be avoidable.
 
 #### Do not forget runHooks
 
@@ -200,13 +222,13 @@ you need GNU bash, GNU grep, GNU sed, python3 and python3-AdvancedHTMLParser
 
 run this command to extract and merge new messages
 
-```shell
+```bash
 $ ./scripts/l10n_extract.sh
 ```
 
 If you want to add a new language (such like fr-FR), do this
 
-```shell
+```bash
 $ touch l10n/fr-fr
 $ ./scripts/l10n_extract.sh
 
@@ -219,7 +241,7 @@ Edit the l10n file, Translate all messages to the language. And gen js file
 
 > For Chinese, only to edit `zh-cn` locale, and run `./scripts/zh-hans2hant.sh` to generate the zh-hant version.
 
-```shell
+```bash
 $ ./script/gen_l10njs.sh
 ```
 
