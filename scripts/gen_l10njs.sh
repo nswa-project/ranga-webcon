@@ -10,9 +10,10 @@ var l10n = {
 EOF
 
 	cat "$1" | while read -r line ; do
-		key="`cut -d '|' -f 1 <<< "$line"`"
-		value="`cut -d '|' -f 2 <<< "$line"`"
-		echo "\"$key\":\"$value\","
+		line=`sed -e 's/\\\"/\"/g' -e 's/\"/\\\"/g' <<< "$line"`
+		key=`cut -d '|' -f 1 <<< "$line"`
+		value=`cut -d '|' -f 2 <<< "$line"`
+		[ -n "$key" -a -n "$value" ] && echo "\"$key\":\"$value\","
 	done
 
 	cat <<EOF
