@@ -114,12 +114,23 @@ Web console legal information|Web 控制枱法律信息
 Web console license agreement|Web 控制枱授權協議
 Font Awesome Icon Creation Common License|Font Awesome 圖標創作共用許可
 Google Material.io icon license|Google Material.io 圖標許可
+Add binding|添加綁定
+Enter IPv4 Address|輸入網際網協議版本4地址
+Enter MAC Address|輸入媒體訪問控制地址
+Purge all bindings|清除全部綁定
+Are you sure you want to purge all bindings?|確定要清除全部綁定嗎？
+Purge|清除
+Add an upstream DNS server|添加上游域名系統服務器
+Enter the IPv4 address of upstream DNS server|輸入上游域名系統服務器網際網協議版本4地址
+The DHCP configuration has changed. However, you need to restart the DHCP Service to take effect.|動態主機配置協議配置已經更改。但需要重啟動態主機配置服務以生效。
+The DNS configuration has changed. However, you need to restart the DNS service to take effect.|域名系統配置已經更改。但需要重啟域名系統服務以生效。
 Auto|自動
 Please be patient and wait for the wireless reboot to complete, this should not take too long, but the web console will not automatically refresh.|請耐心等待無線重啟完畢，這應該不需要太長時間，但是 Web 控制枱不會自動刷新。
 Quick Setup|快速設置
 The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的無線安全設置已經被修改。但需要重啟無線服務以生效。
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的預共享密鑰已經被修改。但需要重啟無線服務以生效。
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的無線電配置已經被修改。但需要重啟無線服務以生效。
+Please select a file|請選擇一個文件
 CLI Tools|命令行工具
 Select the wireless device you want to configure|選擇你要配置的無線設備
 Please choose|請選擇
@@ -151,6 +162,24 @@ Disable overlapping set scanning|禁用重疊服務集掃描
 Enabled (this will violate IEEE 802.11n-2009)|啟用（這將違反 IEEE 802.11n-2009）
 Some devices support the installation of vendor-specific drivers that may not use some of the settings on this wireless setup page.|某些設備支持安裝供應商專有驅動程序，這些專有驅動程序可能不使用此無線設置頁的部分設置。
 Automatically add a frequency suffix after the access point SSID|為接入點服務集標識符後自動添加頻率後戳
+Modifications to the Domain Name System and Dynamic Host Configuration settings will not take effect until the NSWA Ranga system is restarted or the Domain Name System and Dynamic Host Configuration Service are restarted. So after modifying these settings, you can click the "Restart DNS and DHCP Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|域名系統和動態主機配置設置的修改在重啟 NSWA Ranga 系統或重啟域名系統和動態主機配置服務之前不會生效。因此在修改這些設置後，你可以點按“重啟域名系統和動態主機配置服務”按鈕使其立即生效。此操作需要一點時間完成，你不必修改每個配置後執行，你可以完成多個無線設備的多個配置，然後執行一次。
+Restart DNS and DHCP Service|重啟域名系統和動態主機配置服務
+IPv4 Address - MAC Address Binding|網際網協議版本4地址-媒體訪問控制地址綁定
+When the client requests the IPv4 address through the DHCP, NSWA Ranga will respond according to the client's MAC address and select the specified IPv4 address. However, the Ethernet client can still set its own IPv4 address at will.|客户端通過“動態主機配置協議”請求網際網協議版本4地址時，NSWA Ranga 將根據客户端的媒體訪問控制地址選擇指定的網際網協議版本4地址進行應答。然而，在以太網的客户端仍然可以隨意設置自己的網際網協議版本4地址。
+Add a new binding|添加新的綁定
+DHCP configuration|動態主機配置協議配置
+If the client cannot obtain the IPv4 address to access NSWA Ranga due to configuration reasons, you can set the client to the IPv4 address of the same subnetwork to resume access.|如果因為配置原因導致客户端無法獲取網際網協議版本4地址訪問 NSWA Ranga，你可以將客户端設置為同一子網的網際網協議版本4地址恢復訪問。
+Lease|租期
+Assign address offset (Version 4)|分配地址偏移（版本4）
+Assign address restrictions (version 4)|分配地址限制（版本4）
+Upstream DNS Server|上游域名系統服務器
+Add a new server|添加新服務器
+DNS Cache Server|域名系統緩存服務器
+Use the server provided by the peer|使用對端提供的服務器
+Enable|使能
+Rebind attack protection|Rebind 攻擊保護
+Bind port|綁定端口
+Query port|查詢端口
 The configuration of some interfaces (such as authentication information) will take effect the next time you connect. However, some settings, such as "Protocol Type", "Static Address", "Interface Physical Address", etc. will not take effect until the NSWA Ranga system is restarted or the network service is restarted. So after modifying these settings, you can click the "Restart Network Service" button to take effect immediately. This operation takes a little while to complete. You don't have to modify each configuration to execute, you can complete multiple configurations of multiple interfaces and then execute it once. The established peer-to-peer protocol connection will be disconnected after restarting the network service.|某些接口的配置（如認證信息）在下次連接時即可生效。但有些設置，如“協議類型”、“靜態地址”、“接口物理地址”等在重啟 NSWA Ranga 系統或重啟網絡服務之前不會生效。因此在修改這些設置後，你可以點按“重啟網絡服務”按鈕使其立即生效。此操作需要一點時間完成。你不必修改每個配置後執行，你可以完成多項接口的多個配置，然後執行一次。重啟網絡服務後已建立的點對點協議連接會斷開。
 Restart Network Service|重啟網絡服務
 Protocol Type|協議類型
@@ -181,6 +210,18 @@ Physical Address:|物理地址:
 Delete Interface|刪除接口
 This interface and the configuration of this interface will be completely removed, and this operation is irrevocable.|此接口和此接口的配置將完全被刪除，此操作不可撤銷。
 Some interfaces are configured to couple with the system infrastructure, so you cannot modify some of their configurations. For example, the protocol type of the netkeeper interface must be PPPoE and the Netkeeper Extension must be turned on. And you cannot modify it to other protocols. For example, if you need the universal PPPoE protocol, you can modify the Protocol Type of the wan interface to PPPoE.|某些接口的配置與系統基礎設施耦合，因此您不能修改其某些配置。例如，netkeeper 接口的協議類型必須是基於以太網的點對點協議且必須開啟 Netkeeper 擴展。您不能修改為其他協議。舉例説明，假如你需要通用 PPPoE 協議，可以修改 wan 接口的協議類型為基於以太網的點對點協議。
+Update system by NSWA Online push|使用 NSWA Online 推送更新系統
+If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.|如果你沒有關閉 Web 控制枱的 NSWA Online 推送功能，新版本發佈後，在你打開 Web 控制枱時會向你推送。彈出更新通知。
+Use the command line tool to update your system to the latest version|使用命令行工具更新系統到最新版本
+Use the command line tool to automatically update the NSWA Ranga system to the latest version, which is useful when you need to install multiple OTA updates. In most cases, this command allows the NSWA Ranga system to automatically install all OTA update packages from the current version to the latest version.|使用命令行工具可以自動將 NSWA Ranga 系統更新到最新版本，這在需要安裝多個 OTA 更新的時候非常有用。大部分情況下，使用此命令可以將 NSWA Ranga 系統自動安裝從當前版本直到最新版本所有的 OTA 更新包。
+If you need to install a firmware file using the command line tool, you can|如果需要使用命令行工具安裝一個固件文件，你可以
+For more usage of the command line tool for system updates, run<code>ranga-cli swdeploy -h</code>for help.|有關命令行工具進行系統更新的更多用法，請運行<code>ranga-cli swdeploy -h</code>獲得幫助信息。
+Upload firmware using the web console|使用 Web 控制枱上傳固件
+Uploading system firmware updates via the web console is experimental and your browser must be new enough to support the File API, which is currently just a web working draft. "Erase the current system configuration during the next full package update" will remain in effect until you (actively or passively) reboot the system; "Politely requesting a reboot after installation" is not a mandatory operation, but rather making a request to the updater, which can be ignored by the updater. At the same time, the updater may decide whether it should do reboot or not, regardless of whether you request it or not. However, for most updates that do not need to be restarted, this feature will be restarted after the update is complete.|通過 Web 控制枱上傳系統固件更新是具有實驗性的，且你的瀏覽器必須足夠新以支持目前僅僅是 Web 工作草案的 File API。"下次完整包更新時抹掉當前系統配置" 會在你（主動或被動）重啟系統之前一直有效；"禮貌地要求安裝完畢後執行重啟" 並非一個強制性的操作，而是向更新程序提出請求，可以被更新程序忽略，同時，更新程序也可能自行決定是否應該重啟，而不管你是否請求，但是，對於大部分無需重啟的更新，使用此功能將會在更新完畢後重啟。
+Select the firmware file:|選擇固件文件：
+Erase the current system configuration during the next full package update|下次完整包更新時抹掉當前系統配置
+Politely requesting a reboot after installation|禮貌地要求安裝完畢後執行重啟
+Upload|上傳
 Web console version:|Web 控制枱版本：
 Get the web console source code|獲取 Web 控制枱源代碼
 Contributor list|貢獻者列表

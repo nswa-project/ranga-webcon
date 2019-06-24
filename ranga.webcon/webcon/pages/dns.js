@@ -5,7 +5,7 @@ page_dns.getElementById = id => {
 }
 
 page_dns.reloadPage = () => {
-	selectPage('dns', '域名系统和自动配置');
+	selectPage('dns', _('DNS and Auto Configuration'));
 }
 
 page_dns.remV4Bind = item => {
@@ -88,8 +88,8 @@ const page_dns_init = () => {
 	});
 
 	page_dns.getElementById('addbind').addEventListener('click', e => {
-		let d = dialog.show('icon-add', '添加绑定', "输入网际网协议版本4地址<br><input style='width: 100%' type=text><br><br>输入媒体访问控制地址<br><input style='width: 100%' type=text>", [{
-			name: "添加",
+		let d = dialog.show('icon-add', _('Add binding'), "{0}<br><input style='width: 100%' type=text><br><br>{1}<br><input style='width: 100%' type=text>".format(_("Enter IPv4 Address"), _("Enter MAC Address")), [{
+			name: _("Add"),
 			func: (d => {
 				let inputs = d.getElementsByTagName('input');
 				let ipv4addr = inputs[0].value,
@@ -100,7 +100,7 @@ const page_dns_init = () => {
 				dialog.close(d);
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 		let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
@@ -108,8 +108,8 @@ const page_dns_init = () => {
 	});
 
 	page_dns.getElementById('clearbind').addEventListener('click', e => {
-		let d = dialog.show('icon-warning', '清除全部绑定', "确定要清除全部绑定吗？", [{
-			name: "清除",
+		let d = dialog.show('icon-warning', _('Purge all bindings'), _("Are you sure you want to purge all bindings?"), [{
+			name: _("Purge"),
 			func: (d => {
 				ranga.api.config('dhcp', ['clear-ipv4-bind']).then(proto => {
 					page_dns.reloadPage();
@@ -117,14 +117,14 @@ const page_dns_init = () => {
 				dialog.close(d);
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 	});
 
 	page_dns.getElementById('addserver').addEventListener('click', e => {
-		let d = dialog.show('icon-add', '添加上游域名系统服务器', "输入上游域名系统服务器网际网协议版本4地址<br><br><input style='width: 100%' type=text>", [{
-			name: "添加",
+		let d = dialog.show('icon-add', _('Add an upstream DNS server'), "{0}<br><br><input style='width: 100%' type=text>".format(_("Enter the IPv4 address of upstream DNS server")), [{
+			name: _("Add"),
 			func: (d => {
 				let addr = d.getElementsByTagName('input')[0].value;
 				ranga.api.config('dns', ['add-server', addr]).then(proto => {
@@ -133,7 +133,7 @@ const page_dns_init = () => {
 				dialog.close(d);
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 		let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
@@ -157,7 +157,7 @@ const page_dns_init = () => {
 		}).then(proto => {
 			return ranga.api.config('dhcp', ['set', 'limit', limit]);
 		}).then(proto => {
-			dialog.toast("动态主机配置协议配置已经更改。但需要重启动态主机配置服务以生效。");
+			dialog.toast(_("The DHCP configuration has changed. However, you need to restart the DHCP Service to take effect."));
 		}).catch(defErrorHandler);
 	});
 
@@ -174,7 +174,7 @@ const page_dns_init = () => {
 		}).then(proto => {
 			return ranga.api.config('dns', ['set', 'queryport', queryport]);
 		}).then(proto => {
-			dialog.toast("域名系统配置已经更改。但需要重启域名系统服务以生效。");
+			dialog.toast(_("The DNS configuration has changed. However, you need to restart the DNS service to take effect."));
 		}).catch(defErrorHandler);
 	});
 }

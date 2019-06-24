@@ -8,7 +8,7 @@ const page_update_init = () => {
 	page_update.$('upload').addEventListener('click', e => {
 		let files = page_update.$('file').files;
 		if (!files.length) {
-			dialog.simple('请选择一个文件');
+			dialog.simple(_('Please select a file'));
 			return;
 		}
 
