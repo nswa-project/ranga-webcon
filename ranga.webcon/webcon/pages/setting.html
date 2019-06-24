@@ -9,25 +9,25 @@
 		}
 
 	</style>
-	某些设置存储在你的浏览器客户端，因此不同终端之间互不影响。如果你的浏览器不支持 Local Storage 以及 IndexedDB，那么你无法保存某些设置。
-	<h1>Web 控制台主题</h1>
-	<div class="tips">Web 控制台可以动态加载第三方主题代码来进行定制。</div>
-	当前主题：<span id="p-setting-theme"></span><br>
-	<button class="btnFlat" id="p-setting-themestore">从 Ranga 网上应用店查找主题</button><button class="btnFlat" id="p-setting-settheme">手动设置自定义主题</button>
+	<div class="_tr">These settings are stored in your browser client, so different terminals do not affect each other. If your browser does not support Local Storage and IndexedDB, you cannot save some settings.</div>
+	<h1 class="_tr">Web console theme</h1>
+	<div class="tips _tr">The web console can dynamically load third-party theme code for customization.</div>
+	<div class="simpleLabel _tr">Current theme:</div><span id="p-setting-theme"></span><br>
+	<button class="btnFlat _tr" id="p-setting-themestore">Find theme from the Ranga Web App Store</button><button class="btnFlat _tr" id="p-setting-settheme">Manually set a custom theme</button>
 	
-	<h1>Web 控制台 PWA 渐进式应用程序</h1>
-	<div class="tips">Web 控制台可以通过 PWA 技术添加到你的智能手机的主屏幕上，并达到类似与原生应用的使用体验。支持 Android 和 iOS。</div>
-	<a href="/pwa">打开 PWA 引导页面</a>
+	<h1 class="_tr">Web console PWA progressive application</h1>
+	<div class="tips _tr">The web console can be added to your smartphone's home screen via PWA technology and achieve a similar experience with native apps. Support for Android and iOS.</div>
+	<a class="_tr" href="/pwa">Open the PWA boot page</a>
 	
-	<h1>自动同步时间（仅限 Netkeeper）</h1>
-	<div class="tips">Netkeeper 是基于以太网的点对点协议的专有协议，此协议要求建立连接前客户端的系统时钟误差不得超过 2 至 3 秒。Web 控制台可以在连接 Netkeeper 之前将浏览器时间（你的系统时间）同步到 NSWA Ranga 系统。如果你不使用自动同步时间，你很可能需要每次连接之前前往“系统管理”手动设置时间。自动同步时间不会对 Netkeeper 之外的协议生效。</div>
-	<input type="checkbox" id="p-setting-timesync" checked><label for="p-setting-timesync" class="checkbox_label">启用自动同步时间（仅限 Netkeeper）</label>
+	<h1 class="_tr">Automatic synchronization time (Netkeeper only)</h1>
+	<div class="tips _tr">Netkeeper is a proprietary protocol based on PPPoE. This protocol requires that the system clock error of the client must not exceed 2 to 3 seconds before the connection is established. The web console can synchronize browser time (your system time) to the NSWA Ranga system before connecting to Netkeeper. If you don't use automatic sync time, you will most likely need to go to "System management" to manually set the time before each connection. The automatic synchronization time does not take effect for protocols other than Netkeeper.</div>
+	<input type="checkbox" id="p-setting-timesync" checked><label for="p-setting-timesync" class="checkbox_label _tr">Enable automatic synchronization time (Netkeeper only)</label>
 	
-	<h1>NSWA Online 推送</h1>
-	<div class="tips">NSWA Online 会在你打开 Web 控制台后联机获取<b>最新公告</b>、<b>在线系统软件更新</b>、<b>观感样式调整</b>和<b>节日涂鸦</b>等显示在 Web 控制台上。这是一个 Web 控制台的功能而不是 NSWA Ranga 的功能，它只会发生在你的浏览器里，NSWA Ranga 正式版本系统内没有任何访问我们服务器并私自获取、更新软件或数据的功能！NSWA Online 隐私政策：我们不收集、不发送、不在服务器存储你的任何个人数据，我们可能会在你的浏览器本地存储一些数据标记，例如你是否选择将一条更新提醒忽略不显示，这些数据只会存储在浏览器本地存储而不会通过网络传输。</div>
-	<input type="checkbox" id="p-setting-online" checked><label for="p-setting-online" class="checkbox_label">启用 NSWA Online 推送</label>
+	<h1 class="_tr">NSWA Online Push</h1>
+	<div class="tips _tr">NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.</div>
+	<input type="checkbox" id="p-setting-online" checked><label for="p-setting-online" class="checkbox_label _tr">Enable NSWA Online Push</label>
 	
-	<h1>Web 控制台实验性功能</h1>
-	<div class="tips">以下是一些 Web 控制台尚处于实验阶段的功能，其可能具有潜在缺陷。</div>
-	<input type="checkbox" id="p-setting-exp-onekey"><label for="p-setting-exp-onekey" class="checkbox_label">在“网络连接”页的“额外工具”中显示“为所有 NK 接口启动拦截”按钮</label>
+	<h1 class="_tr">Web console experimental features</h1>
+	<div class="tips _tr">Here are some of the features of the web console that are still experimental, which can have potential pitfalls.</div>
+	<input type="checkbox" id="p-setting-exp-onekey"><label for="p-setting-exp-onekey" class="checkbox_label _tr">"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page</label>
 </div>

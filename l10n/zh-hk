@@ -131,6 +131,27 @@ The wireless security for wireless device ‘{0}' has been modified. However, yo
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的預共享密鑰已經被修改。但需要重啟無線服務以生效。
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的無線電配置已經被修改。但需要重啟無線服務以生效。
 Please select a file|請選擇一個文件
+Aria2 Download Manager|Aria2 下載管理器
+Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedure Call) for downloading files and more.|啟動後，可以通過 PRC（遠程過程調用）訪問 Aria2 下載管理器，以進行下載文件等操作。
+Samba file sharing service|Samba 文件共享服務
+After booting, file sharing can be done via the SMB protocol to access the attached additional primary file system.|啟動後，可以通過 SMB 協議進行文件共享，以訪問掛載的額外主文件系統。
+The modification has been submitted, but it may be necessary to restart this service to take effect.|修改已提交，但可能需要重啟此服務以生效。
+Close|關閉
+The service has received the request. The operation should be completed very quickly.|服務已收到請求。操作應該很快完成。
+The autostart configuration has been updated.|已經更新自動啟動配置。
+The system clock has been updated.|系統時鐘已更新。
+The system is about to restart and the web console does not automatically refresh.|系統即將重新啟動，Web 控制枱不會自動刷新。
+Save to file|保存到文件
+Empty password is not allowed|不允許使用空密碼
+The passwords entered twice do not match. Please try again.|兩次輸入的密碼不一致，請重試。
+password has been updated|修改密碼成功
+No additional (optional) services installed|未安裝任何額外（可選）服務
+Default theme|默認主題
+Ranga Web App Store - Themes|Ranga 網上應用店 - 主題
+Set custom theme|設置自定義主題
+Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.|安裝第三方主題可能會導致 Web 控制枱外觀被惡意篡改，從而使你受騙。
+Select a theme file: |選擇主題文件：
+Apply|應用
 CLI Tools|命令行工具
 Select the wireless device you want to configure|選擇你要配置的無線設備
 Please choose|請選擇
@@ -147,7 +168,6 @@ WPA2 and WPA PSK Mixed mode (Double protocol)|Wi-Fi 保護訪問 2、Wi-Fi 保�
 WPA PSK (CCMP)|Wi-Fi 保護訪問預共享密鑰（具有 CBC-MAC 計數器協議）
 WPA PSK (TKIP)|Wi-Fi 保護訪問預共享密鑰（臨時密鑰完整性協議）
 Open (non-authenticate)|開放（不進行身份驗證）
-Apply|應用
 NSWA Ranga may not currently support the Wi-Fi Protected Access 3 (WPA3) series of suits.|NSWA Ranga 可能暫時不支持 “Wi-Fi 保護訪問 3” 系列的套件。
 Pre-shared key|預共享密鑰
 When using the "PSK", use the following pre-shared key for authentication. When the key is less than 8 digits, NSWA Ranga automatically disables the wireless device, which is a common way to disable one or all of the wireless devices on NSWA Ranga.|當使用 “預共享密鑰” 時，使用下面的預共享密鑰進行認證。密鑰少於 8 位時，NSWA Ranga 會自動禁用此無線設備，這是在 NSWA Ranga 上禁用某個或全部無線設備的通用方法。
@@ -159,7 +179,7 @@ Area code|地區代碼
 Channel|信道
 Throughput mode (HT)|吞吐量模式（頻寬）
 Disable overlapping set scanning|禁用重疊服務集掃描
-Enabled (this will violate IEEE 802.11n-2009)|啟用（這將違反 IEEE 802.11n-2009）
+Enabled (this will violate IEEE 802.11n-2009)|使能（這將違反 IEEE 802.11n-2009）
 Some devices support the installation of vendor-specific drivers that may not use some of the settings on this wireless setup page.|某些設備支持安裝供應商專有驅動程序，這些專有驅動程序可能不使用此無線設置頁的部分設置。
 Automatically add a frequency suffix after the access point SSID|為接入點服務集標識符後自動添加頻率後戳
 Modifications to the Domain Name System and Dynamic Host Configuration settings will not take effect until the NSWA Ranga system is restarted or the Domain Name System and Dynamic Host Configuration Service are restarted. So after modifying these settings, you can click the "Restart DNS and DHCP Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|域名系統和動態主機配置設置的修改在重啟 NSWA Ranga 系統或重啟域名系統和動態主機配置服務之前不會生效。因此在修改這些設置後，你可以點按“重啟域名系統和動態主機配置服務”按鈕使其立即生效。此操作需要一點時間完成，你不必修改每個配置後執行，你可以完成多個無線設備的多個配置，然後執行一次。
@@ -210,6 +230,27 @@ Physical Address:|物理地址:
 Delete Interface|刪除接口
 This interface and the configuration of this interface will be completely removed, and this operation is irrevocable.|此接口和此接口的配置將完全被刪除，此操作不可撤銷。
 Some interfaces are configured to couple with the system infrastructure, so you cannot modify some of their configurations. For example, the protocol type of the netkeeper interface must be PPPoE and the Netkeeper Extension must be turned on. And you cannot modify it to other protocols. For example, if you need the universal PPPoE protocol, you can modify the Protocol Type of the wan interface to PPPoE.|某些接口的配置與系統基礎設施耦合，因此您不能修改其某些配置。例如，netkeeper 接口的協議類型必須是基於以太網的點對點協議且必須開啟 Netkeeper 擴展。您不能修改為其他協議。舉例説明，假如你需要通用 PPPoE 協議，可以修改 wan 接口的協議類型為基於以太網的點對點協議。
+Set the system clock|設置系統時鐘
+Set system clock to the specified value or synchronize clock from the browser.|將系統時鐘設置為指定值，或者從瀏覽器同步系統時鐘。
+Set system clock|設置系統時鐘
+Synchronize clock from the browser|從瀏覽器同步系統時鐘
+Reboot the device|重啟設備
+Perform a reboot immediately. Existing network connections will be reset.|立即執行重啟。現有網絡連接會被重置。
+Reboot|重啟
+System journal|系統日誌
+System journals can help troubleshoot system and connectivity issues.|系統日誌可能有助於排查系統和連接問題。
+View system log buffer|查看系統日誌緩衝區
+Modify the superuser password|修改超級用户密碼
+Super users have access to the full NSWA Ranga System API. We recommend that you set it to a more secure password.|超級用户可以訪問完整 NSWA Ranga 系統 API，我們建議您設置為一個較安全的密碼。
+New password|新密碼
+Repeat input|重複輸入
+Change Password|修改密碼
+Additional (optional) service|額外（可選）服務
+Autostart from boot|開機自啟動
+Service specific configuration|服務特定配置
+Startup|啟動
+Stop|停止
+Restart|重新啟動
 Update system by NSWA Online push|使用 NSWA Online 推送更新系統
 If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.|如果你沒有關閉 Web 控制枱的 NSWA Online 推送功能，新版本發佈後，在你打開 Web 控制枱時會向你推送。彈出更新通知。
 Use the command line tool to update your system to the latest version|使用命令行工具更新系統到最新版本
@@ -230,3 +271,21 @@ Seth Connect|Seth 連接
 Start catching|啟動攔截
 Disconnect|斷開
 Traditional catching server is disabled because the new persistent catching service is enabled.|由於新型持續性攔截服務已經啟用，傳統攔截服務器被禁用。
+These settings are stored in your browser client, so different terminals do not affect each other. If your browser does not support Local Storage and IndexedDB, you cannot save some settings.|這些設置存儲在你的瀏覽器客户端，因此不同終端之間互不影響。如果你的瀏覽器不支持 Local Storage 以及 IndexedDB，那麼你無法保存某些設置。
+Web console theme|Web 控制枱主題
+The web console can dynamically load third-party theme code for customization.|Web 控制枱可以動態加載第三方主題代碼來進行定製。
+Current theme:|當前主題：
+Find theme from the Ranga Web App Store|從 Ranga 網上應用店查找主題
+Manually set a custom theme|手動設置自定義主題
+Web console PWA progressive application|Web 控制枱 PWA 漸進式應用程序
+The web console can be added to your smartphone's home screen via PWA technology and achieve a similar experience with native apps. Support for Android and iOS.|Web 控制枱可以通過 PWA 技術添加到你的智能手機的主屏幕上，並達到類似與原生應用的使用體驗。支持 Android 和 iOS。
+Open the PWA boot page|打開 PWA 引導頁面
+Automatic synchronization time (Netkeeper only)|自動同步時間（僅限 Netkeeper）
+Netkeeper is a proprietary protocol based on PPPoE. This protocol requires that the system clock error of the client must not exceed 2 to 3 seconds before the connection is established. The web console can synchronize browser time (your system time) to the NSWA Ranga system before connecting to Netkeeper. If you don't use automatic sync time, you will most likely need to go to "System management" to manually set the time before each connection. The automatic synchronization time does not take effect for protocols other than Netkeeper.|Netkeeper 是基於以太網的點對點協議的專有協議，此協議要求建立連接前客户端的系統時鐘誤差不得超過 2 至 3 秒。Web 控制枱可以在連接 Netkeeper 之前將瀏覽器時間（你的系統時間）同步到 NSWA Ranga 系統。如果你不使用自動同步時間，你很可能需要每次連接之前前往“系統管理”手動設置時間。自動同步時間不會對 Netkeeper 之外的協議生效。
+Enable automatic synchronization time (Netkeeper only)|使能自動同步時間（僅限 Netkeeper）
+NSWA Online Push|NSWA Online 推送
+NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|NSWA Online 會在你打開 Web 控制枱後聯機獲取<b>最新公告</b>、<b>在線系統軟件更新</b>、<b>觀感樣式調整</b>和<b>節日塗鴉</b>等顯示在 Web 控制枱上。這是一個 Web 控制枱的功能而不是 NSWA Ranga 的功能，它只會發生在你的瀏覽器裏，NSWA Ranga 正式版本系統內沒有任何訪問我們服務器並私自獲取、更新軟件或數據的功能！NSWA Online 隱私政策：我們不收集、不發送、不在服務器存儲你的任何個人數據，我們可能會在你的瀏覽器本地存儲一些數據標記，例如你是否選擇將一條更新提醒忽略不顯示，這些數據只會存儲在瀏覽器本地存儲而不會通過網絡傳輸。
+Enable NSWA Online Push|使能 NSWA Online 推送
+Web console experimental features|Web 控制枱實驗性功能
+Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|以下是一些 Web 控制枱尚處於實驗階段的功能，其可能具有潛在缺陷。
+"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|在“網絡連接”頁的“額外工具”中顯示“為所有 NK 接口啟動攔截”按鈕

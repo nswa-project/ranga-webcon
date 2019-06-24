@@ -5,19 +5,19 @@ page_system.$ = id => {
 }
 
 page_system.optSvcMap = {
-	aria2: [true, 'Aria2 下载管理器', '启动后，可以通过 PRC（远程过程调用）访问 Aria2 下载管理器，以进行下载文件等操作。'],
-	samba: [true, 'Samba 文件共享服务', '启动后，可以通过 SMB 协议进行文件共享，以访问挂载的额外主文件系统。']
+	aria2: [true, _('Aria2 Download Manager'), _('Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedure Call) for downloading files and more.')],
+	samba: [true, _('Samba file sharing service'), _('After booting, file sharing can be done via the SMB protocol to access the attached additional primary file system.')]
 }
 
 page_system.optSvcSetMisc = (misc, value) => {
 	ranga.api.config('misc', ['set-misc', misc, value]).then(proto => {
-		dialog.toast('修改已提交，但可能需要重启此服务以生效。');
+		dialog.toast(_('The modification has been submitted, but it may be necessary to restart this service to take effect.'));
 	}).catch(defErrorHandler)
 }
 
 page_system.optSvcExtraAction = (name, arg1, arg2) => {
 	ranga.api.action('opt', ['action', name, arg1, arg2]).then(proto => {
-		dialog.toast('修改已提交，但可能需要重启此服务以生效。')
+		dialog.toast(_('The modification has been submitted, but it may be necessary to restart this service to take effect.'));
 	}).catch(defErrorHandler);
 }
 
@@ -25,7 +25,7 @@ page_system.optSvcAction = (action, name) => {
 	switch (action) {
 		case 'config':
 			let dlg = dialog.show(null, null, '', [{
-				name: '关闭',
+				name: _('Close'),
 				func: dialog.close
 			}]);
 			utils.ajaxGet('opt/' + name + '.html').then(r => {
@@ -37,7 +37,7 @@ page_system.optSvcAction = (action, name) => {
 		case 'restart':
 			webcon.lockScreen();
 			ranga.api.action('opt', [action, name]).then(proto => {
-				dialog.toast('服务已收到请求。操作应该很快完成。')
+				dialog.toast(_('The service has received the request. The operation should be completed very quickly.'));
 			}).catch(defErrorHandler).finally(() => {
 				webcon.unlockScreen();
 			})
@@ -52,7 +52,7 @@ page_system.optSvcAuto = (name, checkbox) => {
 
 	webcon.lockScreen();
 	ranga.api.action('opt', [action, name]).then(proto => {
-		dialog.toast('已经更新自动启动配置。')
+		dialog.toast(_('The autostart configuration has been updated.'));
 	}).catch(e => {
 		defErrorHandler(e);
 		checkbox.checked = !checkbox.checked;
@@ -65,20 +65,20 @@ const page_system_init = () => {
 	page_system.$('syncdate').addEventListener('click', e => {
 		let ts = utils.getUNIXTimestamp();
 		ranga.api.action('date', ['' + ts]).then(proto => {
-			dialog.toast("系统时钟已更新。");
+			dialog.toast(_("The system clock has been updated."));
 		}).catch(defErrorHandler);
 	});
 
 	page_system.$('date').addEventListener('click', e => {
 		let ts = parseInt(page_system.$('unixtime').value);
 		ranga.api.action('date', ['' + ts]).then(proto => {
-			dialog.toast("系统时钟已更新。");
+			dialog.toast(_("The system clock has been updated."));
 		}).catch(defErrorHandler);
 	});
 
 	page_system.$('reboot').addEventListener('click', e => {
 		ranga.api.action('restart', ['system']).then(proto => {
-			dialog.simple('系统即将重新启动，Web 控制台不会自动刷新。');
+			dialog.simple(_('The system is about to restart and the web console does not automatically refresh.'));
 		}).catch(defErrorHandler);
 	});
 
@@ -86,7 +86,7 @@ const page_system_init = () => {
 		ranga.api.query('log', []).then(proto => {
 			dialog.adv(null, null, "<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>", [
 				{
-					name: "保存到文件",
+					name: _("Save to file"),
 					func: (d => {
 						let blob = new Blob([proto.payload], {
 							type: "text/plain;charset=utf-8"
@@ -104,7 +104,7 @@ const page_system_init = () => {
 					})
 				},
 				{
-					name: "好",
+					name: _("OK"),
 					func: dialog.close
 				}
 			], {
@@ -117,15 +117,15 @@ const page_system_init = () => {
 		let passwd = page_system.$('passwd').value,
 			passwd2 = page_system.$('passwd2').value;
 		if (passwd === '') {
-			dialog.simple("不允许使用空白密码");
+			dialog.simple(_("Empty password is not allowed"));
 			return;
 		}
 		if (passwd !== passwd2) {
-			dialog.simple("两次输入的密码不一致，请重新输入");
+			dialog.simple(_("The passwords entered twice do not match. Please try again."));
 			return;
 		}
 		ranga.api.config('misc', ['set-passwd', passwd]).then(proto => {
-			dialog.simple("修改密码成功");
+			dialog.simple(_("password has been updated"));
 		}).catch(defErrorHandler);
 	});
 
@@ -185,7 +185,7 @@ const page_system_init = () => {
 		})
 
 		if (!hasItem) {
-			div.textContent = '未安装任何额外（可选）服务';
+			div.textContent = _('No additional (optional) services installed');
 		}
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();

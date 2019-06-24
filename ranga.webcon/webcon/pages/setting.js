@@ -10,14 +10,14 @@ const page_setting_init = () => {
 		exp_onekey = page_setting.$('exp-onekey'),
 		theme = page_setting.$('theme');
 
-	theme.textContent = webconThemeUUID ? webconThemeUUID : '默认主题';
+	theme.textContent = webconThemeUUID ? webconThemeUUID : _('Default theme');
 	page_setting.$('themestore').addEventListener('click', e => {
-		iframePage(webcon.supportSiteMain + '/was2/themes.html', 'Ranga 网上应用店 - 主题')
+		iframePage(webcon.supportSiteMain + '/was2/themes.html', _('Ranga Web App Store - Themes'))
 	});
 
 	page_setting.$('settheme').addEventListener('click', e => {
-		let d = dialog.show('icon-add', '设置自定义主题', "安装第三方主题可能会导致 Web 控制台外观被恶意篡改，从而使你受骗。<br><br>选择主题文件：<input type=file accept='.css,.nrwt' /><br>", [{
-			name: "应用",
+		let d = dialog.show('icon-add', _('Set custom theme'), "{0}<br><br>{1}<input type=file accept='.css,.nrwt' /><br>".format(_("Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived."), _("Select a theme file: ")), [{
+			name: _("Apply"),
 			func: (d => {
 				let files = d.getElementsByTagName('input')[0].files;
 				let file = files[0];
@@ -41,7 +41,7 @@ const page_setting_init = () => {
 				}
 			})
 		}, {
-			name: "取消",
+			name: _("Cancel"),
 			func: dialog.close
 		}]);
 	})
