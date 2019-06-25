@@ -15,5 +15,9 @@ for root, dirs, files in os.walk(sys.argv[1]):
 			parser.parseFile(filename)
 			items = parser.getElementsByClassName("_tr")
 			for item in items:
-				formatter.parseStr(item.innerHTML)
-				print(formatter.getHTML())
+				if (item.innerHTML is not None and item.innerHTML is not ""):
+					formatter.parseStr(item.innerHTML)
+					print(formatter.getHTML().replace('<br/>', '<br>'))
+			items = parser.getElementsByClassName("_tr_placeholder")
+			for item in items:
+				print(item.placeholder)

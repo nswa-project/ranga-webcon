@@ -51,5 +51,10 @@ i18n.runHooks = () => {
 	Array.from(a).forEach(i => {
 		i.innerHTML = i18n.tr(i.innerHTML);
 		i.classList.remove('_tr');
+
+		if (i.classList.contains('_tr_placeholder')) {
+			i.placeholder = i18n.tr(i.placeholder);
+			i.classList.remove('_tr_placeholder');
+		}
 	});
 }
