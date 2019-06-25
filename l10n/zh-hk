@@ -114,6 +114,24 @@ Web console legal information|Web 控制枱法律信息
 Web console license agreement|Web 控制枱授權協議
 Font Awesome Icon Creation Common License|Font Awesome 圖標創作共用許可
 Google Material.io icon license|Google Material.io 圖標許可
+Version: {0}|版本: {0}
+Author: {0}|作者: {0}
+API version: {0}|API 版本: {0}
+Page provided by '{0}'|由 '{0}' 提供的頁面
+Upload extension|上傳擴展程序
+Install a new extension|安裝新擴展程序
+Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances. Uploading extensions through the web console is experimental, and your browser must be new enough to support the File API, which is currently just a web working draft.|安裝第三方擴展程序可能對 NSWA Ranga 系統性能和穩定性產生不良影響。請僅在十分清楚的情況下繼續操作。通過 Web 控制枱上傳擴展程序是具有實驗性的，且你的瀏覽器必須足夠新以支持目前僅僅是 Web 工作草案的 File API。
+Select the extension package: |選擇擴展程序包：
+Upload|上傳
+Open the Ranga Web App Store|打開 Ranga 網上應用店
+Ranga Web App Store - Extensions|Ranga 網上應用店 - 擴展程序
+Deploy system components|部署系統組件
+Enter the UUID ID of the system component you want to deploy. Some system components may also have a human friendly name.|輸入希望部署的系統組件的 UUID 標識碼。部分系統組件也可能有一個人類友好名字。
+Deploy|部署
+An empty UUID is not supported.|空的 UUID 不被支持。
+Downloading components...|正在下載組件...
+The download failed, the component corresponding to the UUID does not exist, or there is a problem with your network connection.|下載失敗，UUID 對應的組件不存在，或者你的網絡連接有問題。
+No components are installed on your system|你的系統未安裝任何組件
 Add binding|添加綁定
 Enter IPv4 Address|輸入網際網協議版本4地址
 Enter MAC Address|輸入媒體訪問控制地址
@@ -131,6 +149,13 @@ The wireless security for wireless device ‘{0}' has been modified. However, yo
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的預共享密鑰已經被修改。但需要重啟無線服務以生效。
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|無線設備 ‘{0}' 的無線電配置已經被修改。但需要重啟無線服務以生效。
 Please select a file|請選擇一個文件
+The main file system is mounted|主要文件系統已掛載
+Used: {0}, remaining: {1}|已使用: {0}，剩餘: {1}
+Unmounted main file system|未掛載主要文件系統
+Manufacturer: {0}<br>Device ID: {1}:{2} Bus: {3} Device Location: {4}|製造商: {0}<br>設備 ID: {1}:{2} 總線: {3} 設備位置: {4}
+No "Universal Serial Bus" devices found on your device|在你的設備上未發現任何“通用串行總線”設備
+Sorry, your device does not have Universal Serial Bus support enabled.|很抱歉，你的設備未啟用“通用串行總線”支持
+Please wait patiently for the device to complete the uninstall...|請耐心等待設備完成卸載...
 Aria2 Download Manager|Aria2 下載管理器
 Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedure Call) for downloading files and more.|啟動後，可以通過 PRC（遠程過程調用）訪問 Aria2 下載管理器，以進行下載文件等操作。
 Samba file sharing service|Samba 文件共享服務
@@ -251,6 +276,30 @@ Service specific configuration|服務特定配置
 Startup|啟動
 Stop|停止
 Restart|重新啟動
+Universal serial bus|通用串行總線
+Additional primary file system|附加主要文件系統
+To safely unplug the storage device where the additional primary file system resides, you must unmount the file system to avoid data loss and severe file system errors.|要安全熱拔掉附加主要文件系統所在的存儲設備，必須卸載文件系統以避免數據丟失和嚴重的文件系統錯誤。
+Unmount file system|卸載文件系統
+The scheduled task service will not start automatically by default. You can go to&nbsp;<b>Miscellaneous and tweaks</b>&nbsp;to enable the function of the automatic start scheduled task service.<br>The modification of the scheduled task settings will not take effect until the NSWA Ranga system is restarted or the CRON service is restarted, so after modifying these settings, you can click the "Restart CRON Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of the scheduled task and then execute it once.<br>|計劃任務服務默認不會開機自動啟動，你可以前往<b>雜項與微調</b>中開啟開機自動啟動計劃任務服務的功能。<br>計劃任務設置的修改在重啟 NSWA Ranga 系統或重啟 CRON 服務之前不會生效，因此在修改這些設置後，你可以點按“重啟 CRON 服務”按鈕使其立即生效。此操作需要一點時間完成，你不必修改每個配置後執行，你可以完成計劃任務的多個配置，然後執行一次。<br>
+Restart CRON Service|重啟 CRON 服務
+Scheduled task list|計劃任務列表
+To add a new scheduled task, use the button in the top right|要添加新的計劃任務，請使用 Web 控制枱右上角的按鈕。
+Purge all scheduled tasks|清除全部計劃任務
+When do you want to wake up this scheduled task?|你想在什麼時間喚醒此計劃任務？
+Use '*' at any interval, use 'number/*' every time, use 'number' for specific time, use 'number-number' for multiple consecutive specific times, use multiple numbers, numbers, numbers, etc. .'. Minutes 0 to 59, hours 0 to 23, days 1 to 31, months 1 to 12, and weeks 0 to 7.<br><br>Example:<br>Execute every 1 minute: * * * * *<br>Execute every 1 hour: 0 */1 * * *<br>Execute every 3 hours: 0 */ 3 * * *<br>Executed at 6am every day: 0 6 */1 * *<br>Execute once every 4th and 18th minutes: 4,18 * * * *<br>At 4am Execute once in the 5th and 35th minutes of 11:5,35 4-11 * * *<br>Execute once every 11pm on Saturday: 0 23 * * 6<br>Every Saturday, Sunday 18 o'clock Execute every 30 minutes between 23:0,30 18-23 * * 6,0|任意間隔使用 '*'，每間隔一次使用 '數字/*'，具體時間使用 '數字'，多個連續具體時間使用 '數字-數字'，多個不連續具體時間使用 '數字,數字,...'。分鐘 0 到 59，小時 0 到 23，日 1到 31，月 1 到 12，星期 0 到 7。<br><br>例子：<br>每1分鐘執行一次：* * * * *<br>每1小時執行一次：0 */1 * * *<br>每3小時執行一次：0 */3 * * *<br>每天凌晨6點執行一次：0 6 */1 * *<br>每小時的第4和第18分鐘執行一次：4,18 * * * *<br>在上午4點到11點的第5和第35分鐘執行一次：5,35 4-11 * * *<br>每星期六的晚上11點執行一次：0 23 * * 6<br>每週六、週日18點至23點之間每隔30分鐘執行一次：0,30 18-23 * * 6,0
+What do you want to do in this planning task?|你想在此計劃任務中做什麼？
+Customize|自定義
+Preset: reboot the system|預設：重啟系統
+Preset: Synchronize Seth data from server|預設：從服務器同步 Seth 數據
+Add scheduled task|添加計劃任務
+minute|分鐘
+hour|小時
+day|日
+month|月
+week|星期
+Wake up extension|喚醒的擴展程序
+Wake-up schedule task program|喚醒的計劃任務程序
+Set parameters|設置參數
 Update system by NSWA Online push|使用 NSWA Online 推送更新系統
 If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.|如果你沒有關閉 Web 控制枱的 NSWA Online 推送功能，新版本發佈後，在你打開 Web 控制枱時會向你推送。彈出更新通知。
 Use the command line tool to update your system to the latest version|使用命令行工具更新系統到最新版本
@@ -262,7 +311,14 @@ Uploading system firmware updates via the web console is experimental and your b
 Select the firmware file:|選擇固件文件：
 Erase the current system configuration during the next full package update|下次完整包更新時抹掉當前系統配置
 Politely requesting a reboot after installation|禮貌地要求安裝完畢後執行重啟
-Upload|上傳
+Components|組件 (Components)
+Extensions|擴展程序 (Extensions)
+Permission|權限
+Modify system configuration as superuser|以超級用户身份修改系統配置
+Read/write storage device|讀取/寫入存儲設備
+Wake up during a specific system event|在特定系統事件時被喚醒
+Uninstall this extension|卸載此擴展程序
+Switch web console provided to this extension|切換到此擴展程序提供的 Web 控制枱
 Web console version:|Web 控制枱版本：
 Get the web console source code|獲取 Web 控制枱源代碼
 Contributor list|貢獻者列表

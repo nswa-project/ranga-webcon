@@ -38,52 +38,38 @@
 		<button class="btnFlat"><i class="icon icon-close"></i></button>
 		<span></span>
 	</div>
-	<div>
-		计划任务服务默认不会开机自动启动，你可以前往<b>杂项与微调</b>中开启开机自动启动计划任务服务的功能。<br>
-		计划任务设置的修改在重启 NSWA Ranga 系统或重启 CRON 服务之前不会生效，因此在修改这些设置后，你可以点按“重启 CRON 服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成计划任务的多个配置，然后执行一次。<br>
-		<button class="btnFlat" id='p-cron-restart'>重启 CRON 服务</button>
-	</div>
-	<h1>计划任务列表</h1>
-	<div class="tips">要添加新的计划任务，请使用 Web 控制台右上角的按钮。</div>
+	<div class="_tr">The scheduled task service will not start automatically by default. You can go to&nbsp;<b>Miscellaneous and tweaks</b>&nbsp;to enable the function of the automatic start scheduled task service.<br>The modification of the scheduled task settings will not take effect until the NSWA Ranga system is restarted or the CRON service is restarted, so after modifying these settings, you can click the "Restart CRON Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of the scheduled task and then execute it once.<br></div>
+	<button class="btnFlat _tr" id='p-cron-restart'>Restart CRON Service</button>
+	<h1 class="_tr">Scheduled task list</h1>
+	<div class="tips _tr">To add a new scheduled task, use the button in the top right</div>
 	<div id='p-cron-list'>
 	</div>
-	<button class="btnFlat" id='p-cron-clear'>清除全部计划任务</button>
+	<button class="btnFlat _tr" id='p-cron-clear'>Purge all scheduled tasks</button>
 </div>
 
 <div id="p-cron-add" class="hide md_dialog_back">
 	<div id="p-cron-add-dialog" class="md_dialog">
-		你想在什么时间唤醒此计划任务
-		<div class="tips">
-			任意间隔使用 '*'，每间隔一次使用 '数字/*'，具体时间使用 '数字'，多个连续具体时间使用 '数字-数字'，多个不连续具体时间使用 '数字,数字,...'。分钟 0 到 59，小时 0 到 23，日 1到 31，月 1 到 12，星期 0 到 7。<br><br>
-			例子：<br>
-			每1分钟执行一次：* * * * *<br>
-			每1小时执行一次：0 */1 * * *<br>
-			每3小时执行一次：0 */3 * * *<br>
-			每天凌晨6点执行一次：0 6 */1 * *<br>
-			每小时的第4和第18分钟执行一次：4,18 * * * *<br>
-			在上午4点到11点的第5和第35分钟执行一次：5,35 4-11 * * *<br>
-			每星期六的晚上11点执行一次：0 23 * * 6<br>
-			每周六、周日18点至23点之间每隔30分钟执行一次：0,30 18-23 * * 6,0<br><br>
-		</div>
-		<input id="p-cron-add-m" style='width: 100%' placeholder='分钟'>
-		<input id="p-cron-add-h" style='width: 100%' placeholder='小时'>
-		<input id="p-cron-add-d" style='width: 100%' placeholder='日'>
-		<input id="p-cron-add-month" style='width: 100%' placeholder='月'>
-		<input id="p-cron-add-w" style='width: 100%' placeholder='星期'>
+		<div class="_tr">When do you want to wake up this scheduled task?</div><br>
+		<div class="tips _tr">Use '*' at any interval, use 'number/*' every time, use 'number' for specific time, use 'number-number' for multiple consecutive specific times, use multiple numbers, numbers, numbers, etc. .'. Minutes 0 to 59, hours 0 to 23, days 1 to 31, months 1 to 12, and weeks 0 to 7.<br><br>Example:<br>Execute every 1 minute: * * * * *<br>Execute every 1 hour: 0 */1 * * *<br>Execute every 3 hours: 0 */ 3 * * *<br>Executed at 6am every day: 0 6 */1 * *<br>Execute once every 4th and 18th minutes: 4,18 * * * *<br>At 4am Execute once in the 5th and 35th minutes of 11:5,35 4-11 * * *<br>Execute once every 11pm on Saturday: 0 23 * * 6<br>Every Saturday, Sunday 18 o'clock Execute every 30 minutes between 23:0,30 18-23 * * 6,0</div>
+		<input class="_tr _tr_placeholder" id="p-cron-add-m" style='width: 100%' placeholder='minute'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-h" style='width: 100%' placeholder='hour'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-d" style='width: 100%' placeholder='day'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-month" style='width: 100%' placeholder='month'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-w" style='width: 100%' placeholder='week'>
 		<div class="divline"></div>
-		你想在此计划任务中做什么<br><br>
+		<div class="_tr">What do you want to do in this planning task?</div><br>
 		<select id="p-cron-add-actions" style="min-height: 24px;">
-			<option value="-1">自定义</option>
-			<option value="0">预设：重启系统</option>
-			<option value="1">预设：从服务器同步 Seth 数据</option>
+			<option class="_tr" value="-1">Customize</option>
+			<option class="_tr" value="0">Preset: reboot the system</option>
+			<option class="_tr" value="1">Preset: Synchronize Seth data from server</option>
 		</select>
-		<input id="p-cron-add-pkgname" style='width: 100%' placeholder='唤醒的扩展程序'>
-		<input id="p-cron-add-cron" style='width: 100%' placeholder='唤醒的计划任务程序'>
-		<input id="p-cron-add-args" style='width: 100%' placeholder='传入参数'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-pkgname" style='width: 100%' placeholder='Wake up extension'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-cron" style='width: 100%' placeholder='Wake-up schedule task program'>
+		<input class="_tr _tr_placeholder" id="p-cron-add-args" style='width: 100%' placeholder='Set parameters'>
 		<div class="divline"></div>
 		<div>
-			<button id="p-cron-add-add" class="btnFlat">添加计划任务</button><br>
-			<button id="p-cron-add-hide" class="btnFlat">关闭</button><br>
+			<button id="p-cron-add-add" class="btnFlat _tr">Add scheduled task</button><br>
+			<button id="p-cron-add-hide" class="btnFlat _tr">Close</button><br>
 		</div>
 	</div>
 </div>
