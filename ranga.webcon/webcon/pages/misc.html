@@ -9,41 +9,41 @@
 		}
 
 	</style>
-	<h1>圈养门户</h1>
-	<div class="tips">圈养门户使客户端操作系统在接入未拨号网络时自动打开浏览器弹出 Web 控制台页面。<b>修改此项设置后必须立刻重启 NSWA Ranga，否则可能导致系统工作在不一致状态！</b></div>
-	<input type="checkbox" id="p-misc-cp" data-x="enable_captive_portal" data-toast="圈养门户配置已经被修改。请尽快重新启动系统。"><label for="p-misc-cp" class="checkbox_label">启用圈养门户</label>
+	<h1 id="p-misc-cp-title" class="_tr">Captive portal</h1>
+	<div class="tips _tr">The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b></div>
+	<input type="checkbox" id="p-misc-cp" data-x="enable_captive_portal" data-toastelm="cp-title" data-reboot="hurryup"><label for="p-misc-cp" class="checkbox_label _tr">Enable the captive portal</label>
 
-	<h1>开机自动启动计划任务服务</h1>
-	<div class="tips">除非你有自定义的计划任务，否则不要开启此项。某些插件也会使用计划任务，但这些插件不需要此项。修改此项设置后重启 NSWA Ranga 生效。</div>
-	<input type="checkbox" id="p-misc-cron" data-x="enable_cron_autostart" data-toast="开机自动启动计划任务服务配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-cron" class="checkbox_label">开机自动启动计划任务服务</label>
+	<h1 id="p-misc-cron-title" class="_tr">Automatically start scheduled task service</h1>
+	<div class="tips _tr">Do not open this item unless you have a scheduled task. Some plugins also use scheduled tasks, but these plugins do not require this. Restart this NSWA Ranga to take effect after modifying this setting.</div>
+	<input type="checkbox" id="p-misc-cron" data-x="enable_cron_autostart" data-toastelm="cron-title" data-reboot="need"><label for="p-misc-cron" class="checkbox_label _tr">Automatically start scheduled task service</label>
 
-	<h1>Early-dail 免同步时间早期自动拨号功能</h1>
-	<div class="tips">启用此功能使开机后无需同步时间自动破解算号连接到 netkeeper 接口，如果启用了多宿主，也会尝试连接其他协议类型是 Netkeeper 的接口。此功能并不能保证总是成功。此功能只有在 wan 接口协议设置为“动态主机配置协议”时才会生效。</div>
-	<input type="checkbox" id="p-misc-ed" data-x="enable_early_dial" data-toast="Early-dail 配置已经被修改。"><label for="p-misc-ed" class="checkbox_label">启用早期自动拨号</label>
+	<h1 id="p-misc-ed-title" class="_tr">Free synchronization time early automatic dialing function</h1>
+	<div class="tips _tr">Enable this feature to connect to the netkeeper interface without having to synchronize time after booting. If multi-homing is enabled, it will also try to connect to other interfaces whose protocol type is Netkeeper. This feature is not guaranteed to be always successful. This feature only takes effect when the wan interface protocol is set to Dynamic Host Configuration Protocol.</div>
+	<input type="checkbox" id="p-misc-ed" data-x="enable_early_dial" data-toastelm="ed-title" data-reboot="uptoyou"><label for="p-misc-ed" class="checkbox_label _tr">Enable early automatic dialing</label>
 
-	<h1>点对点协议自动重新连接</h1>
-	<div class="tips">此设置将同时影响一切点对点协议，如基于以太网的点对点。请注意，“自动重新连接，在任何情况下”有可能导致帐号或媒体访问地址地址被你的互联网服务提供商临时封禁。另外，自动重新连接也有微小可能使 NSWA Ranga 出现问题。</div>
+	<h1 id="p-misc-ppp-title" class="_tr">PPP protocol automatically reconnects</h1>
+	<div class="tips _tr">This setting will affect all PPP protocols, such as PPPoE. Please note that "automatic reconnection, under any circumstances" may result in temporary bans on your account or media access address by your internet service provider. In addition, there is a slight chance that the automatic reconnection will cause problems with NSWA Ranga.</div>
 	<select id="p-misc-ppp" style="min-height: 24px;">
-		<option value="disable">总是不自动重新连接（最安全）</option>
-		<option value="hangup">自动重新连接，仅在对方挂断时（默认）</option>
-		<option value="always">自动重新连接，在任何情况下（危险）</option>
+		<option class=" _tr" value="disable">Never automatically reconnect (most secure)</option>
+		<option class=" _tr" value="hangup">Automatically reconnect, only when the peer hangs up (default)</option>
+		<option class=" _tr" value="always">Automatic reconnection, in any case (dangerous)</option>
 	</select><br>
-	<button class="btnFlat" id='p-misc-set-ppp' data-x="autoppp" data-v="ppp" data-toast="点对点协议自动重新连接配置已经被修改。">设置</button>
+	<button class="btnFlat _tr" id='p-misc-set-ppp' data-x="autoppp" data-v="ppp" data-toastelm="ppp-title" data-reboot="uptoyou">Apply</button>
 
-	<h1>允许匿名用户操作网络连接</h1>
-	<div class="tips">允许匿名用户操作网络连接（如连接、断开连接等），否则只有登录超级用户后才能操作网络连接。不包括 NSWA Ranga 系统设置，无论如何，只有超级用户才能访问系统设置功能。</div>
-	<input type="checkbox" id="p-misc-anydial" data-x="permit_anonymous_dial" data-toast="允许匿名用户操作网络连接配置已经被修改。"><label for="p-misc-anydial" class="checkbox_label">允许匿名用户操作网络连接</label>
+	<h1 id="p-misc-anydial-title" class="_tr">Allow anonymous users to operate network connections</h1>
+	<div class="tips _tr">Allow anonymous users to operate network connections (such as connecting, disconnecting, etc.), otherwise the network connection can only be operated after logging in to the super user. The NSWA Ranga system setup is not included, however, only the superuser can access the system setup feature.</div>
+	<input type="checkbox" id="p-misc-anydial" data-x="permit_anonymous_dial" data-toastelm="anydial-title" data-reboot="uptoyou"><label for="p-misc-anydial" class="checkbox_label _tr">Allow anonymous users to operate network connections</label>
 
-	<h1>流量卸载（Flow Offloading）</h1>
-	<div class="tips">流量卸载（Flow Offloading）可以为转发的流量建立高速“旁路”，从而降低转发数据包带来的 CPU 开销，在高负载时提升网络性能。硬件流量卸载（Hardware Flow Offloading）是通过 HW NAT 实现的，只有当流量卸载（Flow Offloading）启用的前提下启用才会生效，并且仅支持少量的芯片。此设置只有在内核版本（见“关于 Ranga”中“Ranga 软件版本”）大于等于 4.14.0 的设备上生效。<b>此功能与 QoS 不能同时启用！修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
-	<input type="checkbox" id="p-misc-offload" data-x="offload" data-toast="流量卸载（Flow Offloading）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-offload" class="checkbox_label">启用流量卸载（Flow Offloading）</label><br>
-	<input type="checkbox" id="p-misc-hwoffload" data-x="hwoffload" data-toast="硬件流量卸载（Hardware Flow Offloading）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-hwoffload" class="checkbox_label">尝试进行硬件流量卸载（Hardware Flow Offloading）（实验性）</label>
+	<h1 id="p-misc-offload-title" class="_tr">Flow Offloading</h1>
+	<div class="tips _tr">Flow Offloading can establish a high-speed "bypass" for forwarded traffic, which reduces the CPU overhead caused by forwarding packets and improves network performance at high load. Hardware Flow Offloading is implemented through HW NAT. It is enabled only when Traffic Offloading is enabled, and only supports a small number of chips. This setting only takes effect on devices with a kernel version (see "Ranga Software Version" in "About Ranga") greater than or equal to 4.14.0.&nbsp;<b>This feature and QoS cannot be enabled at the same time! After modifying this setting, you need to restart NSWA Ranga to take effect.</b></div>
+	<input type="checkbox" id="p-misc-offload" data-x="offload" data-toastelm="offload-title" data-reboot="need"><label for="p-misc-offload" class="checkbox_label _tr">Enable traffic offloading</label><br>
+	<input type="checkbox" id="p-misc-hwoffload" data-x="hwoffload" data-toastelm="offload-title" data-reboot="need"><label for="p-misc-hwoffload" class="checkbox_label _tr">Try hardware flow offloading (experimental)</label>
 
-	<h1>新型持续性拦截服务</h1>
-	<div class="tips">传统拦截法需要手动在 Web 控制台或者命令行工具告诉 NSWA Ranga 启动拦截服务器，然后进行拨号，并且具有 1 分钟的超时时间。新型持续性拦截服务无需先告诉 NSWA Ranga 需要启动拦截服务器，就可以拦截 PPPoE 连接并拨号，拨号时应该将你的帐号后附加 @接口名 以让 NSWA Ranga 能够确定对应的接口名，如果不带接口名，NSWA Ranga 将从 'netkeeper' 接口建立连接，本条应该为所有使用多宿主的用户所注意。本功能不建议小内存设备启用。<b>修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
-	<input type="checkbox" id="p-misc-scdial" data-x="enable_forever_nkserver" data-toast="新型持续性拦截服务配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-scdial" class="checkbox_label">启用新型持续性拦截服务</label>
-	
-	<h1>TCP 最大报文段钳制（MSS clamping）</h1>
-	<div class="tips"><b>推荐启用。在较旧版本的 NSWA 中，此功能无法关闭、总是启用。</b>PMTU-D 的一些实现试图通过推断由于 MTU 而不是因为链路拥塞而丢弃大的有效载荷分组来防止黑洞连接和 IP 碎片。因此为了使 TCP 最有效地运行，应允许 ICMP 类型 3。但是许多网络安全设备阻止所有 ICMP 消息以获得安全性，其中包括正确操作 PMTU-D 所必需的 ICMP 消息。这可能会导致连接正确完成 TCP 三次握手，但在传输数据时会挂起或性能损失。该功能 “钳制” SYN 数据包中的 TCP MSS 选项。此 MSS 选项通告远端发送 1460 或更少的 TCP 段以防止黑洞连接和 IP 碎片。<b>修改这个设置后需要重新启动 NSWA Ranga 以生效。</b></div>
-	<input type="checkbox" id="p-misc-mssclamping" data-x="mssclamping" data-toast="TCP 最大报文段钳制（MSS clamping）配置已经被修改。重新启动系统后更改生效。"><label for="p-misc-mssclamping" class="checkbox_label">启用 TCP 最大报文段钳制（MSS clamping）</label>
+	<h1 id="p-misc-scdial-title" class="_tr">New continuous catching service</h1>
+	<div class="tips _tr">Traditional catching methods require manually telling NSWA Ranga to start the catching server in the web console or command line tool, then dial the number and have a 1 minute timeout. The new persistent catching service does not need to tell NSWA Ranga to start the catching server, you can intercept the PPPoE connection and dial the number. You should add the @interface name to your account after dialing to allow NSWA Ranga to determine the corresponding interface name. Name, NSWA Ranga will establish a connection from the 'netkeeper' interface, this section should be noted for all users who use multi-homing. This feature is not recommended for small memory devices.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b></div>
+	<input type="checkbox" id="p-misc-scdial" data-x="enable_forever_nkserver" data-toastelm="scdial-title" data-reboot="need"><label for="p-misc-scdial" class="checkbox_label _tr">Enable new continuous catching services</label>
+
+	<h1 id="p-misc-mssclamping-title" class="_tr">TCP maximum segment clamp (MSS clamping)</h1>
+	<div class="tips _tr"><b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b></div>
+	<input type="checkbox" id="p-misc-mssclamping" data-x="mssclamping" data-toastelm="mssclamping-title" data-reboot="need"><label for="p-misc-mssclamping" class="checkbox_label _tr">Enable TCP Maximum Segment Clipping (MSS clamping)</label>
 </div>

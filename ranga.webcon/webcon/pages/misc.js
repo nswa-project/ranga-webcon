@@ -4,13 +4,28 @@ page_misc.$ = id => {
 	return document.getElementById('p-misc-' + id);
 }
 
+page_misc.showRebootToast = (text, reboot) => {
+	let suffix = '';
+	switch (reboot) {
+		case 'hurryup':
+			suffix = _('Please restart the system as soon as possible.');
+			break;
+		case 'need':
+			suffix = _('Changes will take effect after the system reboot.');
+			break;
+	}
+	
+	dialog.toast(_("The configuration for '{0}' has been modified. {1}").format(text, suffix));
+}
+
 page_misc.setFlag = e => {
 	let element = e.target,
+		titleElement = element.dataset.toastelm,
 		value = (element.checked ? '1' : '0'),
 		key = element.dataset.x,
-		toastString = element.dataset.toast;
+		reboot = element.dataset.reboot;
 	ranga.api.config('misc', ['set-flag', key, value]).then(proto => {
-		dialog.toast(toastString);
+		page_misc.showRebootToast(page_misc.$(titleElement).textContent, reboot);
 	}).catch(defErrorHandler)
 }
 
@@ -18,20 +33,22 @@ page_misc.setMisc = e => {
 	let element = e.target,
 		key = element.dataset.x,
 		valueElement = element.dataset.v,
+		titleElement = element.dataset.toastelm,
 		value = page_misc.$(valueElement).value,
-		toastString = element.dataset.toast;
+		reboot = element.dataset.reboot;
 	ranga.api.config('misc', ['set-misc', key, value]).then(proto => {
-		dialog.toast(toastString);
+		page_misc.showRebootToast(page_misc.$(titleElement).textContent, reboot);
 	}).catch(defErrorHandler)
 }
 
 page_misc.setSvc = e => {
 	let element = e.target,
+		titleElement = element.dataset.toastelm,
 		value = (element.checked ? 'enable' : 'disable'),
 		key = element.dataset.x,
-		toastString = element.dataset.toast;
+		reboot = element.dataset.reboot;
 	ranga.api.config('svc', [key, value]).then(proto => {
-		dialog.toast(toastString);
+		page_misc.showRebootToast(page_misc.$(titleElement).textContent, reboot);
 	}).catch(defErrorHandler)
 }
 
