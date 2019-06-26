@@ -135,6 +135,10 @@ An empty UUID is not supported.|空的 UUID 不被支援。
 Downloading components...|正在下載元件...
 The download failed, the component corresponding to the UUID does not exist, or there is a problem with your network connection.|下載失敗，UUID 對應的元件不存在，或者你的網路連線有問題。
 No components are installed on your system|你的系統未安裝任何元件
+Load balancing state|負載均衡狀態
+Close|關閉
+The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|已經為介面 ‘{0}' 執行完成了 '{1}' 操作。但需要重啟多宿主服務以生效。
+The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|介面 ‘{0}' 的多宿主配置已經更改。但需要重啟多宿主服務以生效。
 Add binding|新增繫結
 Enter IPv4 Address|輸入網際網協議版本4地址
 Enter MAC Address|輸入媒體訪問控制地址
@@ -164,7 +168,6 @@ Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedu
 Samba file sharing service|Samba 檔案共享服務
 After booting, file sharing can be done via the SMB protocol to access the attached additional primary file system.|啟動後，可以通過 SMB 協議進行檔案共享，以訪問掛載的額外主檔案系統。
 The modification has been submitted, but it may be necessary to restart this service to take effect.|修改已提交，但可能需要重啟此服務以生效。
-Close|關閉
 The service has received the request. The operation should be completed very quickly.|服務已收到請求。操作應該很快完成。
 The autostart configuration has been updated.|已經更新自動啟動配置。
 The system clock has been updated.|系統時鐘已更新。
@@ -181,6 +184,8 @@ Installing a third-party theme can lead to malicious tampering with the appearan
 Select a theme file: |選擇主題檔案：
 Apply|應用
 CLI Tools|命令列工具
+Change the Samba password for 'user' account|修改 Samba 'user' 使用者的密碼
+Change Aria2 RPC token|修改 Aria2 RPC 令牌
 Captive portal|圈養門戶
 The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|圈養門戶使客戶端作業系統在接入未撥號網路時自動開啟瀏覽器彈出 Web 控制檯頁面。<b>修改此項設定後必須立刻重啟 NSWA Ranga，否則可能導致系統工作在不一致狀態！
 Enable the captive portal|啟用圈養門戶
@@ -206,8 +211,31 @@ Enable new continuous catching services|啟用新型持續性攔截服務
 TCP maximum segment clamp (MSS clamping)|TCP 最大報文段鉗制（MSS clamping）
 <b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|<b>推薦啟用。在較舊版本的 NSWA 中，此功能無法關閉、總是啟用。</b>PMTU-D 的一些實現試圖通過推斷由於 MTU 而不是因為鏈路擁塞而丟棄大的有效載荷分組來防止黑洞連線和 IP 碎片。因此為了使 TCP 最有效地執行，應允許 ICMP 型別 3。但是許多網路安全裝置阻止所有 ICMP 訊息以獲得安全性，其中包括正確操作 PMTU-D 所必需的 ICMP 訊息。這可能會導致連線正確完成 TCP 三次握手，但在傳輸資料時會掛起或效能損失。該功能 “鉗制” SYN 資料包中的 TCP MSS 選項。此 MSS 選項通告遠端傳送 1460 或更少的 TCP 段以防止黑洞連線和 IP 碎片。<b>修改這個設定後需要重新啟動 NSWA Ranga 以生效。</b>
 Enable TCP Maximum Segment Clipping (MSS clamping)|啟用 TCP 最大報文段鉗制（MSS clamping）
-Select the wireless device you want to configure|選擇你要配置的無線裝置
+Multi-homing is not enabled, to enable multi-homing, click the "Enable Multihoming" button.|多宿主未啟用，要啟用多宿主，請點按“啟用多宿主”按鈕。
+Enable Multihoming|啟用多宿主
+Disabling multihoming does not clear the multihomed configuration|禁用多宿主不會清除多宿主的配置
+Changes to the load balancing settings will not take effect until the NSWA Ranga system is rebooted or the load balancing service is restarted, so after modifying these settings, you can click the "Restart Load Balancing Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of load balancing and then execute it once.|負載均衡設定的修改在重啟 NSWA Ranga 系統或重啟負載均衡服務之前不會生效，因此在修改這些設定後，你可以點按“重啟負載均衡服務”按鈕使其立即生效。此操作需要一點時間完成，你不必修改每個配置後執行，你可以完成負載均衡的多個配置，然後執行一次。
+Disable multihoming|禁用多宿主
+Restart Load Balancing Service|重啟負載均衡服務
+Reverse VLAN|反向 VLAN
+Reverse VLAN (reverse VLAN) is a concept defined by NSWA Ranga. In fact, from the perspective of the switch system itself, the "forward", that is, the true VLAN is a single interface on the switch system, and then Mapping a single interface to multiple virtual networks (one to many), the name "reverse VLAN" is derived from the opposite meaning, which maps multiple virtual networks to a single interface (to one to one). NSWA Ranga uses reverse VLANs to create multiple network connections (such as PPPoE links) on a single WAN socket (a NIC or a VLAN on a NIC). Therefore, you need to set a different "reverse VLAN" for each new 'md..' interface. Go to "<b>Interface configuration</b>" and set the "Reverse VLAN" from 0.|Reverse VLAN（反向 VLAN）是 NSWA Ranga 定義的概念，從實際上看，站在交換機系統本身的角度，“正向”的、也就是真正意義上的 VLAN 是在交換機系統上使用單個介面，然後將單個介面對映到多個虛擬網路（一到多），那麼“反向 VLAN” 的名字來源於相反的含義，它將多個虛擬網路對映到單一介面（多到一）。NSWA Ranga 使用反向 VLAN 實現在單個 WAN 插口（網絡卡或者網絡卡的一個 VLAN）上同時建立多條網路連線（如 PPPoE 連結）的目的。因此你就需要給每個新建的 'md..' 介面設定不同的“反向 VLAN”，請前往“<b>介面設定</b>”進行設定，“反向 VLAN” 從 0 開始。
+Number of reverse VLANs|反向 VLAN 的個數
+Load balancing|負載均衡
+Select the interface you want to configure|選擇你要配置的介面
 Please choose|請選擇
+Load balancing only uses interfaces added to the load balancing list.|負載均衡只會使用新增到負載均衡列表的介面
+Add this interface to the load balancing list|將此介面新增到負載均衡列表
+Configure the load balancing settings of the currently selected interface.&nbsp;<b>If you don't know the meaning of the configuration below, please do not modify it and keep the default.</b>|配置當前選擇的介面的負載均衡設定<b>如果你不清楚下面配置的含義，請不要修改，保持預設即可。</b>
+Tracking IP list|跟蹤 IP 列表
+Minimum number of responses|最少應答數
+Tracking timeout|跟蹤超時時間
+Tracking interval|跟蹤間隔時間
+Success threshold|成功閾值
+Failure threshold|失敗閾值
+Priority|優先順序
+Weights|權重
+Set interface load balancing parameters|設定介面負載均衡引數
+Select the wireless device you want to configure|選擇你要配置的無線裝置
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|無線設定的修改在重啟 NSWA Ranga 系統或重啟無線服務之前不會生效。因此在修改這些設定後，你可以點按 “重啟無線服務” 按鈕使其立即生效。此操作需要一點時間完成，你不必修改每個配置後執行，你可以完成多個無線裝置的多個配置，然後執行一次。
 Restart Wireless Service|重啟無線服務
 Wireless device status|無線裝置狀態

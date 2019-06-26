@@ -30,6 +30,7 @@ page_system.optSvcAction = (action, name) => {
 			}]);
 			utils.ajaxGet('opt/' + name + '.html').then(r => {
 				dialog.textWidget(dlg).innerHTML = r;
+				i18n.runHooks();
 			});
 			break;
 		case 'start':
