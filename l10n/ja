@@ -1,0 +1,403 @@
+Bytes|バイト
+KB|キロバイト
+MB|メガバイト
+GB|ギガバイト
+TB|バイト
+PB|バイト
+EB|Aiバイト
+ZB|Ze Byte
+YB|尧バイト
+Networking|ネットワーク接続
+Interface configuration|インターフェース構成
+Wi-Fi|ワイヤレス忠実度
+DNS and Auto Configuration|ドメインネームシステムと自動設定
+System management|システム管理
+Addon|アドオン
+Multihoming|マルチホーミング
+Miscellaneous and Tweaks|その他の微調整
+Scheduled Tasks|計画タスク
+Connected device|接続機器
+Web console preferences|Webコンソールの設定
+Software update|ソフトウェアアップデート
+About Ranga|ランガについて
+Network error or web console error|ネットワークエラーまたはWebコンソールエラー
+Loading|ロード中
+A network error or web console error occurred while loading the page|ページの読み込み中にネットワークエラーまたはWebコンソールエラーが発生しました
+Failed to load|ロード失敗
+Login|ログイン
+Please enter the superuser password to complete the login<br><br><input style='width: 100%' type=password placeholder='ranga will be used when empty'>|ログインを完了するには、スーパーユーザーのパスワードを入力してください。<br> <input style = 'width：100％' type = password placeholder = '空の場合、デフォルトのパスワードrangaが試されます'>
+You have passed the authentication. Switch to superuser status. There is no change in appearance on the web console, and the difference can only be seen when performing privileged operations. When you close your browser, restart NSWA Ranga, or another terminal re-login, this session will automatically expire.|認証に合格しました。スーパーユーザーの状態に切り替えます。 Webコンソールの外観には変更はありません。違いは特権操作を実行した場合にのみ見られます。ブラウザを閉じてNSWA Rangaを再起動し、別の端末に再ログインすると、このライセンスは自動的に期限切れになります。
+OK|良い
+Cancel|キャンセル
+Full package update failed|フルパッケージアップデートに失敗しました
+The last full package update failed, possibly due to insufficient memory or hardware failure, please try again. If retrying multiple times still does not solve the problem, try turning off some of the system services and reducing the number of connections and try again.|メモリ不足またはハードウェア障害のため、最後のフルパッケージアップデートが失敗しました。もう一度やり直してください。それでも複数回再試行しても問題が解決しない場合は、一部のシステムサービスをオフにして接続数を減らしてから、もう一度やり直してください。
+Full package update failed. Please try again.|最後のフルパッケージアップデートに失敗しました。もう一度お試しください。
+Please wait|お待ちください
+The third-party theme currently in use is not compatible with Web Console|現在使用されているサードパーティのテーマはWebコンソールと互換性がありません
+Please check the updated version from the third-party source for the theme that is compatible with the latest Web Console.|最新のWebコンソールと互換性のあるテーマについては、サードパーティのサブジェクトソースからアップデートされたバージョンを確認してください。
+External application request|外部申請リクエスト
+The site at <b>{0}</b> is trying to set a custom theme to your NSWA Ranga Web Console. Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.|<b> {0} </b>のサイトで、NSWA RangaのWebコンソールにカスタムテーマを設定しようとしています。サードパーティのテーマをインストールすると、Webコンソールの外観が悪意を持って改ざんされる可能性があります。
+<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the theme to be maliciously replaced.|<br> <br>このサイトへの接続は私的なものではありません。これは、あなたのデータが暗号化されずにインターネットを介して送信されることを意味しています。
+Continue|続ける
+Refuse|拒否する
+The site at <b>{0}</b> is trying to install an extension to your NSWA Ranga. Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances.|<b> {0} </b>のサイトで、NSWAランガの拡張機能をインストールしようとしています。他社製の拡張機能をインストールすると、NSWA Rangaシステムのパフォーマンスと安定性に悪影響を及ぼす可能性があります。非常に明確な状況でのみ操作を続けてください。
+<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the extension to be maliciously replaced.|<br> <br>このサイトへの接続は私的なものではありません。つまり、データは暗号化されずにインターネット経由で送信されるため、拡張子が悪意を持って置き換えられる可能性があります。
+To install the extension, you must be authenticated\n\nEnter the superuser password to continue|拡張機能をインストールするには、認証が必要です。\ n \ n続行するにはスーパーユーザーのパスワードを入力してください
+Installing extension|拡張機能をインストールする
+<b>Installation is complete, please manually reload the web console</b>|<b>インストールが完了しました。手動でウェブコンソールを更新してください</b>
+Software change in progress|ソフトウェア変更が実行されています
+Please restart the system as soon as possible.|できるだけ早くシステムを再起動してください。
+Changes will take effect after the system reboot.|変更はシステムの再起動後に有効になります。
+The configuration for '{0}' has been modified. {1}|'{0}'の構成が変更されました。 {1}
+Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".|このインタフェースにはSethデータが設定されています。このデータは、 "{0}"から "{1}"まで有効である可能性があると主張しています。
+This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.|このインターフェースには、Sethデータが設定されていないか、メタデータがありません。これは、ブラウザが関連データを削除したためである可能性があります。
+Unable to set Seth data, please make sure your browser supports IndexedDB|Sethデータを設定できません。お使いのブラウザがIndexedDBをサポートしていることを確認してください。
+Select the interface you want to configure, or click the upper right button to add a new interface.|設定したいインターフェースを選択するか、右上のボタンをクリックして新しいインターフェースを追加します。
+Add|追加する
+Add new interface|新しいインターフェースを追加する
+Please enter the name of the new interface, which must start with 'md'.|新しいインターフェイスの名前を入力してください。名前は 'md'で始まる必要があります。
+The protocol type configuration for interface '{0}' has been modified.|インターフェイス '{0}'のプロトコルタイプ設定が変更されました。
+Seth data has been updated|Sethデータが更新されました
+Load From Seth Server|Sethサーバーからロードする
+Enter the secret code (Secret).|シークレットコード（Secret）を入力してください。
+Load|荷重
+Empty code is not supported.|空のコードはサポートされていません。
+Downloading Seth data...|Sethデータをダウンロード中...
+Download failed, your secret code (Secret) is incorrect, or you have a problem with your Internet connection.|ダウンロードに失敗した、あなたの秘密コード（Secret）が正しくない、またはあなたのネットワーク接続に問題がある。
+The authentication configuration for interface '{0}' has been modified.|インターフェース '{0}'の認証情報構成が変更されました。
+The static address configuration for interface '{0}' has been modified.|インターフェース '{0}'の静的アドレス構成が変更されました。
+The physical address configuration for interface ‘{0}' has been modified.|インターフェース '{0}'の物理アドレス構成が変更されました。
+The Reverse VLAN configuration for interface '{0}' has been modified.|インターフェイス '{0}'のリバースVLAN設定が変更されました。
+The interface '{0}' has been deleted.|インターフェース '{0}'は削除されました。
+Connecting, please wait...|接続中、しばらくお待ちください...
+Interface '{0}' connected.|インターフェース '{0}'が接続されています。
+Disconnected connection of interface '{0}'|インターフェイス '{0}'の接続が切断されました。
+Catching server startup ({0})|'サーバーの起動を傍受します（{0}）
+Catching server is already ready ({0})|代行受信サーバーの準備ができています（{0}）
+Catching server has Captured authentication information ({0})|傍受サーバーが認証情報をキャプチャーしました（{0}）
+The catching process for interface '{0}' has completed.|インターフェース '{0}'の代行受信プロセスは終了しました。
+Catching server timed out ({0})|傍受サーバーがタイムアウトしました（{0}）
+Unable to get current NK PIN and Hash from Seth data. Please make sure the data has not expired and the current time is correct.|Sethデータから現在のNK PINとハッシュを取得できません。データが期限切れになっていないこと、および現在時刻が正しいことを確認してください。
+PPPoE（Netkeeper）|イーサネットベースのピアツーピアプロトコル（Netkeeper）
+PPPoE|イーサネットベースのポイントツーポイントプロトコル
+DHCP|動的ホスト構成プロトコル
+Unmanaged|管理対象外
+Static|静的
+TX bytes: |送信日：
+RX bytes: |受け取った：
+Reload|更新する
+Seth Safe disconnect|セス安全切断
+Dialing doctor|ダイヤルドクター
+Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|ご注意：<b>ダイヤル医者を直接実行すると、完全に誤った診断が報告される可能性があります</b>接続に失敗した場合（代行受信方法を除く）、ダイヤル医者は自動的に通知を出して開始します。ただし、傍受方法や最後の自動ダイヤルアップ接続の問題をいつでも診断するようにダイヤルアップ医師に強制することはできますが、結果が不正確または完全に間違っている場合もあります。
+I know|私は知っている
+Start catching for all NK interfaces|すべてのNKインターフェイスの傍受を開始
+Getting interface information...|インターフェース情報を取得しています...
+Extra tools|追加のツール
+Ranga software version|Rangaソフトウェアのバージョン
+System version: {0}|システムバージョン：{0}
+Kernel version: {0}|カーネルのバージョン：{0}
+System update release site|システムアップデート公開サイト
+Device Information|デバイス情報
+Architecture: {0}|アーキテクチャー：{0}
+Chip: {0}|チップ：{0}
+Board: {0}|掲示板：{0}
+Model name: {0}|モデル名：{0}
+Resource usage|リソース利用
+Total memory: {0} KB|総メモリ：{0}
+Memory (used): {0} KB|メモリ（使用量）：{0}キロバイト
+Memory (cached): {0} KB|メモリ（キャッシュ）：{0}キロバイト
+Memory (buffered): {0} KB|メモリ（バッファ）：{0}キロバイト
+Memory (shared): {0} KB|メモリ（共有）：{0}キロバイト
+Storage: {0}|ストレージ：{0}
+System uptime: {0}|システムランタイム：{0}
+Ranga System Legal Information|ランガシステム法務情報
+Open source license|オープンソースライセンス
+Ranga End User License Agreement|Rangaエンドユーザー使用許諾契約
+Web console legal information|Webコンソールの法律情報
+Web console license agreement|Webコンソール使用許諾契約
+Font Awesome Icon Creation Common License|フォント素晴らしいアイコン作成Common License
+Google Material.io icon license|Google Material.ioアイコンライセンス
+Version: {0}|バージョン：{0}
+Author: {0}|著者：{0}
+API version: {0}|APIバージョン：{0}
+Page provided by '{0}'|'{0}'によって提供されたページ
+Upload extension|拡張機能をアップロード
+Install a new extension|新しい拡張機能をインストールする
+Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances. Uploading extensions through the web console is experimental, and your browser must be new enough to support the File API, which is currently just a web working draft.|他社製の拡張機能をインストールすると、NSWA Rangaシステムのパフォーマンスと安定性に悪影響を及ぼす可能性があります。非常に明確な状況でのみ操作を続けてください。 Webコンソールを介して拡張機能をアップロードすることは実験的であり、あなたのブラウザはFile APIをサポートするのに十分新しいものでなければなりません。
+Select the extension package: |拡張パッケージを選択してください。
+Upload|アップロードする
+Open the Ranga Web App Store|Rangaウェブストアを開く
+Ranga Web App Store - Extensions|Ranga Web Store  - 拡張機能
+Deploy system components|システムコンポーネントを展開する
+Enter the UUID ID of the system component you want to deploy. Some system components may also have a human friendly name.|デプロイするシステムコンポーネントのUUID IDを入力してください。システムコンポーネントの中には、人に優しい名前を付けるものもあります。
+Deploy|展開
+An empty UUID is not supported.|空のUUIDはサポートされていません。
+Downloading components...|コンポーネントをダウンロードしています...
+The download failed, the component corresponding to the UUID does not exist, or there is a problem with your network connection.|ダウンロードに失敗したか、UUIDに対応するコンポーネントが存在しないか、ネットワーク接続に問題があります。
+No components are installed on your system|システムにコンポーネントがインストールされていません
+Load balancing state|負荷分散状態
+Close|閉じる
+The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|インターフェイス '{0}'に対する '{1}'操作が完了しました。ただし、有効にするにはマルチホームサービスを再起動する必要があります。
+The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|インターフェイス '{0}'のマルチホーム構成が変更されました。ただし、有効にするにはマルチホームサービスを再起動する必要があります。
+Add binding|バインディングを追加
+Enter IPv4 Address|インターネットプロトコルバージョン4アドレスを入力
+Enter MAC Address|メディアアクセス制御アドレスを入力してください
+Purge all bindings|すべてのバインディングを消去する
+Are you sure you want to purge all bindings?|すべてのバインディングを消去してよろしいですか？
+Purge|クリア
+Add an upstream DNS server|上流ドメインネームシステムサーバーを追加する
+Enter the IPv4 address of upstream DNS server|アップストリームドメインネームシステムサーバーインターネットプロトコルバージョン4アドレスを入力してください
+The DHCP configuration has changed. However, you need to restart the DHCP Service to take effect.|動的ホスト構成プロトコル構成が変更されました。ただし、有効にするには動的ホスト構成サービスを再起動する必要があります。
+The DNS configuration has changed. However, you need to restart the DNS service to take effect.|ドメインネームシステムの設定が変更されました。ただし、有効にするにはドメインネームシステムサービスを再起動する必要があります。
+Auto|自動
+Please be patient and wait for the wireless reboot to complete, this should not take too long, but the web console will not automatically refresh.|辛抱して無線の再起動が完了するのを待ってください。これには時間がかかりすぎませんが、Webコンソールは自動的に更新されません。
+Quick Setup|クイックセットアップ
+The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス「{0}」のワイヤレスセキュリティ設定が変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
+The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス '{0}'の事前共有キーが変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
+The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス '{0}'の無線設定が変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
+Please select a file|ファイルを選択してください
+The main file system is mounted|メインファイルシステムがマウントされている
+Used: {0}, remaining: {1}|使用済み：{0}、残り：{1}
+Unmounted main file system|マウントされていないメインファイルシステム
+Manufacturer: {0}<br>Device ID: {1}:{2} Bus: {3} Device Location: {4}|製造元：{0} <br>デバイスID：{1}：{2}バス：{3}デバイスの位置：{4}
+No "Universal Serial Bus" devices found on your device|お使いのデバイスに "ユニバーサルシリアルバス"デバイスが見つかりません
+Sorry, your device does not have Universal Serial Bus support enabled.|申し訳ありませんが、お使いのデバイスはユニバーサルシリアルバスサポートを有効にしていません。
+Please wait patiently for the device to complete the uninstall...|デバイスがアンインストールを完了するまでしばらくお待ちください...
+Aria2 Download Manager|Aria2ダウンロードマネージャ
+Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedure Call) for downloading files and more.|一度起動すると、Aria 2 Download ManagerはPRC（Remote Procedure Call）経由でファイルなどをダウンロードするためにアクセスすることができます。
+Samba file sharing service|Sambaファイル共有サービス
+After booting, file sharing can be done via the SMB protocol to access the attached additional primary file system.|起動後、添付の追加プライマリファイルシステムにアクセスするために、SMBプロトコルを介してファイル共有を行うことができます。
+The modification has been submitted, but it may be necessary to restart this service to take effect.|変更は送信されましたが、有効にするにはこのサービスを再起動する必要があるかもしれません。
+The service has received the request. The operation should be completed very quickly.|サービスは要求を受け取りました。操作はすぐに完了するはずです。
+The autostart configuration has been updated.|自動起動設定が更新されました。
+The system clock has been updated.|システムクロックが更新されました。
+The system is about to restart and the web console does not automatically refresh.|システムは再起動しようとしており、Webコンソールは自動的に更新されません。
+Save to file|ファイルに保存
+Empty password is not allowed|パスワードは許可されていません
+The passwords entered twice do not match. Please try again.|2回入力したパスワードが一致しません。もう一度やり直してください。
+password has been updated|パスワード変更に成功
+No additional (optional) services installed|追加の（オプションの）サービスはインストールされていません
+Default theme|デフォルトテーマ
+Ranga Web App Store - Themes|ランガウェブストア - テーマ
+Set custom theme|カスタムテーマを設定する
+Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.|サードパーティのテーマをインストールすると、Webコンソールの外観が悪意を持って改ざんされる可能性があります。
+Select a theme file: |テーマファイルを選択してください。
+Apply|アプリケーション
+CLI Tools|コマンドラインツール
+Change the Samba password for 'user' account|Sambaの 'user'ユーザーのパスワードを変更する
+Change Aria2 RPC token|Aria 2 RPCトークンを変更する
+Captive portal|キャプティブポータル
+The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|キャプティブポータルにより、クライアントオペレーティングシステムは、ダイヤルアップではないネットワークにアクセスするときにブラウザのポップアップWebコンソールページを自動的に開くことができます。 <b>この設定を変更した直後にNSWA Rangaを再起動する必要があります。そうしないと、システムが矛盾した状態で動作する可能性があります。
+Enable the captive portal|キャプティブポータルを有効にする
+Automatically start scheduled task service|自動的に起動してスケジュールタスクサービスを開始
+Do not open this item unless you have a scheduled task. Some plugins also use scheduled tasks, but these plugins do not require this. Restart this NSWA Ranga to take effect after modifying this setting.|カスタムスケジュールタスクがない限り、このアイテムを開かないでください。一部のプラグインもスケジュールされたタスクを使用しますが、これらのプラグインはこれを必要としません。この設定を変更した後で有効にするには、このNSWA Rangaを再起動してください。
+Free synchronization time early automatic dialing function|無料同期時間早期自動ダイヤル機能
+Enable this feature to connect to the netkeeper interface without having to synchronize time after booting. If multi-homing is enabled, it will also try to connect to other interfaces whose protocol type is Netkeeper. This feature is not guaranteed to be always successful. This feature only takes effect when the wan interface protocol is set to Dynamic Host Configuration Protocol.|この機能を有効にすると、起動後に時間を同期させることなくnetkeeperのインタフェースに接続できますマルチホーミングが有効になっている場合は、プロトコルタイプがNetkeeperの他のインタフェースにも接続しようとします。この機能が常に成功するとは限りません。この機能は、wanインターフェイスプロトコルがDynamic Host Configuration Protocolに設定されている場合にのみ有効です。
+Enable early automatic dialing|早期自動ダイヤルを有効にする
+PPP protocol automatically reconnects|ポイントツーポイントプロトコルは自動的に再接続します
+This setting will affect all PPP protocols, such as PPPoE. Please note that "automatic reconnection, under any circumstances" may result in temporary bans on your account or media access address by your internet service provider. In addition, there is a slight chance that the automatic reconnection will cause problems with NSWA Ranga.|この設定は、イーサネットベースのピアツーピアなど、すべてのポイントツーポイントプロトコルに影響します。 「自動再接続、いかなる状況下でも」はあなたのアカウントまたはあなたのインターネットサービスプロバイダによるメディアアクセスアドレスの一時的な禁止をもたらすかもしれないことに注意してください。さらに、自動再接続によってNSWA Rangaに問題が発生する可能性がわずかにあります。
+Never automatically reconnect (most secure)|常に自動的に再接続しない（最も安全）
+Automatically reconnect, only when the peer hangs up (default)|相手が電話を切ったときだけ自動的に再接続する（デフォルト）
+Automatic reconnection, in any case (dangerous)|自動再接続、いずれにせよ（危険）
+Allow anonymous users to operate network connections|匿名ユーザーにネットワーク接続の操作を許可する
+Allow anonymous users to operate network connections (such as connecting, disconnecting, etc.), otherwise the network connection can only be operated after logging in to the super user. The NSWA Ranga system setup is not included, however, only the superuser can access the system setup feature.|匿名ユーザーにネットワーク接続（接続、切断など）の操作を許可します。それ以外の場合、ネットワーク接続はスーパーユーザーにログインした後にのみ操作できます。 NSWA Rangaシステム設定は含まれていませんが、スーパーユーザーだけがシステム設定機能にアクセスできます。
+Flow Offloading|フローオフロード
+Flow Offloading can establish a high-speed "bypass" for forwarded traffic, which reduces the CPU overhead caused by forwarding packets and improves network performance at high load. Hardware Flow Offloading is implemented through HW NAT. It is enabled only when Traffic Offloading is enabled, and only supports a small number of chips. This setting only takes effect on devices with a kernel version (see "Ranga Software Version" in "About Ranga") greater than or equal to 4.14.0.&nbsp;<b>This feature and QoS cannot be enabled at the same time! After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|フローオフロードは、転送されたトラフィックに対して高速の「バイパス」を確立することができます。これにより、パケットの転送によって発生するCPUオーバーヘッドが軽減され、高負荷時のネットワークパフォーマンスが向上します。ハードウェアフローオフロードはHW NATによって実装され、トラフィックオフロードが有効になっている場合にのみ有効で、少数のチップのみをサポートします。この設定は、4.14.0以上のカーネルバージョン（「Rangaについて」の「Rangaソフトウェアのバージョン」を参照）を持つデバイスにのみ有効です。 <b>この機能とQoSを同時に有効にすることはできません。この設定を変更した後、有効にするにはNSWA Rangaを再起動する必要があります。 </b>
+Enable traffic offloading|トラフィックオフロードを有効にする
+Try hardware flow offloading (experimental)|ハードウェアフローオフロードを試す（実験的）
+New continuous catching service|新しい継続傍受サービス
+Traditional catching methods require manually telling NSWA Ranga to start the catching server in the web console or command line tool, then dial the number and have a 1 minute timeout. The new persistent catching service does not need to tell NSWA Ranga to start the catching server, you can intercept the PPPoE connection and dial the number. You should add the @interface name to your account after dialing to allow NSWA Ranga to determine the corresponding interface name. Name, NSWA Ranga will establish a connection from the 'netkeeper' interface, this section should be noted for all users who use multi-homing. This feature is not recommended for small memory devices.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|従来の代行受信方法では、Webコンソールまたはコマンドラインツールで代行受信サーバーを起動するようにNSWA Rangaに手動で指示してから番号をダイヤルし、1分間のタイムアウトを設定する必要があります。新しい持続的傍受サービスでは、NSWA Rangaに傍受サーバーを起動するように指示する必要はなく、PPPoE接続を傍受して番号をダイヤルすることができます。名前、NSWA Rangaは 'netkeeper'インターフェースから接続を確立します、このセクションはマルチホーミングを使用するすべてのユーザーのために注意されるべきです。この機能は、小さなメモリデバイスにはお勧めできません。 <b>この設定を変更した後、有効にするにはNSWA Rangaを再起動する必要があります。 </b>
+Enable new continuous catching services|新しい継続的傍受サービスを有効にする
+TCP maximum segment clamp (MSS clamping)|TCP最大セグメントクランプ（MSSクランプ）
+<b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|<b>推奨。 NSWAの古いバージョンでは、この機能を無効にして常に有効にすることはできません。 </b> PMTU-Dの一部の実装では、リンクの輻輳ではなくMTUによる大きなペイロードパケットのドロップを推測することで、ブラックホール接続とIPの断片化を防ごうとしています。したがって、TCPが最も効率的に機能するためには、ICMP Type 3を許可する必要があります。ただし、多くのネットワークセキュリティデバイスは、PMTU-Dを正しく動作させるために必要なICMPメッセージを含め、セキュリティのためにすべてのICMPメッセージをブロックします。これにより、接続でTCP 3方向ハンドシェイクが正しく完了する可能性がありますが、データ転送時にハングアップしたりパフォーマンスが低下したりします。この機能はSYNパケットのTCP MSSオプションを「固定」します。このMSSオプションは、ブラックホール接続とIPの断片化を防ぐために、遠端が1460以下のTCPセグメントを送信することをアドバタイズします。 <b>この設定を変更した後、有効にするにはNSWA Rangaを再起動する必要があります。 </b>
+Enable TCP Maximum Segment Clipping (MSS clamping)|TCP最大セグメントクリッピング（MSSクランピング）を有効にする
+Multi-homing is not enabled, to enable multi-homing, click the "Enable Multihoming" button.|マルチホームが有効になっていないマルチホームを有効にするには、[マルチホームを有効にする]ボタンをクリックします。
+Enable Multihoming|マルチホーミングを有効にする
+Disabling multihoming does not clear the multihomed configuration|マルチホームを無効にしても、マルチホーム構成は消去されません。
+Changes to the load balancing settings will not take effect until the NSWA Ranga system is rebooted or the load balancing service is restarted, so after modifying these settings, you can click the "Restart Load Balancing Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of load balancing and then execute it once.|ロードバランシング設定の変更は、NSWA Rangaシステムが再起動されるかロードバランシングサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後、[Restart Load Balancing Service]ボタンをクリックしてすぐに有効になります。この操作の完了には少し時間がかかります。実行する各設定を変更する必要はありません。複数の設定の負荷分散を完了してから1回実行することができます。
+Disable multihoming|マルチホームを無効にする
+Restart Load Balancing Service|負荷分散サービスを再起動します。
+Reverse VLAN|リバースVLAN
+Reverse VLAN (reverse VLAN) is a concept defined by NSWA Ranga. In fact, from the perspective of the switch system itself, the "forward", that is, the true VLAN is a single interface on the switch system, and then Mapping a single interface to multiple virtual networks (one to many), the name "reverse VLAN" is derived from the opposite meaning, which maps multiple virtual networks to a single interface (to one to one). NSWA Ranga uses reverse VLANs to create multiple network connections (such as PPPoE links) on a single WAN socket (a NIC or a VLAN on a NIC). Therefore, you need to set a different "reverse VLAN" for each new 'md..' interface. Go to "<b>Interface configuration</b>" and set the "Reverse VLAN" from 0.|リバースVLAN（リバースVLAN）はNSWA Rangaによって定義された概念であり、実際には、スイッチシステム自体の観点からは、 "フォワード"、つまり真のVLANはスイッチシステム上の単一のインターフェイスです。 1つのインターフェイスを複数の仮想ネットワーク（1対多数）にマッピングする、「リバースVLAN」という名前は反対の意味から派生したもので、複数の仮想ネットワークを単一のインターフェイス（1対1）にマッピングします。 NSWA RangaはリバースVLANを使用して、単一のWANソケット（NICまたはNIC上のVLAN）上に複数のネットワーク接続（PPPoEリンクなど）を作成します。そのため、新しい「md ..」インターフェースごとに異なる「リバースVLAN」を設定する必要があります。「<b>インターフェース設定</b>」に進み、「リバースVLAN」を0から設定してください。
+Number of reverse VLANs|逆方向VLANの数
+Load balancing|負荷分散
+Select the interface you want to configure|設定したいインターフェースを選択します
+Please choose|選んでください
+Load balancing only uses interfaces added to the load balancing list.|ロードバランシングは、ロードバランシングリストに追加されたインターフェイスだけを使用します。
+Add this interface to the load balancing list|このインタフェースを負荷分散リストに追加します
+Configure the load balancing settings of the currently selected interface.&nbsp;<b>If you don't know the meaning of the configuration below, please do not modify it and keep the default.</b>|現在選択されているインターフェースの負荷分散設定を構成します。<b>以下の構成の意味がわからない場合は、変更しないでデフォルトのままにしてください。 </b>
+Tracking IP list|追跡IPリスト
+Minimum number of responses|最小レスポンス数
+Tracking timeout|トラッキングタイムアウト
+Tracking interval|追跡間隔
+Success threshold|成功しきい値
+Failure threshold|失敗しきい値
+Priority|優先度
+Weights|重さ
+Set interface load balancing parameters|インターフェイスロードバランシングパラメータを設定する
+Select the wireless device you want to configure|設定したいワイヤレスデバイスを選択します
+Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|ワイヤレス設定の変更は、NSWA Rangaシステムが再起動されるかワイヤレスサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は、[ワイヤレスサービスの再起動]ボタンをクリックしてすぐに有効にすることができます。この操作の完了には少し時間がかかります。実行するために各設定を変更する必要はありません。複数のワイヤレスデバイスの複数の設定を完了してからそれらを1回実行できます。
+Restart Wireless Service|ワイヤレスサービスを再開する
+Wireless device status|ワイヤレスデバイスの状態
+Wireless security|無線セキュリティ
+WPA3 SAE|Wi-Fi Protected Access 3アイソクロナス認証
+WPA3 SAE, WPA2 PSK Mixed mode|Wi-Fi保護アクセス3等時認証、Wi-Fi保護アクセス2事前共有キーブレンディングモード
+WPA2 PSK (CCMP)|Wi-Fi Protected Access 2事前共有キー（CBC-MACカウンタプロトコル付き）
+WPA2 PSK (TKIP)|Wi-Fi Protected Access 2事前共有キー（Temporal Key Integrity Protocol）
+WPA2 PSK (Double protocol)|Wi-Fi Protected Access 2事前共有キー（デュアルプロトコル）
+WPA2 and WPA PSK Mixed mode (Double protocol)|Wi-Fi保護アクセス2. Wi-Fi保護アクセス事前共有キー混合モード（デュアルプロトコル）
+WPA PSK (CCMP)|Wi-Fi保護アクセス事前共有キー（CBC-MACカウンタプロトコルを使用）
+WPA PSK (TKIP)|Wi-Fi保護アクセス事前共有キー（Temporal Key Integrity Protocol）
+Open (non-authenticate)|オープン（認証なし）
+NSWA Ranga may not currently support the Wi-Fi Protected Access 3 (WPA3) series of suits.|NSWA Rangaは現在Wi-Fi Protected Access 3シリーズのキットをサポートしていない可能性があります。
+Pre-shared key|事前共有キー
+When using the "PSK", use the following pre-shared key for authentication. When the key is less than 8 digits, NSWA Ranga automatically disables the wireless device, which is a common way to disable one or all of the wireless devices on NSWA Ranga.|「事前共有鍵」を使用する場合は、認証に以下の事前共有鍵を使用してください。キーが8桁未満の場合、NSWA Rangaは自動的にワイヤレスデバイスを無効にします。これは、NSWA Ranga上の1つまたはすべてのワイヤレスデバイスを無効にする一般的な方法です。
+SSID|サービスセット識別子
+Key|キー
+Radio configuration|無線設定
+Some settings, such as RTS Threshold, Distance Optimization, and Radio Power are temporarily not supported by the web console, use the command line tool instead. The area code uses the ISO/IEC 3166-1 alpha-2 standard, common area codes: 00 - World, CN - China, US - USA, TW - Taiwan, AU - Australia. The area code will affect the wireless regulatory domain, affecting the channel that the driver can choose, the maximum radio power, modulation, etc. Please use this function in compliance with local radio regulations. Some devices hardcode the maximum radio power or other parameters in the device, even if you set other area codes. The blank area code will cause a fallback to the driver default, which may be the "world" regulatory domain.|RTSしきい値、距離最適化、無線電力などの一部の設定は、Webコンソール設定で一時的にサポートされていません。コマンドラインツールを使用してください。市外局番は、ISO / IEC 3166-1 alpha-2規格、共通市外局番を使用します。00  - 世界、CN  - 中国、米国 - 米国、TW  - 台湾、AU  - オーストラリア。市外局番は、無線監視ドメイン、運転者が選択できるチャンネル、最大無線電力、変調度などに影響します。この機能は、地域の無線規制に従って使用してください。他の市外局番を設定していても、装置によっては最大無線電力やその他のパラメータをハードコードするものがあります。空白の市外局番は、ドライバのデフォルトにフォールバックする原因となります。
+Area code|市外局番
+Channel|チャンネル
+Throughput mode (HT)|スループットモード（帯域幅）
+Disable overlapping set scanning|重複サービスセットスキャンを無効にする
+Enabled (this will violate IEEE 802.11n-2009)|有効にする（これはIEEE 802.11n-2009に違反します）
+Some devices support the installation of vendor-specific drivers that may not use some of the settings on this wireless setup page.|一部のデバイスは、このワイヤレス設定ページの設定の一部を使用しない可能性がある製造元固有のドライバのインストールをサポートしています。
+Automatically add a frequency suffix after the access point SSID|アクセスポイントサービスセットIDの後に頻度ポストポークを自動的に追加します。
+Modifications to the Domain Name System and Dynamic Host Configuration settings will not take effect until the NSWA Ranga system is restarted or the Domain Name System and Dynamic Host Configuration Service are restarted. So after modifying these settings, you can click the "Restart DNS and DHCP Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|ドメインネームシステムと動的ホスト設定の設定に対する変更は、NSWA Rangaシステムが再起動されるか、ドメインネームシステムと動的ホスト設定サービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は、[ドメインネームシステムと動的ホスト構成サービスの再起動]ボタンをクリックしてすぐに有効にすることができます。この操作の完了には少し時間がかかります。実行するために各設定を変更する必要はありません。複数のワイヤレスデバイスの複数の設定を完了してからそれらを1回実行できます。
+Restart DNS and DHCP Service|ドメインネームシステムと動的ホスト構成サービスを再起動します。
+IPv4 Address - MAC Address Binding|インターネットプロトコルバージョン4アドレス - メディアアクセス制御アドレスバインディング
+When the client requests the IPv4 address through the DHCP, NSWA Ranga will respond according to the client's MAC address and select the specified IPv4 address. However, the Ethernet client can still set its own IPv4 address at will.|クライアントが動的ホスト構成プロトコルを介してインターネットプロトコルバージョン4アドレスを要求すると、NSWA Rangaはクライアントのメディアアクセス制御アドレスに従って応答し、指定されたインターネットプロトコルバージョン4アドレスを選択します。ただし、イーサネットクライアントは、独自のインターネットプロトコルバージョン4アドレスを自由に設定できます。
+Add a new binding|新しいバインディングを追加する
+DHCP configuration|動的ホスト構成プロトコル構成
+If the client cannot obtain the IPv4 address to access NSWA Ranga due to configuration reasons, you can set the client to the IPv4 address of the same subnetwork to resume access.|設定上の理由でクライアントがNSWA Rangaへのインターネットプロトコルバージョン4アドレスアクセスを取得できない場合は、アクセスを復元するためにクライアントを同じサブネットのインターネットプロトコルバージョン4アドレスに設定できます。
+Lease|リース期間
+Assign address offset (Version 4)|アドレスオフセットの割り当て（バージョン4）
+Assign address restrictions (version 4)|アドレス制限を割り当てる（バージョン4）
+Upstream DNS Server|上流ドメインネームシステムサーバー
+Add a new server|新しいサーバーを追加する
+DNS Cache Server|ドメインネームシステムキャッシュサーバ
+Use the server provided by the peer|ピアによって提供されたサーバーを使用する
+Enable|有効にする
+Rebind attack protection|攻撃保護を再バインドする
+Bind port|バインドポート
+Query port|クエリポート
+The configuration of some interfaces (such as authentication information) will take effect the next time you connect. However, some settings, such as "Protocol Type", "Static Address", "Interface Physical Address", etc. will not take effect until the NSWA Ranga system is restarted or the network service is restarted. So after modifying these settings, you can click the "Restart Network Service" button to take effect immediately. This operation takes a little while to complete. You don't have to modify each configuration to execute, you can complete multiple configurations of multiple interfaces and then execute it once. The established peer-to-peer protocol connection will be disconnected after restarting the network service.|認証情報などの一部のインタフェースの設定は、次回接続したときに有効になります。ただし、「プロトコルタイプ」、「静的アドレス」、「インターフェースの物理アドレス」などの設定は、NSWA Rangaシステムが再起動されるかネットワークサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は、[ネットワークサービスの再起動]ボタンをクリックしてすぐに有効にすることができます。この操作は完了するまで少し時間がかかります。実行するために各設定を変更する必要はありません、あなたは複数のインターフェースの複数の設定を完了してからそれらを一度実行することができます。確立されたピアツーピアプロトコル接続は、ネットワークサービスの再開後に切断されます。
+Restart Network Service|ネットワークサービスを再開する
+Protocol Type|プロトコルの種類
+The Protocol Type is what network layer protocol to run on this interface. Netkeeper extensions are only valid when using a peer-to-peer protocol (for example, "PPPoE" and "PPPoATM")|プロトコルタイプは、このインターフェイスで実行するネットワークレイヤプロトコルです。 Netkeeperの拡張機能は、ピアツーピアプロトコル（たとえば、 "イーサネットベースのポイントツーポイントプロトコル"や "ATMベースのポイントツーポイントプロトコル"）を使用している場合にのみ有効です。
+Protocol|協定
+DHCPv6|動的ホスト構成プロトコルバージョン6
+Static Address|静的アドレス
+PPPoATM|ATMベースのポイントツーポイントプロトコル
+Netkeeper Extension|Netkeeperの拡張
+Non-enable|有効にしない
+Seth Data|セスデータ
+<b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b> "Netkeeper Extensions"が有効になっている場合のみ</b> Webコンソールは、ブラウザのIndexedDBへのSethデータの保存をサポートしていますSethデータを設定したら、現在のブラウザの "Seth Connection"メソッドを使用してこのネットワークに接続できます。 SethデータはファイルまたはSethサーバーから直接ロードできます。 Sethサーバーからデータを更新するには、秘密のコード（Secret）を入力する必要があります。
+Load From File|ファイルからロード
+Authenticate|認証
+When the selected protocol has an authentication extension, the following authentication information is used for authentication. Such as PAP or CHAP of the PPPoE, 802.1X security, etc.|選択したプロトコルに認証拡張がある場合は、次の認証情報が認証に使用されます。例えば、ポイントツーポイントプロトコルのパスワード認証プロトコルおよびチャレンジハンドシェイク認証プロトコル、８０２．１Ｘセキュリティなどがある。
+Username|ユーザー名
+Password|パスワード
+When the selected protocol is "Static Address", use the following address configuration. But the Default Route configuration is always used.|選択したプロトコルが「静的アドレス」の場合は、以下のアドレス設定を使用してください。しかし、デフォルトのルート設定が常に使用されます。
+IPv4 Address|インターネットプロトコルバージョン4アドレス
+IPv4 Netmask|インターネットプロトコルバージョン4のサブネットマスク
+IPv4 Nexthop|インターネットプロトコルバージョン4ネクストホップ
+Default Route|デフォルトルート
+Set this interface as the default entry for the routing table|このインターフェイスをルーティングテーブルのデフォルトエントリとして設定します。
+The WAN port is an abstract concept. It is a real interface on some devices, and it is just a VLAN of a switch on some other devices. The interfaces ‘netkeeper’ and ‘wan’ are both bound to the WAN socket and the interface beginning with 'md' will be bound to a Reverse VLAN. Reverse VLAN is a concept defined by NSWA Ranga. Please refer to the detailed explanation in Multihoming. "Reverse VLAN" starts at 0.|WANポートは抽象的な概念です。それはいくつかのデバイス上の実際のインターフェイスであり、それはいくつかの他のデバイス上のスイッチの単なるVLANです。 「netkeeper」と「wan」のインターフェースはどちらもWANポートにバインドされ、「md」で始まるインターフェースはリバースVLANにバインドされます。リバースVLANは、NSWA Rangaによって定義された概念であり、マルチホームの詳細説明を参照してください。 「Reverse VLAN」は0から始まります。
+Interface Physical Address|インターフェース物理アドレス
+For Ethernet devices, it is Media Access Control Address (MAC address).|イーサネットデバイスの場合は、メディアアクセス制御アドレス（MACアドレス）。
+Physical Address:|物理アドレス
+Delete Interface|インターフェースを削除
+This interface and the configuration of this interface will be completely removed, and this operation is irrevocable.|このインタフェースとこのインタフェースの設定は完全に削除され、この操作は取り消せません。
+Some interfaces are configured to couple with the system infrastructure, so you cannot modify some of their configurations. For example, the protocol type of the netkeeper interface must be PPPoE and the Netkeeper Extension must be turned on. And you cannot modify it to other protocols. For example, if you need the universal PPPoE protocol, you can modify the Protocol Type of the wan interface to PPPoE.|一部のインターフェイスはシステムインフラストラクチャと結合するように設定されているため、それらの設定の一部を変更することはできません。たとえば、Netkeeperインターフェースのプロトコルタイプはイーサネットベースのピアツーピアプロトコルで、Netkeeper拡張機能はオンになっている必要があります。他のプロトコルに変更することはできません。たとえば、ユニバーサルPPPoEプロトコルが必要な場合は、wanインターフェイスのプロトコルタイプをイーサネットベースのポイントツーポイントプロトコルに変更できます。
+Set the system clock|システムクロックを設定する
+Set system clock to the specified value or synchronize clock from the browser.|システムクロックを指定された値に設定するか、ブラウザからシステムクロックを同期させます。
+Set system clock|システムクロックを設定する
+Synchronize clock from the browser|ブラウザからシステムクロックを同期させる
+Reboot the device|デバイスを再起動
+Perform a reboot immediately. Existing network connections will be reset.|すぐに再起動してください。既存のネットワーク接続はリセットされます。
+Reboot|再起動
+System journal|システムログ
+System journals can help troubleshoot system and connectivity issues.|システムログは、システムと接続の問題のトラブルシューティングに役立ちます。
+View system log buffer|システムログバッファを表示する
+Modify the superuser password|スーパーユーザーパスワードを変更する
+Super users have access to the full NSWA Ranga System API. We recommend that you set it to a more secure password.|スーパーユーザーは完全なNSWA Ranga System APIにアクセスできます。より安全なパスワードに設定することをお勧めします。
+New password|新しいパスワード
+Repeat input|繰り返し入力
+Change Password|パスワード変更
+Additional (optional) service|追加（オプション）サービス
+Autostart from boot|ブートから起動
+Service specific configuration|サービス固有の設定
+Startup|開始
+Stop|やめる
+Restart|再起動
+Universal serial bus|ユニバーサルシリアルバス
+Additional primary file system|追加のプライマリファイルシステム
+To safely unplug the storage device where the additional primary file system resides, you must unmount the file system to avoid data loss and severe file system errors.|プライマリプライマリファイルシステムが存在するストレージデバイスを安全に取り外すには、データの損失や重大なファイルシステムエラーを防ぐためにファイルシステムをマウント解除する必要があります。
+Unmount file system|ファイルシステムのマウント解除
+The scheduled task service will not start automatically by default. You can go to&nbsp;<b>Miscellaneous and tweaks</b>&nbsp;to enable the function of the automatic start scheduled task service.<br>The modification of the scheduled task settings will not take effect until the NSWA Ranga system is restarted or the CRON service is restarted, so after modifying these settings, you can click the "Restart CRON Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of the scheduled task and then execute it once.<br>|デフォルトでは、スケジュールタスクサービスは自動的に開始されませんので、[<b>その他と微調整</b>]を選択して、自動開始スケジュールタスクサービスを開始する機能を有効にすることができます。 <br>スケジュールされたタスク設定の変更は、NSWA Rangaシステムが再起動されるかCRONサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は[CRONサービスの再起動]ボタンをクリックして直ちに有効になります。この操作の完了には少し時間がかかります。実行する各設定を変更する必要はありません。スケジュールされたタスクの複数の設定を完了してから1回実行することができます。 <br>
+Restart CRON Service|CRONサービスを再起動します
+Scheduled task list|スケジュール済みタスクリスト
+To add a new scheduled task, use the button in the top right|新しいスケジュールタスクを追加するには、Webコンソールの右上隅にあるボタンを使用してください。
+Purge all scheduled tasks|スケジュールされたタスクをすべて消去します
+When do you want to wake up this scheduled task?|このスケジュールされたタスクをいつ起こしますか？
+Use '*' at any interval, use 'number/*' every time, use 'number' for specific time, use 'number-number' for multiple consecutive specific times, use multiple numbers, numbers, numbers, etc. .'. Minutes 0 to 59, hours 0 to 23, days 1 to 31, months 1 to 12, and weeks 0 to 7.<br><br>Example:<br>Execute every 1 minute: * * * * *<br>Execute every 1 hour: 0 */1 * * *<br>Execute every 3 hours: 0 */ 3 * * *<br>Executed at 6am every day: 0 6 */1 * *<br>Execute once every 4th and 18th minutes: 4,18 * * * *<br>At 4am Execute once in the 5th and 35th minutes of 11:5,35 4-11 * * *<br>Execute once every 11pm on Saturday: 0 23 * * 6<br>Every Saturday, Sunday 18 o'clock Execute every 30 minutes between 23:0,30 18-23 * * 6,0|任意の間隔で '*'を使用し、毎回 'number / *'を使用し、特定の時間に 'number'を使用し、複数の連続した特定の時間に 'number-number'を使用します。 。 0〜59分、0〜23時、1〜31日、1〜12ヶ月、および0〜7週。 <br> <br>例：<br> 1分ごとに実行：* * * * * <br> 1時間ごとに実行：0 * / 1 * * * <br> 3時間ごとに実行：0 * / 3 * * * <br>毎日午前6時に実行されます。0 6 * / 1 * * <br> 4分と18分に1回実行されます。：4,18 * * * * <br>午前4時に11時5分35秒に1回実行します。5,35 4-11 * * * <br>土曜日の午後11時に1回実行：0 23 * * 6 <br>毎週土曜日、日曜日18時23：0,30 18-23 * * 6,0の間に30分ごとに実行
+What do you want to do in this planning task?|このスケジュールされたタスクで何をしたいですか？
+Customize|習慣
+Preset: reboot the system|プリセット：システムを再起動します
+Preset: Synchronize Seth data from server|プリセット：サーバーからのSethデータの同期
+Add scheduled task|スケジュールされたタスクを追加する
+minute|分
+hour|時
+day|日
+month|月
+week|週
+Wake up extension|ウェイクアップエクステンション
+Wake-up schedule task program|起床スケジュールタスクプログラム
+Set parameters|設定パラメータ
+Update system by NSWA Online push|NSWA Onlineでアップデートシステムをプッシュする
+If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.|WebコンソールでNSWA Onlineプッシュ機能をオフにしていない場合は、Webコンソールを開いたときに新しいバージョンがプッシュされます。更新通知がポップアップします。
+Use the command line tool to update your system to the latest version|コマンドラインツールを使ってシステムを最新バージョンにアップデートします。
+Use the command line tool to automatically update the NSWA Ranga system to the latest version, which is useful when you need to install multiple OTA updates. In most cases, this command allows the NSWA Ranga system to automatically install all OTA update packages from the current version to the latest version.|コマンドラインツールを使用して、NSWA Rangaシステムを自動的に最新バージョンにアップデートします。これは、複数のOTAアップデートをインストールする必要がある場合に便利です。ほとんどの場合、このコマンドによってNSWA Rangaシステムは現在のバージョンから最新バージョンへのすべてのOTAアップデートパッケージを自動的にインストールすることができます。
+If you need to install a firmware file using the command line tool, you can|コマンドラインツールを使ってファームウェアファイルをインストールする必要がある場合は、
+For more usage of the command line tool for system updates, run<code>ranga-cli swdeploy -h</code>for help.|システムアップデート用のコマンドラインツールの使用方法については、<code> ranga-cli swdeploy -h </code>を実行してください。
+Upload firmware using the web console|Webコンソールを使用してファームウェアをアップロードする
+Uploading system firmware updates via the web console is experimental and your browser must be new enough to support the File API, which is currently just a web working draft. "Erase the current system configuration during the next full package update" will remain in effect until you (actively or passively) reboot the system; "Politely requesting a reboot after installation" is not a mandatory operation, but rather making a request to the updater, which can be ignored by the updater. At the same time, the updater may decide whether it should do reboot or not, regardless of whether you request it or not. However, for most updates that do not need to be restarted, this feature will be restarted after the update is complete.|Webコンソールを介してシステムファームウェアアップデートをアップロードすることは実験的であり、あなたのブラウザはFile APIをサポートするのに十分新しいものでなければなりません。 「次回のフルパッケージアップデート時に現在のシステム設定を消去する」は、（アクティブまたはパッシブに）システムを再起動するまで有効です。「インストール後に慎重に再起動を要求する」は必須の操作ではなく、アップデータの更新です。同時に、アップデータはリクエストの有無にかかわらず再起動するかどうかを決定する場合がありますが、再起動の必要がないほとんどのアップデートでは、アップデートが完了した後にこの機能が再起動されます。
+Select the firmware file:|ファームウェアファイルを選択します。
+Erase the current system configuration during the next full package update|現在のシステム設定を消去して、次回のフルパッケージアップデート
+Politely requesting a reboot after installation|インストールが完了したら、慎重に再起動を要求します。
+Components|コンポーネント
+Extensions|拡張機能（拡張機能）
+Permission|許可
+Modify system configuration as superuser|スーパーユーザーとしてシステム構成を変更する
+Read/write storage device|読み書きストレージデバイス
+Wake up during a specific system event|特定のシステムイベント中に起きる
+Uninstall this extension|この拡張機能をアンインストールする
+Switch web console provided to this extension|この拡張機能によって提供されるWebコンソールに切り替えます
+Web console version:|Webコンソールのバージョン
+Get the web console source code|Webコンソールのソースコードを入手する
+Contributor list|投稿者リスト
+Connect|つながり
+Seth Connect|セスコネクション
+Start catching|傍受を開始する
+Disconnect|切断する
+Traditional catching server is disabled because the new persistent catching service is enabled.|新しい永続的傍受サービスがすでに有効になっているため、従来の傍受サーバーは無効になっています。
+These settings are stored in your browser client, so different terminals do not affect each other. If your browser does not support Local Storage and IndexedDB, you cannot save some settings.|これらの設定はブラウザクライアントに保存されているため、異なる端末が互いに影響することはありません。ご使用のブラウザがLocal StorageとIndexedDBをサポートしていない場合は、一部の設定を保存できません。
+Web console theme|Webコンソールのテーマ
+The web console can dynamically load third-party theme code for customization.|Webコンソールは、カスタマイズのためにサードパーティのテーマコードを動的に読み込むことができます。
+Current theme:|現在のトピック
+Find theme from the Ranga Web App Store|Ranga Web Storeからトピックを探す
+Manually set a custom theme|カスタムテーマを手動で設定する
+Web console PWA progressive application|WebコンソールPWAプログレッシブアプリケーション
+The web console can be added to your smartphone's home screen via PWA technology and achieve a similar experience with native apps. Support for Android and iOS.|Webコンソールは、PWAテクノロジを介してスマートフォンのホームスクリーンに追加でき、ネイティブアプリケーションでも同様のエクスペリエンスを実現できます。 AndroidとiOSのサポート。
+Open the PWA boot page|PWAブートページを開く
+Automatic synchronization time (Netkeeper only)|自動同期時間（Netkeeperのみ）
+Netkeeper is a proprietary protocol based on PPPoE. This protocol requires that the system clock error of the client must not exceed 2 to 3 seconds before the connection is established. The web console can synchronize browser time (your system time) to the NSWA Ranga system before connecting to Netkeeper. If you don't use automatic sync time, you will most likely need to go to "System management" to manually set the time before each connection. The automatic synchronization time does not take effect for protocols other than Netkeeper.|Netkeeperは、接続が確立されるまでに2〜3秒以内のシステムクロックエラーを要求する、イーサネットベースのピアツーピアプロトコルのための独自プロトコルです。 Webコンソールは、Netkeeperに接続する前にブラウザの時刻（システムの時刻）をNSWA Rangaシステムに同期させることができます。自動同期時間を使用しない場合は、ほとんどの場合、システム管理に移動して各接続の前に手動で時間を設定する必要があります。自動同期時間は、Netkeeper以外のプロトコルには影響しません。
+Enable automatic synchronization time (Netkeeper only)|自動同期時間を有効にする（Netkeeperのみ）
+NSWA Online Push|NSWAオンラインプッシュ
+NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|ウェブコンソールを開くと、NSWA Onlineに<b> <b>最新のお知らせ</b>、<b>オンラインのシステムソフトウェアの更新</b>、<b>表示スタイルの調整</b>、および<b> Festival Doodlesが表示されます。 Webコンソールに</b>などが表示されます。これはWebコンソールの機能であり、NSWA Rangaの機能ではなく、お客様のブラウザでのみ発生するものであり、当社のサーバーおよび非公開で入手、アップデートされたソフトウェア、あるいはNSWA Rangaの公式バージョンのデータです。 NSWAオンラインプライバシーポリシー：当社はお客様の個人情報を収集、送信、またはサーバーに保存することはありませんが、データタグをブラウザにローカルに保存することがあります。ブラウザにローカルに保存され、ネットワーク経由で送信されることはありません。
+Enable NSWA Online Push|NSWAオンラインプッシュを有効にする
+Web console experimental features|Webコンソールの実験的機能
+Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|まだ実験的なWebコンソールの機能のいくつかを次に示します。これらは潜在的な落とし穴をもたらす可能性があります。
+"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|[ネットワーク接続]ページの[その他のツール]に[すべてのNKインターフェイスのブロックを開始]ボタンが表示される

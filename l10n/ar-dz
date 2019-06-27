@@ -1,0 +1,403 @@
+Bytes|بايت
+KB|KB
+MB|MB
+GB|GB
+TB|مرض السل
+PB|PB
+EB|EB
+ZB|ZB
+YB|YB
+Networking|الشبكات
+Interface configuration|تكوين واجهة
+Wi-Fi|واي فاي
+DNS and Auto Configuration|DNS والتكوين التلقائي
+System management|ادارة النظام
+Addon|اضافه
+Multihoming|Multihoming
+Miscellaneous and Tweaks|متفرقات والقرص
+Scheduled Tasks|المهام المجدولة
+Connected device|الجهاز المتصل
+Web console preferences|تفضيلات وحدة تحكم الويب
+Software update|تحديث النظام
+About Ranga|حول رانغا
+Network error or web console error|خطأ في الشبكة أو خطأ في وحدة تحكم الويب
+Loading|جار التحميل
+A network error or web console error occurred while loading the page|حدث خطأ في الشبكة أو خطأ في وحدة تحكم الويب أثناء تحميل الصفحة
+Failed to load|فشل في تحميل
+Login|تسجيل الدخول
+Please enter the superuser password to complete the login<br><br><input style='width: 100%' type=password placeholder='ranga will be used when empty'>|الرجاء إدخال كلمة مرور المستخدم الخارق لإكمال تسجيل الدخول <br> <br> <input style = 'width: 100٪' type = password placeholder = 'سيتم استخدام ranga عندما تكون فارغة'>
+You have passed the authentication. Switch to superuser status. There is no change in appearance on the web console, and the difference can only be seen when performing privileged operations. When you close your browser, restart NSWA Ranga, or another terminal re-login, this session will automatically expire.|لقد مرت المصادقة. التبديل إلى حالة الخارق. لا يوجد أي تغيير في المظهر على وحدة تحكم الويب ، ويمكن ملاحظة الاختلاف فقط عند إجراء عمليات مميزة. عند إغلاق المستعرض ، أو إعادة تشغيل NSWA Ranga ، أو إعادة تسجيل الدخول إلى محطة أخرى ، ستنتهي صلاحية هذه الجلسة تلقائيًا.
+OK|حسنا
+Cancel|إلغاء
+Full package update failed|فشل تحديث الحزمة الكامل
+The last full package update failed, possibly due to insufficient memory or hardware failure, please try again. If retrying multiple times still does not solve the problem, try turning off some of the system services and reducing the number of connections and try again.|أخفق التحديث الكامل للحزمة ، ربما بسبب عدم كفاية الذاكرة أو عطل في الجهاز ، يرجى المحاولة مرة أخرى. إذا لم تؤد المحاولة عدة مرات إلى حل المشكلة ، فحاول إيقاف تشغيل بعض خدمات النظام وتقليل عدد الاتصالات والمحاولة مرة أخرى.
+Full package update failed. Please try again.|فشل تحديث الحزمة الكامل. حاول مرة اخرى.
+Please wait|ارجوك انتظر
+The third-party theme currently in use is not compatible with Web Console|سمة الطرف الثالث المستخدمة حاليًا غير متوافقة مع وحدة تحكم الويب
+Please check the updated version from the third-party source for the theme that is compatible with the latest Web Console.|يرجى التحقق من الإصدار المحدّث من مصدر الجهة الخارجية للتعرف على السمة المتوافقة مع أحدث وحدة تحكم ويب.
+External application request|طلب تطبيق خارجي
+The site at <b>{0}</b> is trying to set a custom theme to your NSWA Ranga Web Console. Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.|يحاول الموقع في <b> {0} </b> تعيين سمة مخصصة إلى NSWA Ranga Web Console. يمكن أن يؤدي تثبيت سمة الطرف الثالث إلى العبث الخبيث بمظهر وحدة تحكم الويب ، والتي يمكن خداعها.
+<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the theme to be maliciously replaced.|<br> <br> اتصالك بهذا الموقع ليس اتصالاً خاصاً. هذا يعني أن بياناتك يتم نقلها عبر الإنترنت دون تشفير ، مما قد يتسبب في استبدال السمة بطريقة ضارة.
+Continue|استمر
+Refuse|رفض
+The site at <b>{0}</b> is trying to install an extension to your NSWA Ranga. Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances.|يحاول الموقع في <b> {0} </b> تثبيت ملحق إلى NSWA Ranga. يمكن أن يؤثر تثبيت ملحقات الجهات الخارجية بشكل سلبي على أداء واستقرار نظام NSWA Ranga. يرجى الاستمرار في العمل فقط في ظروف واضحة للغاية.
+<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the extension to be maliciously replaced.|<br> <br> اتصالك بهذا الموقع ليس اتصالاً خاصاً. هذا يعني أن بياناتك تنتقل عبر الإنترنت دون تشفير ، مما قد يؤدي إلى استبدال الامتداد بشكل ضار.
+To install the extension, you must be authenticated\n\nEnter the superuser password to continue|لتثبيت الإضافة ، يجب أن تتم المصادقة عليك \ n \ n أدخل كلمة مرور المستخدم الخارق للمتابعة
+Installing extension|تثبيت التمديد
+<b>Installation is complete, please manually reload the web console</b>|<b> اكتمل التثبيت ، يرجى إعادة تحميل وحدة تحكم الويب يدويًا </ b>
+Software change in progress|تغيير البرمجيات في التقدم
+Please restart the system as soon as possible.|يرجى إعادة تشغيل النظام في أقرب وقت ممكن.
+Changes will take effect after the system reboot.|سوف تدخل التغييرات حيز التنفيذ بعد إعادة تشغيل النظام.
+The configuration for '{0}' has been modified. {1}|تم تعديل التكوين الخاص بـ {{}}. {1}
+Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".|تم تكوين بيانات Seth لهذه الواجهة. تدعي هذه البيانات أنها يمكن أن تكون صالحة من "{0}" إلى "{1}".
+This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.|لا تحتوي هذه الواجهة على تكوين بيانات Seth أو بيانات التعريف المفقودة. قد يكون هذا بسبب قيام متصفحك بحذف البيانات ذات الصلة.
+Unable to set Seth data, please make sure your browser supports IndexedDB|غير قادر على ضبط بيانات Seth ، يرجى التأكد من أن متصفحك يدعم IndexedDB
+Select the interface you want to configure, or click the upper right button to add a new interface.|حدد الواجهة التي تريد تكوينها ، أو انقر فوق الزر الأيمن العلوي لإضافة واجهة جديدة.
+Add|إضافة
+Add new interface|إضافة واجهة جديدة
+Please enter the name of the new interface, which must start with 'md'.|الرجاء إدخال اسم الواجهة الجديدة ، والتي يجب أن تبدأ بـ "md".
+The protocol type configuration for interface '{0}' has been modified.|تم تعديل تكوين نوع البروتوكول للواجهة '{0}'.
+Seth data has been updated|تم تحديث بيانات Seth
+Load From Seth Server|تحميل من خادم سيث
+Enter the secret code (Secret).|أدخل الرمز السري (السري).
+Load|حمل
+Empty code is not supported.|الرمز الفارغ غير مدعوم.
+Downloading Seth data...|جارٍ تنزيل بيانات Seth ...
+Download failed, your secret code (Secret) is incorrect, or you have a problem with your Internet connection.|أخفق التنزيل ، أو الرمز السري (السري) غير صحيح ، أو لديك مشكلة في اتصالك بالإنترنت.
+The authentication configuration for interface '{0}' has been modified.|تم تعديل تكوين المصادقة للواجهة '{0}'.
+The static address configuration for interface '{0}' has been modified.|تم تعديل توصيف العنوان الثابت للواجهة '{0}'.
+The physical address configuration for interface ‘{0}' has been modified.|تم تعديل تكوين العنوان الفعلي للواجهة ‘{0} '.
+The Reverse VLAN configuration for interface '{0}' has been modified.|تم تعديل تكوين Reverse VLAN للواجهة '{0}'.
+The interface '{0}' has been deleted.|تم حذف الواجهة '{0}'.
+Connecting, please wait...|الاتصال الرجاء الانتظار...
+Interface '{0}' connected.|الواجهة '{0}' متصلة.
+Disconnected connection of interface '{0}'|اتصال غير متصل بالواجهة '{0}'
+Catching server startup ({0})|بدء تشغيل خادم ({0})
+Catching server is already ready ({0})|خادم الالتقاط جاهز بالفعل ({0})
+Catching server has Captured authentication information ({0})|يحتوي خادم الالتقاط على معلومات المصادقة الملتقطة ({0})
+The catching process for interface '{0}' has completed.|اكتملت عملية الالتقاط للواجهة '{0}'.
+Catching server timed out ({0})|انتهاء مهلة الخادم ({0})
+Unable to get current NK PIN and Hash from Seth data. Please make sure the data has not expired and the current time is correct.|غير قادر على الحصول على رقم PIN الحالي والتجزئة من بيانات Seth. يرجى التأكد من عدم انتهاء صلاحية البيانات وأن الوقت الحالي صحيح.
+PPPoE（Netkeeper）|PPPOE (Netkeeper)
+PPPoE|PPPOE
+DHCP|DHCP
+Unmanaged|غير المدارة
+Static|ثابتة
+TX bytes: |بايت TX:
+RX bytes: |بايت RX:
+Reload|إعادة تحميل
+Seth Safe disconnect|سيث الآمن قطع الاتصال
+Dialing doctor|طبيب الاتصال
+Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|يرجى ملاحظة: <b> قد يؤدي تشغيل الطبيب المتصل مباشرة إلى الإبلاغ عن تشخيص خاطئ تمامًا </ b>. عند فشل الاتصال (باستثناء طريقة الالتقاط) ، سيقوم طبيب الاتصال تلقائيًا بإعلام منبثق لبدء التشغيل ، وتكون النتيجة أعلى. ومع ذلك ، لا يزال بإمكانك إجبار طبيب الاتصال على تشخيص طريقة الالتقاط أو مشكلة الاتصال التلقائي الأخيرة في أي وقت ، لكن النتيجة قد تكون غير دقيقة أو حتى خاطئة تمامًا.
+I know|أنا أعلم
+Start catching for all NK interfaces|بدء اصطياد جميع واجهات NK
+Getting interface information...|الحصول على معلومات الواجهة ...
+Extra tools|أدوات اضافية
+Ranga software version|إصدار برنامج Ranga
+System version: {0}|إصدار النظام: {0}
+Kernel version: {0}|إصدار Kernel: {0}
+System update release site|موقع الافراج عن تحديث النظام
+Device Information|معلومات الجهاز
+Architecture: {0}|العمارة: {0}
+Chip: {0}|رقاقة: {0}
+Board: {0}|اللوحة: {0}
+Model name: {0}|اسم الموديل: {0}
+Resource usage|إستخدام الموارد
+Total memory: {0} KB|إجمالي الذاكرة: {0} كيلوبايت
+Memory (used): {0} KB|الذاكرة (المستخدمة): {0} كيلوبايت
+Memory (cached): {0} KB|الذاكرة (ذاكرة التخزين المؤقت): {0} كيلوبايت
+Memory (buffered): {0} KB|الذاكرة (مخزنة مؤقتًا): {0} كيلوبايت
+Memory (shared): {0} KB|الذاكرة (مشتركة): {0} كيلوبايت
+Storage: {0}|السعة التخزينية: {0}
+System uptime: {0}|مدة تشغيل النظام: {0}
+Ranga System Legal Information|رانغا نظام المعلومات القانونية
+Open source license|رخصة مفتوحة المصدر
+Ranga End User License Agreement|اتفاقية ترخيص المستخدم النهائي لـ Ranga
+Web console legal information|المعلومات القانونية وحدة التحكم على شبكة الإنترنت
+Web console license agreement|اتفاقية ترخيص وحدة تحكم الويب
+Font Awesome Icon Creation Common License|الخط رهيبة أيقونة إنشاء رخصة المشتركة
+Google Material.io icon license|جوجل رمز Material.io رخصة
+Version: {0}|الإصدار: {0}
+Author: {0}|المؤلف: {0}
+API version: {0}|إصدار واجهة برمجة التطبيقات: {0}
+Page provided by '{0}'|تم توفير الصفحة بواسطة '{0}'
+Upload extension|تحميل التمديد
+Install a new extension|تثبيت ملحق جديد
+Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances. Uploading extensions through the web console is experimental, and your browser must be new enough to support the File API, which is currently just a web working draft.|يمكن أن يؤثر تثبيت ملحقات الجهات الخارجية بشكل سلبي على أداء واستقرار نظام NSWA Ranga. يرجى الاستمرار في العمل فقط في ظروف واضحة للغاية. يعد تحميل الإضافات من خلال وحدة التحكم على الويب أمرًا تجريبيًا ، ويجب أن يكون المستعرض الخاص بك جديدًا بما يكفي لدعم File API ، والذي يعد حاليًا مجرد مسودة تعمل على الويب.
+Select the extension package: |حدد حزمة التمديد:
+Upload|رفع
+Open the Ranga Web App Store|افتح متجر تطبيقات Ranga Web App
+Ranga Web App Store - Extensions|رانغا ويب المتجر - ملحقات
+Deploy system components|نشر مكونات النظام
+Enter the UUID ID of the system component you want to deploy. Some system components may also have a human friendly name.|أدخل معرف UUID لمكون النظام الذي تريد نشره. قد يكون لبعض مكونات النظام أيضًا اسم صديق إنساني.
+Deploy|نشر
+An empty UUID is not supported.|UUID فارغ غير معتمد.
+Downloading components...|تنزيل المكونات ...
+The download failed, the component corresponding to the UUID does not exist, or there is a problem with your network connection.|أخفق التنزيل ، أو أن المكون المقابل لـ UUID غير موجود ، أو أن هناك مشكلة في اتصال الشبكة.
+No components are installed on your system|لا توجد مكونات مثبتة على نظامك
+Load balancing state|تحميل موازنة الدولة
+Close|قريب
+The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|تم إكمال العملية '{1}' للواجهة ‘{0} '. ومع ذلك ، تحتاج إلى إعادة تشغيل الخدمة متعددة المنازل حتى تصبح نافذة المفعول.
+The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|تم تغيير التكوين متعدد الطبقات للواجهة '{0}'. ومع ذلك ، تحتاج إلى إعادة تشغيل الخدمة متعددة المنازل حتى تصبح نافذة المفعول.
+Add binding|إضافة ملزمة
+Enter IPv4 Address|أدخل عنوان IPv4
+Enter MAC Address|أدخل عنوان MAC
+Purge all bindings|تطهير جميع الروابط
+Are you sure you want to purge all bindings?|هل أنت متأكد من أنك تريد تطهير جميع الروابط؟
+Purge|تطهير
+Add an upstream DNS server|إضافة خادم DNS المنبع
+Enter the IPv4 address of upstream DNS server|أدخل عنوان IPv4 لخادم DNS الرئيسي
+The DHCP configuration has changed. However, you need to restart the DHCP Service to take effect.|لقد تغير تكوين DHCP. ومع ذلك ، تحتاج إلى إعادة تشغيل خدمة DHCP حتى تصبح نافذة المفعول.
+The DNS configuration has changed. However, you need to restart the DNS service to take effect.|لقد تغير تكوين DNS. ومع ذلك ، تحتاج إلى إعادة تشغيل خدمة DNS حتى تصبح نافذة المفعول.
+Auto|تلقاءي
+Please be patient and wait for the wireless reboot to complete, this should not take too long, but the web console will not automatically refresh.|يرجى التحلي بالصبر والانتظار حتى يكتمل إعادة التمهيد اللاسلكي ، فلن يستغرق هذا وقتًا طويلاً ، ولكن لن يتم تحديث وحدة التحكم في الويب تلقائيًا.
+Quick Setup|التثبيت السريع
+The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|تم تعديل الأمان اللاسلكي للجهاز اللاسلكي ‘{0} '. ومع ذلك ، تحتاج إلى إعادة تشغيل الخدمة اللاسلكية حتى تصبح نافذة المفعول.
+The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|تم تعديل المفتاح المشترك مسبقًا للجهاز اللاسلكي ‘{0} '. ومع ذلك ، تحتاج إلى إعادة تشغيل الخدمة اللاسلكية حتى تصبح نافذة المفعول.
+The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|تم تعديل تكوين الراديو للجهاز اللاسلكي '{0}'. ومع ذلك ، تحتاج إلى إعادة تشغيل الخدمة اللاسلكية حتى تصبح نافذة المفعول.
+Please select a file|الرجاء تحديد ملف
+The main file system is mounted|يتم تثبيت نظام الملفات الرئيسي
+Used: {0}, remaining: {1}|مستخدم: {0} ، المتبقي: {1}
+Unmounted main file system|نظام الملفات الرئيسي غير المنضب
+Manufacturer: {0}<br>Device ID: {1}:{2} Bus: {3} Device Location: {4}|الشركة المصنعة: {0} <br> معرف الجهاز: {1}: {2} الناقل: {3} موقع الجهاز: {4}
+No "Universal Serial Bus" devices found on your device|لم يتم العثور على أجهزة "الناقل التسلسلي العالمي" على جهازك
+Sorry, your device does not have Universal Serial Bus support enabled.|عذرًا ، جهازك لم يتم تمكين دعم الناقل التسلسلي العالمي.
+Please wait patiently for the device to complete the uninstall...|يرجى الانتظار بصبر حتى يكتمل الجهاز إلغاء التثبيت ...
+Aria2 Download Manager|مدير تحميل Aria2
+Once started, the Aria2 Download Manager can be accessed via PRC (Remote Procedure Call) for downloading files and more.|بمجرد البدء ، يمكن الوصول إلى Aria2 Download Manager عبر PRC (استدعاء الإجراء عن بُعد) لتنزيل الملفات والمزيد.
+Samba file sharing service|سامبا خدمة تبادل الملفات
+After booting, file sharing can be done via the SMB protocol to access the attached additional primary file system.|بعد التشغيل ، يمكن أن تتم مشاركة الملفات عبر بروتوكول SMB للوصول إلى نظام الملفات الأساسي الإضافي المرفق.
+The modification has been submitted, but it may be necessary to restart this service to take effect.|تم إرسال التعديل ، ولكن قد يكون من الضروري إعادة تشغيل هذه الخدمة حتى تصبح نافذة المفعول.
+The service has received the request. The operation should be completed very quickly.|تلقت الخدمة الطلب. يجب أن تكتمل العملية بسرعة كبيرة.
+The autostart configuration has been updated.|تم تحديث التكوين التلقائي.
+The system clock has been updated.|تم تحديث ساعة النظام.
+The system is about to restart and the web console does not automatically refresh.|النظام على وشك إعادة التشغيل ولا يتم تحديث وحدة تحكم الويب تلقائيًا.
+Save to file|احفظ الملف
+Empty password is not allowed|كلمة المرور فارغة غير مسموح بها
+The passwords entered twice do not match. Please try again.|كلمات المرور المدخلة مرتين غير متطابقة. حاول مرة اخرى.
+password has been updated|تم تحديث كلمة المرور
+No additional (optional) services installed|لم يتم تثبيت خدمات إضافية (اختيارية)
+Default theme|السمة الافتراضية
+Ranga Web App Store - Themes|رانغا ويب المتجر - المواضيع
+Set custom theme|تعيين سمة مخصصة
+Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.|يمكن أن يؤدي تثبيت سمة الطرف الثالث إلى العبث الخبيث بمظهر وحدة تحكم الويب ، والتي يمكن خداعها.
+Select a theme file: |حدد ملف سمة:
+Apply|تطبيق
+CLI Tools|أدوات CLI
+Change the Samba password for 'user' account|تغيير كلمة مرور سامبا لحساب 'المستخدم'
+Change Aria2 RPC token|تغيير الرمز المميز Aria2 RPC
+Captive portal|بوابة الأسير
+The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|يمكّن مدخل التسجيل نظام التشغيل العميل من فتح صفحة وحدة تحكم الويب المنبثقة للمستعرض تلقائيًا عند الوصول إلى شبكة لا تتصل بالطلب الهاتفي. & nbsp؛ <b> يجب إعادة تشغيل NSWA Ranga فورًا بعد تعديل هذا الإعداد ، وإلا فقد يعمل النظام في حالة غير متسقة! </ b>
+Enable the captive portal|تمكين البوابة الأسيرة
+Automatically start scheduled task service|بدء تشغيل خدمة المهام المجدولة تلقائيًا
+Do not open this item unless you have a scheduled task. Some plugins also use scheduled tasks, but these plugins do not require this. Restart this NSWA Ranga to take effect after modifying this setting.|لا تفتح هذا العنصر إلا إذا كان لديك مهمة مجدولة. تستخدم بعض المكونات الإضافية أيضًا مهام مجدولة ، لكن هذه المكونات الإضافية لا تتطلب ذلك. أعد تشغيل NSWA Ranga حتى تصبح نافذة المفعول بعد تعديل هذا الإعداد.
+Free synchronization time early automatic dialing function|وقت التزامن الحر وظيفة الاتصال التلقائي في وقت مبكر
+Enable this feature to connect to the netkeeper interface without having to synchronize time after booting. If multi-homing is enabled, it will also try to connect to other interfaces whose protocol type is Netkeeper. This feature is not guaranteed to be always successful. This feature only takes effect when the wan interface protocol is set to Dynamic Host Configuration Protocol.|تمكين هذه الميزة للاتصال بواجهة netkeeper دون الحاجة إلى مزامنة الوقت بعد التشغيل. في حالة تمكين multi-homing ، سيحاول أيضًا الاتصال بواجهات أخرى يكون نوع بروتوكولها هو Netkeeper. هذه الميزة غير مضمونة لتكون ناجحة دائمًا. تسري هذه الميزة فقط عند تعيين بروتوكول واجهة الشبكة الواسعة على بروتوكول تكوين المضيف الديناميكي.
+Enable early automatic dialing|تمكين الاتصال التلقائي المبكر
+PPP protocol automatically reconnects|PPP بروتوكول يعيد تلقائيا
+This setting will affect all PPP protocols, such as PPPoE. Please note that "automatic reconnection, under any circumstances" may result in temporary bans on your account or media access address by your internet service provider. In addition, there is a slight chance that the automatic reconnection will cause problems with NSWA Ranga.|سيؤثر هذا الإعداد على جميع بروتوكولات PPP ، مثل PPPOE. يرجى ملاحظة أن "إعادة الاتصال التلقائي ، تحت أي ظرف من الظروف" قد تؤدي إلى حظر مؤقت على حسابك أو عنوان الوصول إلى الوسائط من قبل مزود خدمة الإنترنت الخاص بك. بالإضافة إلى ذلك ، هناك فرصة ضئيلة لأن تؤدي إعادة الاتصال التلقائي إلى حدوث مشكلات في NSWA Ranga.
+Never automatically reconnect (most secure)|عدم إعادة الاتصال تلقائيًا (الأكثر أمانًا)
+Automatically reconnect, only when the peer hangs up (default)|إعادة الاتصال تلقائيًا ، فقط عند تعليق النظير (افتراضي)
+Automatic reconnection, in any case (dangerous)|إعادة الاتصال التلقائي ، على أي حال (خطير)
+Allow anonymous users to operate network connections|السماح للمستخدمين المجهولين بتشغيل اتصالات الشبكة
+Allow anonymous users to operate network connections (such as connecting, disconnecting, etc.), otherwise the network connection can only be operated after logging in to the super user. The NSWA Ranga system setup is not included, however, only the superuser can access the system setup feature.|اسمح للمستخدمين المجهولين بتشغيل اتصالات الشبكة (مثل الاتصال أو قطع الاتصال أو ما إلى ذلك) ، وإلا لا يمكن تشغيل اتصال الشبكة إلا بعد تسجيل الدخول إلى المستخدم الفائق. لا يتم تضمين إعداد نظام NSWA Ranga ، ومع ذلك ، يمكن للمستخدم الخارق فقط الوصول إلى ميزة إعداد النظام.
+Flow Offloading|تدفق التفريغ
+Flow Offloading can establish a high-speed "bypass" for forwarded traffic, which reduces the CPU overhead caused by forwarding packets and improves network performance at high load. Hardware Flow Offloading is implemented through HW NAT. It is enabled only when Traffic Offloading is enabled, and only supports a small number of chips. This setting only takes effect on devices with a kernel version (see "Ranga Software Version" in "About Ranga") greater than or equal to 4.14.0.&nbsp;<b>This feature and QoS cannot be enabled at the same time! After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|يمكن أن يؤدي "تفريغ التدفق" إلى إنشاء "تجاوز" عالي السرعة لحركة المرور المعاد توجيهها ، مما يقلل من أحمال وحدة المعالجة المركزية الناتجة عن إعادة توجيه الحزم ويحسن أداء الشبكة عند التحميل العالي. يتم تنفيذ تفريغ تدفق الأجهزة من خلال HW NAT. يتم تمكينه فقط عند تمكين Offloading ، ويدعم فقط عدد صغير من الرقائق. يسري هذا الإعداد فقط على الأجهزة التي لديها إصدار kernel (راجع "إصدار برنامج Ranga" في "About Ranga") أكبر من أو يساوي 4.14.0. & nbsp؛ <b> لا يمكن تمكين هذه الميزة و QoS في نفس الوقت! بعد تعديل هذا الإعداد ، تحتاج إلى إعادة تشغيل NSWA Ranga حتى تصبح نافذة المفعول. </ b>
+Enable traffic offloading|تمكين تفريغ حركة المرور
+Try hardware flow offloading (experimental)|حاول تفريغ تدفق الأجهزة (تجريبي)
+New continuous catching service|خدمة اصطياد مستمرة جديدة
+Traditional catching methods require manually telling NSWA Ranga to start the catching server in the web console or command line tool, then dial the number and have a 1 minute timeout. The new persistent catching service does not need to tell NSWA Ranga to start the catching server, you can intercept the PPPoE connection and dial the number. You should add the @interface name to your account after dialing to allow NSWA Ranga to determine the corresponding interface name. Name, NSWA Ranga will establish a connection from the 'netkeeper' interface, this section should be noted for all users who use multi-homing. This feature is not recommended for small memory devices.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|تتطلب طرق الالتقاط التقليدية إخبار NSWA Ranga يدويًا ببدء تشغيل خادم الالتقاط في وحدة تحكم الويب أو أداة سطر الأوامر ، ثم طلب الرقم والحصول على مهلة دقيقة واحدة. لا تحتاج خدمة الالتقاط المستمرة الجديدة إلى إخبار NSWA Ranga ببدء تشغيل خادم الالتقاط ، يمكنك اعتراض اتصال PPPOE وطلب الرقم. يجب عليك إضافة اسمinterface إلى حسابك بعد الطلب للسماح لـ NSWA Ranga بتحديد اسم الواجهة المقابل. الاسم ، ستنشئ NSWA Ranga اتصالًا من واجهة 'netkeeper' ، يجب الإشارة إلى هذا القسم لجميع المستخدمين الذين يستخدمون توجيهات صاروخية متعددة. هذه الميزة غير موصى بها لأجهزة الذاكرة الصغيرة. & nbsp؛ <b> بعد تعديل هذا الإعداد ، تحتاج إلى إعادة تشغيل NSWA Ranga حتى تصبح نافذة المفعول. </ b>
+Enable new continuous catching services|تمكين خدمات الصيد المستمر الجديدة
+TCP maximum segment clamp (MSS clamping)|الحد الأقصى لقطعة TCP (لقط MSS)
+<b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|<ب> الموصى بها. في الإصدارات القديمة من NSWA ، لا يمكن إيقاف تشغيل هذه الميزة وتمكينها دائمًا. </ b> & nbsp؛ تحاول بعض تطبيقات PMTU-D منع اتصالات الثقب الأسود وتفتيت IP من خلال استنتاج إسقاط حزم الحمولة النافعة الكبيرة بسبب MTUs بدلاً من ارتباط الازدحام. لذلك ، لكي يعمل TCP بكفاءة أكبر ، يجب السماح بالنوع 3 من بروتوكول ICMP. ومع ذلك ، تحظر العديد من أجهزة أمان الشبكة جميع رسائل ICMP بحثًا عن الأمان ، بما في ذلك رسائل ICMP اللازمة لتشغيل وحدة PMTU-D بشكل صحيح. يمكن أن يتسبب هذا في إكمال الاتصال لمصافحة TCP ثلاثية الاتجاه بشكل صحيح ، لكنه سيعلق أو يفقد الأداء عند نقل البيانات. هذه الميزة "تشبك" خيار TCP MSS في حزمة SYN. يعلن خيار MSS هذا أن الطرف البعيد يرسل 1460 شريحة TCP أو أقل لمنع اتصالات الثقب الأسود وتفتت IP. & nbsp؛ <b> بعد تعديل هذا الإعداد ، تحتاج إلى إعادة تشغيل NSWA Ranga حتى تصبح نافذة المفعول. </ b>
+Enable TCP Maximum Segment Clipping (MSS clamping)|تمكين قصاصة مقطع TCP القصوى (تثبيت MSS)
+Multi-homing is not enabled, to enable multi-homing, click the "Enable Multihoming" button.|لم يتم تمكين متعددة صاروخ موجه ، لتمكين متعددة صاروخ موجه ، انقر فوق الزر "تمكين Multihoming".
+Enable Multihoming|تمكين Multihoming
+Disabling multihoming does not clear the multihomed configuration|لا يؤدي تعطيل multihoming إلى مسح التكوين متعدد طرق الاتصال
+Changes to the load balancing settings will not take effect until the NSWA Ranga system is rebooted or the load balancing service is restarted, so after modifying these settings, you can click the "Restart Load Balancing Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of load balancing and then execute it once.|لن تسري التغييرات التي تطرأ على إعدادات موازنة التحميل حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل خدمة موازنة التحميل ، لذا بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل خدمة موازنة التحميل" ليصبح ساري المفعول على الفور. تستغرق هذه العملية بعض الوقت لإكمالها ، وليس عليك تعديل كل تكوين لتنفيذه ، يمكنك إكمال تكوينات متعددة لموازنة التحميل ثم تنفيذها مرة واحدة.
+Disable multihoming|تعطيل multihoming
+Restart Load Balancing Service|أعد تشغيل خدمة موازنة التحميل
+Reverse VLAN|عكس شبكة محلية ظاهرية
+Reverse VLAN (reverse VLAN) is a concept defined by NSWA Ranga. In fact, from the perspective of the switch system itself, the "forward", that is, the true VLAN is a single interface on the switch system, and then Mapping a single interface to multiple virtual networks (one to many), the name "reverse VLAN" is derived from the opposite meaning, which maps multiple virtual networks to a single interface (to one to one). NSWA Ranga uses reverse VLANs to create multiple network connections (such as PPPoE links) on a single WAN socket (a NIC or a VLAN on a NIC). Therefore, you need to set a different "reverse VLAN" for each new 'md..' interface. Go to "<b>Interface configuration</b>" and set the "Reverse VLAN" from 0.|عكس شبكة محلية ظاهرية (شبكة محلية ظاهرية عكسية) هو مفهوم يحدده NSWA Ranga. في الواقع ، من وجهة نظر نظام التبديل نفسه ، فإن "الأمام" ، أي ، شبكة محلية ظاهرية حقيقية هي واجهة واحدة على نظام التبديل ، ثم تعيين واجهة واحدة لشبكات افتراضية متعددة (واحد إلى كثير) ، الاسم "شبكة محلية ظاهرية عكسية" مشتقة من المعنى المعاكس ، الذي يعين شبكات افتراضية متعددة إلى واجهة واحدة (واحد إلى واحد). يستخدم NSWA Ranga شبكات محلية ظاهرية عكسي لإنشاء اتصالات شبكة متعددة (مثل ارتباطات PPPoE) على مقبس WAN فردي (بطاقة NIC أو شبكة محلية ظاهرية على NIC). لذلك ، تحتاج إلى تعيين "VLAN عكسي" مختلفة لكل واجهة 'md ..' جديدة. انتقل إلى "<b> تهيئة الواجهة </b>" وقم بتعيين "Reverse VLAN" من 0.
+Number of reverse VLANs|عدد شبكات VLAN العكسية
+Load balancing|تحميل موازنة
+Select the interface you want to configure|حدد الواجهة التي تريد تكوينها
+Please choose|اختر من فضلك
+Load balancing only uses interfaces added to the load balancing list.|تحميل موازنة يستخدم فقط واجهات المضافة إلى قائمة موازنة التحميل.
+Add this interface to the load balancing list|أضف هذه الواجهة إلى قائمة موازنة التحميل
+Configure the load balancing settings of the currently selected interface.&nbsp;<b>If you don't know the meaning of the configuration below, please do not modify it and keep the default.</b>|قم بتكوين إعدادات موازنة التحميل للواجهة المحددة حاليًا. & nbsp؛ <b> إذا كنت لا تعرف معنى التكوين أدناه ، فيرجى عدم تعديله والاحتفاظ بالوضع الافتراضي. </ b>
+Tracking IP list|تتبع قائمة IP
+Minimum number of responses|الحد الأدنى لعدد الردود
+Tracking timeout|تتبع المهلة
+Tracking interval|تتبع الفاصل الزمني
+Success threshold|عتبة النجاح
+Failure threshold|عتبة الفشل
+Priority|أفضلية
+Weights|الأوزان
+Set interface load balancing parameters|تعيين واجهة موازنة التحميل المعلمات
+Select the wireless device you want to configure|حدد الجهاز اللاسلكي الذي تريد تكوينه
+Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|لن تسري التعديلات على الإعدادات اللاسلكية حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل الخدمة اللاسلكية. لذلك بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل الخدمة اللاسلكية" ليصبح ساري المفعول على الفور. تستغرق هذه العملية بعض الوقت لإكمالها ، ولا يتعين عليك تعديل كل تكوين لتنفيذه ، ويمكنك إكمال تكوينات متعددة لأجهزة لاسلكية متعددة ثم تنفيذها مرة واحدة.
+Restart Wireless Service|أعد تشغيل الخدمة اللاسلكية
+Wireless device status|حالة الجهاز اللاسلكي
+Wireless security|الأمن اللاسلكي
+WPA3 SAE|WPA3 SAE
+WPA3 SAE, WPA2 PSK Mixed mode|وضع WPA3 SAE ، وضع WPA2 PSK المختلط
+WPA2 PSK (CCMP)|WPA2 PSK (CCMP)
+WPA2 PSK (TKIP)|WPA2 PSK (TKIP)
+WPA2 PSK (Double protocol)|WPA2 PSK (بروتوكول مزدوج)
+WPA2 and WPA PSK Mixed mode (Double protocol)|الوضع المختلط WPA2 و WPA PSK (بروتوكول مزدوج)
+WPA PSK (CCMP)|WPA PSK (CCMP)
+WPA PSK (TKIP)|WPA PSK (TKIP)
+Open (non-authenticate)|فتح (غير مصادقة)
+NSWA Ranga may not currently support the Wi-Fi Protected Access 3 (WPA3) series of suits.|قد لا تدعم NSWA Ranga حاليًا مجموعة دعاوى Wi-Fi Protected Access 3 (WPA3).
+Pre-shared key|مفتاح مشترك مسبقا
+When using the "PSK", use the following pre-shared key for authentication. When the key is less than 8 digits, NSWA Ranga automatically disables the wireless device, which is a common way to disable one or all of the wireless devices on NSWA Ranga.|عند استخدام "PSK" ، استخدم المفتاح المشترك مسبقًا للمصادقة. عندما يكون المفتاح أقل من 8 أرقام ، يقوم NSWA Ranga بتعطيل الجهاز اللاسلكي تلقائيًا ، وهي طريقة شائعة لتعطيل أحد أو كل الأجهزة اللاسلكية على NSWA Ranga.
+SSID|SSID
+Key|مفتاح
+Radio configuration|تكوين الراديو
+Some settings, such as RTS Threshold, Distance Optimization, and Radio Power are temporarily not supported by the web console, use the command line tool instead. The area code uses the ISO/IEC 3166-1 alpha-2 standard, common area codes: 00 - World, CN - China, US - USA, TW - Taiwan, AU - Australia. The area code will affect the wireless regulatory domain, affecting the channel that the driver can choose, the maximum radio power, modulation, etc. Please use this function in compliance with local radio regulations. Some devices hardcode the maximum radio power or other parameters in the device, even if you set other area codes. The blank area code will cause a fallback to the driver default, which may be the "world" regulatory domain.|بعض الإعدادات ، مثل RTS Threshold ، و Optimization Distance ، و Radio Power غير مدعومة مؤقتًا بواسطة وحدة تحكم الويب ، استخدم أداة سطر الأوامر بدلاً من ذلك. يستخدم رمز المنطقة معيار ISO / IEC 3166-1 alpha-2 ، رموز المنطقة العامة: 00 - العالم ، CN - الصين ، الولايات المتحدة - الولايات المتحدة الأمريكية ، TW - تايوان ، AU - أستراليا. سيؤثر رمز المنطقة على المجال التنظيمي اللاسلكي ، مما يؤثر على القناة التي يمكن أن يختارها السائق ، والحد الأقصى لطاقة الراديو ، والتشكيل ، وما إلى ذلك. يرجى استخدام هذه الوظيفة بما يتوافق مع لوائح الراديو المحلية. تقوم بعض الأجهزة بترميز أقصى طاقة راديو أو معلمات أخرى في الجهاز ، حتى إذا قمت بتعيين رموز منطقة أخرى. سيؤدي رمز المنطقة الفارغ إلى تراجع في برنامج التشغيل الافتراضي ، والذي قد يكون المجال التنظيمي "العالمي".
+Area code|رمز المنطقة
+Channel|قناة
+Throughput mode (HT)|وضع الإنتاجية (HT)
+Disable overlapping set scanning|تعطيل تداخل مجموعة المسح
+Enabled (this will violate IEEE 802.11n-2009)|ممكّن (سيؤدي هذا إلى انتهاك IEEE 802.11n-2009)
+Some devices support the installation of vendor-specific drivers that may not use some of the settings on this wireless setup page.|تدعم بعض الأجهزة تثبيت برامج التشغيل الخاصة بالمورد والتي قد لا تستخدم بعض الإعدادات على صفحة الإعداد اللاسلكية هذه.
+Automatically add a frequency suffix after the access point SSID|أضف لاحقة تردد تلقائيًا بعد SSID لنقطة الوصول
+Modifications to the Domain Name System and Dynamic Host Configuration settings will not take effect until the NSWA Ranga system is restarted or the Domain Name System and Dynamic Host Configuration Service are restarted. So after modifying these settings, you can click the "Restart DNS and DHCP Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|لن تسري التعديلات على إعدادات نظام اسم المجال وتكوين المضيف الحيوي حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل نظام اسم المجال وخدمة تكوين المضيف الحيوي. لذلك بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل DNS وخدمة DHCP" ليصبح ساري المفعول على الفور. تستغرق هذه العملية بعض الوقت لإكمالها ، ولا يتعين عليك تعديل كل تكوين لتنفيذه ، ويمكنك إكمال تكوينات متعددة لأجهزة لاسلكية متعددة ثم تنفيذها مرة واحدة.
+Restart DNS and DHCP Service|أعد تشغيل DNS وخدمة DHCP
+IPv4 Address - MAC Address Binding|عنوان IPv4 - ربط عنوان MAC
+When the client requests the IPv4 address through the DHCP, NSWA Ranga will respond according to the client's MAC address and select the specified IPv4 address. However, the Ethernet client can still set its own IPv4 address at will.|عندما يطلب العميل عنوان IPv4 من خلال DHCP ، سوف يستجيب NSWA Ranga وفقًا لعنوان MAC الخاص بالعميل ويحدد عنوان IPv4 المحدد. ومع ذلك ، لا يزال بإمكان عميل Ethernet تعيين عنوان IPv4 الخاص به حسب الرغبة.
+Add a new binding|إضافة ملزمة جديدة
+DHCP configuration|تكوين DHCP
+If the client cannot obtain the IPv4 address to access NSWA Ranga due to configuration reasons, you can set the client to the IPv4 address of the same subnetwork to resume access.|إذا تعذر على العميل الحصول على عنوان IPv4 للوصول إلى NSWA Ranga بسبب أسباب التكوين ، يمكنك تعيين العميل على عنوان IPv4 لنفس الشبكة الفرعية لاستئناف الوصول.
+Lease|عقد الإيجار
+Assign address offset (Version 4)|تخصيص إزاحة العنوان (الإصدار 4)
+Assign address restrictions (version 4)|تعيين قيود العنوان (الإصدار 4)
+Upstream DNS Server|خادم DNS المنبع
+Add a new server|إضافة خادم جديد
+DNS Cache Server|خادم ذاكرة التخزين المؤقت DNS
+Use the server provided by the peer|استخدم الخادم المقدم من قبل النظير
+Enable|مكن
+Rebind attack protection|أعد حماية الهجوم
+Bind port|ربط الميناء
+Query port|ميناء الاستعلام
+The configuration of some interfaces (such as authentication information) will take effect the next time you connect. However, some settings, such as "Protocol Type", "Static Address", "Interface Physical Address", etc. will not take effect until the NSWA Ranga system is restarted or the network service is restarted. So after modifying these settings, you can click the "Restart Network Service" button to take effect immediately. This operation takes a little while to complete. You don't have to modify each configuration to execute, you can complete multiple configurations of multiple interfaces and then execute it once. The established peer-to-peer protocol connection will be disconnected after restarting the network service.|سيتم تفعيل تكوين بعض الواجهات (مثل معلومات المصادقة) في المرة التالية التي تتصل فيها. ومع ذلك ، فإن بعض الإعدادات ، مثل "نوع البروتوكول" ، و "العنوان الثابت" ، و "العنوان الفعلي للواجهة" ، وما إلى ذلك ، لن تصبح نافذة المفعول حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل خدمة الشبكة. لذلك بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل خدمة الشبكة" ليصبح ساري المفعول على الفور. هذه العملية تستغرق بعض الوقت لإكمالها. ليس لديك لتعديل كل تكوين لتنفيذه ، يمكنك إكمال تكوينات متعددة من واجهات متعددة ثم تنفيذها مرة واحدة. سيتم قطع اتصال بروتوكول نظير إلى نظير بعد إعادة تشغيل خدمة الشبكة.
+Restart Network Service|أعد تشغيل خدمة الشبكة
+Protocol Type|نوع البروتوكول
+The Protocol Type is what network layer protocol to run on this interface. Netkeeper extensions are only valid when using a peer-to-peer protocol (for example, "PPPoE" and "PPPoATM")|نوع البروتوكول هو بروتوكول طبقة الشبكة الذي سيتم تشغيله على هذه الواجهة. تكون امتدادات Netkeeper صالحة فقط عند استخدام بروتوكول نظير إلى نظير (على سبيل المثال ، "PPPoE" و "PPPoATM")
+Protocol|بروتوكول
+DHCPv6|DHCPv6
+Static Address|عنوان ثابت
+PPPoATM|PPPoATM
+Netkeeper Extension|تمديد Netkeeper
+Non-enable|غير تمكين
+Seth Data|سيث البيانات
+<b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b> فقط إذا تم تمكين "تمديد Netkeeper" </b>. تدعم وحدة التحكم في الويب تخزين بيانات Seth في متصفحك IndexedDB. بمجرد تعيين بيانات Seth ، يمكنك الاتصال بهذه الشبكة باستخدام طريقة "Seth Connect" على متصفحك الحالي. يمكنك تحميل بيانات Seth مباشرة من ملف أو من خادم Seth. لتحديث البيانات من خادم Seth ، يجب عليك إدخال رمز سري (سري).
+Load From File|تحميل من ملف
+Authenticate|مصادقة
+When the selected protocol has an authentication extension, the following authentication information is used for authentication. Such as PAP or CHAP of the PPPoE, 802.1X security, etc.|عندما يحتوي البروتوكول المحدد على ملحق مصادقة ، يتم استخدام معلومات المصادقة التالية للمصادقة. مثل PAP أو CHAP الخاص بـ PPPOE ، أمان 802.1X ، إلخ.
+Username|اسم المستخدم
+Password|كلمه السر
+When the selected protocol is "Static Address", use the following address configuration. But the Default Route configuration is always used.|عندما يكون البروتوكول المحدد هو "عنوان ثابت" ، استخدم تكوين العنوان التالي. لكن تكوين المسار الافتراضي يستخدم دائمًا.
+IPv4 Address|عنوان IPv4
+IPv4 Netmask|IPv4 Netmask
+IPv4 Nexthop|IPv4 Nexthop
+Default Route|الطريق الافتراضي
+Set this interface as the default entry for the routing table|عيّن هذه الواجهة كإدخال افتراضي لجدول التوجيه
+The WAN port is an abstract concept. It is a real interface on some devices, and it is just a VLAN of a switch on some other devices. The interfaces ‘netkeeper’ and ‘wan’ are both bound to the WAN socket and the interface beginning with 'md' will be bound to a Reverse VLAN. Reverse VLAN is a concept defined by NSWA Ranga. Please refer to the detailed explanation in Multihoming. "Reverse VLAN" starts at 0.|منفذ WAN هو مفهوم مجردة. إنها واجهة حقيقية في بعض الأجهزة ، وهي مجرد شبكة محلية ظاهرية للتبديل على بعض الأجهزة الأخرى. ترتبط كل من الواجهات "netkeeper" و "wan" بمقبس WAN وسيتم ربط الواجهة التي تبدأ بـ "md" بشبكة محلية ظاهرية عكسية. عكس شبكة محلية ظاهرية هو مفهوم يحدده NSWA Ranga. يرجى الرجوع إلى شرح مفصل في Multihoming. يبدأ "Reverse VLAN" من 0.
+Interface Physical Address|واجهة العنوان الفعلي
+For Ethernet devices, it is Media Access Control Address (MAC address).|بالنسبة لأجهزة Ethernet ، فهي عنوان التحكم في الوصول إلى الوسائط (عنوان MAC).
+Physical Address:|العنوان الفعلي:
+Delete Interface|حذف واجهة
+This interface and the configuration of this interface will be completely removed, and this operation is irrevocable.|ستتم إزالة هذه الواجهة وتهيئة هذه الواجهة بالكامل ، وهذه العملية غير قابلة للإلغاء.
+Some interfaces are configured to couple with the system infrastructure, so you cannot modify some of their configurations. For example, the protocol type of the netkeeper interface must be PPPoE and the Netkeeper Extension must be turned on. And you cannot modify it to other protocols. For example, if you need the universal PPPoE protocol, you can modify the Protocol Type of the wan interface to PPPoE.|يتم تكوين بعض الواجهات للاقتران مع البنية الأساسية للنظام ، لذلك لا يمكنك تعديل بعض التكوينات الخاصة بها. على سبيل المثال ، يجب أن يكون نوع بروتوكول واجهة netkeeper هو PPPOE ويجب تشغيل ملحق Netkeeper. ولا يمكنك تعديله على بروتوكولات أخرى. على سبيل المثال ، إذا كنت بحاجة إلى بروتوكول PPPoE العالمي ، فيمكنك تعديل نوع البروتوكول لواجهة wan على PPPoE.
+Set the system clock|ضبط ساعة النظام
+Set system clock to the specified value or synchronize clock from the browser.|اضبط ساعة النظام على القيمة المحددة أو قم بمزامنة الساعة من المستعرض.
+Set system clock|ضبط ساعة النظام
+Synchronize clock from the browser|مزامنة الساعة من المتصفح
+Reboot the device|أعد تشغيل الجهاز
+Perform a reboot immediately. Existing network connections will be reset.|إجراء إعادة التشغيل على الفور. سيتم إعادة تعيين اتصالات الشبكة الحالية.
+Reboot|اعادة التشغيل
+System journal|مجلة النظام
+System journals can help troubleshoot system and connectivity issues.|يمكن أن تساعد مجلات النظام في استكشاف مشكلات النظام والاتصال وإصلاحها.
+View system log buffer|عرض سجل النظام العازلة
+Modify the superuser password|تعديل كلمة مرور المستخدم الخارق
+Super users have access to the full NSWA Ranga System API. We recommend that you set it to a more secure password.|يمكن للمستخدمين الفائقين الوصول إلى واجهة برمجة تطبيقات NSWA Ranga System الكاملة. نوصيك بتعيينها على كلمة مرور أكثر أمانًا.
+New password|كلمة السر الجديدة
+Repeat input|كرر المدخلات
+Change Password|غير كلمة السر
+Additional (optional) service|خدمة إضافية (اختياري)
+Autostart from boot|تشغيل تلقائي من التمهيد
+Service specific configuration|التكوين خدمة محددة
+Startup|بدء
+Stop|توقف
+Restart|إعادة بدء
+Universal serial bus|الناقل التسلسلي العالمي
+Additional primary file system|نظام الملفات الأساسي الإضافي
+To safely unplug the storage device where the additional primary file system resides, you must unmount the file system to avoid data loss and severe file system errors.|لإلغاء توصيل جهاز التخزين بأمان حيث يوجد نظام الملفات الأساسي الإضافي ، يجب إلغاء تثبيت نظام الملفات لتجنب فقد البيانات وأخطاء نظام الملفات الشديدة.
+Unmount file system|إلغاء تحميل نظام الملفات
+The scheduled task service will not start automatically by default. You can go to&nbsp;<b>Miscellaneous and tweaks</b>&nbsp;to enable the function of the automatic start scheduled task service.<br>The modification of the scheduled task settings will not take effect until the NSWA Ranga system is restarted or the CRON service is restarted, so after modifying these settings, you can click the "Restart CRON Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of the scheduled task and then execute it once.<br>|لن تبدأ خدمة المهمة المجدولة تلقائيًا بشكل افتراضي. يمكنك الانتقال إلى & nbsp؛ <b> متنوعة والقرص </ b> & nbsp؛ لتمكين وظيفة خدمة مهمة البدء المجدولة التلقائية. <br> لن يسري تعديل إعدادات المهمة المجدولة حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل خدمة CRON ، لذلك بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل خدمة CRON" لتصبح نافذة المفعول على الفور. تستغرق هذه العملية بعض الوقت لإكمالها ، ولا يتعين عليك تعديل كل تكوين لتنفيذه ، ويمكنك إكمال تكوينات متعددة للمهمة المجدولة ثم تنفيذها مرة واحدة. <br>
+Restart CRON Service|أعد تشغيل خدمة CRON
+Scheduled task list|قائمة المهام المجدولة
+To add a new scheduled task, use the button in the top right|لإضافة مهمة مجدولة جديدة ، استخدم الزر الموجود في أعلى اليمين
+Purge all scheduled tasks|تطهير جميع المهام المجدولة
+When do you want to wake up this scheduled task?|متى تريد أن تستيقظ هذه المهمة المجدولة؟
+Use '*' at any interval, use 'number/*' every time, use 'number' for specific time, use 'number-number' for multiple consecutive specific times, use multiple numbers, numbers, numbers, etc. .'. Minutes 0 to 59, hours 0 to 23, days 1 to 31, months 1 to 12, and weeks 0 to 7.<br><br>Example:<br>Execute every 1 minute: * * * * *<br>Execute every 1 hour: 0 */1 * * *<br>Execute every 3 hours: 0 */ 3 * * *<br>Executed at 6am every day: 0 6 */1 * *<br>Execute once every 4th and 18th minutes: 4,18 * * * *<br>At 4am Execute once in the 5th and 35th minutes of 11:5,35 4-11 * * *<br>Execute once every 11pm on Saturday: 0 23 * * 6<br>Every Saturday, Sunday 18 o'clock Execute every 30 minutes between 23:0,30 18-23 * * 6,0|استخدم "*" في أي فاصل زمني ، استخدم "الرقم / *" في كل مرة ، واستخدم "الرقم" لفترة محددة ، واستخدم "رقم الرقم" لعدة مرات متتالية محددة ، واستخدم أرقامًا متعددة ، وأرقامًا ، وأرقامًا ، إلخ. ". الدقائق من 0 إلى 59 ، والساعات من 0 إلى 23 ، والأيام من 1 إلى 31 ، والأشهر من 1 إلى 12 ، والأسابيع من 0 إلى 7. <br> <br> مثال: <br> تنفذ كل دقيقة: * * * * * <br> نفذ كل ساعة واحدة: 0 * / 1 * * * <br> تنفذ كل 3 ساعات: 0 * / 3 * * * <br> تُنفذ الساعة 6 صباحًا كل يوم: 0 6 * / 1 * * <br> تنفذ مرة واحدة كل 4 ساعات و 18 دقيقة: 4،18 * * * * <br> في تمام الساعة 4 صباحًا ، نفذ مرة واحدة في الدقائق الخامسة و 35 من 11: 5،35 4-11 * * * <br> نفذ مرة واحدة كل 11 مساءً يوم السبت: 0 23 * * 6 <br> كل سبت ، الأحد 18:00 ، نفذ كل 30 دقيقة بين 23: 0،30 18-23 * * 6،0
+What do you want to do in this planning task?|ماذا تريد أن تفعل في مهمة التخطيط هذه؟
+Customize|يعدل أو يكيف
+Preset: reboot the system|الإعداد المسبق: إعادة تشغيل النظام
+Preset: Synchronize Seth data from server|الإعداد المسبق: مزامنة بيانات Seth من الخادم
+Add scheduled task|إضافة المهمة المجدولة
+minute|اللحظة
+hour|ساعة
+day|يوم
+month|شهر
+week|أسبوع
+Wake up extension|استيقظ التمديد
+Wake-up schedule task program|برنامج مهمة جدول الاستيقاظ
+Set parameters|ضبط المعلمات
+Update system by NSWA Online push|تحديث النظام عن طريق دفع NSWA على الإنترنت
+If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.|إذا لم يتم إيقاف تشغيل ميزة دفع NSWA Online في وحدة تحكم الويب ، فسيتم دفع الإصدار الجديد إليك عند فتح وحدة التحكم في الويب. سيظهر إشعار تحديث.
+Use the command line tool to update your system to the latest version|استخدم أداة سطر الأوامر لتحديث نظامك إلى أحدث إصدار
+Use the command line tool to automatically update the NSWA Ranga system to the latest version, which is useful when you need to install multiple OTA updates. In most cases, this command allows the NSWA Ranga system to automatically install all OTA update packages from the current version to the latest version.|استخدم أداة سطر الأوامر لتحديث نظام NSWA Ranga تلقائيًا إلى أحدث إصدار ، وهو أمر مفيد عندما تحتاج إلى تثبيت تحديثات OTA متعددة. في معظم الحالات ، يسمح هذا الأمر لنظام NSWA Ranga بتثبيت جميع حزم تحديث OTA تلقائيًا من الإصدار الحالي إلى أحدث إصدار.
+If you need to install a firmware file using the command line tool, you can|إذا كنت بحاجة إلى تثبيت ملف البرنامج الثابت باستخدام أداة سطر الأوامر ، يمكنك ذلك
+For more usage of the command line tool for system updates, run<code>ranga-cli swdeploy -h</code>for help.|لمزيد من استخدام أداة سطر الأوامر لتحديثات النظام ، قم بتشغيل <code> ranga-cli swdeploy -h </code> للحصول على المساعدة.
+Upload firmware using the web console|تحميل البرامج الثابتة باستخدام وحدة تحكم الويب
+Uploading system firmware updates via the web console is experimental and your browser must be new enough to support the File API, which is currently just a web working draft. "Erase the current system configuration during the next full package update" will remain in effect until you (actively or passively) reboot the system; "Politely requesting a reboot after installation" is not a mandatory operation, but rather making a request to the updater, which can be ignored by the updater. At the same time, the updater may decide whether it should do reboot or not, regardless of whether you request it or not. However, for most updates that do not need to be restarted, this feature will be restarted after the update is complete.|يعد تحميل تحديثات البرامج الثابتة للنظام عبر وحدة التحكم على الويب أمرًا تجريبيًا ، ويجب أن يكون المستعرض الخاص بك جديدًا بما يكفي لدعم File API ، والذي يعد حاليًا مسودة تعمل على الويب. سيبقى "محو تكوين النظام الحالي أثناء التحديث الكامل التالي للحزمة" ساري المفعول حتى تقوم بإعادة تشغيل النظام (بشكل نشط أو سلبي) ؛ "طلب إعادة التشغيل بأدب بعد التثبيت" ليس عملية إلزامية ، بل تقديم طلب إلى المُحدِث ، والذي يمكن أن يتجاهله المُحدث. في الوقت نفسه ، قد يقرر المحدث ما إذا كان ينبغي إعادة التشغيل أم لا ، بغض النظر عما إذا كنت تطلب ذلك أم لا. ومع ذلك ، بالنسبة لمعظم التحديثات التي لا تحتاج إلى إعادة التشغيل ، سيتم إعادة تشغيل هذه الميزة بعد اكتمال التحديث.
+Select the firmware file:|حدد ملف البرنامج الثابت:
+Erase the current system configuration during the next full package update|امسح تكوين النظام الحالي أثناء التحديث الكامل للحزمة التالية
+Politely requesting a reboot after installation|بأدب طلب إعادة التشغيل بعد التثبيت
+Components|المكونات
+Extensions|ملحقات
+Permission|الإذن
+Modify system configuration as superuser|تعديل تكوين النظام كما الخارق
+Read/write storage device|قراءة / كتابة جهاز التخزين
+Wake up during a specific system event|استيقظ خلال حدث نظام معين
+Uninstall this extension|أزل هذا التمديد
+Switch web console provided to this extension|قم بالتبديل بين وحدة التحكم المقدمة على الويب لهذا الملحق
+Web console version:|إصدار وحدة تحكم الويب:
+Get the web console source code|الحصول على شفرة المصدر وحدة التحكم على شبكة الإنترنت
+Contributor list|قائمة المساهمين
+Connect|الاتصال
+Seth Connect|سيث كونيكت
+Start catching|البدء في اصطياد
+Disconnect|قطع الاتصال
+Traditional catching server is disabled because the new persistent catching service is enabled.|تم تعطيل خادم الالتقاط التقليدي بسبب تمكين خدمة الالتقاط المستمرة الجديدة.
+These settings are stored in your browser client, so different terminals do not affect each other. If your browser does not support Local Storage and IndexedDB, you cannot save some settings.|يتم تخزين هذه الإعدادات في عميل المستعرض الخاص بك ، لذلك لا تؤثر المحطات الطرفية المختلفة على بعضها البعض. إذا كان المستعرض الخاص بك لا يدعم التخزين المحلي و IndexedDB ، لا يمكنك حفظ بعض الإعدادات.
+Web console theme|موضوع وحدة التحكم على شبكة الإنترنت
+The web console can dynamically load third-party theme code for customization.|يمكن لوحدة التحكم في الويب تحميل رمز سمة الجهة الخارجية بشكل حيوي للتخصيص.
+Current theme:|الموضوع الحالي:
+Find theme from the Ranga Web App Store|ابحث عن سمة من متجر Ranga Web App Store
+Manually set a custom theme|تعيين سمة مخصصة يدويًا
+Web console PWA progressive application|وحدة تحكم الويب PWA التطبيق التدريجي
+The web console can be added to your smartphone's home screen via PWA technology and achieve a similar experience with native apps. Support for Android and iOS.|يمكن إضافة وحدة تحكم الويب إلى الشاشة الرئيسية لهاتفك الذكي عبر تقنية PWA وتحقيق تجربة مماثلة مع التطبيقات المحلية. دعم Android و iOS.
+Open the PWA boot page|افتح صفحة التمهيد PWA
+Automatic synchronization time (Netkeeper only)|وقت المزامنة التلقائية (Netkeeper فقط)
+Netkeeper is a proprietary protocol based on PPPoE. This protocol requires that the system clock error of the client must not exceed 2 to 3 seconds before the connection is established. The web console can synchronize browser time (your system time) to the NSWA Ranga system before connecting to Netkeeper. If you don't use automatic sync time, you will most likely need to go to "System management" to manually set the time before each connection. The automatic synchronization time does not take effect for protocols other than Netkeeper.|Netkeeper هو بروتوكول خاص يعتمد على PPPOE. يتطلب هذا البروتوكول ألا يتجاوز خطأ ساعة النظام للعميل من 2 إلى 3 ثوان قبل إنشاء الاتصال. يمكن لوحدة تحكم الويب مزامنة وقت المتصفح (وقت النظام الخاص بك) مع نظام NSWA Ranga قبل الاتصال بـ Netkeeper. إذا لم تستخدم وقت المزامنة التلقائي ، فستحتاج على الأرجح إلى الانتقال إلى "إدارة النظام" لتعيين الوقت قبل كل اتصال يدويًا. لا يسري وقت المزامنة التلقائية على البروتوكولات الأخرى غير Netkeeper.
+Enable automatic synchronization time (Netkeeper only)|تمكين وقت المزامنة التلقائية (Netkeeper فقط)
+NSWA Online Push|NSWA Online Push
+NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|ستحصل NSWA Online على & nbsp؛ <b> أحدث الإعلانات </ b> و & nbsp؛ <b> تحديثات برامج النظام عبر الإنترنت </ b> و & nbsp؛ <b> عرض تعديلات النمط </ b> & nbsp؛ و & nbsp؛ <b> مهرجان رسومات الشعار المبتكرة </b> ، وما إلى ذلك بعد فتح وحدة تحكم الويب. يتم عرضه على وحدة تحكم الويب. هذه هي ميزة وحدة تحكم الويب وليست من وظائف NSWA Ranga. يحدث فقط في متصفحك. لا يمكن الوصول إلى الخادم الخاص بنا والبرامج أو البيانات المحدثة التي يتم جلبها بشكل خاص في الإصدار الرسمي من NSWA Ranga! سياسة خصوصية NSWA عبر الإنترنت: لا نقوم بجمع أو إرسال أو تخزين أي من بياناتك الشخصية على الخادم. قد نقوم بتخزين بعض علامات البيانات محليًا في متصفحك. على سبيل المثال ، هل تختار تجاهل تذكير التحديث بدلاً من عرضه؟ سيتم تخزينها محليًا في المتصفح ولن يتم نقلها عبر الشبكة.
+Enable NSWA Online Push|تمكين NSWA Online Push
+Web console experimental features|الميزات التجريبية لوحدة الويب
+Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|فيما يلي بعض ميزات وحدة تحكم الويب التي لا تزال تجريبية ، والتي يمكن أن تنطوي على عيوب محتملة.
+"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|يتم عرض زر "بدء البحث عن جميع واجهات NK" في "أدوات إضافية" على صفحة "الشبكات"
