@@ -8,8 +8,19 @@ const page_setting_init = () => {
 	let timesync = page_setting.$('timesync'),
 		online = page_setting.$('online'),
 		exp_onekey = page_setting.$('exp-onekey'),
-		theme = page_setting.$('theme');
+		theme = page_setting.$('theme'),
+		localeinput = page_setting.$('locale');
 
+	let locale = utils.getLocalStorageItem('locale');
+	if (!utils.isNil(locale)) {
+		localeinput.value = locale;
+	}
+	
+	localeinput.addEventListener('change', e => {
+		localStorage.setItem('locale', localeinput.value);
+		location.reload(true);
+	});
+	
 	theme.textContent = webconThemeUUID ? webconThemeUUID : _('Default theme');
 	page_setting.$('themestore').addEventListener('click', e => {
 		iframePage(webcon.supportSiteMain + '/was2/themes.html', _('Ranga Web App Store - Themes'))
