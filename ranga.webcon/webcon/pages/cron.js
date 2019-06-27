@@ -40,7 +40,7 @@ page_cron.actionsList = [
 ];
 
 const page_cron_init = () => {
-	webcon.addButton('添加', 'icon-add', b => {
+	webcon.addButton(_('Add'), 'icon-add', b => {
 		let add = page_cron.getElementById('add');
 		if (add.classList.contains('hide')) {
 			add.classList.remove('hide');

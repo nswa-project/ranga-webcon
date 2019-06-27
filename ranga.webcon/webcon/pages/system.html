@@ -39,8 +39,8 @@
 		}
 
 	</style>
-	<h1>设置系统时钟</h1>
-	<div class="tips" style="margin-bottom: 10px;">将系统时钟设置为指定值，或者从浏览器同步系统时钟。</div>
+	<h1 class="_tr">Set the system clock</h1>
+	<div class="tips _tr" style="margin-bottom: 10px;">Set system clock to the specified value or synchronize clock from the browser.</div>
 	<table>
 		<tr>
 			<td>UNIXTimestamp</td>
@@ -48,29 +48,29 @@
 			</td>
 		</tr>
 	</table>
-	<button class="btnFlat" id="p-system-date">设置系统时钟</button><button class="btnFlat" id="p-system-syncdate">从浏览器同步系统时钟</button>
-	<h1>重启设备</h1>
-	<div class="tips">立即执行重启。现有网络连接会被重置。</div>
-	<button class="btnFlat" id="p-system-reboot">重启</button>
-	<h1>系统日志</h1>
-	<div class="tips">系统日志可能有助于排查系统和连接问题。</div>
-	<button class="btnFlat" id="p-system-log">查看系统日志缓冲区</button>
-	<h1>修改超级用户密码</h1>
-	<div class="tips" style="margin-bottom: 10px;">超级用户可以访问完整 NSWA Ranga 系统 API，我们建议您设置为一个较安全的密码。</div>
+	<button class="btnFlat _tr" id="p-system-date">Set system clock</button><button class="btnFlat _tr" id="p-system-syncdate">Synchronize clock from the browser</button>
+	<h1 class="_tr">Reboot the device</h1>
+	<div class="tips _tr">Perform a reboot immediately. Existing network connections will be reset.</div>
+	<button class="btnFlat _tr" id="p-system-reboot">Reboot</button>
+	<h1 class="_tr">System journal</h1>
+	<div class="tips _tr">System journals can help troubleshoot system and connectivity issues.</div>
+	<button class="btnFlat _tr" id="p-system-log">View system log buffer</button>
+	<h1 class="_tr">Modify the superuser password</h1>
+	<div class="tips _tr" style="margin-bottom: 10px;">Super users have access to the full NSWA Ranga System API. We recommend that you set it to a more secure password.</div>
 	<table>
 		<tr>
-			<td>新密码</td>
+			<td class="_tr">New password</td>
 			<td><input type="password" id="p-system-passwd">
 			</td>
 		</tr>
 		<tr>
-			<td>重复输入</td>
+			<td class="_tr">Repeat input</td>
 			<td><input type="password" id="p-system-passwd2">
 			</td>
 		</tr>
 	</table>
-	<button class="btnFlat" id="p-system-chpw">修改密码</button>
-	<h1>额外（可选）服务</h1>
+	<button class="btnFlat _tr" id="p-system-chpw">Change Password</button>
+	<h1 class="_tr">Additional (optional) service</h1>
 	<div id="p-system-item_t" class="p-system-item hide">
 		<div class="p-system-item-a">
 			<i class="icon icon-system p-system-item-icon"></i>
@@ -78,11 +78,11 @@
 				<span class="p-system-item-name"></span>
 				<span class="p-system-item-info tips"></span>
 				<div class="p-system-item-btns">
-					<input type="checkbox" class="p-system-item-auto"><label class="p-system-item-auto-label checkbox_label">开机自启动</label>
-					<button class="btnFlat p-system-item-btn-config hide">服务特定配置</button>
-					<button class="btnFlat p-system-item-btn-start">启动</button>
-					<button class="btnFlat p-system-item-btn-stop">停止</button>
-					<button class="btnFlat p-system-item-btn-restart">重新启动</button>
+					<input type="checkbox" class="p-system-item-auto"><label class="p-system-item-auto-label checkbox_label _tr">Autostart from boot</label>
+					<button class="btnFlat _tr p-system-item-btn-config hide">Service specific configuration</button>
+					<button class="btnFlat _tr p-system-item-btn-start">Startup</button>
+					<button class="btnFlat _tr p-system-item-btn-stop">Stop</button>
+					<button class="btnFlat _tr p-system-item-btn-restart">Restart</button>
 				</div>
 			</div>
 		</div>

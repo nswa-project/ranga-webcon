@@ -5,7 +5,7 @@ page_addon.getElementById = id => {
 }
 
 page_addon.reloadPage = () => {
-	selectPage('addon', '附加组件');
+	selectPage('addon', _('Addon'));
 }
 
 page_addon.extInfoShow = pkgname => {
@@ -15,9 +15,9 @@ page_addon.extInfoShow = pkgname => {
 		console.log(data);
 
 		page_addon.getElementById('extinfo-name').textContent = data['%name'];
-		page_addon.getElementById('extinfo-version').textContent = "版本: " + data['%ver'];
-		page_addon.getElementById('extinfo-author').textContent = "作者: " + data['%author'];
-		page_addon.getElementById('extinfo-api').textContent = "API 版本: " + data['%api'];
+		page_addon.getElementById('extinfo-version').textContent = _("Version: {0}").format(data['%ver']);
+		page_addon.getElementById('extinfo-author').textContent = _("Author: {0}").format(data['%author']);
+		page_addon.getElementById('extinfo-api').textContent = _("API version: {0}").format(data['%api']);
 		page_addon.getElementById('extinfo-pkgname').textContent = pkgname;
 
 		if ('%-x-webcon' in data && data['%-x-webcon'] === '1') {
@@ -41,7 +41,7 @@ page_addon.extInfoHide = () => {
 }
 
 page_addon.openWcapp = (pkgname, name) => {
-	iframePage('/cgi-bin/wcapp/' + encodeURIComponent(pkgname) + '/', '由 ' + name + ' 提供的页面');
+	iframePage('/cgi-bin/wcapp/' + encodeURIComponent(pkgname) + '/', _("Page provided by '{0}'").format(name));
 	return false;
 }
 
@@ -55,7 +55,7 @@ page_addon.extensionItem = pkgname => {
 
 		let item = itemT.cloneNode(true);
 		item.getElementsByClassName('p-addon-item-name')[0].textContent = data['%name'];
-		item.getElementsByClassName('p-addon-item-version')[0].textContent = pkgname + " 版本: " + data['%ver'];
+		item.getElementsByClassName('p-addon-item-version')[0].textContent = pkgname + " " + _("Version: {0}").format(data['%ver']);
 		item.getElementsByClassName('p-addon-item-author')[0].textContent = data['%author'];
 		item.getElementsByTagName('button')[0].addEventListener('click', ((f, a) => e => f(a))(page_addon.extInfoShow, pkgname));
 
@@ -88,11 +88,11 @@ page_addon.install = blob => {
 }
 
 const page_addon_init = () => {
-	webcon.addButton('添加', 'icon-add', b => webcon.dropDownMenu(b, [{
-			name: '上传扩展程序',
+	webcon.addButton(_('Add'), 'icon-add', b => webcon.dropDownMenu(b, [{
+			name: _('Upload extension'),
 			func: (() => {
-				let d = dialog.show('icon-add', '安装新扩展程序', "安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。通过 Web 控制台上传扩展程序是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。<br><br>选择扩展程序包：<input type=file accept='.zip,.npks' /><br>", [{
-					name: "上传",
+				let d = dialog.show('icon-add', _('Install a new extension'), "{0}<br><br>{1}<input type=file accept='.zip,.npks' /><br>".format(_("Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances. Uploading extensions through the web console is experimental, and your browser must be new enough to support the File API, which is currently just a web working draft."), _("Select the extension package: ")), [{
+					name: _("Upload"),
 					func: (d => {
 						let files = d.getElementsByTagName('input')[0].files;
 						let file = files[0];
@@ -105,29 +105,29 @@ const page_addon_init = () => {
 						dialog.close(d);
 					})
 				}, {
-					name: "取消",
+					name: _("Cancel"),
 					func: dialog.close
 				}]);
 			})
 		}, {
-			name: '打开 Ranga 网上应用店',
+			name: _('Open the Ranga Web App Store'),
 			func: (() => {
-				iframePage(webcon.supportSiteMain + '/was2/index.html', 'Ranga 网上应用店 - 扩展程序')
+				iframePage(webcon.supportSiteMain + '/was2/index.html', _('Ranga Web App Store - Extensions'));
 			})
 		}, {
-			name: '部署系统组件',
+			name: _('Deploy system components'),
 			func: (() => {
-				let d = dialog.show('icon-add', '部署系统组件', "输入希望部署的系统组件的 UUID 标识码。部分系统组件也可能有一个人类友好名字。<br><br><input style='width: 100%'>", [{
-					name: "部署",
+				let d = dialog.show('icon-add', _('Deploy system components'), "{0}<br><br><input style='width: 100%'>".format(_("Enter the UUID ID of the system component you want to deploy. Some system components may also have a human friendly name.")), [{
+					name: _("Deploy"),
 					func: (d => {
 						let uuid = d.getElementsByTagName('input')[0].value;
 						if (utils.isNil(uuid) || uuid == "") {
-							dialog.simple("空的 UUID 不被支持。");
+							dialog.simple(_("An empty UUID is not supported."));
 						} else {
-							webcon.lockScreen("正在下载组件...");
+							webcon.lockScreen(_("Downloading components..."));
 							webcon.loadScript('swdeploy', 'scripts/swdeploy.js').then(e => {
 								return utils.ajaxGet2(webcon.supportSiteMain + '/swdl/component/' + uuid, true).catch(e => {
-									dialog.simple("下载失败，UUID 对应的组件不存在，或者你的网络连接有问题。");
+									dialog.simple(_("The download failed, the component corresponding to the UUID does not exist, or there is a problem with your network connection."));
 									return Promise.reject(utils.inhibitorForPromiseErrorHandler);
 								});
 							}).then(blob => {
@@ -139,7 +139,7 @@ const page_addon_init = () => {
 						dialog.close(d);
 					})
 				}, {
-					name: "取消",
+					name: _("Cancel"),
 					func: dialog.close
 				}]);
 				let ipt = dialog.textWidget(d).getElementsByTagName('input')[0];
@@ -195,7 +195,7 @@ const page_addon_init = () => {
 		});
 
 		if (n === 0) {
-			div.innerHTML = '<div class=tips style="text-align: center">你的系统未安装任何组件</div>';
+			div.innerHTML = '<div class=tips style="text-align: center">{0}</div>'.format(_('No components are installed on your system'));
 		}
 
 		return ranga.api.addonList();

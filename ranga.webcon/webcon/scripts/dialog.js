@@ -76,7 +76,7 @@ dialog.textWidget = dialog_back => {
 }
 
 dialog.simple = (text, close_btn_text) => {
-	close_btn_text = close_btn_text || "好";
+	close_btn_text = close_btn_text || _("OK");
 	let dlg = dialog.show(null, null, text, [{
 		name: close_btn_text,
 		func: dialog.close

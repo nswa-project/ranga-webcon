@@ -14,7 +14,7 @@ page_network.synctime = type => {
 }
 
 page_network.conn = (name, type) => {
-	webcon.lockScreen('正在连接，请稍候...');
+	webcon.lockScreen(_('Connecting, please wait...'));
 	let action = 'up';
 	if (type === 'netkeeper' || type === 'pppoe') {
 		action = 'dialup';
@@ -23,7 +23,7 @@ page_network.conn = (name, type) => {
 	page_network.synctime(type).then(proto => {
 		return ranga.api.action('network', [action, name]);
 	}).then(proto => {
-		dialog.toast("接口 ‘" + name + "' 已连接。");
+		dialog.toast(_("Interface '{0}' connected.").format(name));
 	}).catch(proto => {
 		defErrorHandler(proto);
 		if (type === 'netkeeper' && !(utils.isNil(proto))) {
@@ -42,7 +42,7 @@ page_network.conn = (name, type) => {
 page_network.close = (name, type) => {
 	webcon.lockScreen();
 	ranga.api.action('network', ['down', name]).then(proto => {
-		dialog.toast("已断开接口 ‘" + name + "' 的连接。");
+		dialog.toast(_("Disconnected connection of interface '{0}'").format(name));
 	}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
 		page_network.reload();
@@ -59,25 +59,24 @@ page_network.serverPoll = (dlg, ifname) => {
 
 		switch (status) {
 			case 1:
-				webcon.updateScreenLockTextWidget(dlg, '拦截服务器启动中 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, _('Catching server startup ({0})').format(ifname));
 				break;
 			case 2:
-				webcon.updateScreenLockTextWidget(dlg, '拦截服务器已经准备就绪 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, _('Catching server is already ready ({0})').format(ifname));
 				break;
 			case 3:
-				webcon.updateScreenLockTextWidget(dlg, '拦截服务器已捕获认证信息 (' + ifname + ')');
+				webcon.updateScreenLockTextWidget(dlg, _('Catching server has Captured authentication information ({0})').format(ifname));
 				break;
 			case 4:
 				webcon.unlockScreen();
 				needPoll = false;
 				page_network.reload();
-				dialog.toast("接口 ‘" + ifname + "' 的拦截过程已经结束。");
+				dialog.toast(_("The catching process for interface '{0}' has completed.").format(ifname));
 				break;
 			case 5:
 				webcon.unlockScreen();
 				needPoll = false;
-				dialog.simple('拦截服务器已超时 (' + ifname + ')');
-
+				dialog.simple(_('Catching server timed out ({0})').format(ifname));
 				console.log('onekey: stop');
 				stopStartServer = true;
 				break;
@@ -102,7 +101,7 @@ page_network.seth = (name, type) => {
 		}
 	}).catch(e => {
 		utils.promiseDebug(e);
-		dialog.simple('此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。');
+		dialog.simple(_('This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.'));
 		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
 	}).then(blob => {
 		return utils.sethGetNKPin(utils.getUNIXTimestamp(), blob);
@@ -110,13 +109,13 @@ page_network.seth = (name, type) => {
 		if (e === utils.inhibitorForPromiseErrorHandler)
 			return Promise.reject(e);
 		utils.promiseDebug(e);
-		dialog.simple('无法从 Seth 数据中获取当前 NK PIN 和 Hash，请确定数据未过期，且当前时间正确。');
+		dialog.simple(_('Unable to get current NK PIN and Hash from Seth data. Please make sure the data has not expired and the current time is correct.'));
 		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
 	}).then(pin => {
 		console.log("sethng: NK PIN and Hash: " + pin);
 		return ranga.api.action('network', ['nkdial', name, pin]);
 	}).then(proto => {
-		dialog.toast("接口 ‘" + name + "' 已连接。");
+		dialog.toast(_("Interface '{0}' connected.").format(name));
 	}).catch(e => {
 		if (e === utils.inhibitorForPromiseErrorHandler)
 			return Promise.reject(e);
@@ -144,6 +143,21 @@ page_network.server = (name, type) => {
 	});
 }
 
+page_network.kwdMap = {
+	netkeeper: _('PPPoE（Netkeeper）'),
+	pppoe: _('PPPoE'),
+	dhcp: _('DHCP'),
+	none: _('Unmanaged'),
+	static: _('Static')
+}
+
+page_network.kwd = keyword => {
+	if (keyword in page_network.kwdMap) {
+		return page_network.kwdMap["" + keyword];
+	}
+	return keyword;
+}
+
 page_network.reload = () => {
 	let div = document.getElementById('page_network_main');
 	div.textContent = '';
@@ -168,7 +182,7 @@ page_network.reload = () => {
 
 			let item = itemT.cloneNode(true);
 			item.getElementsByClassName('p-network-item-ifname')[0].textContent = d[0];
-			item.getElementsByClassName('p-network-item-type')[0].textContent = webcon.trKeyword(d[1]);
+			item.getElementsByClassName('p-network-item-type')[0].textContent = page_network.kwd(d[1]);
 
 			if (parseInt(d[2]) === 1) {
 				let btn = item.getElementsByClassName('p-network-item-btn-close')[0];
@@ -194,7 +208,7 @@ page_network.reload = () => {
 
 			let stat = d[3].split(',');
 			if (stat.length >= 2) {
-				item.getElementsByClassName('p-network-item-data')[0].innerHTML = "已发送: " + utils.formatBytes(stat[1]) + "&nbsp;&nbsp;&nbsp;已接收: " + utils.formatBytes(stat[0]);
+				item.getElementsByClassName('p-network-item-data')[0].innerHTML = _("TX bytes: ") + utils.formatBytes(stat[1]) + "&nbsp;&nbsp;&nbsp;" + _("RX bytes: ") + utils.formatBytes(stat[0]);
 			}
 
 			item.classList.remove('hide');
@@ -214,16 +228,16 @@ page_network.reload = () => {
 var stopStartServer = false;
 
 const page_network_init = () => {
-	webcon.addButton('刷新', 'icon-reload', b => {
+	webcon.addButton(_('Reload'), 'icon-reload', b => {
 		b.disabled = true;
 		page_network.reload().finally(() => (b.disabled = false));
 	});
 
 	let extra_tools_arr = [
 		{
-			name: 'Seth 安全断开',
+			name: _('Seth Safe disconnect'),
 			func: (n => {
-				dialog.show("icon-info", "Seth 安全断开", "使用 Seth 安全断开的账户，只要当前同步的 Seth 数据在当下有效，并且断开后账户不在其他地方连接，则下次可以免同步 Seth 数据进行拨号！Seth 安全断开适合于准备进行重启或关机前执行，因为 Seth 数据存储在设备的内存中，断电后将会丢失（由于 NSWA Ranga 主要采用擦除寿命很有限的闪存，而数据很大且频繁被更新，如果存储在闪存将会影响设备寿命）。Seth 安全断开不会断开未启用 <b>Seth_v1</b> Netkeeper 扩展的接口", [
+				dialog.show("icon-info", _('Seth Safe disconnect'), "使用 Seth 安全断开的账户，只要当前同步的 Seth 数据在当下有效，并且断开后账户不在其他地方连接，则下次可以免同步 Seth 数据进行拨号！Seth 安全断开适合于准备进行重启或关机前执行，因为 Seth 数据存储在设备的内存中，断电后将会丢失（由于 NSWA Ranga 主要采用擦除寿命很有限的闪存，而数据很大且频繁被更新，如果存储在闪存将会影响设备寿命）。Seth 安全断开不会断开未启用 <b>Seth_v1</b> Netkeeper 扩展的接口", [
 					{
 						name: '我知道了',
 						func: (d => {
@@ -242,11 +256,11 @@ const page_network_init = () => {
 				])
 			})
 			}, {
-			name: '拨号医生',
+			name: _('Dialing doctor'),
 			func: (n => {
-				dialog.show(null, null, "请注意：<b>直接运行拨号医生可能报告完全错误的诊断结果</b>，在连接（拦截法除外）失败时，拨号医生会自动弹出通知以启动，这时的结果正确率较高。但你仍然可以随时强制启动拨号医生，以诊断拦截法或上次自动拨号的连接问题，但结果可能不准确甚至完全错误。", [
+				dialog.show(null, null, _("Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong."), [
 					{
-						name: '我知道了',
+						name: _('I know'),
 						func: (d => {
 							webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
 								doctor.analysis();
@@ -261,9 +275,9 @@ const page_network_init = () => {
 
 	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
 		extra_tools_arr.push({
-			name: '为所有 NK 接口启动拦截',
+			name: _('Start catching for all NK interfaces'),
 			func: (n => {
-				webcon.lockScreen('正在获取接口信息...')
+				webcon.lockScreen(_('Getting interface information...'))
 				ranga.api.query('network', []).then(proto => {
 					let arr = proto.payload.split('\n');
 
@@ -281,7 +295,7 @@ const page_network_init = () => {
 							if (stopStartServer) return Promise.resolve();
 							let dlg = webcon.lockScreen();
 							console.log('onekey: start: ' + ifname);
-							webcon.updateScreenLockTextWidget(dlg, '准备：' + ifname);
+							webcon.updateScreenLockTextWidget(dlg, 'prepare：' + ifname);
 							return ranga.api.action('network', ['start-server', ifname]).then(proto => {
 								console.log('onekey: polling: ' + ifname);
 								return page_network.serverPoll(dlg, ifname);
@@ -296,7 +310,7 @@ const page_network_init = () => {
 			})
 		});
 	}
-	webcon.addButton('额外工具', 'icon-tool', b => webcon.dropDownMenu(b, extra_tools_arr));
+	webcon.addButton(_('Extra tools'), 'icon-tool', b => webcon.dropDownMenu(b, extra_tools_arr));
 
 	page_network.reload();
 }

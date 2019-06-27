@@ -15,22 +15,22 @@
 		}
 
 	</style>
-	<h1>使用 NSWA Online 推送更新系统</h1>
-	如果你没有关闭 Web 控制台的 NSWA Online 推送功能，新版本发布后，在你打开 Web 控制台时会向你推送。弹出更新通知。
-	<h1>使用命令行工具更新系统到最新版本</h1>
-	使用命令行工具可以自动将 NSWA Ranga 系统更新到最新版本，这在需要安装多个 OTA 更新的时候非常有用。大部分情况下，使用此命令可以将 NSWA Ranga 系统自动安装从当前版本直到最新版本所有的 OTA 更新包。
+	<h1 class="_tr">Update system by NSWA Online push</h1>
+	<div class="_tr">If you don't have the NSWA Online push feature turned off in the web console, the new version will be pushed to you when you open the web console. An update notification will pop up.</div>
+	<h1 class="_tr">Use the command line tool to update your system to the latest version</h1>
+	<div class="_tr">Use the command line tool to automatically update the NSWA Ranga system to the latest version, which is useful when you need to install multiple OTA updates. In most cases, this command allows the NSWA Ranga system to automatically install all OTA update packages from the current version to the latest version.</div>
 	<pre>ranga-cli auth -p
 ranga-cli swdeploy sync</pre>
-	如果需要使用命令行工具安装一个固件文件，你可以
+	<div class="_tr">If you need to install a firmware file using the command line tool, you can</div>
 	<pre>ranga-cli auth -p
 ranga-cli swdeploy flash /path/to/firmware.bin</pre>
-	有关命令行工具进行系统更新的更多用法，请运行 <code>ranga-cli swdeploy -h</code> 获得帮助信息。
-	<h1>使用 Web 控制台上传固件</h1>
-	<div class="tips">通过 Web 控制台上传系统固件更新是具有实验性的，且你的浏览器必须足够新以支持目前仅仅是 Web 工作草案的 File API。"下次完整包更新时抹掉当前系统配置" 会在你（主动或被动）重启系统之前一直有效；"礼貌地要求安装完毕后执行重启" 并非一个强制性的操作，而是向更新程序提出请求，可以被更新程序忽略，同时，更新程序也可能自行决定是否应该重启，而不管你是否请求，但是，对于大部分无需重启的更新，使用此功能将会在更新完毕后重启。</div><br>
-	选择固件文件：<input type="file" id="p-update-file" /><br>
+	<div class="_tr">For more usage of the command line tool for system updates, run<code>ranga-cli swdeploy -h</code>for help.</div>
+	<h1 class="_tr">Upload firmware using the web console</h1>
+	<div class="tips _tr">Uploading system firmware updates via the web console is experimental and your browser must be new enough to support the File API, which is currently just a web working draft. "Erase the current system configuration during the next full package update" will remain in effect until you (actively or passively) reboot the system; "Politely requesting a reboot after installation" is not a mandatory operation, but rather making a request to the updater, which can be ignored by the updater. At the same time, the updater may decide whether it should do reboot or not, regardless of whether you request it or not. However, for most updates that do not need to be restarted, this feature will be restarted after the update is complete.</div><br>
+	<div class="simpleLabel _tr">Select the firmware file:</div><input type="file" id="p-update-file" /><br>
 	<div id="p-update-options">
-		<input type="checkbox" id="p-update-fpearseconfig"><label for="p-update-fpearseconfig" class="checkbox_label">下次完整包更新时抹掉当前系统配置</label><br>
-		<input type="checkbox" id="p-update-reboot"><label for="p-update-reboot" class="checkbox_label">礼貌地要求安装完毕后执行重启</label><br>
+		<input type="checkbox" id="p-update-fpearseconfig"><label for="p-update-fpearseconfig" class="checkbox_label _tr">Erase the current system configuration during the next full package update</label><br>
+		<input type="checkbox" id="p-update-reboot"><label for="p-update-reboot" class="checkbox_label _tr">Politely requesting a reboot after installation</label><br>
 	</div>
-	<button class="btnFlat" id="p-update-upload" type="button">上传</button><br>
+	<button class="btnFlat _tr" id="p-update-upload" type="button">Upload</button><br>
 </div>

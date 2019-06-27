@@ -10,61 +10,61 @@
 
 	</style>
 	<div id="p-mwan-status-disabled" class="hide">
-		多宿主未启用，要启用多宿主，请点按“启用多宿主”按钮<br>
-		<button class="btnFlat" id='p-mwan-enable'>启用多宿主</button>
+		<div class="_tr">Multi-homing is not enabled, to enable multi-homing, click the "Enable Multihoming" button.</div><br>
+		<button class="btnFlat _tr" id='p-mwan-enable'>Enable Multihoming</button>
 	</div>
 	<div id="p-mwan-status-enabled" class="hide">
-		<div class="tips">禁用多宿主不会清除多宿主的配置</div>
-		<div class="tips">负载均衡设置的修改在重启 NSWA Ranga 系统或重启负载均衡服务之前不会生效，因此在修改这些设置后，你可以点按“重启负载均衡服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成负载均衡的多个配置，然后执行一次。</div>
-		<button class="btnFlat" id='p-mwan-disable'>禁用多宿主</button>
-		<button class="btnFlat" id='p-mwan-restart'>重启负载均衡服务</button>
-		<h1>反向 VLAN</h1>
-		<div class="tips">Reverse VLAN（反向 VLAN）是 NSWA Ranga 定义的概念，从实际上看，站在交换机系统本身的角度，“正向”的、也就是真正意义上的 VLAN 是在交换机系统上使用单个接口，然后将单个接口映射到多个虚拟网络（一到多），那么“反向 VLAN” 的名字来源于相反的含义，它将多个虚拟网络映射到单一接口（多到一）。NSWA Ranga 使用反向 VLAN 实现在单个 WAN 插口（网卡或者网卡的一个 VLAN）上同时建立多条网络连接（如 PPPoE 链接）的目的。因此你就需要给每个新建的 'md..' 接口设置不同的“反向 VLAN”，请前往“<b>接口设置</b>”进行设置，“反向 VLAN” 从 0 开始。</div>
-		反向 VLAN 的个数 <input type="text" id="p-mwan-nrvlan"><br>
-		<button class="btnFlat" id='p-mwan-set-rvlan'>设置</button>
-		<h1>负载均衡</h1>
-		选择你要配置的接口 <select id="p-mwan-ifs" style="min-height: 24px;">
-			<option value="" class="hide">请选择</option>
+		<div class="tips _tr">Disabling multihoming does not clear the multihomed configuration</div>
+		<div class="tips _tr">Changes to the load balancing settings will not take effect until the NSWA Ranga system is rebooted or the load balancing service is restarted, so after modifying these settings, you can click the "Restart Load Balancing Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of load balancing and then execute it once.</div>
+		<button class="btnFlat _tr" id='p-mwan-disable'>Disable multihoming</button>
+		<button class="btnFlat _tr" id='p-mwan-restart'>Restart Load Balancing Service</button>
+		<h1 class="_tr">Reverse VLAN</h1>
+		<div class="tips _tr">Reverse VLAN (reverse VLAN) is a concept defined by NSWA Ranga. In fact, from the perspective of the switch system itself, the "forward", that is, the true VLAN is a single interface on the switch system, and then Mapping a single interface to multiple virtual networks (one to many), the name "reverse VLAN" is derived from the opposite meaning, which maps multiple virtual networks to a single interface (to one to one). NSWA Ranga uses reverse VLANs to create multiple network connections (such as PPPoE links) on a single WAN socket (a NIC or a VLAN on a NIC). Therefore, you need to set a different "reverse VLAN" for each new 'md..' interface. Go to "<b>Interface configuration</b>" and set the "Reverse VLAN" from 0.</div>
+		<div class="simpleLabel _tr">Number of reverse VLANs</div><input type="text" id="p-mwan-nrvlan"><br>
+		<button class="btnFlat _tr" id='p-mwan-set-rvlan'>Apply</button>
+		<h1 class="_tr">Load balancing</h1>
+		<div class="simpleLabel _tr">Select the interface you want to configure</div><select id="p-mwan-ifs" style="min-height: 24px;">
+			<option value="" class="hide _tr">Please choose</option>
 		</select><br>
-		<div class="tips" style="margin-top: 10px;">负载均衡只会使用添加到负载均衡列表的接口</div>
-		<input type="checkbox" id="p-mwan-addif"><label for="p-mwan-addif" class="checkbox_label">将此接口添加到负载均衡列表</label>
+		<div class="tips _tr" style="margin-top: 10px;">Load balancing only uses interfaces added to the load balancing list.</div>
+		<input type="checkbox" id="p-mwan-addif"><label for="p-mwan-addif" class="checkbox_label _tr">Add this interface to the load balancing list</label>
 		<div id="p-mwan-cfg" class="hide">
-			<div class="tips" style="margin-top: 10px;">配置当前选择的接口的负载均衡设置<b>如果你不清楚下面配置的含义，请不要修改，保持默认即可。</b></div>
+			<div class="tips _tr" style="margin-top: 10px;">Configure the load balancing settings of the currently selected interface.&nbsp;<b>If you don't know the meaning of the configuration below, please do not modify it and keep the default.</b></div>
 			<table>
 				<tr>
-					<td>跟踪 IP 列表</td>
+					<td class="_tr">Tracking IP list</td>
 					<td><textarea rows="4" id="p-mwan-trackIPlist"></textarea></td>
 				</tr>
 				<tr>
-					<td>最少应答数</td>
+					<td class="_tr">Minimum number of responses</td>
 					<td><input type="text" id="p-mwan-reliability"></td>
 				</tr>
 				<tr>
-					<td>跟踪超时时间</td>
+					<td class="_tr">Tracking timeout</td>
 					<td><input type="text" id="p-mwan-timeout"></td>
 				</tr>
 				<tr>
-					<td>跟踪间隔时间</td>
+					<td class="_tr">Tracking interval</td>
 					<td><input type="text" id="p-mwan-interval"></td>
 				</tr>
 				<tr>
-					<td>成功阈值</td>
+					<td class="_tr">Success threshold</td>
 					<td><input type="text" id="p-mwan-up"></td>
 				</tr>
 				<tr>
-					<td>失败阈值</td>
+					<td class="_tr">Failure threshold</td>
 					<td><input type="text" id="p-mwan-down"></td>
 				</tr>
 				<tr>
-					<td>优先级</td>
+					<td class="_tr">Priority</td>
 					<td><input type="text" id="p-mwan-metric"></td>
 				</tr>
 				<tr>
-					<td>权重</td>
+					<td class="_tr">Weights</td>
 					<td><input type="text" id="p-mwan-weight"></td>
 				</tr>
 			</table>
-			<button class="btnFlat" id='p-mwan-setif'>设置接口负载均衡参数</button>
+			<button class="btnFlat _tr" id='p-mwan-setif'>Set interface load balancing parameters</button>
 		</div>
 	</div>
 </div>

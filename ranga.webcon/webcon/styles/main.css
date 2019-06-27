@@ -405,6 +405,11 @@ select:active {
 	}
 }
 
+.simpleLabel {
+	display: inline-block;
+	margin-right: 8px;
+}
+
 .hide {
 	display: none !important;
 }

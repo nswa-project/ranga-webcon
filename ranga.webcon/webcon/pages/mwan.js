@@ -5,7 +5,7 @@ page_mwan.getElementById = id => {
 }
 
 page_mwan.reloadPage = () => {
-	selectPage('mwan', '多宿主');
+	selectPage('mwan', _('Multihoming'));
 }
 
 page_mwan.interfaceList = () => {
@@ -61,10 +61,10 @@ page_mwan.interfaceEdit = (available, ifname) => {
 }
 
 const page_mwan_init = () => {
-	webcon.addButton('负载均衡状态', 'icon-info', b => {
+	webcon.addButton(_('Load balancing state'), 'icon-info', b => {
 		ranga.api.query('network', ['mwan']).then(proto => {
-			let d = dialog.show('icon-info', '负载均衡状态', "<pre></pre>", [{
-				name: "关闭",
+			let d = dialog.show('icon-info', _('Load balancing state'), "<pre></pre>", [{
+				name: _("Close"),
 				func: dialog.close
 			}]);
 			let pre = dialog.textWidget(d).getElementsByTagName('pre')[0];
@@ -144,20 +144,18 @@ const page_mwan_init = () => {
 	page_mwan.getElementById('addif').addEventListener('change', e => {
 		let addif = page_mwan.getElementById('addif'),
 			ifname = page_mwan.getElementById('ifs').value,
-			action = 'remove',
-			action_nice= '从多宿主列表中删除';
+			action = 'remove';
 
 		if (ifname === '')
 			return;
 
 		if (addif.checked === true) {
 			action = 'add';
-			action_nice= '添加到多宿主列表';
 		}
 
 		ranga.api.config('mwan', [action, ifname]).then(proto => {
 			page_mwan.interfaceEdit(addif.checked, ifname);
-			dialog.toast("已经将接口 ‘" + ifname + "' " + action_nice + "。但需要重启多宿主服务以生效。");
+			dialog.toast(_("The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.").format(ifname, action));
 		}).catch(defErrorHandler);
 	});
 
@@ -194,7 +192,7 @@ const page_mwan_init = () => {
 		}).then(proto => {
 			return ranga.api.config('mwan', ['set', ifname, 'weight', weight]);
 		}).then(proto => {
-			dialog.toast("接口 ‘" + ifname + "' 的多宿主配置已经更改。但需要重启多宿主服务以生效。");
+			dialog.toast(_("The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.").format(ifname));
 		}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();
 		});

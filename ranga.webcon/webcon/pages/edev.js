@@ -11,7 +11,7 @@ page_edev.reloadMountStatus = () => {
 	ranga.api.action('block', ['mainfs-stat']).then(proto => {
 		console.log(proto.payload);
 		if (proto.payload.startsWith('MOUNTED')) {
-			page_edev.$('mainfs').textContent = '主要文件系统已挂载';
+			page_edev.$('mainfs').textContent = _('The main file system is mounted');
 
 			let tmp = proto.payload.split('\n')[1];
 			if (!utils.isNil(tmp)) {
@@ -21,12 +21,12 @@ page_edev.reloadMountStatus = () => {
 					let free = parseInt(arr[1]);
 					let use = "" + ((used / (used + free)) * 100) + "%";
 					page_edev.$('df').classList.remove('hide');
-					page_edev.$('df-text').textContent = '已使用: ' + utils.formatBytes(used * 1024) + "，剩余: " + utils.formatBytes(free * 1024);
+					page_edev.$('df-text').textContent = _('Used: {0}, remaining: {1}').format(utils.formatBytes(used * 1024), utils.formatBytes(free * 1024));
 					page_edev.$('df-pb').style.width = use;
 				}
 			}
 		} else {
-			page_edev.$('mainfs').textContent = '未挂载主要文件系统';
+			page_edev.$('mainfs').textContent = _('Unmounted main file system');
 		}
 	}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
@@ -78,21 +78,21 @@ const page_edev_init = () => {
 
 			let item = itemT.cloneNode(true);
 			item.getElementsByClassName('p-edev-item-prod')[0].textContent = prod;
-			item.getElementsByClassName('p-edev-item-info')[0].innerHTML = "制造商: " + utils.raw2HTMLString(manu) + "<br>设备 ID: " + vid + ":" + pid + " 总线: " + bus + " 设备位置: " + dev;
+			item.getElementsByClassName('p-edev-item-info')[0].innerHTML = _("Manufacturer: {0}<br>Device ID: {1}:{2} Bus: {3} Device Location: {4}").format(utils.raw2HTMLString(manu), vid, pid, bus, dev);
 
 			item.classList.remove('hide');
 			div.appendChild(item);
 		});
 
 		if (sum === 0) {
-			div.textContent = '在你的设备上未发现任何“通用串行总线”设备';
+			div.textContent = _('No "Universal Serial Bus" devices found on your device');
 		}
 
 		page_edev.reloadMountStatus();
 	}).catch(proto => {
 		if (!utils.isNil(proto)) {
 			if ('disp-target-notfound' in proto) {
-				div.textContent = '很抱歉，你的设备未启用“通用串行总线”支持';
+				div.textContent = _('Sorry, your device does not have Universal Serial Bus support enabled.');
 			} else {
 				defErrorHandlerPage(proto);
 			}
@@ -106,7 +106,7 @@ const page_edev_init = () => {
 	page_edev.$('umount').addEventListener('click', e => {
 		webcon.lockScreen();
 		ranga.api.action('block', ['umount-mainfs']).then(proto => {
-			dialog.toast('请耐心等待设备完成卸载...');
+			dialog.toast(_('Please wait patiently for the device to complete the uninstall...'));
 			page_edev.umountPoll();
 		}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();

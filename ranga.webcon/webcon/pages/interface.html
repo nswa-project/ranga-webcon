@@ -41,95 +41,95 @@
 	</button>
 	<div id="p-interface-iflist"></div>
 	<div style="margin-top: 8px">
-		某些接口的配置（如认证信息）在下次连接时即可生效，但有些设置，如“协议”、“静态地址”、“网卡物理地址”等在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按“重启网络服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多项接口的多个配置，然后执行一次。重启网络服务后已建立的点对点协议连接会断开。<br>
-		<button class="btnFlat" id='p-interface-restart'>重启网络服务</button>
+		<div class="_tr">The configuration of some interfaces (such as authentication information) will take effect the next time you connect. However, some settings, such as "Protocol Type", "Static Address", "Interface Physical Address", etc. will not take effect until the NSWA Ranga system is restarted or the network service is restarted. So after modifying these settings, you can click the "Restart Network Service" button to take effect immediately. This operation takes a little while to complete. You don't have to modify each configuration to execute, you can complete multiple configurations of multiple interfaces and then execute it once. The established peer-to-peer protocol connection will be disconnected after restarting the network service.</div>
+		<button class="btnFlat _tr" id='p-interface-restart'>Restart Network Service</button>
 	</div>
 	<div id="page_interface_edit" class="hide">
-		<h1>协议类型</h1>
-		<div class="tips">协议类型是要在此接口上运行什么网络层协议。Netkeeper 扩展只有使用点对点协议时才会有效（例如”基于以太网的点对点协议“和”基于 ATM（异步传输模式）的点对点协议“）</div>
+		<h1 class="_tr">Protocol Type</h1>
+		<div class="tips _tr">The Protocol Type is what network layer protocol to run on this interface. Netkeeper extensions are only valid when using a peer-to-peer protocol (for example, "PPPoE" and "PPPoATM")</div>
 		<table>
 			<tr>
-				<td>协议</td>
+				<td class="_tr">Protocol</td>
 				<td>
 					<select id="p-interface-proto" style="min-height: 24px;">
-						<option value="none">不配置协议</option>
-						<option value="dhcp">动态主机配置协议</option>
-						<option value="dhcpv6">动态主机配置协议版本6</option>
-						<option value="static">静态地址</option>
-						<option value="pppoe">基于以太网的点对点协议</option>
-						<option value="pppoa">基于 ATM（异步传输模式）的点对点协议</option>
+						<option class="_tr" value="none">Unmanaged</option>
+						<option class="_tr" value="dhcp">DHCP</option>
+						<option class="_tr" value="dhcpv6">DHCPv6</option>
+						<option class="_tr" value="static">Static Address</option>
+						<option class="_tr" value="pppoe">PPPoE</option>
+						<option class="_tr" value="pppoa">PPPoATM</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td>Netkeeper 扩展</td>
+				<td class="_tr">Netkeeper Extension</td>
 				<td>
 					<select id="p-interface-nk" style="min-height: 24px;">
-						<option value="off">不使用</option>
+						<option class="_tr" value="off">Non-enable</option>
 						<option value="nkplugin">NK_2_5_0059~patched-1_CMCC-SD</option>
 						<option value="seth">Seth_v1</option>
 					</select>
 				</td>
 			</tr>
 		</table>
-		<button class="btnFlat" id='p-interface-set-proto'>设置</button>
-		<h1>Seth 数据</h1>
-		<div class="tips"><b>仅在你启用了"Netkeeper 扩展"的情况下才有效</b>。Web 控制台支持将 Seth 数据存储到你的浏览器 IndexedDB 中，当你设置 Seth 数据后，你可以在当前浏览器上使用"Seth 连接"方式连接到此网络。你可以直接从文件设置 Seth 数据或者从 Seth 服务器更新数据。若要从 Seth 服务器更新数据，你必须输入秘密代码（Secret）。</div>
+		<button class="btnFlat _tr" id='p-interface-set-proto'>Apply</button>
+		<h1 class="_tr">Seth Data</h1>
+		<div class="tips _tr"><b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).</div>
 		<div id="p-interface-seth-info"></div>
 		<input type="file" style="display: none" id="p-interface-seth-input-file">
-		<button class="btnFlat" id='p-interface-seth-file'>从文件设置</button>
-		<button class="btnFlat" id='p-interface-seth-server'>从 Seth 服务器设置</button>
-		<h1>认证</h1>
-		<div class="tips">当选定的协议存在认证扩展时，使用下面的认证信息进行认证，例如点对点协议的密码身份验证协议和挑战握手认证协议、802.1X 安全性等</div>
+		<button class="btnFlat _tr" id='p-interface-seth-file'>Load From File</button>
+		<button class="btnFlat _tr" id='p-interface-seth-server'>Load From Seth Server</button>
+		<h1 class="_tr">Authenticate</h1>
+		<div class="tips _tr">When the selected protocol has an authentication extension, the following authentication information is used for authentication. Such as PAP or CHAP of the PPPoE, 802.1X security, etc.</div>
 		<table>
 			<tr>
-				<td>用户名</td>
+				<td class="_tr">Username</td>
 				<td><input type="text" id="p-interface-usrnam">
 				</td>
 			</tr>
 			<tr>
-				<td>密码</td>
+				<td class="_tr">Password</td>
 				<td><input type="text" id="p-interface-passwd">
 				</td>
 			</tr>
 		</table>
-		<button class="btnFlat" id='p-interface-set-auth'>设置</button>
-		<h1>静态地址</h1>
-		<div class="tips">当选定的协议为“静态地址”时，使用下面的地址配置</div>
+		<button class="btnFlat _tr" id='p-interface-set-auth'>Apply</button>
+		<h1 class="_tr">Static Address</h1>
+		<div class="tips _tr">When the selected protocol is "Static Address", use the following address configuration. But the Default Route configuration is always used.</div>
 		<table>
 			<tr>
-				<td>网际网协议版本4地址</td>
+				<td class="_tr">IPv4 Address</td>
 				<td><input type="text" id="p-interface-ipaddr">
 				</td>
 			</tr>
 			<tr>
-				<td>网际网协议版本4子网掩码</td>
+				<td class="_tr">IPv4 Netmask</td>
 				<td><input type="text" id="p-interface-netmask">
 				</td>
 			</tr>
 			<tr>
-				<td>网际网协议版本4下一跳地址</td>
+				<td class="_tr">IPv4 Nexthop</td>
 				<td><input type="text" id="p-interface-gateway">
 				</td>
 			</tr>
 			<tr>
-				<td>默认路由</td>
-				<td><input type="checkbox" id="p-interface-defroute"><label for="p-interface-defroute" class="checkbox_label">将此接口设置为路由表默认条目</label>
+				<td class="_tr">Default Route</td>
+				<td><input type="checkbox" id="p-interface-defroute"><label for="p-interface-defroute" class="checkbox_label _tr">Set this interface as the default entry for the routing table</label>
 				</td>
 			</tr>
 		</table>
-		<button class="btnFlat" id='p-interface-set-addr'>设置</button>
+		<button class="btnFlat _tr" id='p-interface-set-addr'>Apply</button>
 		<h1>Reverse VLAN</h1>
-		<div class="tips">WAN 插口是一个抽象概念，它在某些设备上是一个网卡，在另外一些设备上只是一个交换机的某个 VLAN。接口 ‘netkeeper’ 和 ‘wan’ 都绑定到 WAN 插口上，以 'md' 开头的接口将绑定到某个 Reverse VLAN 上。Reverse VLAN（反向 VLAN）是 NSWA Ranga 定义的概念，请参考“多宿主”中的详细解释。“反向 VLAN” 从 0 开始。</div>
-		Reverse VLAN ID: <input type="text" id="p-interface-rvlan"><br>
-		<button class="btnFlat" id='p-interface-set-rvlan'>设置</button>
-		<h1>网卡物理地址</h1>
-		<div class="tips">对于以太网设备，指媒体访问控制地址（MAC地址）</div>
-		物理地址 <input type="text" id="p-interface-macaddr"><br>
-		<button class="btnFlat" id='p-interface-set-mac'>设置</button>
-		<h1>删除接口</h1>
-		<div class="tips">完全删除此接口和此接口的配置，此操作不可撤销。</div>
-		<button class="btnFlat" id='p-interface-delete'>删除接口</button>
+		<div class="tips _tr">The WAN port is an abstract concept. It is a real interface on some devices, and it is just a VLAN of a switch on some other devices. The interfaces ‘netkeeper’ and ‘wan’ are both bound to the WAN socket and the interface beginning with 'md' will be bound to a Reverse VLAN. Reverse VLAN is a concept defined by NSWA Ranga. Please refer to the detailed explanation in Multihoming. "Reverse VLAN" starts at 0.</div>
+		<div class="simpleLabel">Reverse VLAN ID:</div><input type="text" id="p-interface-rvlan"><br>
+		<button class="btnFlat _tr" id='p-interface-set-rvlan'>Apply</button>
+		<h1 class="_tr">Interface Physical Address</h1>
+		<div class="tips _tr">For Ethernet devices, it is Media Access Control Address (MAC address).</div>
+		<div class="simpleLabel _tr">Physical Address:</div><input type="text" id="p-interface-macaddr"><br>
+		<button class="btnFlat _tr" id='p-interface-set-mac'>Apply</button>
+		<h1 class="_tr">Delete Interface</h1>
+		<div class="tips _tr">This interface and the configuration of this interface will be completely removed, and this operation is irrevocable.</div>
+		<button class="btnFlat _tr" id='p-interface-delete'>Delete Interface</button>
 	</div>
-	<div style="margin-top: 20px" class="tips">某些接口的配置与系统基础设施耦合，因此您不能修改其某些配置，例如，netkeeper 接口的协议类型必须是基于以太网的点对点协议且必须开启 Netkeeper 扩展，您不能修改为其他协议。举例说明，假如你需要通用 PPPoE 协议，可以修改 wan 接口的协议类型为 ”基于以太网的点对点协议“</div>
+	<div style="margin-top: 20px" class="tips _tr">Some interfaces are configured to couple with the system infrastructure, so you cannot modify some of their configurations. For example, the protocol type of the netkeeper interface must be PPPoE and the Netkeeper Extension must be turned on. And you cannot modify it to other protocols. For example, if you need the universal PPPoE protocol, you can modify the Protocol Type of the wan interface to PPPoE.</div>
 </div>

@@ -17,7 +17,7 @@ page_wifi.edit = () => {
 		let channel = page_wifi.$('channel'),
 			htmode = page_wifi.$('htmode');
 
-		channel.innerHTML = '<option value="auto">自动</option>';
+		channel.innerHTML = '<option value="auto">{0}</option>'.format(_('Auto'));
 		htmode.innerHTML = '';
 
 		let id = "" + page_wifi.id;
@@ -73,14 +73,14 @@ page_wifi.edit = () => {
 page_wifi.restartWireless = () => {
 	webcon.lockScreen();
 	ranga.api.action('restart', ['wireless']).then(proto => {
-		dialog.simple('请耐心等待无线重启完毕，这应该不需要太长时间，但是 Web 控制台不会自动刷新。');
+		dialog.simple(_('Please be patient and wait for the wireless reboot to complete, this should not take too long, but the web console will not automatically refresh.'));
 	}).catch(defErrorHandler).finally(() => {
 		webcon.unlockScreen();
 	});
 }
 
 const page_wifi_init = () => {
-	webcon.addButton('快速设置', 'icon-wifi', b => {
+	webcon.addButton(_('Quick Setup'), 'icon-wifi', b => {
 		page_wifi.$('easy').classList.remove('hide');
 	});
 
@@ -120,7 +120,7 @@ const page_wifi_init = () => {
 	page_wifi.$('set-chiper').addEventListener('click', e => {
 		let chiper = page_wifi.$('chiper').value;
 		ranga.api.config('wifi', ['set', '' + page_wifi.id, 'chiper', chiper]).then(proto => {
-			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的加密套件已经被修改。但需要重启无线服务以生效。");
+			dialog.toast(_("The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.").format(page_wifi.id));
 		}).catch(defErrorHandler);
 	});
 
@@ -130,7 +130,7 @@ const page_wifi_init = () => {
 		ranga.api.config('wifi', ['set', '' + page_wifi.id, 'psk.ssid', ssid]).then(proto => {
 			return ranga.api.config('wifi', ['set', '' + page_wifi.id, 'psk.key', key]);
 		}).then(proto => {
-			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的预共享密钥已经被修改。但需要重启无线服务以生效。");
+			dialog.toast(_("The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.").format(page_wifi.id));
 		}).catch(defErrorHandler);
 
 	});
@@ -147,7 +147,7 @@ const page_wifi_init = () => {
 		}).then(proto => {
 			return ranga.api.config('wifi', ['set', '' + page_wifi.id, 'noscan', noscan]);
 		}).then(proto => {
-			dialog.toast("无线设备 ‘" + page_wifi.id + "' 的无线电配置已经被修改。但需要重启无线服务以生效。");
+			dialog.toast(_("The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.").format(page_wifi.id));
 		}).catch(defErrorHandler);
 	});
 

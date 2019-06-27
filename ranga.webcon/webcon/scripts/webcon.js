@@ -75,7 +75,7 @@ webcon.lockScreenDialogStack = [];
 
 webcon.lockScreen = text => {
 	if (utils.isNil(text))
-		text = '请稍候';
+		text = _('Please wait');
 
 	text = '<div class="circular" style="margin: 2px;"><svg><circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" /></svg></div><span style="margin-left: 10px">' + text + '</span>';
 
@@ -138,21 +138,6 @@ webcon.dropDownMenu = (e, list) => {
 	e.appendChild(menu_wrapper);
 
 	return menu_wrapper;
-}
-
-webcon.kwdMap = {
-	netkeeper: '基于以太网的点对点协议（Netkeeper）',
-	pppoe: '基于以太网的点对点协议',
-	dhcp: '动态主机配置协议',
-	none: '未配置',
-	static: '静态'
-}
-
-webcon.trKeyword = keyword => {
-	if (keyword in webcon.kwdMap) {
-		return webcon.kwdMap["" + keyword];
-	}
-	return keyword;
 }
 
 webcon.sendNotify = (id, icon, title, text, theme, allowClose, btns) => {
@@ -236,7 +221,7 @@ webcon.reloadTheme = () => {
 	utils.idbGet('theme', 'custom-css').then(result => {
 		if (!utils.isNil(result)) {
 			if (result.theme_compat !== '1') {
-				webcon.sendNotify('theme-not-compat', 'icon-warning', '当前使用的第三方主题与 Web 控制台不兼容', '请从第三方主题来源检查更新的版本，以获取和最新 Web 控制台兼容的主题。', 'info', true, []);
+				webcon.sendNotify('theme-not-compat', 'icon-warning', _('The third-party theme currently in use is not compatible with Web Console'), _('Please check the updated version from the third-party source for the theme that is compatible with the latest Web Console.'), 'info', true, []);
 			} else {
 				webconThemeUUID = (utils.isNil(result.theme_uuid) ? "UNKNOWN" : result.theme_uuid);
 				let s = document.createElement("style");
@@ -260,8 +245,8 @@ webcon.listenForExternalRequest = () => {
 					return;
 				}
 
-				dialog.show('icon-warning', '外部应用程序请求', '位于 <b>' + utils.raw2HTMLString(utils.URIDomain(origin)) + '</b> 的站点正试图向你的 NSWA Ranga 的 Web 控制台设置自定义主题。安装第三方主题可能会导致 Web 控制台外观被恶意篡改，从而使你受骗。' + (origin.startsWith('https:') ? '' : '<br><br>您与此站点的连接不是私密连接。这意味着你的数据未经加密在互联网上传输，这可能导致主题被恶意替换。'), [{
-					name: '继续',
+				dialog.show('icon-warning', _('External application request'), _('The site at <b>{0}</b> is trying to set a custom theme to your NSWA Ranga Web Console. Installing a third-party theme can lead to malicious tampering with the appearance of the Web Console, which can be deceived.').format(utils.raw2HTMLString(utils.URIDomain(origin))) + (origin.startsWith('https:') ? '' : _('<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the theme to be maliciously replaced.')), [{
+					name: _('Continue'),
 					func: (d => {
 						if (data.theme_uuid === 'default') {
 							utils.idbRemove('theme', 'custom-css').then(() => {
@@ -282,7 +267,7 @@ webcon.listenForExternalRequest = () => {
 						}
 					})
 					}, {
-					name: '拒绝',
+					name: _('Refuse'),
 					func: dialog.close
 					}]);
 				break;
@@ -290,13 +275,13 @@ webcon.listenForExternalRequest = () => {
 				if (!('ext_blob' in data)) {
 					return;
 				}
-				dialog.show('icon-warning', '外部应用程序请求', '位于 <b>' + utils.raw2HTMLString(utils.URIDomain(origin)) + '</b> 的站点正试图向你的 NSWA Ranga 安装扩展程序。安装第三方扩展程序可能对 NSWA Ranga 系统性能和稳定性产生不良影响。请仅在十分清楚的情况下继续操作。' + (origin.startsWith('https:') ? '' : '<br><br>您与此站点的连接不是私密连接。这意味着你的数据未经加密在互联网上传输，这可能导致扩展程序被恶意替换。'), [{
-					name: '继续',
+				dialog.show('icon-warning', _('External application request'), _('The site at <b>{0}</b> is trying to install an extension to your NSWA Ranga. Installing third-party extensions can adversely affect the performance and stability of the NSWA Ranga system. Please continue to operate only in very clear circumstances.').format(utils.raw2HTMLString(utils.URIDomain(origin))) + (origin.startsWith('https:') ? '' : _('<br><br>Your connection to this site is not a private connection. This means that your data is transmitted over the Internet without encryption, which can cause the extension to be maliciously replaced.')), [{
+					name: _('Continue'),
 					func: (d => {
-						let passwd = prompt('若要安装扩展程序，您必须经过认证\n\n输入超级用户密码继续', 'ranga');
+						let passwd = prompt(_('To install the extension, you must be authenticated\n\nEnter the superuser password to continue'), 'ranga');
 						ranga.api.auth(passwd).then(proto => {
 							webcon.setToken(proto.payload);
-							webcon.lockScreen('正在安装扩展程序');
+							webcon.lockScreen(_('Installing extension'));
 							return ranga.api.addonInstall(data.ext_blob);
 						}).then(proto => {
 							dialog.simple("<pre>" + utils.raw2HTMLString(proto.payload) + "</pre>");
@@ -306,7 +291,7 @@ webcon.listenForExternalRequest = () => {
 						});
 					})
 					}, {
-					name: '拒绝',
+					name: _('Refuse'),
 					func: dialog.close
 					}]);
 				break;

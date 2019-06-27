@@ -9,89 +9,87 @@
 		}
 
 	</style>
-	选择你要配置的无线设备 <select id="p-wifi-dev" style="min-height: 24px;">
-		<option value="-1" class="hide">请选择</option>
+	<div class="simpleLabel _tr">Select the wireless device you want to configure</div><select id="p-wifi-dev" style="min-height: 24px;">
+		<option class="hide _tr" value="-1">Please choose</option>
 	</select>
 	<div id="page_wifi_edit" class="hide">
-		<div style="margin-top: 8px">
-			无线设置的修改在重启 NSWA Ranga 系统或重启无线服务之前不会生效，因此在修改这些设置后，你可以点按 “重启无线服务” 按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。<br>
-			<button class="btnFlat" id='p-wifi-restart'>重启无线服务</button>
-		</div>
-		<h1>无线设备状态</h1>
+		<div style="margin-top: 8px" class="_tr">Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.</div>
+		<button class="btnFlat _tr" id='p-wifi-restart'>Restart Wireless Service</button>
+		<h1 class="_tr">Wireless device status</h1>
 		<pre id="p-wifi-status"></pre>
-		<h1>加密套件</h1>
+		<h1 class="_tr">Wireless security</h1>
 		<select id="p-wifi-chiper" style="min-height: 24px; max-width: 100%;">
-			<option value="RANGA_WIRELESS_WPA3_SAE">Wi-Fi 保护访问 3 等时同等认证</option>
-			<option value="RANGA_WIRELESS_WPA3MIX2_SAE_AND_PSK">Wi-Fi 保护访问 3 等时同等认证、Wi-Fi 保护访问 2 预共享密钥混合模式</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_CCMP">Wi-Fi 保护访问 2 预共享密钥（具有 CBC-MAC 计数器协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP">Wi-Fi 保护访问 2 预共享密钥（临时密钥完整性协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问 2 预共享密钥（双协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA2_AND_WPA_PSK_WITH_TKIP_AND_CCMP">Wi-Fi 保护访问 2、Wi-Fi 保护访问预共享密钥混合模式（双协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA_PSK_WITH_CCMP">Wi-Fi 保护访问预共享密钥（具有 CBC-MAC 计数器协议）</option>
-			<option value="NSWA_WIFI_ENC_WPA_PSK_WITH_TKIP">Wi-Fi 保护访问预共享密钥（临时密钥完整性协议）</option>
-			<option value="RANGA_WIRELESS_OPEN">开放</option>
+			<option class="_tr" value="RANGA_WIRELESS_WPA3_SAE">WPA3 SAE</option>
+			<option class="_tr" value="RANGA_WIRELESS_WPA3MIX2_SAE_AND_PSK">WPA3 SAE, WPA2 PSK Mixed mode</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA2_PSK_WITH_CCMP">WPA2 PSK (CCMP)</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP">WPA2 PSK (TKIP)</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA2_PSK_WITH_TKIP_AND_CCMP">WPA2 PSK (Double protocol)</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA2_AND_WPA_PSK_WITH_TKIP_AND_CCMP">WPA2 and WPA PSK Mixed mode (Double protocol)</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA_PSK_WITH_CCMP">WPA PSK (CCMP)</option>
+			<option class="_tr" value="NSWA_WIFI_ENC_WPA_PSK_WITH_TKIP">WPA PSK (TKIP)</option>
+			<option class="_tr" value="RANGA_WIRELESS_OPEN">Open (non-authenticate)</option>
 		</select><br>
-		<button class="btnFlat" id='p-wifi-set-chiper'>设置密码套件</button>
-		<div class="tips">NSWA Ranga 可能暂时不支持 “Wi-Fi 保护访问 3” 系列的套件。</div>
-		<h1>预共享密钥</h1>
-		<div class="tips">当使用 “预共享密钥” 时，使用下面的预共享密钥进行认证。密钥少于 8 位时，NSWA Ranga 会自动禁用此无线设备，这是在 NSWA Ranga 上禁用某个或全部无线设备的通用方法。</div>
+		<button class="btnFlat _tr" id='p-wifi-set-chiper'>Apply</button>
+		<div class="tips _tr">NSWA Ranga may not currently support the Wi-Fi Protected Access 3 (WPA3) series of suits.</div>
+		<h1 class="_tr">Pre-shared key</h1>
+		<div class="tips _tr">When using the "PSK", use the following pre-shared key for authentication. When the key is less than 8 digits, NSWA Ranga automatically disables the wireless device, which is a common way to disable one or all of the wireless devices on NSWA Ranga.</div>
 		<table>
 			<tr>
-				<td>服务集标识符</td>
+				<td class="_tr">SSID</td>
 				<td><input type="text" id="p-wifi-pskssid">
 				</td>
 			</tr>
 			<tr>
-				<td>密钥</td>
+				<td class="_tr">Key</td>
 				<td><input type="text" id="p-wifi-pskkey">
 				</td>
 			</tr>
 		</table>
-		<button class="btnFlat" id='p-wifi-set-psk'>设置预共享密钥</button>
-		<h1>无线电参数</h1>
-		<div class="tips">某些设置，如 “RTS 阈值”、“距离优化”、“无线电功率” 暂时不支持由 Web 控制台设置，请使用命令行工具。地区代码使用 ISO/IEC 3166-1 alpha-2 标准，常见地区代码：00 - 世界，CN - 中国，US - 美国，TW - 台湾，AU - 澳洲。地区代码将影响无线监管域，从而影响驱动程序能选择的信道、最大无线电功率、调制方式等，请在遵守当地无线电管制条例的前提下使用此功能。有些设备在设备中硬编码了最大无线电功率或其他参数，即使你设置其他地区代码也无法绕过。置空地区代码将导致回退到驱动程序默认值，可能是 “世界” 监管域。</div>
+		<button class="btnFlat _tr" id='p-wifi-set-psk'>Apply</button>
+		<h1 class="_tr">Radio configuration</h1>
+		<div class="tips _tr">Some settings, such as RTS Threshold, Distance Optimization, and Radio Power are temporarily not supported by the web console, use the command line tool instead. The area code uses the ISO/IEC 3166-1 alpha-2 standard, common area codes: 00 - World, CN - China, US - USA, TW - Taiwan, AU - Australia. The area code will affect the wireless regulatory domain, affecting the channel that the driver can choose, the maximum radio power, modulation, etc. Please use this function in compliance with local radio regulations. Some devices hardcode the maximum radio power or other parameters in the device, even if you set other area codes. The blank area code will cause a fallback to the driver default, which may be the "world" regulatory domain.</div>
 		<table>
 			<tr>
-				<td>地区代码</td>
+				<td class="_tr">Area code</td>
 				<td><input type="text" id="p-wifi-country">
 				</td>
 			</tr>
 			<tr>
-				<td>信道</td>
+				<td class="_tr">Channel</td>
 				<td>
 					<select id="p-wifi-channel" style="min-height: 24px; max-width: 100%;">
-						<option value="auto">自动</option>
+						<option class="_tr" value="auto">Auto</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td>吞吐量模式（频宽）</td>
+				<td class="_tr">Throughput mode (HT)</td>
 				<td>
 					<select id="p-wifi-htmode" style="min-height: 24px; max-width: 100%;">
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td>禁用重叠服务集扫描</td>
+				<td class="_tr">Disable overlapping set scanning</td>
 				<td>
-					<input type="checkbox" id="p-wifi-noscan"><label for="p-wifi-noscan" class="checkbox_label">启用（这将违反 IEEE 802.11n-2009）</label>
+					<input type="checkbox" id="p-wifi-noscan"><label for="p-wifi-noscan" class="checkbox_label _tr">Enabled (this will violate IEEE 802.11n-2009)</label>
 				</td>
 			</tr>
 		</table>
-		<button class="btnFlat" id='p-wifi-set-radio'>设置无线电参数</button>
+		<button class="btnFlat _tr" id='p-wifi-set-radio'>Apply</button>
 	</div>
-	<div style="margin-top: 20px" class="tips">某些设备支持安装供应商专有驱动程序，这些专有驱动程序可能不使用此无线设置页的部分设置。</div>
+	<div style="margin-top: 20px" class="tips _tr">Some devices support the installation of vendor-specific drivers that may not use some of the settings on this wireless setup page.</div>
 </div>
 <div id="p-wifi-easy" class="hide md_dialog_back">
 	<div id="p-wifi-easy-dialog" class="md_dialog">
 		<div class="flexColumn" style="padding: 20px;">
-			<label for="p-wifi-easy-ssid">服务集标识符（SSID）：</label>
+			<label class="_tr" for="p-wifi-easy-ssid">SSID</label>
 			<input type="text" id="p-wifi-easy-ssid">
-			<label for="p-wifi-easy-key">密钥（Key）：</label>
+			<label class="_tr" for="p-wifi-easy-key">Key</label>
 			<input type="text" id="p-wifi-easy-key">
 			<input type='checkbox' checked id="p-wifi-easy-suffix">
-			<label for='p-wifi-easy-suffix' class="checkbox_label">为接入点服务集标识符后自动添加频率后戳</label>
+			<label for='p-wifi-easy-suffix' class="checkbox_label _tr">Automatically add a frequency suffix after the access point SSID</label>
 		</div>
-		<button class="btnFlat" id='p-wifi-easy-apply'>应用</button>
+		<button class="btnFlat _tr" id='p-wifi-easy-apply'>Apply</button>
 	</div>
 </div>

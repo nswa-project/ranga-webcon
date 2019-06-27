@@ -13,74 +13,73 @@
 			flex-flow: row;
 			align-items: center;
 		}
-		
+
 		.p-dns-item button i {
 			margin-right: 0;
 		}
-		
+
 		.p-dns-item button {
 			margin-top: 0 !important;
 			margin-right: 14px;
 			padding: 10px;
 		}
+
 	</style>
 	<div id="p-dns-item_t" class="hide p-dns-item">
 		<button class="btnFlat"><i class="icon icon-close"></i></button>
 		<span></span>
 	</div>
-	<div>
-		域名系统和动态主机配置设置的修改在重启 NSWA Ranga 系统或重启域名系统和动态主机配置服务之前不会生效，因此在修改这些设置后，你可以点按“重启域名系统和动态主机配置服务”按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。<br>
-		<button class="btnFlat" id='p-dns-restart'>重启域名系统和动态主机配置服务</button>
-	</div>
-	<h1>网际网协议版本4地址-媒体访问控制地址绑定</h1>
-	<div class="tips">客户端通过“动态主机配置协议”请求网际网协议版本4地址时，NSWA Ranga 将根据客户端的媒体访问控制地址选择指定的网际网协议版本4地址进行应答。然而，在以太网的客户端仍然可以随意设置自己的网际网协议版本4地址。</div>
+	<div class="_tr">Modifications to the Domain Name System and Dynamic Host Configuration settings will not take effect until the NSWA Ranga system is restarted or the Domain Name System and Dynamic Host Configuration Service are restarted. So after modifying these settings, you can click the "Restart DNS and DHCP Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.</div>
+	<button class="btnFlat _tr" id='p-dns-restart'>Restart DNS and DHCP Service</button>
+	<h1 class="_tr">IPv4 Address - MAC Address Binding</h1>
+	<div class="tips _tr">When the client requests the IPv4 address through the DHCP, NSWA Ranga will respond according to the client's MAC address and select the specified IPv4 address. However, the Ethernet client can still set its own IPv4 address at will.</div>
 	<div id='p-dns-binds'>
 	</div>
-	<button class="btnFlat" id='p-dns-addbind'>添加新的绑定</button>
-	<button class="btnFlat" id='p-dns-clearbind'>清除全部绑定</button>
-	<h1>动态主机配置协议设置</h1>
-	<div class="tips">如果因为配置原因导致客户端无法获取网际网协议版本4地址访问 NSWA Ranga，你可以将客户端设置为同一网段的网际网协议版本4地址恢复访问。</div>
+	<button class="btnFlat _tr" id='p-dns-addbind'>Add a new binding</button>
+	<button class="btnFlat _tr" id='p-dns-clearbind'>Purge all bindings</button>
+	<h1 class="_tr">DHCP configuration</h1>
+	<div class="tips _tr">If the client cannot obtain the IPv4 address to access NSWA Ranga due to configuration reasons, you can set the client to the IPv4 address of the same subnetwork to resume access.</div>
 	<table>
 		<tr>
-			<td>租期</td>
+			<td class="_tr">Lease</td>
 			<td><input type="text" id="p-dns-leasetime"></td>
 		</tr>
 		<tr>
-			<td>分配地址偏移（版本4）</td>
+			<td class="_tr">Assign address offset (Version 4)</td>
 			<td><input type="text" id="p-dns-start"></td>
 		</tr>
 		<tr>
-			<td>分配地址限制（版本4）</td>
+			<td class="_tr">Assign address restrictions (version 4)</td>
 			<td><input type="text" id="p-dns-limit"></td>
 		</tr>
 	</table>
-	<button class="btnFlat" id='p-dns-setdhcp'>设置</button>
-	<h1>上游域名系统服务器</h1>
+	<button class="btnFlat _tr" id='p-dns-setdhcp'>Apply</button>
+	<h1 class="_tr">Upstream DNS Server</h1>
 	<div id='p-dns-servers'>
 	</div>
-	<button class="btnFlat" id='p-dns-addserver'>添加新的服务器</button>
-	<h1>域名系统缓存服务器</h1>
+	<button class="btnFlat _tr" id='p-dns-addserver'>Add a new server</button>
+	<h1 class="_tr">DNS Cache Server</h1>
 	<table>
 		<tr>
-			<td>使用对端提供的服务器</td>
+			<td class="_tr">Use the server provided by the peer</td>
 			<td>
-				<input type="checkbox" id="p-dns-peerdns"><label for="p-dns-peerdns" class="checkbox_label">启用</label>
+				<input type="checkbox" id="p-dns-peerdns"><label for="p-dns-peerdns" class="checkbox_label _tr">Enable</label>
 			</td>
 		</tr>
 		<tr>
-			<td>Rebind 攻击保护</td>
+			<td class="_tr">Rebind attack protection</td>
 			<td>
-				<input type="checkbox" id="p-dns-rebind_protection"><label for="p-dns-rebind_protection" class="checkbox_label">启用</label>
+				<input type="checkbox" id="p-dns-rebind_protection"><label for="p-dns-rebind_protection" class="checkbox_label _tr">Enable</label>
 			</td>
 		</tr>
 		<tr>
-			<td>绑定端口</td>
+			<td class="_tr">Bind port</td>
 			<td><input type="text" id="p-dns-port"></td>
 		</tr>
 		<tr>
-			<td>查询端口</td>
+			<td class="_tr">Query port</td>
 			<td><input type="text" id="p-dns-queryport"></td>
 		</tr>
 	</table>
-	<button class="btnFlat" id='p-dns-setdns'>设置</button>
+	<button class="btnFlat _tr" id='p-dns-setdns'>Apply</button>
 </div>
