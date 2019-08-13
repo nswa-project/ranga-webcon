@@ -9,7 +9,7 @@ gen() {
 var l10n = {
 EOF
 
-	cat "$1" | sed -e 's/\\\"/\"/g' -e 's/\"/\\\"/g' -e 's/^/\"/g' -e 's/|/\":\"/g' -e 's/$/\",/g'
+	cat "$1" | grep -v "|$" | sed -e 's/\\\"/\"/g' -e 's/\"/\\\"/g' -e 's/^/\"/g' -e 's/|/\":\"/g' -e 's/$/\",/g'
 
 #	cat "$1" | while read -r line ; do
 #		line=`sed -e 's/\\\"/\"/g' -e 's/\"/\\\"/g' <<< "$line"`
