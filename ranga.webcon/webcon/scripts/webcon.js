@@ -266,10 +266,10 @@ webcon.listenForExternalRequest = () => {
 							});
 						}
 					})
-					}, {
+				}, {
 					name: _('Refuse'),
 					func: dialog.close
-					}]);
+				}]);
 				break;
 			case 'inst-ext':
 				if (!('ext_blob' in data)) {
@@ -290,10 +290,10 @@ webcon.listenForExternalRequest = () => {
 							webcon.unlockScreen();
 						});
 					})
-					}, {
+				}, {
 					name: _('Refuse'),
 					func: dialog.close
-					}]);
+				}]);
 				break;
 		}
 	});
