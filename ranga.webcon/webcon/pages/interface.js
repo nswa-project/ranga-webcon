@@ -21,23 +21,25 @@ page_interface.updateSethInfomationWidget = (ifname) => {
 	});
 }
 
-page_interface.setSethData = (ifname, blob) => {
-	let ts;
-	utils.sethGetTimeStamp(blob).then(t => {
-		ts = t;
-		return utils.idbPut('sethblob', {
-			id: ifname,
-			blob: blob
-		});
+page_interface.setSethData = (ifname, uint8Array) => {
+	let meta = utils.sethGetMetadata(uint8Array);
+	if (utils.isNil(meta)) {
+		dialog.simple(_('Unable to set Seth data, data is invalid.'));
+		return;
+	}
+
+	utils.idbPut('sethblob2', {
+		id: ifname,
+		blob: uint8Array
 	}).then(() => {
 		return utils.idbPut('seth', {
 			id: ifname,
-			ts: ts,
-			ts_end: ts + parseInt((blob.size - 8) / 7) * 5
+			ts: meta.start,
+			ts_end: meta.end
 		});
 	}).catch(e => {
 		utils.promiseDebug(e);
-		dialog.simple(_('Unable to set Seth data, please make sure your browser supports IndexedDB'));
+		dialog.simple(_('Unable to set Seth data, please make sure your browser supports IndexedDB.'));
 	}).finally(() => {
 		page_interface.updateSethInfomationWidget(ifname);
 	});
@@ -137,15 +139,20 @@ const page_interface_init = () => {
 		let file = page_interface.$('seth-input-file');
 		file.onchange = e => {
 			let file = e.target.files[0];
-			let reader = new FileReader();
-			let blob = file.slice(0, file.size);
-			reader.readAsArrayBuffer(blob);
-			page_interface.setSethData(page_interface.ifname, blob);
-			dialog.toast(_('Seth data has been updated'));
+			//let blob = file.slice(0, file.size);
+			//let reader = new FileReader();
+			//reader.readAsArrayBuffer(blob);
+			new Response(file).arrayBuffer().then(arrayBuffer => {
+				page_interface.setSethData(page_interface.ifname, new Uint8Array(arrayBuffer));
+				dialog.toast(_('Seth data has been updated'));
+			}).catch(e => {
+				utils.promiseDebug(e);
+				dialog.toast(_('An error occured'));
+			});
 		}
 		file.click();
 	});
-
+/*
 	page_interface.$('seth-server').addEventListener('click', e => {
 		let d = dialog.show('icon-airplane', _('Load From Seth Server'), _("Enter the secret code (Secret).") + "<br><br><input style='width: 100%'>", [{
 			name: _("Load"),
@@ -180,7 +187,7 @@ const page_interface_init = () => {
 		});
 		ipt.focus();
 	});
-
+*/
 	page_interface.$('set-auth').addEventListener('click', e => {
 		let v = page_interface.$('usrnam').value;
 		ranga.api.config('interface', ['set', page_interface.ifname, 'usrnam', v]).then(proto => {
@@ -202,7 +209,7 @@ const page_interface_init = () => {
 		}).then(proto => {
 			v = (page_interface.$('defroute').checked ? '1' : '0');
 			return ranga.api.config('interface', ['set', page_interface.ifname, 'defaultroute', v]);
-		}).then(proto => { 
+		}).then(proto => {
 			dialog.toast(_("The static address configuration for interface '{0}' has been modified.").format(page_interface.ifname));
 		}).catch(defErrorHandler);
 	});

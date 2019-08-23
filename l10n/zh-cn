@@ -51,13 +51,15 @@ Changes will take effect after the system reboot.|更改将在重新启动系统
 The configuration for '{0}' has been modified. {1}|'{0}' 的配置已经被更改。 {1}
 Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".|此接口已配置 Seth 数据。此数据声称它可以在 "{0}" 到 "{1}" 内有效。
 This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.|此接口未配置 Seth 数据，或缺失元数据，这可能是你的浏览器删除了相关数据。
-Unable to set Seth data, please make sure your browser supports IndexedDB|无法设置 Seth 数据，请确保你的浏览器支持 IndexedDB
+Unable to set Seth data, data is invalid.|无法设置 Seth 数据，数据无效。
+Unable to set Seth data, please make sure your browser supports IndexedDB.|无法设置 Seth 数据，请确保你的浏览器支持 IndexedDB。
 Select the interface you want to configure, or click the upper right button to add a new interface.|选择你要配置的接口，或者点击右上方按钮添加新的接口。
 Add|添加
 Add new interface|添加新的接口
 Please enter the name of the new interface, which must start with 'md'.|请输入新接口的名字，必须以 'md' 开头。
 The protocol type configuration for interface '{0}' has been modified.|接口 ‘{0}' 的协议类型配置已经被修改。
 Seth data has been updated|Seth 数据已经更新
+An error occured|一个错误发生了
 Load From Seth Server|从 Seth 服务器加载
 Enter the secret code (Secret).|输入秘密代码（Secret）。
 Load|加载

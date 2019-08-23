@@ -1,6 +1,6 @@
 var i18n = {};
 
-String.prototype.format = function () {
+String.prototype.format = () => {
 	let args = arguments;
 	return this.replace(/{(\d+)}/g, (match, number) => {
 		return typeof args[number] != 'undefined' ? args[number] : match;

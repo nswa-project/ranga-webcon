@@ -7,7 +7,6 @@ page_setting.$ = id => {
 const page_setting_init = () => {
 	let timesync = page_setting.$('timesync'),
 		online = page_setting.$('online'),
-		exp_onekey = page_setting.$('exp-onekey'),
 		theme = page_setting.$('theme'),
 		localeinput = page_setting.$('locale');
 
@@ -63,10 +62,6 @@ const page_setting_init = () => {
 
 	online.addEventListener('change', e => {
 		localStorage.setItem("disable-nswa-online", online.checked ? "false" : "true");
-	});
-
-	exp_onekey.addEventListener('change', e => {
-		localStorage.setItem("exp-onekey", exp_onekey.checked ? "true" : "false");
 	});
 
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true') {

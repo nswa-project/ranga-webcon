@@ -52,7 +52,6 @@ var l10n = {
 "The configuration for '{0}' has been modified. {1}":"Конфигурация для {0} была изменена. {1}",
 "Seth data has been configured for this interface. This data claims that it can be valid from \"{0}\" to \"{1}\".":"Данные Seth были настроены для этого интерфейса. Эти данные утверждают, что они могут быть действительными от \"{0}\" до \"{1}\".",
 "This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.":"В этом интерфейсе не настроены данные Seth или отсутствуют метаданные. Это может быть потому, что ваш браузер удалил соответствующие данные.",
-"Unable to set Seth data, please make sure your browser supports IndexedDB":"Невозможно установить данные Seth, убедитесь, что ваш браузер поддерживает IndexedDB",
 "Select the interface you want to configure, or click the upper right button to add a new interface.":"Выберите интерфейс, который вы хотите настроить, или нажмите верхнюю правую кнопку, чтобы добавить новый интерфейс.",
 "Add":"добавлять",
 "Add new interface":"Добавить новый интерфейс",

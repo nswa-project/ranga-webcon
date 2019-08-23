@@ -52,7 +52,6 @@ var l10n = {
 "The configuration for '{0}' has been modified. {1}":"'{0}'の構成が変更されました。 {1}",
 "Seth data has been configured for this interface. This data claims that it can be valid from \"{0}\" to \"{1}\".":"このインタフェースにはSethデータが設定されています。このデータは、 \"{0}\"から \"{1}\"まで有効である可能性があると主張しています。",
 "This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.":"このインターフェースには、Sethデータが設定されていないか、メタデータがありません。これは、ブラウザが関連データを削除したためである可能性があります。",
-"Unable to set Seth data, please make sure your browser supports IndexedDB":"Sethデータを設定できません。お使いのブラウザがIndexedDBをサポートしていることを確認してください。",
 "Select the interface you want to configure, or click the upper right button to add a new interface.":"設定したいインターフェースを選択するか、右上のボタンをクリックして新しいインターフェースを追加します。",
 "Add":"追加する",
 "Add new interface":"新しいインターフェースを追加する",

@@ -446,8 +446,10 @@
 			}
 		}).catch(defErrorHandler);
 
-		// remove old indexeddb
+		// remove old indexeddb and storage
 		indexedDB.deleteDatabase('webcon');
+		indexedDB.deleteDatabase('sethblob');
+		localStorage.removeItem('exp-onekey');
 
 	</script>
 </body>

@@ -51,13 +51,15 @@ Changes will take effect after the system reboot.|変更はシステムの再起
 The configuration for '{0}' has been modified. {1}|'{0}'の構成が変更されました。 {1}
 Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".|このインタフェースにはSethデータが設定されています。このデータは、 "{0}"から "{1}"まで有効である可能性があると主張しています。
 This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.|このインターフェースには、Sethデータが設定されていないか、メタデータがありません。これは、ブラウザが関連データを削除したためである可能性があります。
-Unable to set Seth data, please make sure your browser supports IndexedDB|Sethデータを設定できません。お使いのブラウザがIndexedDBをサポートしていることを確認してください。
+Unable to set Seth data, data is invalid.|
+Unable to set Seth data, please make sure your browser supports IndexedDB.|
 Select the interface you want to configure, or click the upper right button to add a new interface.|設定したいインターフェースを選択するか、右上のボタンをクリックして新しいインターフェースを追加します。
 Add|追加する
 Add new interface|新しいインターフェースを追加する
 Please enter the name of the new interface, which must start with 'md'.|新しいインターフェイスの名前を入力してください。名前は 'md'で始まる必要があります。
 The protocol type configuration for interface '{0}' has been modified.|インターフェイス '{0}'のプロトコルタイプ設定が変更されました。
 Seth data has been updated|Sethデータが更新されました
+An error occured|
 Load From Seth Server|Sethサーバーからロードする
 Enter the secret code (Secret).|シークレットコード（Secret）を入力してください。
 Load|荷重

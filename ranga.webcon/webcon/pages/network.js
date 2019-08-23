@@ -93,7 +93,7 @@ page_network.serverPoll = (dlg, ifname) => {
 
 page_network.seth = (name, type) => {
 	webcon.lockScreen();
-	utils.idbGet('sethblob', name).then(r => {
+	utils.idbGet('sethblob2', name).then(r => {
 		if (!utils.isNil(r) && ('blob' in r)) {
 			return Promise.resolve(r.blob)
 		} else {
@@ -103,17 +103,15 @@ page_network.seth = (name, type) => {
 		utils.promiseDebug(e);
 		dialog.simple(_('This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.'));
 		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
-	}).then(blob => {
-		return utils.sethGetNKPin(utils.getUNIXTimestamp(), blob);
-	}).catch(e => {
-		if (e === utils.inhibitorForPromiseErrorHandler)
-			return Promise.reject(e);
-		utils.promiseDebug(e);
-		dialog.simple(_('Unable to get current NK PIN and Hash from Seth data. Please make sure the data has not expired and the current time is correct.'));
-		return Promise.reject(utils.inhibitorForPromiseErrorHandler);
-	}).then(pin => {
-		console.log("sethng: NK PIN and Hash: " + pin);
-		return ranga.api.action('network', ['nkdial', name, pin]);
+	}).then(arrayBuffer => {
+		let pin = utils.sethGetNKPin(utils.getUNIXTimestamp(), arrayBuffer);
+		if (utils.isNil(pin)) {
+			dialog.simple(_('Unable to get current NK PIN and Hash from Seth data. Please make sure the data has not expired and the current time is correct.'));
+			return Promise.reject(utils.inhibitorForPromiseErrorHandler);
+		} else {
+			console.log("sethng: NK PIN and Hash: " + pin);
+			return ranga.api.action('network', ['nkdial', name, pin]);
+		}
 	}).then(proto => {
 		dialog.toast(_("Interface '{0}' connected.").format(name));
 	}).catch(e => {
@@ -235,46 +233,6 @@ const page_network_init = () => {
 
 	let extra_tools_arr = [
 		{
-			name: _('Seth Safe disconnect'),
-			func: (n => {
-				dialog.show("icon-info", _('Seth Safe disconnect'), "使用 Seth 安全断开的账户，只要当前同步的 Seth 数据在当下有效，并且断开后账户不在其他地方连接，则下次可以免同步 Seth 数据进行拨号！Seth 安全断开适合于准备进行重启或关机前执行，因为 Seth 数据存储在设备的内存中，断电后将会丢失（由于 NSWA Ranga 主要采用擦除寿命很有限的闪存，而数据很大且频繁被更新，如果存储在闪存将会影响设备寿命）。Seth 安全断开不会断开未启用 <b>Seth_v1</b> Netkeeper 扩展的接口", [
-					{
-						name: '我知道了',
-						func: (d => {
-							webcon.lockScreen();
-							ranga.api.action('seth', ['safe-hangup']).then(proto => {
-								return utils.delay(800);
-							}).then(() => {
-								page_network.reload();
-								dialog.toast('Seth 安全断开完成');
-							}).catch(defErrorHandler).finally(() => {
-								webcon.unlockScreen();
-							})
-							dialog.close(d);
-						})
-					}
-				])
-			})
-			}, {
-			name: _('Dialing doctor'),
-			func: (n => {
-				dialog.show(null, null, _("Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong."), [
-					{
-						name: _('I know'),
-						func: (d => {
-							webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
-								doctor.analysis();
-							});
-							dialog.close(d);
-						})
-					}
-				])
-			})
-		}
-	];
-
-	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
-		extra_tools_arr.push({
 			name: _('Start catching for all NK interfaces'),
 			func: (n => {
 				webcon.lockScreen(_('Getting interface information...'))
@@ -308,8 +266,24 @@ const page_network_init = () => {
 					webcon.unlockScreen();
 				});
 			})
-		});
-	}
+		}, {
+			name: _('Dialing doctor'),
+			func: (n => {
+				dialog.show(null, null, _("Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong."), [
+					{
+						name: _('I know'),
+						func: (d => {
+							webcon.loadScript('doctor', 'scripts/doctor.js?v=__RELVERSION__').then(() => {
+								doctor.analysis();
+							});
+							dialog.close(d);
+						})
+					}
+				])
+			})
+		}
+	];
+
 	webcon.addButton(_('Extra tools'), 'icon-tool', b => webcon.dropDownMenu(b, extra_tools_arr));
 
 	page_network.reload();

@@ -106,11 +106,11 @@ utils.URIDomain = uri => {
 	var url = new URL(uri);
 	return url.hostname;
 }
-
+/*
 utils.ArrayBufferToHexedString = buffer => {
 	return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
 }
-
+*/
 utils.__idbCreateTable = (event, table) => {
 	let db = event.target.result;
 	if (!db.objectStoreNames.contains(table)) {
@@ -201,6 +201,68 @@ utils.idbRemove = (table, id) => {
 	return promise;
 }
 
+utils.BigEdtionToBrowserHost = uint8array => {
+	return parseInt(Array.prototype.map.call(uint8array, x => ('00' + x.toString(16)).slice(-2)).join(''), 16);
+	//return parseInt(utils.ArrayBufferToHexedString(uint8array), 16);
+}
+
+utils.concatTypedArrays = (a, b) => {
+	let c = new(a.constructor)(a.length + b.length);
+	c.set(a, 0);
+	c.set(b, a.length);
+	return c;
+}
+
+utils.__sethValid = uint8Array => {
+	if (uint8Array[0] === 0x23 && uint8Array[1] === 0x33 &&
+		utils.BigEdtionToBrowserHost(uint8Array.subarray(2, 4)) === 3)
+		return true;
+	return false;
+}
+
+utils.sethGetMetadata = uint8Array => {
+	if (!utils.__sethValid(uint8Array))
+		return null;
+
+	let start = utils.BigEdtionToBrowserHost(uint8Array.subarray(8, 16)),
+		cycle = utils.BigEdtionToBrowserHost(uint8Array.subarray(4, 8)),
+		offset = utils.BigEdtionToBrowserHost(uint8Array.subarray(16, 20)),
+		length = uint8Array.length - offset,
+		lpg = utils.BigEdtionToBrowserHost(uint8Array.subarray(20, 24));
+	return {
+		start: start,
+		end: start + parseInt(length / lpg) * cycle,
+		offset: offset,
+		cycle: cycle,
+		lpg: lpg
+	};
+}
+
+utils.sethGetNKPin = (timestamp, uint8Array) => {
+	let meta = utils.sethGetMetadata(uint8Array);
+	if (utils.isNil(meta))
+		return null;
+
+	let offset = meta.offset + parseInt((timestamp - meta.start) / meta.cycle) * meta.lpg;
+	console.log("utils.sethGetNKPin: offset: " + offset);
+	if (offset < 0)
+		return null;
+	
+	let prefixArray = new Uint8Array(2);
+
+	prefixArray[0] = uint8Array[30];
+	prefixArray[1] = uint8Array[31];
+
+	let array = utils.concatTypedArrays(prefixArray, uint8Array.subarray(offset, offset + meta.lpg));
+	let binary = '';
+	for (var i = 0; i < array.byteLength; i++) {
+		binary += String.fromCharCode(array[i]);
+	}
+
+	return btoa(binary);
+}
+
+/*
 utils.sethGetTimeStamp = blob => {
 	const promise = new Promise((resolve, reject) => {
 		new Response(blob.slice(0, 8)).arrayBuffer().then(y => {
@@ -246,3 +308,4 @@ utils.sethGetNKPin = (timestamp, blob) => {
 	});
 	return promise;
 }
+*/

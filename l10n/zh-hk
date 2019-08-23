@@ -51,13 +51,15 @@ Changes will take effect after the system reboot.|更改將在重新啟動系統
 The configuration for '{0}' has been modified. {1}|'{0}' 的配置已經被更改。 {1}
 Seth data has been configured for this interface. This data claims that it can be valid from "{0}" to "{1}".|此接口已配置 Seth 數據。此數據聲稱它可以在 "{0}" 到 "{1}" 內有效。
 This interface does not have Seth data configured, or missing metadata. This may be because your browser has deleted the relevant data.|此接口未配置 Seth 數據，或缺失元數據，這可能是你的瀏覽器刪除了相關數據。
-Unable to set Seth data, please make sure your browser supports IndexedDB|無法設置 Seth 數據，請確保你的瀏覽器支持 IndexedDB
+Unable to set Seth data, data is invalid.|無法設置 Seth 數據，數據無效。
+Unable to set Seth data, please make sure your browser supports IndexedDB.|無法設置 Seth 數據，請確保你的瀏覽器支持 IndexedDB。
 Select the interface you want to configure, or click the upper right button to add a new interface.|選擇你要配置的接口，或者點擊右上方按鈕添加新的接口。
 Add|添加
 Add new interface|添加新的接口
 Please enter the name of the new interface, which must start with 'md'.|請輸入新接口的名字，必須以 'md' 開頭。
 The protocol type configuration for interface '{0}' has been modified.|接口 ‘{0}' 的協議類型配置已經被修改。
 Seth data has been updated|Seth 數據已經更新
+An error occured|一個錯誤發生了
 Load From Seth Server|從 Seth 服務器加載
 Enter the secret code (Secret).|輸入祕密代碼（Secret）。
 Load|加載
