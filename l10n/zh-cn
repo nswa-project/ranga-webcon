@@ -88,12 +88,11 @@ Static|静态
 TX bytes: |已发送：
 RX bytes: |已接收：
 Reload|刷新
-Seth Safe disconnect|Seth 安全断开
+Start catching for all NK interfaces|为所有 NK 接口启动拦截
+Getting interface information...|正在获取接口信息...
 Dialing doctor|拨号医生
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|请注意：<b>直接运行拨号医生可能报告完全错误的诊断结果</b>，在连接（拦截法除外）失败时，拨号医生会自动弹出通知以启动，这时的结果正确率较高。但你仍然可以随时强制启动拨号医生，以诊断拦截法或上次自动拨号的连接问题，但结果可能不准确甚至完全错误。
 I know|我知道了
-Start catching for all NK interfaces|为所有 NK 接口启动拦截
-Getting interface information...|正在获取接口信息...
 Extra tools|额外工具
 Ranga software version|Ranga 软件版本
 System version: {0}|系统版本：{0}
@@ -402,4 +401,4 @@ NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Sof
 Enable NSWA Online Push|使能 NSWA Online 推送
 Web console experimental features|Web 控制台实验性功能
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|以下是一些 Web 控制台尚处于实验阶段的功能，其可能具有潜在缺陷。
-"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|在“网络连接”页的“额外工具”中显示“为所有 NK 接口启动拦截”按钮
+There are currently no features in the experiment.|

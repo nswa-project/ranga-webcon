@@ -88,12 +88,11 @@ Static|静的
 TX bytes: |送信日：
 RX bytes: |受け取った：
 Reload|更新する
-Seth Safe disconnect|セス安全切断
+Start catching for all NK interfaces|すべてのNKインターフェイスの傍受を開始
+Getting interface information...|インターフェース情報を取得しています...
 Dialing doctor|ダイヤルドクター
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|ご注意：<b>ダイヤル医者を直接実行すると、完全に誤った診断が報告される可能性があります</b>接続に失敗した場合（代行受信方法を除く）、ダイヤル医者は自動的に通知を出して開始します。ただし、傍受方法や最後の自動ダイヤルアップ接続の問題をいつでも診断するようにダイヤルアップ医師に強制することはできますが、結果が不正確または完全に間違っている場合もあります。
 I know|私は知っている
-Start catching for all NK interfaces|すべてのNKインターフェイスの傍受を開始
-Getting interface information...|インターフェース情報を取得しています...
 Extra tools|追加のツール
 Ranga software version|Rangaソフトウェアのバージョン
 System version: {0}|システムバージョン：{0}
@@ -402,4 +401,4 @@ NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Sof
 Enable NSWA Online Push|NSWAオンラインプッシュを有効にする
 Web console experimental features|Webコンソールの実験的機能
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|まだ実験的なWebコンソールの機能のいくつかを次に示します。これらは潜在的な落とし穴をもたらす可能性があります。
-"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|[ネットワーク接続]ページの[その他のツール]に[すべてのNKインターフェイスのブロックを開始]ボタンが表示される
+There are currently no features in the experiment.|

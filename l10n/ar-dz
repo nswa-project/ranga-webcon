@@ -88,12 +88,11 @@ Static|ثابتة
 TX bytes: |بايت TX:
 RX bytes: |بايت RX:
 Reload|إعادة تحميل
-Seth Safe disconnect|سيث الآمن قطع الاتصال
+Start catching for all NK interfaces|بدء اصطياد جميع واجهات NK
+Getting interface information...|الحصول على معلومات الواجهة ...
 Dialing doctor|طبيب الاتصال
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|يرجى ملاحظة: <b> قد يؤدي تشغيل الطبيب المتصل مباشرة إلى الإبلاغ عن تشخيص خاطئ تمامًا </ b>. عند فشل الاتصال (باستثناء طريقة الالتقاط) ، سيقوم طبيب الاتصال تلقائيًا بإعلام منبثق لبدء التشغيل ، وتكون النتيجة أعلى. ومع ذلك ، لا يزال بإمكانك إجبار طبيب الاتصال على تشخيص طريقة الالتقاط أو مشكلة الاتصال التلقائي الأخيرة في أي وقت ، لكن النتيجة قد تكون غير دقيقة أو حتى خاطئة تمامًا.
 I know|أنا أعلم
-Start catching for all NK interfaces|بدء اصطياد جميع واجهات NK
-Getting interface information...|الحصول على معلومات الواجهة ...
 Extra tools|أدوات اضافية
 Ranga software version|إصدار برنامج Ranga
 System version: {0}|إصدار النظام: {0}
@@ -402,4 +401,4 @@ NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Sof
 Enable NSWA Online Push|تمكين NSWA Online Push
 Web console experimental features|الميزات التجريبية لوحدة الويب
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|فيما يلي بعض ميزات وحدة تحكم الويب التي لا تزال تجريبية ، والتي يمكن أن تنطوي على عيوب محتملة.
-"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|يتم عرض زر "بدء البحث عن جميع واجهات NK" في "أدوات إضافية" على صفحة "الشبكات"
+There are currently no features in the experiment.|

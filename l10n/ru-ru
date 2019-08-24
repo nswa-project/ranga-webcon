@@ -88,12 +88,11 @@ Static|статический
 TX bytes: |Байты TX:
 RX bytes: |RX байты:
 Reload|перезагружать
-Seth Safe disconnect|Сет Безопасное отключение
+Start catching for all NK interfaces|Начните ловить все интерфейсы NK
+Getting interface information...|Получение информации об интерфейсе ...
 Dialing doctor|Набирая доктора
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|Обратите внимание: <b> Непосредственный запуск дозвона может сообщить о совершенно ошибочном диагнозе </ b>. Когда соединение (кроме метода перехвата) не удалось, дозвонивший врач автоматически выдаст уведомление о начале, и результат будет выше. Тем не менее, вы все равно можете заставить доктора набора номера диагностировать метод перехвата или последнюю проблему с автоматическим набором в любое время, но результат может быть неточным или даже полностью неверным.
 I know|я знаю
-Start catching for all NK interfaces|Начните ловить все интерфейсы NK
-Getting interface information...|Получение информации об интерфейсе ...
 Extra tools|Дополнительные инструменты
 Ranga software version|Версия программного обеспечения Ranga
 System version: {0}|Версия системы: {0}
@@ -402,4 +401,4 @@ NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Sof
 Enable NSWA Online Push|Включить NSWA Online Push
 Web console experimental features|Экспериментальные функции веб-консоли
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|Вот некоторые из функций веб-консоли, которые все еще являются экспериментальными, которые могут иметь потенциальные подводные камни.
-"Start catching for all NK interfaces" button is displayed in "Extra Tools" on the "Networking" page|Кнопка «Начать ловить для всех интерфейсов NK» отображается в «Дополнительные инструменты» на странице «Сеть»
+There are currently no features in the experiment.|
