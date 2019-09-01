@@ -4,7 +4,11 @@ var scriptSet = new Set();
 webcon.supportSiteMain = "https://glider0.github.io";
 
 webcon.setToken = value => {
-	document.cookie = "USER_TOKEN=" + value + "; path=/cgi-bin";
+	let expires = '';
+	if (utils.getLocalStorageItem('exp-keep-token') === 'true') {
+		expires = '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
+	}
+	document.cookie = "USER_TOKEN=" + value + "; path=/cgi-bin" + expires;
 }
 
 webcon.loadScript = (name, url) => {

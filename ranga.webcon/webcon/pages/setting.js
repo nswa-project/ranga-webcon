@@ -4,22 +4,29 @@ page_setting.$ = id => {
 	return document.getElementById('p-setting-' + id);
 }
 
+page_setting.setBooleanLocalStorageItem = (key, valueCheckbox, swap) => {
+	let checked = swap ? 'false' : 'true';
+	let unchecked = swap ? 'true' : 'false';
+	localStorage.setItem(key, valueCheckbox.checked ? checked : unchecked);
+}
+
 const page_setting_init = () => {
 	let timesync = page_setting.$('timesync'),
 		online = page_setting.$('online'),
 		theme = page_setting.$('theme'),
-		localeinput = page_setting.$('locale');
+		localeinput = page_setting.$('locale'),
+		exp_keep_token = page_setting.$('exp-keep-token');
 
 	let locale = utils.getLocalStorageItem('locale');
 	if (!utils.isNil(locale)) {
 		localeinput.value = locale;
 	}
-	
+
 	localeinput.addEventListener('change', e => {
 		localStorage.setItem('locale', localeinput.value);
 		location.reload(true);
 	});
-	
+
 	theme.textContent = webconThemeUUID ? webconThemeUUID : _('Default theme');
 	page_setting.$('themestore').addEventListener('click', e => {
 		iframePage(webcon.supportSiteMain + '/was2/themes.html', _('Ranga Web App Store - Themes'))
@@ -64,6 +71,8 @@ const page_setting_init = () => {
 		localStorage.setItem("disable-nswa-online", online.checked ? "false" : "true");
 	});
 
+	exp_keep_token.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("exp-keep-token", e.target, false));
+
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true') {
 		timesync.checked = false;
 	}
@@ -74,5 +83,9 @@ const page_setting_init = () => {
 
 	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
 		exp_onekey.checked = true;
+	}
+
+	if (utils.getLocalStorageItem('exp-keep-token') === 'true') {
+		exp_keep_token.checked = true;
 	}
 }
