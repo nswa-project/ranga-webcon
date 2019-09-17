@@ -66,5 +66,12 @@
 			</table>
 			<button class="btnFlat _tr" id='p-mwan-setif'>Set interface load balancing parameters</button>
 		</div>
+		<div style="margin-top: 16px;">
+			<a href='#' onclick="page_mwan.showRuleWidget(this); return false;" class="_tr">Show custom rules</a>
+			<div id="p-mwan-rule" class="hide">
+				<div class="tips _tr">Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href='https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html'>this document</a>.</div>
+			</div>
+			<pre id="p-mwan-crules"></pre>
+		</div>
 	</div>
 </div>

@@ -1,6 +1,6 @@
 var page_mwan = {};
 
-page_mwan.getElementById = id => {
+page_mwan.$ = id => {
 	return document.getElementById('p-mwan-' + id);
 }
 
@@ -9,7 +9,7 @@ page_mwan.reloadPage = () => {
 }
 
 page_mwan.interfaceList = () => {
-	let select = page_mwan.getElementById('ifs');
+	let select = page_mwan.$('ifs');
 	ranga.api.config('interface', ['ls']).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			let option = document.createElement("option");
@@ -22,12 +22,12 @@ page_mwan.interfaceList = () => {
 
 page_mwan.RVLANInit = () => {
 	ranga.api.config('misc', ['get', 'misc.rvlan']).then(proto => {
-		page_mwan.getElementById('nrvlan').value = proto.payload;
+		page_mwan.$('nrvlan').value = proto.payload;
 	}).catch(defErrorHandlerPage);
 }
 
 page_mwan.interfaceEdit = (available, ifname) => {
-	let editPage = page_mwan.getElementById('cfg');
+	let editPage = page_mwan.$('cfg');
 	if (!editPage.classList.contains('hide')) {
 		editPage.classList.add('hide');
 	}
@@ -40,19 +40,19 @@ page_mwan.interfaceEdit = (available, ifname) => {
 		let data = ranga.parseProto(proto.payload + "\n\n");
 		console.log(data);
 
-		page_mwan.getElementById('reliability').value = data.reliability;
-		page_mwan.getElementById('timeout').value = data.timeout;
-		page_mwan.getElementById('interval').value = data.interval;
-		page_mwan.getElementById('up').value = data.up;
-		page_mwan.getElementById('down').value = data.down;
-		page_mwan.getElementById('metric').value = data.metric;
-		page_mwan.getElementById('weight').value = data.weight;
+		page_mwan.$('reliability').value = data.reliability;
+		page_mwan.$('timeout').value = data.timeout;
+		page_mwan.$('interval').value = data.interval;
+		page_mwan.$('up').value = data.up;
+		page_mwan.$('down').value = data.down;
+		page_mwan.$('metric').value = data.metric;
+		page_mwan.$('weight').value = data.weight;
 
 		let list = '';
 		data.trackIPlist.split(' ').forEach(i => {
 			list += i.replace(/^'(.+)'$/, '$1') + '\n';
 		});
-		page_mwan.getElementById('trackIPlist').value = list;
+		page_mwan.$('trackIPlist').value = list;
 
 		if (editPage.classList.contains('hide')) {
 			editPage.classList.remove('hide');
@@ -74,15 +74,15 @@ const page_mwan_init = () => {
 
 	ranga.api.config('mwan', ['is-enabled']).then(proto => {
 		if (!proto.payload.startsWith('enabled')) {
-			page_mwan.getElementById('status-disabled').classList.remove('hide');
+			page_mwan.$('status-disabled').classList.remove('hide');
 		} else {
 			page_mwan.interfaceList();
 			page_mwan.RVLANInit();
-			page_mwan.getElementById('status-enabled').classList.remove('hide');
+			page_mwan.$('status-enabled').classList.remove('hide');
 		}
 	}).catch(defErrorHandlerPage);
 
-	page_mwan.getElementById('enable').addEventListener('click', e => {
+	page_mwan.$('enable').addEventListener('click', e => {
 		webcon.lockScreen();
 		ranga.api.config('mwan', ['enable']).then(proto => {
 			page_mwan.reloadPage();
@@ -91,7 +91,7 @@ const page_mwan_init = () => {
 		});
 	});
 
-	page_mwan.getElementById('disable').addEventListener('click', e => {
+	page_mwan.$('disable').addEventListener('click', e => {
 		webcon.lockScreen();
 		ranga.api.config('mwan', ['disable']).then(proto => {
 			page_mwan.reloadPage();
@@ -100,15 +100,15 @@ const page_mwan_init = () => {
 		});
 	});
 
-	page_mwan.getElementById('restart').addEventListener('click', e => {
+	page_mwan.$('restart').addEventListener('click', e => {
 		webcon.lockScreen();
 		ranga.api.action('restart', ['mwan']).then(proto => {}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();
 		});
 	});
 
-	page_mwan.getElementById('set-rvlan').addEventListener('click', e => {
-		let nrvlan = page_mwan.getElementById('nrvlan').value;
+	page_mwan.$('set-rvlan').addEventListener('click', e => {
+		let nrvlan = page_mwan.$('nrvlan').value;
 		if (nrvlan === '')
 			nrvlan = '0';
 
@@ -120,14 +120,14 @@ const page_mwan_init = () => {
 		});
 	});
 
-	page_mwan.getElementById('ifs').addEventListener('change', e => {
-		let editPage = page_mwan.getElementById('cfg');
+	page_mwan.$('ifs').addEventListener('change', e => {
+		let editPage = page_mwan.$('cfg');
 		if (!editPage.classList.contains('hide')) {
 			editPage.classList.add('hide');
 		}
 
-		let select = page_mwan.getElementById('ifs'),
-			addif = page_mwan.getElementById('addif');
+		let select = page_mwan.$('ifs'),
+			addif = page_mwan.$('addif');
 		ifname = select.value;
 		addif.checked = false;
 		webcon.lockScreen();
@@ -141,9 +141,9 @@ const page_mwan_init = () => {
 		});
 	});
 
-	page_mwan.getElementById('addif').addEventListener('change', e => {
-		let addif = page_mwan.getElementById('addif'),
-			ifname = page_mwan.getElementById('ifs').value,
+	page_mwan.$('addif').addEventListener('change', e => {
+		let addif = page_mwan.$('addif'),
+			ifname = page_mwan.$('ifs').value,
 			action = 'remove';
 
 		if (ifname === '')
@@ -159,19 +159,19 @@ const page_mwan_init = () => {
 		}).catch(defErrorHandler);
 	});
 
-	page_mwan.getElementById('setif').addEventListener('click', e => {
+	page_mwan.$('setif').addEventListener('click', e => {
 		webcon.lockScreen();
-		let ifname = page_mwan.getElementById('ifs').value;
-		let reliability = page_mwan.getElementById('reliability').value,
-			timeout = page_mwan.getElementById('timeout').value,
-			interval = page_mwan.getElementById('interval').value,
-			up = page_mwan.getElementById('up').value,
-			down = page_mwan.getElementById('down').value,
-			metric = page_mwan.getElementById('metric').value,
-			weight = page_mwan.getElementById('weight').value;
+		let ifname = page_mwan.$('ifs').value;
+		let reliability = page_mwan.$('reliability').value,
+			timeout = page_mwan.$('timeout').value,
+			interval = page_mwan.$('interval').value,
+			up = page_mwan.$('up').value,
+			down = page_mwan.$('down').value,
+			metric = page_mwan.$('metric').value,
+			weight = page_mwan.$('weight').value;
 
 		let ipList = [];
-		page_mwan.getElementById('trackIPlist').value.split('\n').forEach(i => {
+		page_mwan.$('trackIPlist').value.split('\n').forEach(i => {
 			ipList.push(i.replace(/\r/g, ''));
 		});
 
@@ -196,5 +196,21 @@ const page_mwan_init = () => {
 		}).catch(defErrorHandler).finally(() => {
 			webcon.unlockScreen();
 		});
+	});
+}
+
+page_mwan.showRuleWidget = link => {
+	page_mwan.$('rule').classList.remove('hide');
+	link.textContent = _("Refrush custom rules");
+
+	let crules = page_mwan.$('crules');
+
+	webcon.lockScreen();
+	ranga.api.config('mwan', ['lsrule']).then(proto => {
+		crules.textContent = proto.payload
+		//proto.payload.split('\n\n').forEach(i => {
+		//});
+	}).catch(defErrorHandler).finally(() => {
+		webcon.unlockScreen();
 	});
 }
