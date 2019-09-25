@@ -114,7 +114,7 @@ What should you pay attention to?
 
 - Work in `ranga.webcon/webcon` path.
 
-- You need to make your code work on Google Chrome (>= 70), Mozilla Firefox (>= 62), and iOS Safari (>= 12). If you haven't got an iPhone to check it, please indicate this.
+- You need to make your code work on Google Chrome (>= 76), Mozilla Firefox (>= 69), and iOS Safari (>= 12.4.1). If you haven't got an iPhone to check it, please indicate this.
 
 - You need use `(a, b) => {}`, not `function(a, b) {}`.
 
