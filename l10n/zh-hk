@@ -104,7 +104,7 @@ Chip: {0}|芯片：{0}
 Board: {0}|板子：{0}
 Model name: {0}|模型名稱：{0}
 Resource usage|資源使用
-Total memory: {0} KB|總內存：{0}
+Total memory: {0} KB|總內存：{0} 千字節
 Memory (used): {0} KB|內存（已使用）：{0} 千字節
 Memory (cached): {0} KB|內存（已緩存）：{0} 千字節
 Memory (buffered): {0} KB|內存（已緩衝）：{0} 千字節
