@@ -356,42 +356,40 @@
 			webcon.removeAllButtons();
 		}
 
+		const pageChangeCommon = (jsid, jsuri, htmluri, title) => {
+			const promise = new Promise((resolve, reject) => {
+				webcon.contentLoadData('', false);
+				webcon.removeAllButtons();
+				webcon.contentSetTitle(_('Loading'));
+				webcon.loadScript(jsid, jsuri).then(first => {
+					return webcon.contentLoadUri(htmluri, true);
+				}).then(e => {
+					webcon.contentSetTitle(title);
+					resolve();
+				}).catch(e => {
+					utils.promiseDebug(e);
+					dialog.simple(_("A network error or web console error occurred while loading the page"));
+					webcon.contentSetTitle(_('Failed to load'));
+					reject();
+				});
+				setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
+			});
+
+			return promise;
+		}
+
 		const selectPage = (page, title) => {
-			webcon.contentLoadData('', false);
-			webcon.removeAllButtons();
-			webcon.contentSetTitle(_('Loading'));
-			webcon.loadScript("js_" + page, "pages/" + page + ".js?v=__RELVERSION__").then(first => {
-				return webcon.contentLoadUri("pages/" + page + ".html?v=__RELVERSION__", true);
-			}).then(e => {
-				webcon.contentSetTitle(title);
-				//window['page_' + page + "_init"]();
-				eval('page_' + page + "_init()")
-			}).catch(e => {
-				utils.promiseDebug(e);
-				dialog.simple(_("A network error or web console error occurred while loading the page"));
-				webcon.contentSetTitle(_('Failed to load'));
+			pageChangeCommon("js_" + page, "pages/" + page + ".js?v=__RELVERSION__", "pages/" + page + ".html?v=__RELVERSION__", title).then(() => {
+				eval('page_' + page + "_init()");
 			}).finally(() => {
 				i18n.runHooks();
-			})
-			setTimeout((() => document.getElementById('nav').classList.remove('nav_show')), 100);
+			});
 		}
 
 		const iframePage = (uri, title, showUri) => {
-			document.getElementById('radio-placeholder').checked = true;
-			webcon.contentLoadData('', false);
-			webcon.removeAllButtons();
-			webcon.contentSetTitle(_('Loading'));
-			webcon.loadScript("extra_js_iframe", "extra/iframe.js?v=__RELVERSION__").then(first => {
-				return webcon.contentLoadUri("extra/iframe.html?v=__RELVERSION__", true);
-			}).then(e => {
-				webcon.contentSetTitle(title);
+			pageChangeCommon("extra_js_iframe", "extra/iframe.js?v=__RELVERSION__", "extra/iframe.html?v=__RELVERSION__", title).then(() => {
 				window.extraIframeLoad(uri);
-			}).catch(e => {
-				utils.promiseDebug(e);
-				dialog.simple(_("A network error or web console error occurred while loading the page"));
-				webcon.contentSetTitle(_('Failed to load'));
 			});
-			utils.delay(100).then(v => (document.getElementById('nav').classList.remove('nav_show')));
 		}
 
 		document.getElementById('menu').addEventListener('click', e => {
