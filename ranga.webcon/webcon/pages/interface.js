@@ -7,6 +7,16 @@ page_interface.$ = id => {
 }
 
 page_interface.updateSethInfomationWidget = (ifname) => {
+	let csseth = page_interface.$('csseth');
+	if (utils.getLocalStorageItem('deprecated-csseth') !== 'true') {
+		if (!csseth.classList.contains('hide')) {
+			csseth.classList.add('hide');
+		}
+		return;
+	}
+
+	csseth.classList.remove('hide')
+
 	let widget = page_interface.$('seth-info');
 	return utils.idbGet('seth', ifname).then(r => {
 		console.log(r);

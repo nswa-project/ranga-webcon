@@ -163,6 +163,8 @@ page_network.reload = () => {
 
 	let f_scdial_enable = false;
 
+	let csseth = (utils.getLocalStorageItem('deprecated-csseth') === 'true');
+
 	return ranga.api.query('network', []).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			console.log(i);
@@ -191,9 +193,11 @@ page_network.reload = () => {
 				btn.classList.remove('hide');
 				btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.conn, d[0], d[1]), false);
 				if (d[1] === 'netkeeper') {
-					btn = item.getElementsByClassName('p-network-item-btn-seth')[0];
-					btn.classList.remove('hide');
-					btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.seth, d[0], d[1]), false);
+					if (csseth) {
+						btn = item.getElementsByClassName('p-network-item-btn-seth')[0];
+						btn.classList.remove('hide');
+						btn.addEventListener('click', ((f, a, b) => e => f(a, b))(page_network.seth, d[0], d[1]), false);
+					}
 					btn = item.getElementsByClassName('p-network-item-btn-server')[0];
 					btn.classList.remove('hide');
 					if (f_scdial_enable) {

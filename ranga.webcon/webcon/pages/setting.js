@@ -15,6 +15,7 @@ const page_setting_init = () => {
 		online = page_setting.$('online'),
 		theme = page_setting.$('theme'),
 		localeinput = page_setting.$('locale'),
+		deprecated_csseth = page_setting.$('deprecated-csseth'),
 		exp_keep_token = page_setting.$('exp-keep-token');
 
 	let locale = utils.getLocalStorageItem('locale');
@@ -72,6 +73,7 @@ const page_setting_init = () => {
 	});
 
 	exp_keep_token.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("exp-keep-token", e.target, false));
+	deprecated_csseth.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("deprecated-csseth", e.target, false));
 
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true') {
 		timesync.checked = false;
@@ -81,8 +83,8 @@ const page_setting_init = () => {
 		online.checked = false;
 	}
 
-	if (utils.getLocalStorageItem('exp-onekey') === 'true') {
-		exp_onekey.checked = true;
+	if (utils.getLocalStorageItem('deprecated-csseth') === 'true') {
+		deprecated_csseth.checked = true;
 	}
 
 	if (utils.getLocalStorageItem('exp-keep-token') === 'true') {

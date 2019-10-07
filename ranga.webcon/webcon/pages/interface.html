@@ -72,11 +72,16 @@
 			</tr>
 		</table>
 		<button class="btnFlat _tr" id='p-interface-set-proto'>Apply</button>
-		<h1 class="_tr">Seth Data</h1>
-		<div class="tips _tr"><b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).</div>
-		<div id="p-interface-seth-info"></div>
-		<input type="file" style="display: none" id="p-interface-seth-input-file">
-		<button class="btnFlat _tr" id='p-interface-seth-file'>Load From File</button>
+
+		<div class="hide" id="p-interface-csseth">
+			<h1 class="_tr">Client Side Seth (CS-Seth) Data [Deprecated]</h1>
+			<div class="tips _tr">It is a deprecated legacy features of web console. We recommend using the Server Side Seth (SS-Seth) instead.</div>
+			<div class="tips _tr"><b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).</div>
+			<div id="p-interface-seth-info"></div>
+			<input type="file" style="display: none" id="p-interface-seth-input-file">
+			<button class="btnFlat _tr" id='p-interface-seth-file'>Load From File</button>
+		</div>
+
 		<h1 class="_tr">Authenticate</h1>
 		<div class="tips _tr">When the selected protocol has an authentication extension, the following authentication information is used for authentication. Such as PAP or CHAP of the PPPoE, 802.1X security, etc.</div>
 		<table>
