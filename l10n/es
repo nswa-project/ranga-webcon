@@ -46,6 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|Instalacion de extension
 <b>Installation is complete, please manually reload the web console</b>|<b> La instalación ha finalizado, vuelva a cargar la consola web manualmente </b>
 Software change in progress|Cambio de software en progreso
+Please select a file|Por favor seleccione un archivo
+Seth data file invalid|
+An error occured|
 Please restart the system as soon as possible.|Por favor reinicie el sistema tan pronto como sea posible.
 Changes will take effect after the system reboot.|Los cambios entrarán en vigor después del reinicio del sistema.
 The configuration for '{0}' has been modified. {1}|La configuración para '{0}' ha sido modificada. {1}
@@ -59,7 +62,6 @@ Add new interface|Añadir nueva interfaz
 Please enter the name of the new interface, which must start with 'md'.|Por favor ingrese el nombre de la nueva interfaz, que debe comenzar con 'md'.
 The protocol type configuration for interface '{0}' has been modified.|La configuración del tipo de protocolo para la interfaz '{0}' ha sido modificada.
 Seth data has been updated|Los datos de Seth han sido actualizados.
-An error occured|
 Load From Seth Server|Cargar desde el servidor Seth
 Enter the secret code (Secret).|Introduzca el código secreto (Secreto).
 Load|Carga
@@ -93,6 +95,8 @@ Getting interface information...|Obteniendo información de la interfaz ...
 Dialing doctor|Médico de marcado
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|Tenga en cuenta que: <b> la ejecución directa del médico de marcado puede informar un diagnóstico completamente erróneo </b>. Cuando falla la conexión (excepto el método de captura), el médico de marcado abrirá automáticamente una notificación para comenzar, y el resultado es mayor. Sin embargo, aún puede obligar al médico de marcación a diagnosticar el método de captura o el último problema de marcación automática en cualquier momento, pero el resultado puede ser inexacto o incluso completamente incorrecto.
 I know|Lo sé
+SS-Seth Configuration|
+Server Side Seth Configuration|
 Extra tools|Herramientas adicionales
 Ranga software version|Versión de software Ranga
 System version: {0}|Versión del sistema: {0}
@@ -140,6 +144,7 @@ Load balancing state|Estado de equilibrio de carga
 Close|Cerrar
 The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|La operación '{1}' se ha completado para la interfaz '{0}'. Sin embargo, debe reiniciar el servicio de inicio múltiple para que tenga efecto.
 The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|La configuración multi-homed para la interfaz '{0}' ha cambiado. Sin embargo, debe reiniciar el servicio de inicio múltiple para que tenga efecto.
+Refrush custom rules|
 Add binding|Añadir enlace
 Enter IPv4 Address|Introduzca la dirección IPv4
 Enter MAC Address|Introduzca la dirección MAC
@@ -156,7 +161,6 @@ Quick Setup|Configuración rápida
 The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|La seguridad inalámbrica para el dispositivo inalámbrico '{0}' se ha modificado. Sin embargo, debe reiniciar el servicio inalámbrico para que tenga efecto.
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|Se ha modificado la clave precompartida para el dispositivo inalámbrico ‘{0} '. Sin embargo, debe reiniciar el servicio inalámbrico para que tenga efecto.
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|La configuración de radio del dispositivo inalámbrico '{0}' ha sido modificada. Sin embargo, debe reiniciar el servicio inalámbrico para que tenga efecto.
-Please select a file|Por favor seleccione un archivo
 The main file system is mounted|El sistema de archivos principal está montado.
 Used: {0}, remaining: {1}|Usado: {0}, restante: {1}
 Unmounted main file system|Sistema de archivos principal sin montar
@@ -187,6 +191,11 @@ Apply|Aplicar
 CLI Tools|Herramientas CLI
 Change the Samba password for 'user' account|Cambia la contraseña de Samba para la cuenta de 'usuario'
 Change Aria2 RPC token|Cambiar token Aria2 RPC
+SS-Seth user data files|
+Upload the data files required by the “Server Side Seth” to NSWA Ranga. If interfaces which are enable any of Netkeeper Extension are enabled is for dialing, the Seth data file of the corresponding username will be used instead. The following are the data files of the users that have been uploaded. You can delete them by clicking the button on the left.|
+Upload new data files|
+If you need to upload a data file, select it and click the "Upload" button. If the file is too large or too much and exceeds the remaining space of your system, the system may enter protected mode and make the storage space read-only. After you delete some data files, you may need to restart the system to release the protective read-only mode. You must upload a data file that is NOT "PrivacyExtensionEnabled" (the date file contains the username), otherwise you must use the command line tool to upload it.|
+Select the seth data file:|
 Captive portal|Portal cautivo
 The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|El portal cautivo permite al sistema operativo del cliente abrir automáticamente la página de la consola web emergente del navegador al acceder a una red que no es de acceso telefónico. & Nbsp; <b> Debe reiniciar NSWA Ranga inmediatamente después de modificar esta configuración; de lo contrario, el sistema podría funcionar. en un estado inconsistente! </b>
 Enable the captive portal|Habilitar el portal cautivo
@@ -236,6 +245,8 @@ Failure threshold|Umbral de falla
 Priority|Prioridad
 Weights|Pesas
 Set interface load balancing parameters|Establecer parámetros de equilibrio de carga de la interfaz
+Show custom rules|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|Seleccione el dispositivo inalámbrico que desea configurar
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|Las modificaciones a la configuración inalámbrica no tendrán efecto hasta que se reinicie el sistema NSWA Ranga o se reinicie el servicio inalámbrico. Entonces, después de modificar estas configuraciones, puede hacer clic en el botón "Reiniciar el servicio inalámbrico" para que surta efecto de inmediato. Esta operación tarda un poco en completarse, no tiene que modificar cada configuración para ejecutarse, puede completar múltiples configuraciones de múltiples dispositivos inalámbricos y luego ejecutarla una vez.
 Restart Wireless Service|Reiniciar el servicio inalámbrico
@@ -292,7 +303,8 @@ Static Address|Dirección estática
 PPPoATM|PPPoATM
 Netkeeper Extension|Extensión de Netkeeper
 Non-enable|No habilitado
-Seth Data|Datos de seth
+Client Side Seth (CS-Seth) Data [Deprecated]|
+It is a deprecated legacy features of web console. We recommend using the Server Side Seth (SS-Seth) instead.|
 <b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b> Solo si tiene habilitada la "Extensión de Netkeeper" </b>. La consola web admite el almacenamiento de datos de Seth en su navegador IndexedDB. Una vez que haya configurado los datos de Seth, puede conectarse a esta red utilizando el método "Seth Connect" en su navegador actual. Puede cargar datos de Seth directamente desde un archivo o desde un servidor Seth. Para actualizar los datos del servidor Seth, debe ingresar un código secreto (Secreto).
 Load From File|Carga del archivo
 Authenticate|Autenticar
@@ -380,7 +392,7 @@ Web console version:|Versión de consola web:
 Get the web console source code|Obtenga el código fuente de la consola web
 Contributor list|Lista de contribuyentes
 Connect|Conectar
-Seth Connect|Seth Connect
+CS-Seth|
 Start catching|Empezar a atrapar
 Disconnect|Desconectar
 Traditional catching server is disabled because the new persistent catching service is enabled.|El servidor de captura tradicional está deshabilitado porque el nuevo servicio de captura persistente está habilitado.
@@ -399,6 +411,7 @@ Enable automatic synchronization time (Netkeeper only)|Habilitar el tiempo de si
 NSWA Online Push|NSWA Online Push
 NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|NSWA Online obtendrá & nbsp; <b> Últimos anuncios </b>, & nbsp; <b> Actualizaciones de software del sistema en línea </b>, & nbsp; <b> Ver ajustes de estilo </b> & nbsp; y & nbsp; <b> Doodles del festival </b>, etc. después de abrir la consola web. Se muestra en la consola web. Esta es una función de consola web y no una función de NSWA Ranga. Solo pasa en tu navegador. ¡No hay acceso a nuestro servidor y el software o los datos privados y buscados en la versión oficial de NSWA Ranga! Política de privacidad en línea de NSWA: No recopilamos, enviamos ni almacenamos sus datos personales en el servidor. Podemos almacenar algunas etiquetas de datos localmente en su navegador. Por ejemplo, ¿elige ignorar un recordatorio de actualización en lugar de mostrarlo? Estos se almacenarán localmente en el navegador y no se transmitirán a través de la red.
 Enable NSWA Online Push|Habilitar la inserción en línea de NSWA
+Web console deprecated legacy features|
+Here are some of the legacy features of the web console that are deprecated. They are no longer recommended, but they can still be manually enabled and used.|
 Web console experimental features|Características experimentales de la consola web.
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|Estas son algunas de las características de la consola web que aún son experimentales, y que pueden tener dificultades potenciales.
-There are currently no features in the experiment.|

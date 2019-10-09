@@ -1,0 +1,42 @@
+<div class="page fadein" id="extra_ss_seth_main">
+	<style>
+		#extra_ss_seth_main .tips {
+			margin-bottom: 10px;
+		}
+
+		#extra_ss_seth_main button {
+			margin-top: 8px;
+		}
+
+		.ex-ss-seth-item {
+			display: flex;
+			flex-flow: row;
+			align-items: center;
+		}
+
+		.ex-ss-seth-item button i {
+			margin-right: 0;
+		}
+
+		.ex-ss-seth-item button {
+			margin-top: 0 !important;
+			margin-right: 14px;
+			padding: 10px;
+		}
+
+	</style>
+	<h1 class="_tr">SS-Seth user data files</h1>
+	<div class="_tr tips">Upload the data files required by the “Server Side Seth” to NSWA Ranga. If interfaces which are enable any of Netkeeper Extension are enabled is for dialing, the Seth data file of the corresponding username will be used instead. The following are the data files of the users that have been uploaded. You can delete them by clicking the button on the left.</div>
+	<div id="ex-ss-seth-item_t" class="hide ex-ss-seth-item">
+		<button class="btnFlat"><i class="icon icon-close"></i></button>
+		<span></span>
+	</div>
+	<div id="ex-ss-seth-users">
+		
+	</div>
+	
+	<h1 class="_tr">Upload new data files</h1>
+	<div class="_tr tips">If you need to upload a data file, select it and click the "Upload" button. If the file is too large or too much and exceeds the remaining space of your system, the system may enter protected mode and make the storage space read-only. After you delete some data files, you may need to restart the system to release the protective read-only mode. You must upload a data file that is NOT "PrivacyExtensionEnabled" (the date file contains the username), otherwise you must use the command line tool to upload it.</div>
+	<div class="simpleLabel _tr">Select the seth data file:</div><input type="file" id="ex-ss-seth-file" /><br>
+	<button class="btnFlat _tr" id="ex-ss-seth-upload" type="button">Upload</button><br>
+</div>

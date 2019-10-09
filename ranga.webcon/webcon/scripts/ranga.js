@@ -36,6 +36,7 @@ ranga.ajax = (url, data, callback) => {
 		});
 		xhr.send(blob);
 	} else {
+		xhr.setRequestHeader('Content-Type', 'application/octet-stream');
 		xhr.send(data);
 	}
 }
@@ -86,6 +87,10 @@ ranga.api.auth = password => {
 
 ranga.api.disp = (section, target, args) => {
 	return ranga.protoAjax("/cgi-bin/disp?section=" + encodeURIComponent(section) + "&target=" + encodeURIComponent(target), args.join("\n") + "\n");
+}
+
+ranga.api.disp_upload = (section, target, filename, raw) => {
+	return ranga.protoAjax("/cgi-bin/disp?section=" + encodeURIComponent(section) + "&target=" + encodeURIComponent(target) + "&mode=upload&filename=" + encodeURIComponent(filename), raw);
 }
 
 ranga.api.config = (target, args) => {

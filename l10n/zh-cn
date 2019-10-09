@@ -46,6 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|正在安装扩展程序
 <b>Installation is complete, please manually reload the web console</b>|<b>安装完毕，请手动刷新 Web 控制台</b>
 Software change in progress|正在执行软件变更
+Please select a file|请选择一个文件
+Seth data file invalid|Seth 数据文件无效
+An error occured|一个错误发生了
 Please restart the system as soon as possible.|请尽快重新启动系统。
 Changes will take effect after the system reboot.|更改将在重新启动系统后生效。
 The configuration for '{0}' has been modified. {1}|'{0}' 的配置已经被更改。 {1}
@@ -59,7 +62,6 @@ Add new interface|添加新的接口
 Please enter the name of the new interface, which must start with 'md'.|请输入新接口的名字，必须以 'md' 开头。
 The protocol type configuration for interface '{0}' has been modified.|接口 ‘{0}' 的协议类型配置已经被修改。
 Seth data has been updated|Seth 数据已经更新
-An error occured|一个错误发生了
 Load From Seth Server|从 Seth 服务器加载
 Enter the secret code (Secret).|输入秘密代码（Secret）。
 Load|加载
@@ -93,6 +95,8 @@ Getting interface information...|正在获取接口信息...
 Dialing doctor|拨号医生
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|请注意：<b>直接运行拨号医生可能报告完全错误的诊断结果</b>，在连接（拦截法除外）失败时，拨号医生会自动弹出通知以启动，这时的结果正确率较高。但你仍然可以随时强制启动拨号医生，以诊断拦截法或上次自动拨号的连接问题，但结果可能不准确甚至完全错误。
 I know|我知道了
+SS-Seth Configuration|服务端 Seth 配置
+Server Side Seth Configuration|服务端 Seth 配置
 Extra tools|额外工具
 Ranga software version|Ranga 软件版本
 System version: {0}|系统版本：{0}
@@ -140,6 +144,7 @@ Load balancing state|负载均衡状态
 Close|关闭
 The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|已经为接口 ‘{0}' 执行完成了 '{1}' 操作。但需要重启多宿主服务以生效。
 The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|接口 ‘{0}' 的多宿主配置已经更改。但需要重启多宿主服务以生效。
+Refrush custom rules|
 Add binding|添加绑定
 Enter IPv4 Address|输入网际网协议版本4地址
 Enter MAC Address|输入媒体访问控制地址
@@ -156,7 +161,6 @@ Quick Setup|快速设置
 The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|无线设备 ‘{0}' 的无线安全设置已经被修改。但需要重启无线服务以生效。
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|无线设备 ‘{0}' 的预共享密钥已经被修改。但需要重启无线服务以生效。
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|无线设备 ‘{0}' 的无线电配置已经被修改。但需要重启无线服务以生效。
-Please select a file|请选择一个文件
 The main file system is mounted|主要文件系统已挂载
 Used: {0}, remaining: {1}|已使用: {0}，剩余: {1}
 Unmounted main file system|未挂载主要文件系统
@@ -187,6 +191,11 @@ Apply|应用
 CLI Tools|命令行工具
 Change the Samba password for 'user' account|修改 Samba 'user' 用户的密码
 Change Aria2 RPC token|修改 Aria2 RPC 令牌
+SS-Seth user data files|服务端 Seth 用户数据文件
+Upload the data files required by the “Server Side Seth” to NSWA Ranga. If interfaces which are enable any of Netkeeper Extension are enabled is for dialing, the Seth data file of the corresponding username will be used instead. The following are the data files of the users that have been uploaded. You can delete them by clicking the button on the left.|将“服务端 Seth”需要的数据文件上传到 NSWA Ranga，若启用任意一项 Netkeeper 扩展的接口进行拨号时，将会转而使用相应用户名的 Seth 数据文件。以下是已经上传的用户的数据文件。你可以通过点击左侧的按钮来删除它们。
+Upload new data files|上传新的数据文件
+If you need to upload a data file, select it and click the "Upload" button. If the file is too large or too much and exceeds the remaining space of your system, the system may enter protected mode and make the storage space read-only. After you delete some data files, you may need to restart the system to release the protective read-only mode. You must upload a data file that is NOT "PrivacyExtensionEnabled" (the date file contains the username), otherwise you must use the command line tool to upload it.|若你需要上传数据文件，请选择它并点按“上传”按钮。如果文件过大或过多而超过你的系统剩余空间，系统有可能进入保护模式并使存储空间变为只读，你删除一些数据文件后可能需要重启系统才能解除保护性只读模式。你必须上传非”隐私扩展启用“（数据文件中含有用户名）的数据文件，否则你必须使用命令行工具来上传。
+Select the seth data file:|选择 Seth 数据文件：
 Captive portal|圈养门户
 The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|圈养门户使客户端操作系统在接入未拨号网络时自动打开浏览器弹出 Web 控制台页面。<b>修改此项设置后必须立刻重启 NSWA Ranga，否则可能导致系统工作在不一致状态！
 Enable the captive portal|启用圈养门户
@@ -236,6 +245,8 @@ Failure threshold|失败阈值
 Priority|优先级
 Weights|权重
 Set interface load balancing parameters|设置接口负载均衡参数
+Show custom rules|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|选择你要配置的无线设备
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|无线设置的修改在重启 NSWA Ranga 系统或重启无线服务之前不会生效。因此在修改这些设置后，你可以点按 “重启无线服务” 按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。
 Restart Wireless Service|重启无线服务
@@ -292,7 +303,8 @@ Static Address|静态地址
 PPPoATM|基于 ATM 的点对点协议
 Netkeeper Extension|Netkeeper 扩展
 Non-enable|非使能
-Seth Data|Seth 数据
+Client Side Seth (CS-Seth) Data [Deprecated]|
+It is a deprecated legacy features of web console. We recommend using the Server Side Seth (SS-Seth) instead.|
 <b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b>仅在你启用了"Netkeeper 扩展"的情况下才有效</b>。Web 控制台支持将 Seth 数据存储到你的浏览器 IndexedDB 中，当你设置 Seth 数据后，你可以在当前浏览器上使用"Seth 连接"方式连接到此网络。你可以直接从文件或者从 Seth 服务器加载 Seth 数据。若要从 Seth 服务器更新数据，你必须输入秘密代码（Secret）。
 Load From File|从文件加载
 Authenticate|认证
@@ -380,7 +392,7 @@ Web console version:|Web 控制台版本：
 Get the web console source code|获取 Web 控制台源代码
 Contributor list|贡献者列表
 Connect|连接
-Seth Connect|Seth 连接
+CS-Seth|
 Start catching|启动拦截
 Disconnect|断开
 Traditional catching server is disabled because the new persistent catching service is enabled.|由于新型持续性拦截服务已经启用，传统拦截服务器被禁用。
@@ -399,6 +411,7 @@ Enable automatic synchronization time (Netkeeper only)|使能自动同步时间�
 NSWA Online Push|NSWA Online 推送
 NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|NSWA Online 会在你打开 Web 控制台后联机获取<b>最新公告</b>、<b>在线系统软件更新</b>、<b>观感样式调整</b>和<b>节日涂鸦</b>等显示在 Web 控制台上。这是一个 Web 控制台的功能而不是 NSWA Ranga 的功能，它只会发生在你的浏览器里，NSWA Ranga 正式版本系统内没有任何访问我们服务器并私自获取、更新软件或数据的功能！NSWA Online 隐私政策：我们不收集、不发送、不在服务器存储你的任何个人数据，我们可能会在你的浏览器本地存储一些数据标记，例如你是否选择将一条更新提醒忽略不显示，这些数据只会存储在浏览器本地存储而不会通过网络传输。
 Enable NSWA Online Push|使能 NSWA Online 推送
+Web console deprecated legacy features|
+Here are some of the legacy features of the web console that are deprecated. They are no longer recommended, but they can still be manually enabled and used.|
 Web console experimental features|Web 控制台实验性功能
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|以下是一些 Web 控制台尚处于实验阶段的功能，其可能具有潜在缺陷。
-There are currently no features in the experiment.|

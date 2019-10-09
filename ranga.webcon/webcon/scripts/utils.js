@@ -247,7 +247,7 @@ utils.sethGetNKPin = (timestamp, uint8Array) => {
 	console.log("utils.sethGetNKPin: offset: " + offset);
 	if (offset < 0)
 		return null;
-	
+
 	let prefixArray = new Uint8Array(2);
 
 	prefixArray[0] = uint8Array[30];
@@ -260,6 +260,25 @@ utils.sethGetNKPin = (timestamp, uint8Array) => {
 	}
 
 	return btoa(binary);
+}
+
+utils.sethGetUsername = uint8Array => {
+	if (!utils.__sethValid(uint8Array))
+		return null;
+
+	let raw = uint8Array.subarray(33, 80);
+	let username = '';
+
+	for (let i = 0; i < raw.length; i++) {
+		if (raw[i] === 0) {
+			break;
+		}
+
+		username = username + String.fromCharCode(raw[i]);
+	}
+
+	console.log('utils.sethGetUsername: ' + username);
+	return username;
 }
 
 /*

@@ -285,6 +285,15 @@ const page_network_init = () => {
 					}
 				])
 			})
+		}, {
+			name: _('SS-Seth Configuration'),
+			func: (n => {
+				pageChangeCommon("ss-seth", "extra/ss-seth.js?v=__RELVERSION__", "extra/ss-seth.html?v=__RELVERSION__", _('Server Side Seth Configuration')).then(() => {
+					eval('extra_ss_seth_init()');
+				}).finally(() => {
+					i18n.runHooks();
+				});
+			})
 		}
 	];
 

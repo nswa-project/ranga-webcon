@@ -46,6 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|拡張機能をインストールする
 <b>Installation is complete, please manually reload the web console</b>|<b>インストールが完了しました。手動でウェブコンソールを更新してください</b>
 Software change in progress|ソフトウェア変更が実行されています
+Please select a file|ファイルを選択してください
+Seth data file invalid|
+An error occured|
 Please restart the system as soon as possible.|できるだけ早くシステムを再起動してください。
 Changes will take effect after the system reboot.|変更はシステムの再起動後に有効になります。
 The configuration for '{0}' has been modified. {1}|'{0}'の構成が変更されました。 {1}
@@ -59,7 +62,6 @@ Add new interface|新しいインターフェースを追加する
 Please enter the name of the new interface, which must start with 'md'.|新しいインターフェイスの名前を入力してください。名前は 'md'で始まる必要があります。
 The protocol type configuration for interface '{0}' has been modified.|インターフェイス '{0}'のプロトコルタイプ設定が変更されました。
 Seth data has been updated|Sethデータが更新されました
-An error occured|
 Load From Seth Server|Sethサーバーからロードする
 Enter the secret code (Secret).|シークレットコード（Secret）を入力してください。
 Load|荷重
@@ -93,6 +95,8 @@ Getting interface information...|インターフェース情報を取得して�
 Dialing doctor|ダイヤルドクター
 Please note: <b>Directly running the dialing doctor may report a completely erroneous diagnosis</b>. When the connection (except the catching method) failed, the dialing doctor will automatically pop up a notification to start, and the result is higher. However, you can still force the dialing doctor to diagnose the catching method or the last automatic dialing problem at any time, but the result may be inaccurate or even completely wrong.|ご注意：<b>ダイヤル医者を直接実行すると、完全に誤った診断が報告される可能性があります</b>接続に失敗した場合（代行受信方法を除く）、ダイヤル医者は自動的に通知を出して開始します。ただし、傍受方法や最後の自動ダイヤルアップ接続の問題をいつでも診断するようにダイヤルアップ医師に強制することはできますが、結果が不正確または完全に間違っている場合もあります。
 I know|私は知っている
+SS-Seth Configuration|
+Server Side Seth Configuration|
 Extra tools|追加のツール
 Ranga software version|Rangaソフトウェアのバージョン
 System version: {0}|システムバージョン：{0}
@@ -140,6 +144,7 @@ Load balancing state|負荷分散状態
 Close|閉じる
 The '{1}' operation has been completed for interface ‘{0}'. However, you need to restart the multi-homed service to take effect.|インターフェイス '{0}'に対する '{1}'操作が完了しました。ただし、有効にするにはマルチホームサービスを再起動する必要があります。
 The multi-homed configuration for interface '{0}' has changed. However, you need to restart the multi-homed service to take effect.|インターフェイス '{0}'のマルチホーム構成が変更されました。ただし、有効にするにはマルチホームサービスを再起動する必要があります。
+Refrush custom rules|
 Add binding|バインディングを追加
 Enter IPv4 Address|インターネットプロトコルバージョン4アドレスを入力
 Enter MAC Address|メディアアクセス制御アドレスを入力してください
@@ -156,7 +161,6 @@ Quick Setup|クイックセットアップ
 The wireless security for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス「{0}」のワイヤレスセキュリティ設定が変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
 The pre-shared key for wireless device ‘{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス '{0}'の事前共有キーが変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
 The radio configuration of the wireless device '{0}' has been modified. However, you need to restart the wireless service to take effect.|ワイヤレスデバイス '{0}'の無線設定が変更されました。ただし、有効にするにはワイヤレスサービスを再起動する必要があります。
-Please select a file|ファイルを選択してください
 The main file system is mounted|メインファイルシステムがマウントされている
 Used: {0}, remaining: {1}|使用済み：{0}、残り：{1}
 Unmounted main file system|マウントされていないメインファイルシステム
@@ -187,6 +191,11 @@ Apply|アプリケーション
 CLI Tools|コマンドラインツール
 Change the Samba password for 'user' account|Sambaの 'user'ユーザーのパスワードを変更する
 Change Aria2 RPC token|Aria 2 RPCトークンを変更する
+SS-Seth user data files|
+Upload the data files required by the “Server Side Seth” to NSWA Ranga. If interfaces which are enable any of Netkeeper Extension are enabled is for dialing, the Seth data file of the corresponding username will be used instead. The following are the data files of the users that have been uploaded. You can delete them by clicking the button on the left.|
+Upload new data files|
+If you need to upload a data file, select it and click the "Upload" button. If the file is too large or too much and exceeds the remaining space of your system, the system may enter protected mode and make the storage space read-only. After you delete some data files, you may need to restart the system to release the protective read-only mode. You must upload a data file that is NOT "PrivacyExtensionEnabled" (the date file contains the username), otherwise you must use the command line tool to upload it.|
+Select the seth data file:|
 Captive portal|キャプティブポータル
 The captive portal enables the client operating system to automatically open the browser pop-up web console page when accessing a non-dial-up network.&nbsp;<b>You must restart NSWA Ranga immediately after modifying this setting, otherwise the system may work in an inconsistent state!</b>|キャプティブポータルにより、クライアントオペレーティングシステムは、ダイヤルアップではないネットワークにアクセスするときにブラウザのポップアップWebコンソールページを自動的に開くことができます。 <b>この設定を変更した直後にNSWA Rangaを再起動する必要があります。そうしないと、システムが矛盾した状態で動作する可能性があります。
 Enable the captive portal|キャプティブポータルを有効にする
@@ -236,6 +245,8 @@ Failure threshold|失敗しきい値
 Priority|優先度
 Weights|重さ
 Set interface load balancing parameters|インターフェイスロードバランシングパラメータを設定する
+Show custom rules|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|設定したいワイヤレスデバイスを選択します
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|ワイヤレス設定の変更は、NSWA Rangaシステムが再起動されるかワイヤレスサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は、[ワイヤレスサービスの再起動]ボタンをクリックしてすぐに有効にすることができます。この操作の完了には少し時間がかかります。実行するために各設定を変更する必要はありません。複数のワイヤレスデバイスの複数の設定を完了してからそれらを1回実行できます。
 Restart Wireless Service|ワイヤレスサービスを再開する
@@ -292,7 +303,8 @@ Static Address|静的アドレス
 PPPoATM|ATMベースのポイントツーポイントプロトコル
 Netkeeper Extension|Netkeeperの拡張
 Non-enable|有効にしない
-Seth Data|セスデータ
+Client Side Seth (CS-Seth) Data [Deprecated]|
+It is a deprecated legacy features of web console. We recommend using the Server Side Seth (SS-Seth) instead.|
 <b>Only if you have "Netkeeper Extension" enabled</b>. The web console supports storing Seth data in your browser IndexedDB. Once you have set the Seth data, you can connect to this network using the "Seth Connect" method on your current browser. You can load Seth data directly from a file or from a Seth server. To update data from the Seth server, you must enter a secret code (Secret).|<b> "Netkeeper Extensions"が有効になっている場合のみ</b> Webコンソールは、ブラウザのIndexedDBへのSethデータの保存をサポートしていますSethデータを設定したら、現在のブラウザの "Seth Connection"メソッドを使用してこのネットワークに接続できます。 SethデータはファイルまたはSethサーバーから直接ロードできます。 Sethサーバーからデータを更新するには、秘密のコード（Secret）を入力する必要があります。
 Load From File|ファイルからロード
 Authenticate|認証
@@ -380,7 +392,7 @@ Web console version:|Webコンソールのバージョン
 Get the web console source code|Webコンソールのソースコードを入手する
 Contributor list|投稿者リスト
 Connect|つながり
-Seth Connect|セスコネクション
+CS-Seth|
 Start catching|傍受を開始する
 Disconnect|切断する
 Traditional catching server is disabled because the new persistent catching service is enabled.|新しい永続的傍受サービスがすでに有効になっているため、従来の傍受サーバーは無効になっています。
@@ -399,6 +411,7 @@ Enable automatic synchronization time (Netkeeper only)|自動同期時間を有�
 NSWA Online Push|NSWAオンラインプッシュ
 NSWA Online will get&nbsp;<b>Latest Announcements</b>,&nbsp;<b>Online System Software Updates</b>,&nbsp;<b>View Style Adjustments</b>&nbsp;and&nbsp;<b>Festival Doodles</b>, etc. after you open the web console. is displayed on the web console. This is a Web console feature and not a function of NSWA Ranga. It only happens in your browser. There is no access to our server and privately fetched, updated software or data in the official version of NSWA Ranga! NSWA Online Privacy Policy: We do not collect, send, or store any of your personal data on the server. We may store some data tags locally in your browser. For example, do you choose to ignore an update reminder instead of displaying it? These will be stored locally in the browser and will not be transmitted over the network.|ウェブコンソールを開くと、NSWA Onlineに<b> <b>最新のお知らせ</b>、<b>オンラインのシステムソフトウェアの更新</b>、<b>表示スタイルの調整</b>、および<b> Festival Doodlesが表示されます。 Webコンソールに</b>などが表示されます。これはWebコンソールの機能であり、NSWA Rangaの機能ではなく、お客様のブラウザでのみ発生するものであり、当社のサーバーおよび非公開で入手、アップデートされたソフトウェア、あるいはNSWA Rangaの公式バージョンのデータです。 NSWAオンラインプライバシーポリシー：当社はお客様の個人情報を収集、送信、またはサーバーに保存することはありませんが、データタグをブラウザにローカルに保存することがあります。ブラウザにローカルに保存され、ネットワーク経由で送信されることはありません。
 Enable NSWA Online Push|NSWAオンラインプッシュを有効にする
+Web console deprecated legacy features|
+Here are some of the legacy features of the web console that are deprecated. They are no longer recommended, but they can still be manually enabled and used.|
 Web console experimental features|Webコンソールの実験的機能
 Here are some of the features of the web console that are still experimental, which can have potential pitfalls.|まだ実験的なWebコンソールの機能のいくつかを次に示します。これらは潜在的な落とし穴をもたらす可能性があります。
-There are currently no features in the experiment.|
