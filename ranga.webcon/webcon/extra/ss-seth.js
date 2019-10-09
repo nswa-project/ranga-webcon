@@ -5,7 +5,7 @@ extra_ss_seth.$ = id => {
 }
 
 extra_ss_seth.remUser = item => {
-	let span = item.getElementsByTagName('span')[0];
+	let span = item.getElementsByClassName('ex-ss-seth-filename')[0];
 
 	ranga.api.config('ss-seth', ['rm', span.textContent]).then(proto => {
 		item.parentElement.removeChild(item);
@@ -19,15 +19,26 @@ extra_ss_seth.reload = () => {
 	div.textContent = '';
 
 	webcon.lockScreen();
-	ranga.api.config('ss-seth', ['ls']).then(proto => {
+	ranga.api.config('ss-seth', ['show']).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			if (i === '')
 				return;
 
 			console.log(i);
 
+			let arr = i.split(':');
+			if (arr.length < 2)
+				return;
+
+
+
 			let item = itemT.cloneNode(true);
-			item.getElementsByTagName('span')[0].textContent = i;
+			item.getElementsByClassName('ex-ss-seth-filename')[0].textContent = arr[0];
+			if (arr.length < 3) {
+				item.getElementsByTagName('span')[0].textContent = _('Seth data file invalid');
+			} else {
+				item.getElementsByTagName('span')[0].textContent = _('From {0}, Shelf life {1} days').format(utils.UNIXToDateString(parseInt(arr[1])), parseInt(arr[1] / 86400));
+			}
 			item.getElementsByTagName('button')[0].addEventListener('click', ((f, a) => e => f(a))(extra_ss_seth.remUser, item), false);
 			item.classList.remove('hide');
 			div.appendChild(item);
