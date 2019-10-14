@@ -344,7 +344,6 @@ var l10n = {
 "What do you want to do in this planning task?":"このスケジュールされたタスクで何をしたいですか？",
 "Customize":"習慣",
 "Preset: reboot the system":"プリセット：システムを再起動します",
-"Preset: Synchronize Seth data from server":"プリセット：サーバーからのSethデータの同期",
 "Add scheduled task":"スケジュールされたタスクを追加する",
 "minute":"分",
 "hour":"時",

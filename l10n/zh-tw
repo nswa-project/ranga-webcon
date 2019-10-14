@@ -46,8 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|正在安裝擴充套件程式
 <b>Installation is complete, please manually reload the web console</b>|<b>安裝完畢，請手動重新整理 Web 控制檯</b>
 Software change in progress|正在執行軟體變更
-Please select a file|請選擇一個檔案
 Seth data file invalid|Seth 資料檔案無效
+From {0}, Shelf life {1} days|
+Please select a file|請選擇一個檔案
 An error occured|一個錯誤發生了
 Please restart the system as soon as possible.|請儘快重新啟動系統。
 Changes will take effect after the system reboot.|更改將在重新啟動系統後生效。
@@ -359,7 +360,9 @@ Use '*' at any interval, use 'number/*' every time, use 'number' for specific ti
 What do you want to do in this planning task?|你想在此計劃任務中做什麼？
 Customize|自定義
 Preset: reboot the system|預設：重啟系統
-Preset: Synchronize Seth data from server|預設：從伺服器同步 Seth 資料
+Preset: Restart wireless|
+Preset: Deactivate wireless|
+Preset: Activate wireless|
 Add scheduled task|新增計劃任務
 minute|分鐘
 hour|小時

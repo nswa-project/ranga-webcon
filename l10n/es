@@ -46,8 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|Instalacion de extension
 <b>Installation is complete, please manually reload the web console</b>|<b> La instalación ha finalizado, vuelva a cargar la consola web manualmente </b>
 Software change in progress|Cambio de software en progreso
-Please select a file|Por favor seleccione un archivo
 Seth data file invalid|
+From {0}, Shelf life {1} days|
+Please select a file|Por favor seleccione un archivo
 An error occured|
 Please restart the system as soon as possible.|Por favor reinicie el sistema tan pronto como sea posible.
 Changes will take effect after the system reboot.|Los cambios entrarán en vigor después del reinicio del sistema.
@@ -359,7 +360,9 @@ Use '*' at any interval, use 'number/*' every time, use 'number' for specific ti
 What do you want to do in this planning task?|¿Qué quieres hacer en esta tarea de planificación?
 Customize|Personalizar
 Preset: reboot the system|Preajuste: reiniciar el sistema.
-Preset: Synchronize Seth data from server|Predefinido: Sincronizar datos Seth desde el servidor
+Preset: Restart wireless|
+Preset: Deactivate wireless|
+Preset: Activate wireless|
 Add scheduled task|Agregar tarea programada
 minute|minuto
 hour|hora

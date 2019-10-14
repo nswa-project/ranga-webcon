@@ -46,8 +46,9 @@ To install the extension, you must be authenticated\n\nEnter the superuser passw
 Installing extension|تثبيت التمديد
 <b>Installation is complete, please manually reload the web console</b>|<b> اكتمل التثبيت ، يرجى إعادة تحميل وحدة تحكم الويب يدويًا </ b>
 Software change in progress|تغيير البرمجيات في التقدم
-Please select a file|الرجاء تحديد ملف
 Seth data file invalid|
+From {0}, Shelf life {1} days|
+Please select a file|الرجاء تحديد ملف
 An error occured|
 Please restart the system as soon as possible.|يرجى إعادة تشغيل النظام في أقرب وقت ممكن.
 Changes will take effect after the system reboot.|سوف تدخل التغييرات حيز التنفيذ بعد إعادة تشغيل النظام.
@@ -359,7 +360,9 @@ Use '*' at any interval, use 'number/*' every time, use 'number' for specific ti
 What do you want to do in this planning task?|ماذا تريد أن تفعل في مهمة التخطيط هذه؟
 Customize|يعدل أو يكيف
 Preset: reboot the system|الإعداد المسبق: إعادة تشغيل النظام
-Preset: Synchronize Seth data from server|الإعداد المسبق: مزامنة بيانات Seth من الخادم
+Preset: Restart wireless|
+Preset: Deactivate wireless|
+Preset: Activate wireless|
 Add scheduled task|إضافة المهمة المجدولة
 minute|اللحظة
 hour|ساعة

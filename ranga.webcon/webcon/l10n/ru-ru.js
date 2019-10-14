@@ -344,7 +344,6 @@ var l10n = {
 "What do you want to do in this planning task?":"Что вы хотите сделать в этой задаче планирования?",
 "Customize":"Настроить",
 "Preset: reboot the system":"Предустановка: перезагрузить систему",
-"Preset: Synchronize Seth data from server":"Preset: Синхронизировать данные Seth с сервера",
 "Add scheduled task":"Добавить запланированное задание",
 "minute":"минут",
 "hour":"час",

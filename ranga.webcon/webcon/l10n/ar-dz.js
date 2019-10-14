@@ -344,7 +344,6 @@ var l10n = {
 "What do you want to do in this planning task?":"ماذا تريد أن تفعل في مهمة التخطيط هذه؟",
 "Customize":"يعدل أو يكيف",
 "Preset: reboot the system":"الإعداد المسبق: إعادة تشغيل النظام",
-"Preset: Synchronize Seth data from server":"الإعداد المسبق: مزامنة بيانات Seth من الخادم",
 "Add scheduled task":"إضافة المهمة المجدولة",
 "minute":"اللحظة",
 "hour":"ساعة",
