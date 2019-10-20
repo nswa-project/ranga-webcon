@@ -79,6 +79,7 @@ const page_misc_init = () => {
 			page_misc.$('offload').checked = (data['offload'] === 'enabled');
 			page_misc.$('hwoffload').checked = (data['hwoffload'] === 'enabled');
 			page_misc.$('mssclamping').checked = (data['mssclamping'] === 'enabled');
+			page_misc.$('ipv6-inbound').checked = (data['ipv6-inbound'] === 'enabled');
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
@@ -94,4 +95,5 @@ const page_misc_init = () => {
 	page_misc.$('offload').addEventListener('change', page_misc.setSvc);
 	page_misc.$('hwoffload').addEventListener('change', page_misc.setSvc);
 	page_misc.$('mssclamping').addEventListener('change', page_misc.setSvc);
+	page_misc.$('ipv6-inbound').addEventListener('change', page_misc.setSvc);
 }
