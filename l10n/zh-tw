@@ -102,6 +102,8 @@ Extra tools|額外工具
 Ranga software version|Ranga 軟體版本
 System version: {0}|系統版本：{0}
 Kernel version: {0}|核心版本：{0}
+You are now in <b>{0}</b> updating channel.|您正在 <b>{0}</b> 更新通道。
+{0} channel is a testing channel which may be unstable.|{0}</b> 更新通道是一個測試通道，可能不穩定。
 System update release site|系統更新發布站點
 Device Information|裝置資訊
 Architecture: {0}|架構：{0}
@@ -219,6 +221,8 @@ Try hardware flow offloading (experimental)|嘗試進行硬體流量解除安裝
 New continuous catching service|新型持續性攔截服務
 Traditional catching methods require manually telling NSWA Ranga to start the catching server in the web console or command line tool, then dial the number and have a 1 minute timeout. The new persistent catching service does not need to tell NSWA Ranga to start the catching server, you can intercept the PPPoE connection and dial the number. You should add the @interface name to your account after dialing to allow NSWA Ranga to determine the corresponding interface name. Name, NSWA Ranga will establish a connection from the 'netkeeper' interface, this section should be noted for all users who use multi-homing. This feature is not recommended for small memory devices.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|傳統攔截法需要手動在 Web 控制檯或者命令列工具告訴 NSWA Ranga 啟動攔截伺服器，然後進行撥號，並且具有 1 分鐘的超時時間。新型持續性攔截服務無需先告訴 NSWA Ranga 需要啟動攔截伺服器，就可以攔截 PPPoE 連線並撥號，撥號時應該將你的帳號後附加 @介面名 以讓 NSWA Ranga 能夠確定對應的介面名，如果不帶介面名，NSWA Ranga 將從 'netkeeper' 介面建立連線，本條應該為所有使用多宿主的使用者所注意。本功能不建議小記憶體裝置啟用。<b>修改這個設定後需要重新啟動 NSWA Ranga 以生效。</b>
 Enable new continuous catching services|啟用新型持續性攔截服務
+Allow IPv6 Incoming connections|
+Allows all IPv6 TCP and UDP inbound connections. This may be helpful for some applications. At the same time, it may increase the risk of network security.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|
 TCP maximum segment clamp (MSS clamping)|TCP 最大報文段鉗制（MSS clamping）
 <b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|<b>推薦啟用。在較舊版本的 NSWA 中，此功能無法關閉、總是啟用。</b>PMTU-D 的一些實現試圖通過推斷由於 MTU 而不是因為鏈路擁塞而丟棄大的有效載荷分組來防止黑洞連線和 IP 碎片。因此為了使 TCP 最有效地執行，應允許 ICMP 型別 3。但是許多網路安全裝置阻止所有 ICMP 訊息以獲得安全性，其中包括正確操作 PMTU-D 所必需的 ICMP 訊息。這可能會導致連線正確完成 TCP 三次握手，但在傳輸資料時會掛起或效能損失。該功能 “鉗制” SYN 資料包中的 TCP MSS 選項。此 MSS 選項通告遠端傳送 1460 或更少的 TCP 段以防止黑洞連線和 IP 碎片。<b>修改這個設定後需要重新啟動 NSWA Ranga 以生效。</b>
 Enable TCP Maximum Segment Clipping (MSS clamping)|啟用 TCP 最大報文段鉗制（MSS clamping）
@@ -340,6 +344,9 @@ Super users have access to the full NSWA Ranga System API. We recommend that you
 New password|新密碼
 Repeat input|重複輸入
 Change Password|修改密碼
+Managed additional services|
+After modifying this setting, you need to restart NSWA Ranga to take effect.|
+Enable IPv6 DHCPv6 and Router Advertisement server|
 Additional (optional) service|額外（可選）服務
 Autostart from boot|開機自啟動
 Service specific configuration|服務特定配置

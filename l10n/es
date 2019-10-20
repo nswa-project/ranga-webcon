@@ -102,6 +102,8 @@ Extra tools|Herramientas adicionales
 Ranga software version|Versión de software Ranga
 System version: {0}|Versión del sistema: {0}
 Kernel version: {0}|Versión del kernel: {0}
+You are now in <b>{0}</b> updating channel.|
+{0} channel is a testing channel which may be unstable.|
 System update release site|Sitio de lanzamiento de actualización del sistema
 Device Information|Información del dispositivo
 Architecture: {0}|Arquitectura: {0}
@@ -219,6 +221,8 @@ Try hardware flow offloading (experimental)|Probar la descarga de flujo de hardw
 New continuous catching service|Nuevo servicio de captura continua.
 Traditional catching methods require manually telling NSWA Ranga to start the catching server in the web console or command line tool, then dial the number and have a 1 minute timeout. The new persistent catching service does not need to tell NSWA Ranga to start the catching server, you can intercept the PPPoE connection and dial the number. You should add the @interface name to your account after dialing to allow NSWA Ranga to determine the corresponding interface name. Name, NSWA Ranga will establish a connection from the 'netkeeper' interface, this section should be noted for all users who use multi-homing. This feature is not recommended for small memory devices.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|Los métodos de captura tradicionales requieren que se indique manualmente a NSWA Ranga que inicie el servidor de captura en la consola web o la herramienta de línea de comandos, luego marque el número y tenga un tiempo de espera de 1 minuto. El nuevo servicio de captura persistente no necesita decirle a NSWA Ranga que inicie el servidor de captura, puede interceptar la conexión PPPoE y marcar el número. Debe agregar el nombre de la interfaz a su cuenta después de marcar para permitir que NSWA Ranga determine el nombre de la interfaz correspondiente. Nombre, NSWA Ranga establecerá una conexión desde la interfaz 'netkeeper', esta sección se debe tener en cuenta para todos los usuarios que utilicen el multi-homing. Esta función no se recomienda para dispositivos de memoria pequeños. & Nbsp; <b> Después de modificar esta configuración, debes reiniciar NSWA Ranga para que tenga efecto. </b>
 Enable new continuous catching services|Habilitar nuevos servicios de captura continua.
+Allow IPv6 Incoming connections|
+Allows all IPv6 TCP and UDP inbound connections. This may be helpful for some applications. At the same time, it may increase the risk of network security.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|
 TCP maximum segment clamp (MSS clamping)|Pinza de segmento máximo TCP (MSS de sujeción)
 <b>Recommended. In older versions of NSWA, this feature cannot be turned off and always enabled.</b>&nbsp;Some implementations of PMTU-D attempt to prevent black hole connections and IP fragmentation by inferring the dropping of large payload packets due to MTUs rather than link congestion. Therefore, in order for TCP to work most efficiently, ICMP Type 3 should be allowed. However, many network security devices block all ICMP messages for security, including the ICMP messages necessary to properly operate the PMTU-D. This can cause the connection to complete the TCP three-way handshake correctly, but it will hang or lose performance when transferring data. This feature “clamps” the TCP MSS option in the SYN packet. This MSS option advertises that the far end sends 1460 or fewer TCP segments to prevent black hole connections and IP fragmentation.&nbsp;<b>After modifying this setting, you need to restart NSWA Ranga to take effect.</b>|<b> Recomendado. En versiones anteriores de NSWA, esta función no se puede desactivar y habilitar siempre. </b> & nbsp; Algunas implementaciones de PMTU-D intentan evitar las conexiones de agujeros negros y la fragmentación de IP al inferir la eliminación de paquetes de carga útil grandes debido a las MTU en lugar de congestión de enlace. Por lo tanto, para que TCP funcione de manera más eficiente, se debe permitir ICMP Tipo 3. Sin embargo, muchos dispositivos de seguridad de red bloquean todos los mensajes ICMP por seguridad, incluidos los mensajes ICMP necesarios para operar correctamente la PMTU-D. Esto puede hacer que la conexión complete correctamente el protocolo de enlace de tres vías TCP, pero se bloqueará o perderá el rendimiento al transferir datos. Esta función "sujeta" la opción TCP MSS en el paquete SYN. Esta opción de MSS anuncia que el extremo remoto envía 1460 o menos segmentos TCP para evitar las conexiones de agujero negro y la fragmentación de IP. & Nbsp; <b> Después de modificar esta configuración, debe reiniciar el NSWA Ranga para que tenga efecto. </b>
 Enable TCP Maximum Segment Clipping (MSS clamping)|Habilitar recorte de segmento máximo de TCP (sujeción de MSS)
@@ -340,6 +344,9 @@ Super users have access to the full NSWA Ranga System API. We recommend that you
 New password|Nueva contraseña
 Repeat input|Repetir entrada
 Change Password|Cambia la contraseña
+Managed additional services|
+After modifying this setting, you need to restart NSWA Ranga to take effect.|
+Enable IPv6 DHCPv6 and Router Advertisement server|
 Additional (optional) service|Servicio adicional (opcional)
 Autostart from boot|Arranque automático desde el arranque
 Service specific configuration|Configuración específica del servicio

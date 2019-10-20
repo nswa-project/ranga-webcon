@@ -102,6 +102,8 @@ var l10n = {
 "Ranga software version":"Ranga 軟體版本",
 "System version: {0}":"系統版本：{0}",
 "Kernel version: {0}":"核心版本：{0}",
+"You are now in <b>{0}</b> updating channel.":"您正在 <b>{0}</b> 更新通道。",
+"{0} channel is a testing channel which may be unstable.":"{0}</b> 更新通道是一個測試通道，可能不穩定。",
 "System update release site":"系統更新發布站點",
 "Device Information":"裝置資訊",
 "Architecture: {0}":"架構：{0}",
