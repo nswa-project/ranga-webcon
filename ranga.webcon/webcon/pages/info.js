@@ -6,6 +6,12 @@ const page_info_init = () => {
 		utils.pageAddSection(div, _('Ranga software version'));
 		div.innerHTML += _("System version: {0}").format(info.version) + "<br>";
 		div.innerHTML += _("Kernel version: {0}").format(info.kernel) + "<br>";
+
+		div.innerHTML += _("You are now in <b>{0}</b> updating channel.").format(info.channel) + "<br>";
+		if (info.channel !== "stable") {
+			div.innerHTML += _("{0} channel is a testing channel which may be unstable.").format(info.channel) + "<br>";
+		}
+
 		div.innerHTML += "<a target=_blank href='" + webcon.supportSiteMain + "/updates/'>{0}</a><br>".format(_("System update release site"));
 		utils.pageAddSection(div, _('Device Information'));
 		div.innerHTML += _("Architecture: {0}").format(info.arch) + "<br>";
