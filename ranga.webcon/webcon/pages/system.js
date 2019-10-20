@@ -62,6 +62,16 @@ page_system.optSvcAuto = (name, checkbox) => {
 	})
 }
 
+page_system.mesAction = e => {
+	let element = e.target,
+		action = (element.checked ? 'enable' : 'disable'),
+		key = element.dataset.x;
+	webcon.lockScreen();
+	ranga.api.action('mes', [action, key]).catch(defErrorHandler).finally(() => {
+		webcon.unlockScreen();
+	})
+}
+
 const page_system_init = () => {
 	page_system.$('syncdate').addEventListener('click', e => {
 		let ts = utils.getUNIXTimestamp();
@@ -130,9 +140,13 @@ const page_system_init = () => {
 		}).catch(defErrorHandler);
 	});
 
+	page_system.$('mes-ipv6ra').addEventListener('change', page_system.mesAction);
 
 	let optEnabled = new Set();
-	ranga.api.action('opt', ['ls-enabled']).then(proto => {
+	ranga.api.action('mes', ['is-enabled', 'ipv6_dhcp_ra_server']).then(proto => {
+		page_system.$('mes-ipv6ra').checked = true;
+		return ranga.api.action('opt', ['ls-enabled']);
+	}).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			if (i !== '')
 				optEnabled.add(i);
