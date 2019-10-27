@@ -144,7 +144,8 @@ const page_system_init = () => {
 
 	let optEnabled = new Set();
 	ranga.api.action('mes', ['is-enabled', 'ipv6_dhcp_ra_server']).then(proto => {
-		page_system.$('mes-ipv6ra').checked = true;
+		if (proto.payload.startsWith('enabled'))
+			page_system.$('mes-ipv6ra').checked = true;
 		return ranga.api.action('opt', ['ls-enabled']);
 	}).then(proto => {
 		proto.payload.split('\n').forEach(i => {
