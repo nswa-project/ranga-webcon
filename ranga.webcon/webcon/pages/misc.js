@@ -72,6 +72,7 @@ const page_misc_init = () => {
 		page_misc.$('anydial').checked = (data['nswa.flags.permit_anonymous_dial'] === '1');
 		page_misc.$('scdial').checked = (data['nswa.flags.enable_forever_nkserver'] === '1');
 		page_misc.$('ppp').value = data['nswa.misc.autoppp'];
+		page_misc.$('ipv6-inbound').checked = (data['nswa.flags.allow_ipv6_inbound'] === '1');
 
 		return ranga.api.config('svc', ['show']);
 	}).then(proto => {
@@ -79,7 +80,6 @@ const page_misc_init = () => {
 			page_misc.$('offload').checked = (data['offload'] === 'enabled');
 			page_misc.$('hwoffload').checked = (data['hwoffload'] === 'enabled');
 			page_misc.$('mssclamping').checked = (data['mssclamping'] === 'enabled');
-			page_misc.$('ipv6-inbound').checked = (data['ipv6-inbound'] === 'enabled');
 	}).catch(defErrorHandlerPage).finally(() => {
 		webcon.unlockScreen();
 	});
@@ -89,11 +89,11 @@ const page_misc_init = () => {
 	page_misc.$('ed').addEventListener('change', page_misc.setFlag);
 	page_misc.$('anydial').addEventListener('change', page_misc.setFlag);
 	page_misc.$('scdial').addEventListener('change', page_misc.setFlag);
+	page_misc.$('ipv6-inbound').addEventListener('change', page_misc.setFlag);
 
 	page_misc.$('set-ppp').addEventListener('click', page_misc.setMisc);
 
 	page_misc.$('offload').addEventListener('change', page_misc.setSvc);
 	page_misc.$('hwoffload').addEventListener('change', page_misc.setSvc);
 	page_misc.$('mssclamping').addEventListener('change', page_misc.setSvc);
-	page_misc.$('ipv6-inbound').addEventListener('change', page_misc.setSvc);
 }
