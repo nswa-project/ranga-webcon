@@ -163,9 +163,10 @@ page_network.reload = () => {
 
 	let f_scdial_enable = false;
 
+	let showInet = (utils.getLocalStorageItem('exp-network-showinet') === 'true');
 	let csseth = (utils.getLocalStorageItem('deprecated-csseth') === 'true');
 
-	return ranga.api.query('network', []).then(proto => {
+	return ranga.api.query('network', ['status']).then(proto => {
 		proto.payload.split('\n').forEach(i => {
 			console.log(i);
 			if (i.startsWith('!')) {
@@ -177,8 +178,11 @@ page_network.reload = () => {
 				return;
 			}
 
-			let d = i.split(':');
-			if (d.length < 4) return;
+			let d = i.split(';');
+			if (d.length < 5) return;
+
+			if (!showInet && d[0] === 'lan')
+				return;
 
 			let item = itemT.cloneNode(true);
 			item.getElementsByClassName('p-network-item-ifname')[0].textContent = d[0];
@@ -209,8 +213,14 @@ page_network.reload = () => {
 			}
 
 			let stat = d[3].split(',');
+			let dataWidget = item.getElementsByClassName('p-network-item-data')[0];
+
 			if (stat.length >= 2) {
-				item.getElementsByClassName('p-network-item-data')[0].innerHTML = _("TX bytes: ") + utils.formatBytes(stat[1]) + "&nbsp;&nbsp;&nbsp;" + _("RX bytes: ") + utils.formatBytes(stat[0]);
+				dataWidget.innerHTML = _("TX bytes: ") + utils.formatBytes(stat[1]) + "&nbsp;&nbsp;&nbsp;" + _("RX bytes: ") + utils.formatBytes(stat[0]);
+			}
+
+			if (showInet && d[4] !== '') {
+				dataWidget.innerHTML += "<br>" + utils.raw2HTMLString(d[4]).replace(/,/gi, '<br>');
 			}
 
 			item.classList.remove('hide');

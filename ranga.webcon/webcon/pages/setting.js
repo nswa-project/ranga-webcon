@@ -16,7 +16,8 @@ const page_setting_init = () => {
 		theme = page_setting.$('theme'),
 		localeinput = page_setting.$('locale'),
 		deprecated_csseth = page_setting.$('deprecated-csseth'),
-		exp_keep_token = page_setting.$('exp-keep-token');
+		exp_keep_token = page_setting.$('exp-keep-token'),
+		exp_network_showinet = page_setting.$('exp-network-showinet');
 
 	let locale = utils.getLocalStorageItem('locale');
 	if (!utils.isNil(locale)) {
@@ -74,6 +75,7 @@ const page_setting_init = () => {
 
 	exp_keep_token.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("exp-keep-token", e.target, false));
 	deprecated_csseth.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("deprecated-csseth", e.target, false));
+	exp_network_showinet.addEventListener('change', e => page_setting.setBooleanLocalStorageItem("exp-network-showinet", e.target, false));
 
 	if (utils.getLocalStorageItem('disable-netkeeper-timesync') === 'true') {
 		timesync.checked = false;
@@ -89,5 +91,9 @@ const page_setting_init = () => {
 
 	if (utils.getLocalStorageItem('exp-keep-token') === 'true') {
 		exp_keep_token.checked = true;
+	}
+
+	if (utils.getLocalStorageItem('exp-network-showinet') === 'true') {
+		exp_network_showinet.checked = true;
 	}
 }
