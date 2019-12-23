@@ -1,6 +1,6 @@
 var page_addon = {};
 
-page_addon.getElementById = id => {
+page_addon.$ = id => {
 	return document.getElementById('p-addon-' + id);
 }
 
@@ -9,21 +9,21 @@ page_addon.reloadPage = () => {
 }
 
 page_addon.extInfoShow = pkgname => {
-	let extinfo = page_addon.getElementById('extinfo');
+	let extinfo = page_addon.$('extinfo');
 	ranga.api.addonInfo(pkgname).then(proto => {
 		let data = ranga.parseProto(proto.payload + "\n\n");
 		console.log(data);
 
-		page_addon.getElementById('extinfo-name').textContent = data['%name'];
-		page_addon.getElementById('extinfo-version').textContent = _("Version: {0}").format(data['%ver']);
-		page_addon.getElementById('extinfo-author').textContent = _("Author: {0}").format(data['%author']);
-		page_addon.getElementById('extinfo-api').textContent = _("API version: {0}").format(data['%api']);
-		page_addon.getElementById('extinfo-pkgname').textContent = pkgname;
+		page_addon.$('extinfo-name').textContent = data['%name'];
+		page_addon.$('extinfo-version').textContent = _("Version: {0}").format(data['%ver']);
+		page_addon.$('extinfo-author').textContent = _("Author: {0}").format(data['%author']);
+		page_addon.$('extinfo-api').textContent = _("API version: {0}").format(data['%api']);
+		page_addon.$('extinfo-pkgname').textContent = pkgname;
 
 		if ('%-x-webcon' in data && data['%-x-webcon'] === '1') {
-			page_addon.getElementById('chwebcon').disabled = false;
+			page_addon.$('chwebcon').disabled = false;
 		} else {
-			page_addon.getElementById('chwebcon').disabled = true;
+			page_addon.$('chwebcon').disabled = true;
 		}
 
 		if (extinfo.classList.contains('hide')) {
@@ -34,7 +34,7 @@ page_addon.extInfoShow = pkgname => {
 }
 
 page_addon.extInfoHide = () => {
-	let extinfo = page_addon.getElementById('extinfo');
+	let extinfo = page_addon.$('extinfo');
 	if (!extinfo.classList.contains('hide')) {
 		extinfo.classList.add('hide');
 	}
@@ -46,8 +46,8 @@ page_addon.openWcapp = (pkgname, name) => {
 }
 
 page_addon.extensionItem = pkgname => {
-	let itemT = page_addon.getElementById('item_t');
-	let div = page_addon.getElementById('exts');
+	let itemT = page_addon.$('item_t');
+	let div = page_addon.$('exts');
 
 	return ranga.api.addonInfo(pkgname).then(proto => {
 		let data = ranga.parseProto(proto.payload + "\n\n");
@@ -156,8 +156,8 @@ const page_addon_init = () => {
 
 	webcon.lockScreen();
 	ranga.api.componentsList().then(proto => {
-		let itemT = page_addon.getElementById('item_t');
-		let div = page_addon.getElementById('comps');
+		let itemT = page_addon.$('item_t');
+		let div = page_addon.$('comps');
 		let n = 0;
 		proto.payload.split('COMPONENT UUID ').forEach(i => {
 			if (i === '')
@@ -167,9 +167,20 @@ const page_addon_init = () => {
 			let data = ranga.parseProto(i + "\n\n");
 			console.log(data);
 
+			let locale = utils.getLocalStorageItem('locale');
+			if (utils.isNil(locale))
+				locale = navigator.language;
+			
+			locale = locale.toLowerCase();
+			if (locale === "zh-cn") {
+				locale = "[zh_CN]";
+			} else {
+				locale = "," + locale;
+			}
+			
 			let item = itemT.cloneNode(true);
 			let descdiv = item.getElementsByClassName('p-addon-item-author')[0];
-			item.getElementsByClassName('p-addon-item-name')[0].textContent = data['name[zh_CN]'] || data['name'] || "";
+			item.getElementsByClassName('p-addon-item-name')[0].textContent = data['name' + locale] || data['name'] || "";
 			item.getElementsByClassName('p-addon-item-version')[0].textContent = data['version'] || "";
 			descdiv.textContent = data['desc'] || "";
 			item.getElementsByTagName('button')[0].classList.add('hide');
@@ -177,7 +188,7 @@ const page_addon_init = () => {
 
 			let linkdiv = item.getElementsByClassName('p-addon-item-links')[0];
 
-			let actionsString = data['actions[zh_CN]'] || data['actions'] || "";
+			let actionsString = data['actions' + locale] || data['actions'] || "";
 			actionsString.split('|').forEach(j => {
 				let arr = j.split('@');
 				if (arr.length < 2)
@@ -223,23 +234,23 @@ const page_addon_init = () => {
 		webcon.unlockScreen();
 	});
 
-	page_addon.getElementById('remext').addEventListener('click', e => {
-		let pkgname = page_addon.getElementById('extinfo-pkgname').textContent;
+	page_addon.$('remext').addEventListener('click', e => {
+		let pkgname = page_addon.$('extinfo-pkgname').textContent;
 		ranga.api.addonRemove(pkgname).then(proto => {
 			page_addon.extInfoHide();
 			page_addon.reloadPage();
 		}).catch(defErrorHandler);
 	});
 
-	page_addon.getElementById('chwebcon').addEventListener('click', e => {
-		let pkgname = page_addon.getElementById('extinfo-pkgname').textContent;
+	page_addon.$('chwebcon').addEventListener('click', e => {
+		let pkgname = page_addon.$('extinfo-pkgname').textContent;
 		ranga.api.setWebcon(pkgname).then(proto => {
 			page_addon.extInfoHide();
 			window.location.reload(true);
 		}).catch(defErrorHandler);
 	});
 
-	page_addon.getElementById('closeextinfo').addEventListener('click', e => {
+	page_addon.$('closeextinfo').addEventListener('click', e => {
 		page_addon.extInfoHide();
 	});
 }
