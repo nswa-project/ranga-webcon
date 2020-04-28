@@ -31,10 +31,9 @@ const page_info_init = () => {
 		div.innerHTML += _("Storage: {0}").format(info.storage.replace(/K/g, _('KB')).replace(/M/g, _('MB'))) + "<br>";
 		div.innerHTML += _("System uptime: {0}").format(info.uptime) + "<br>";
 		utils.pageAddSection(div, _('Ranga System Legal Information'));
-		div.innerHTML += "<a target=_blank href='/osl.html'>{0}<br>".format(_("Open source license"));
-		div.innerHTML += "<a target=_blank href='/eul.txt' onclick='page_into_eul(); return false;'>{0}<br>".format(_("Ranga End User License Agreement"));
+		div.innerHTML += _("You should have received a copy of the GNU Affero General Public License along with NSWA Ranga")
+		div.innerHTML += "<a target=_blank href='/copyright.html'>{0}<br>".format(_("Copyrights & Open source license"));
 		utils.pageAddSection(div, _('Web console legal information'));
-		div.innerHTML += "<a target=_blank href='https://github.com/glider0/ranga-webcon/COPYING'>{0}<br>".format(_("Web console license agreement"));
 		div.innerHTML += "<a target=_blank href='https://fontawesome.com/license'>{0}<br>".format(_("Font Awesome Icon Creation Common License"));
 		div.innerHTML += "<a target=_blank href='https://www.apache.org/licenses/LICENSE-2.0.html'>{0}<br>".format(_("Google Material.io icon license"));
 	}).catch(defErrorHandler);
