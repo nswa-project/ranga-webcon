@@ -119,10 +119,9 @@ Memory (shared): {0} KB|Память (общая): {0} КБ
 Storage: {0}|Хранение: {0}
 System uptime: {0}|Время работы системы: {0}
 Ranga System Legal Information|Ranga System Юридическая информация
-Open source license|Лицензия с открытым исходным кодом
-Ranga End User License Agreement|Лицензионное соглашение с конечным пользователем Ranga
+You should have received a copy of the GNU Affero General Public License along with NSWA Ranga|
+Copyrights & Open source license|
 Web console legal information|Веб-консоль правовая информация
-Web console license agreement|Лицензионное соглашение для веб-консоли
 Font Awesome Icon Creation Common License|Font Awesome Icon Creation Общая лицензия
 Google Material.io icon license|Лицензия на значок Google Material.io
 Version: {0}|Версия: {0}
@@ -399,8 +398,6 @@ Wake up during a specific system event|Проснуться во время оп
 Uninstall this extension|Удалить это расширение
 Switch web console provided to this extension|Переключить веб-консоль на это расширение
 Web console version:|Версия веб-консоли:
-Get the web console source code|Получить исходный код веб-консоли
-Contributor list|Список участников
 Connect|соединять
 CS-Seth|
 Start catching|Начать ловить

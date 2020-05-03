@@ -119,10 +119,9 @@ Memory (shared): {0} KB|Memoria (compartida): {0} KB
 Storage: {0}|Almacenamiento: {0}
 System uptime: {0}|Tiempo de actividad del sistema: {0}
 Ranga System Legal Information|Información Legal del Sistema Ranga
-Open source license|Licencia de código abierto
-Ranga End User License Agreement|Contrato de licencia de usuario final de Ranga
+You should have received a copy of the GNU Affero General Public License along with NSWA Ranga|
+Copyrights & Open source license|
 Web console legal information|Información legal de la consola web
-Web console license agreement|Contrato de licencia de consola web
 Font Awesome Icon Creation Common License|Fuente Impresionante Icono de Creación de Licencia Común
 Google Material.io icon license|Licencia de icono de Google Material.io
 Version: {0}|Versión: {0}
@@ -399,8 +398,6 @@ Wake up during a specific system event|Despertar durante un evento específico d
 Uninstall this extension|Desinstalar esta extensión
 Switch web console provided to this extension|Cambiar la consola web proporcionada a esta extensión.
 Web console version:|Versión de consola web:
-Get the web console source code|Obtenga el código fuente de la consola web
-Contributor list|Lista de contribuyentes
 Connect|Conectar
 CS-Seth|
 Start catching|Empezar a atrapar

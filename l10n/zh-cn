@@ -119,10 +119,9 @@ Memory (shared): {0} KB|内存（共享）：{0} 千字节
 Storage: {0}|存储：{0}
 System uptime: {0}|系统运行时间：{0}
 Ranga System Legal Information|Ranga 系统法律信息
-Open source license|开放源代码许可
-Ranga End User License Agreement|Ranga 最终用户许可协议
+You should have received a copy of the GNU Affero General Public License along with NSWA Ranga|
+Copyrights & Open source license|
 Web console legal information|Web 控制台法律信息
-Web console license agreement|Web 控制台授权协议
 Font Awesome Icon Creation Common License|Font Awesome 图标创作共用许可
 Google Material.io icon license|Google Material.io 图标许可
 Version: {0}|版本: {0}
@@ -399,8 +398,6 @@ Wake up during a specific system event|在特定系统事件时被唤醒
 Uninstall this extension|卸载此扩展程序
 Switch web console provided to this extension|切换到此扩展程序提供的 Web 控制台
 Web console version:|Web 控制台版本：
-Get the web console source code|获取 Web 控制台源代码
-Contributor list|贡献者列表
 Connect|连接
 CS-Seth|
 Start catching|启动拦截
