@@ -250,7 +250,7 @@ Priority|приоритет
 Weights|Веса
 Set interface load balancing parameters|Установить параметры балансировки нагрузки интерфейса
 Show custom rules|
-Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://nswa-project.github.io/man/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|Выберите беспроводное устройство, которое вы хотите настроить
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|Изменения настроек беспроводной сети не вступят в силу до перезагрузки системы NSWA Ranga или перезапуска службы беспроводной связи. Поэтому после изменения этих настроек вы можете нажать кнопку «Перезапустить беспроводную службу», чтобы немедленно вступить в силу. Эта операция занимает некоторое время, вам не нужно изменять каждую конфигурацию для выполнения, вы можете выполнить несколько конфигураций нескольких беспроводных устройств и затем выполнить ее один раз.
 Restart Wireless Service|Перезапустите беспроводную службу
@@ -397,7 +397,6 @@ Read/write storage device|Устройство чтения / записи
 Wake up during a specific system event|Проснуться во время определенного системного события
 Uninstall this extension|Удалить это расширение
 Switch web console provided to this extension|Переключить веб-консоль на это расширение
-Web console version:|Версия веб-консоли:
 Connect|соединять
 CS-Seth|
 Start catching|Начать ловить

@@ -1,7 +1,7 @@
 var webcon = {};
 var scriptSet = new Set();
 
-webcon.supportSiteMain = "https://glider0.github.io";
+webcon.supportSiteMain = "https://nswa-project.github.io";
 
 webcon.setToken = value => {
 	let expires = '';
@@ -208,11 +208,11 @@ webcon.setupOnlineScript = () => {
 		webcon.loadScript("online", webcon.supportSiteMain + "/nswa/online.ranga/" + scriptname).then(a => {
 			eval("nswaOnlineInit(1)");
 		}).catch(e => {
-			webcon.loadScript("online_mirror", "https://fytlc.coding.me/ranga-mirror/nswa/online.ranga/" + scriptname).then(a => {
-				eval("nswaOnlineInit(1)");
-			}).catch(e => {
+//			webcon.loadScript("online_mirror", "https://fytlc.coding.me/ranga-mirror/nswa/online.ranga/" + scriptname).then(a => {
+//				eval("nswaOnlineInit(1)");
+//			}).catch(e => {
 				console.log("Can not load NSWA Online");
-			});
+//			});
 		});
 	}
 }

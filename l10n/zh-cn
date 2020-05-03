@@ -250,7 +250,7 @@ Priority|优先级
 Weights|权重
 Set interface load balancing parameters|设置接口负载均衡参数
 Show custom rules|
-Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://nswa-project.github.io/man/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|选择你要配置的无线设备
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|无线设置的修改在重启 NSWA Ranga 系统或重启无线服务之前不会生效。因此在修改这些设置后，你可以点按 “重启无线服务” 按钮使其立即生效。此操作需要一点时间完成，你不必修改每个配置后执行，你可以完成多个无线设备的多个配置，然后执行一次。
 Restart Wireless Service|重启无线服务
@@ -397,7 +397,6 @@ Read/write storage device|读取/写入存储设备
 Wake up during a specific system event|在特定系统事件时被唤醒
 Uninstall this extension|卸载此扩展程序
 Switch web console provided to this extension|切换到此扩展程序提供的 Web 控制台
-Web console version:|Web 控制台版本：
 Connect|连接
 CS-Seth|
 Start catching|启动拦截

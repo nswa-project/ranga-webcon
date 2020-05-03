@@ -369,7 +369,6 @@ var l10n = {
 "Wake up during a specific system event":"استيقظ خلال حدث نظام معين",
 "Uninstall this extension":"أزل هذا التمديد",
 "Switch web console provided to this extension":"قم بالتبديل بين وحدة التحكم المقدمة على الويب لهذا الملحق",
-"Web console version:":"إصدار وحدة تحكم الويب:",
 "Connect":"الاتصال",
 "Start catching":"البدء في اصطياد",
 "Disconnect":"قطع الاتصال",

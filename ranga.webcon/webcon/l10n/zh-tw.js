@@ -382,7 +382,6 @@ var l10n = {
 "Wake up during a specific system event":"在特定系統事件時被喚醒",
 "Uninstall this extension":"解除安裝此擴充套件程式",
 "Switch web console provided to this extension":"切換到此擴充套件程式提供的 Web 控制檯",
-"Web console version:":"Web 控制檯版本：",
 "Connect":"連線",
 "Start catching":"啟動攔截",
 "Disconnect":"斷開",

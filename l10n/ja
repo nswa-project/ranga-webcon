@@ -250,7 +250,7 @@ Priority|優先度
 Weights|重さ
 Set interface load balancing parameters|インターフェイスロードバランシングパラメータを設定する
 Show custom rules|
-Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://nswa-project.github.io/man/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|設定したいワイヤレスデバイスを選択します
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|ワイヤレス設定の変更は、NSWA Rangaシステムが再起動されるかワイヤレスサービスが再起動されるまで有効になりません。そのため、これらの設定を変更した後は、[ワイヤレスサービスの再起動]ボタンをクリックしてすぐに有効にすることができます。この操作の完了には少し時間がかかります。実行するために各設定を変更する必要はありません。複数のワイヤレスデバイスの複数の設定を完了してからそれらを1回実行できます。
 Restart Wireless Service|ワイヤレスサービスを再開する
@@ -397,7 +397,6 @@ Read/write storage device|読み書きストレージデバイス
 Wake up during a specific system event|特定のシステムイベント中に起きる
 Uninstall this extension|この拡張機能をアンインストールする
 Switch web console provided to this extension|この拡張機能によって提供されるWebコンソールに切り替えます
-Web console version:|Webコンソールのバージョン
 Connect|つながり
 CS-Seth|
 Start catching|傍受を開始する

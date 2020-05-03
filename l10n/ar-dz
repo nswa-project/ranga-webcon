@@ -250,7 +250,7 @@ Priority|أفضلية
 Weights|الأوزان
 Set interface load balancing parameters|تعيين واجهة موازنة التحميل المعلمات
 Show custom rules|
-Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://nswa-project.github.io/man/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|حدد الجهاز اللاسلكي الذي تريد تكوينه
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|لن تسري التعديلات على الإعدادات اللاسلكية حتى يتم إعادة تشغيل نظام NSWA Ranga أو إعادة تشغيل الخدمة اللاسلكية. لذلك بعد تعديل هذه الإعدادات ، يمكنك النقر فوق الزر "إعادة تشغيل الخدمة اللاسلكية" ليصبح ساري المفعول على الفور. تستغرق هذه العملية بعض الوقت لإكمالها ، ولا يتعين عليك تعديل كل تكوين لتنفيذه ، ويمكنك إكمال تكوينات متعددة لأجهزة لاسلكية متعددة ثم تنفيذها مرة واحدة.
 Restart Wireless Service|أعد تشغيل الخدمة اللاسلكية
@@ -397,7 +397,6 @@ Read/write storage device|قراءة / كتابة جهاز التخزين
 Wake up during a specific system event|استيقظ خلال حدث نظام معين
 Uninstall this extension|أزل هذا التمديد
 Switch web console provided to this extension|قم بالتبديل بين وحدة التحكم المقدمة على الويب لهذا الملحق
-Web console version:|إصدار وحدة تحكم الويب:
 Connect|الاتصال
 CS-Seth|
 Start catching|البدء في اصطياد

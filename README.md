@@ -6,6 +6,8 @@ Contribution to this project will ultimately benefit all NSWA Ranga users.
 
 ## Build and install
 
+**This webconsole is built with NSWA Ranga system by default. see https://github.com/nswa-project/ranga**
+
 Use Info-ZIP or other zip archive utilities to pack codes to a zip file
 
 ```
@@ -14,7 +16,7 @@ $ (cd ranga.webcon; zip -FSr ../ranga-webcon.zip .)
 
 > You need zip the contents of a directory WITHOUT including the directory itself.
 
-Then, you can use [Ranga command-line client](https://github.com/glider0/ranga-client/) to install it
+Then, you can use [Ranga command-line client](https://github.com/nswa-project/ranga-client/) to install it
 
 ```bash
 $ ranga-cli auth -p       # Log-in superuser first
@@ -249,9 +251,7 @@ $ ./script/gen_l10njs.sh
 
 Copyright (C) 2019 NSWA Ranga Maintainers.
 
-Copyright (C) 2019 Ranga Open-Source Technology Center.
-
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html> **With additional license grant original maintainers unlimited rights for this code and the derived codes which are contributed to upstream.**
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 This is free software; you are free to change and redistribute it.
 **There is NO WARRANTY, to the extent permitted by law.**

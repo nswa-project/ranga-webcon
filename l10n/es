@@ -250,7 +250,7 @@ Priority|Prioridad
 Weights|Pesas
 Set interface load balancing parameters|Establecer parámetros de equilibrio de carga de la interfaz
 Show custom rules|
-Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://glider0.github.io/doc.zh/euman-mwan-custom-rule.html">this document</a>.|
+Here you can only see the rules that exist. To add/remove/order rules, you need use command-line client now. Please see&nbsp;<a href="https://nswa-project.github.io/man/euman-mwan-custom-rule.html">this document</a>.|
 Select the wireless device you want to configure|Seleccione el dispositivo inalámbrico que desea configurar
 Modifications to the wireless settings will not take effect until the NSWA Ranga system is rebooted or the wireless service is restarted. So after modifying these settings, you can click the "Restart Wireless Service" button to take effect immediately. This operation takes a little while to complete, you don't have to modify each configuration to execute, you can complete multiple configurations of multiple wireless devices and then execute it once.|Las modificaciones a la configuración inalámbrica no tendrán efecto hasta que se reinicie el sistema NSWA Ranga o se reinicie el servicio inalámbrico. Entonces, después de modificar estas configuraciones, puede hacer clic en el botón "Reiniciar el servicio inalámbrico" para que surta efecto de inmediato. Esta operación tarda un poco en completarse, no tiene que modificar cada configuración para ejecutarse, puede completar múltiples configuraciones de múltiples dispositivos inalámbricos y luego ejecutarla una vez.
 Restart Wireless Service|Reiniciar el servicio inalámbrico
@@ -397,7 +397,6 @@ Read/write storage device|Dispositivo de almacenamiento de lectura / escritura
 Wake up during a specific system event|Despertar durante un evento específico del sistema
 Uninstall this extension|Desinstalar esta extensión
 Switch web console provided to this extension|Cambiar la consola web proporcionada a esta extensión.
-Web console version:|Versión de consola web:
 Connect|Conectar
 CS-Seth|
 Start catching|Empezar a atrapar

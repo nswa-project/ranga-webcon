@@ -369,7 +369,6 @@ var l10n = {
 "Wake up during a specific system event":"特定のシステムイベント中に起きる",
 "Uninstall this extension":"この拡張機能をアンインストールする",
 "Switch web console provided to this extension":"この拡張機能によって提供されるWebコンソールに切り替えます",
-"Web console version:":"Webコンソールのバージョン",
 "Connect":"つながり",
 "Start catching":"傍受を開始する",
 "Disconnect":"切断する",

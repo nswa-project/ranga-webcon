@@ -369,7 +369,6 @@ var l10n = {
 "Wake up during a specific system event":"Проснуться во время определенного системного события",
 "Uninstall this extension":"Удалить это расширение",
 "Switch web console provided to this extension":"Переключить веб-консоль на это расширение",
-"Web console version:":"Версия веб-консоли:",
 "Connect":"соединять",
 "Start catching":"Начать ловить",
 "Disconnect":"Отключить",
