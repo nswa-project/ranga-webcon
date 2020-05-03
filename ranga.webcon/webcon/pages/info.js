@@ -31,7 +31,7 @@ const page_info_init = () => {
 		div.innerHTML += _("Storage: {0}").format(info.storage.replace(/K/g, _('KB')).replace(/M/g, _('MB'))) + "<br>";
 		div.innerHTML += _("System uptime: {0}").format(info.uptime) + "<br>";
 		utils.pageAddSection(div, _('Ranga System Legal Information'));
-		div.innerHTML += _("You should have received a copy of the GNU Affero General Public License along with NSWA Ranga")
+		div.innerHTML += _("You should have received a copy of the GNU Affero General Public License along with NSWA Ranga") + "<br>";
 		div.innerHTML += "<a target=_blank href='/copyright.html'>{0}<br>".format(_("Copyrights & Open source license"));
 		utils.pageAddSection(div, _('Web console legal information'));
 		div.innerHTML += "<a target=_blank href='https://fontawesome.com/license'>{0}<br>".format(_("Font Awesome Icon Creation Common License"));

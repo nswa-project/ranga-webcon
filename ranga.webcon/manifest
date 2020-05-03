@@ -1,7 +1,7 @@
-@ rostc.ranga.webcon
+@ ranga.webcon
 %api: ranga:1
 %magic: ABI_NSWA_LUA51;ABI_NSWA_LUAJIT;
 %name: Ranga Webconsole provider. (Open-source version)
-%ver: 4.7.19
-%author: NSWA Maintainers, Ranga Open-Source Technology Center
+%ver: 4.9.23
+%author: NSWA Maintainers
 %-x-webcon: 1
