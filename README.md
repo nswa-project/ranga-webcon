@@ -8,6 +8,8 @@ Contribution to this project will ultimately benefit all NSWA Ranga users.
 
 **This webconsole is built with NSWA Ranga system by default. see https://github.com/nswa-project/ranga**
 
+**If you want to build a standalone version, firstly you must change a package name, for example, edit `ranga.webcon/manifest` file and change the first line to `@ rostc.ranga.webcon`**
+
 Use Info-ZIP or other zip archive utilities to pack codes to a zip file
 
 ```
